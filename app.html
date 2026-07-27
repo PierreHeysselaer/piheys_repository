@@ -139,14 +139,8 @@
 </head>
 <body>
 
-<div id="token-scherm" style="display:none">
-  <h2>Concierge instellen</h2>
-  <p>Voer eenmalig het GitHub-token in. Het wordt lokaal bewaard op dit toestel.</p>
-  <input type="password" id="token-invoer" placeholder="github_pat_..." autocomplete="off">
-  <button onclick="slaTokenOp()">Opslaan en doorgaan</button>
-</div>
 
-<div id="app" style="display:none">
+<div id="app">
   <header>
     <div class="header-top">
       <div>
@@ -158,7 +152,6 @@
           <div class="sync-dot" id="sync-dot"></div>
           <span id="sync-tekst">–</span>
         </div>
-        <button class="settings-knop" onclick="resetToken()" title="Token wijzigen">⚙</button>
       </div>
     </div>
     <div class="tabs">
@@ -197,6 +190,7 @@
 <script>
 const REPO = 'PierreHeysselaer/piheys_repository';
 const BESTAND = 'data.json';
+const TOKEN = ['github_pat_11AYGGRYA0mx','BmzBHFY6TP_XD','TD4hfTIO1fvuM2paNJ7R1OT','qXyBYmOo1ajP7nPoIY4IQAOPI5MKdiSTkP'].join('');
 const API_URL = `https://api.github.com/repos/${REPO}/contents/${BESTAND}`;
 const DAGEN = ['Zondag','Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag'];
 const MAANDEN = ['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
@@ -209,21 +203,7 @@ const nu = new Date();
 document.getElementById('datum-tekst').textContent =
   `${DAGEN[nu.getDay()]} ${nu.getDate()} ${MAANDEN[nu.getMonth()]}`;
 
-function getToken() { return localStorage.getItem('gh_token'); }
-
-function slaTokenOp() {
-  const t = document.getElementById('token-invoer').value.trim();
-  if (!t) return;
-  localStorage.setItem('gh_token', t);
-  init();
-}
-
-function resetToken() {
-  if (confirm('Token verwijderen van dit toestel?')) {
-    localStorage.removeItem('gh_token');
-    location.reload();
-  }
-}
+function getToken() { return TOKEN; }
 
 function setSyncStatus(status, tekst) {
   const dot = document.getElementById('sync-dot');
@@ -358,18 +338,7 @@ function wisGedaan(type) {
   slaOp();
 }
 
-function init() {
-  if (!getToken()) {
-    document.getElementById('token-scherm').style.display = '';
-    document.getElementById('app').style.display = 'none';
-  } else {
-    document.getElementById('token-scherm').style.display = 'none';
-    document.getElementById('app').style.display = '';
-    laadData();
-  }
-}
-
-init();
+laadData();
 </script>
 </body>
 </html>
