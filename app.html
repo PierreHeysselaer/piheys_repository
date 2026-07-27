@@ -25,8 +25,6 @@
       color: var(--text);
       min-height: 100vh;
     }
-
-    /* ── Header ── */
     header {
       background: var(--surface);
       border-bottom: 1px solid var(--border);
@@ -49,8 +47,6 @@
     .sync-dot.bezig { background: #e6a817; animation: pulse 1s infinite; }
     .sync-dot.fout { background: var(--danger); }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-
-    /* ── Tabs ── */
     .tabs { display: flex; gap: 0; }
     .tab {
       flex: 1; text-align: center;
@@ -62,14 +58,8 @@
       transition: color 0.15s;
     }
     .tab.actief { color: var(--accent); border-bottom-color: var(--accent); }
-
-    /* ── Inhoud ── */
     main { padding: 16px; max-width: 640px; margin: 0 auto; }
-
-    /* ── Toevoegen ── */
-    .toevoeg-rij {
-      display: flex; gap: 8px; margin-bottom: 16px;
-    }
+    .toevoeg-rij { display: flex; gap: 8px; margin-bottom: 16px; }
     .toevoeg-rij input {
       flex: 1; padding: 11px 14px;
       border: 1px solid var(--border); border-radius: var(--radius);
@@ -83,9 +73,6 @@
       border: none; border-radius: var(--radius);
       font-size: 16px; font-weight: 600; cursor: pointer;
     }
-    .toevoeg-rij button:active { opacity: 0.8; }
-
-    /* ── Lijst ── */
     .lijst { list-style: none; }
     .item {
       display: flex; align-items: center; gap: 12px;
@@ -114,20 +101,13 @@
       border-radius: 6px;
     }
     .item-delete:active { background: #fdecea; color: var(--danger); }
-
-    /* ── Acties onderaan ── */
-    .lijst-acties {
-      display: flex; justify-content: flex-end;
-      margin-top: 8px;
-    }
+    .lijst-acties { display: flex; justify-content: flex-end; margin-top: 8px; }
     .wis-knop {
       font-size: 13px; color: var(--muted);
       background: none; border: none; cursor: pointer; padding: 4px 0;
       text-decoration: underline;
     }
     .leeg { text-align: center; color: var(--muted); font-size: 15px; padding: 32px 0; font-style: italic; }
-
-    /* ── Token scherm ── */
     #token-scherm {
       max-width: 400px; margin: 60px auto; padding: 24px;
       background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
@@ -145,8 +125,6 @@
       border: none; border-radius: var(--radius);
       font-size: 16px; font-weight: 600; cursor: pointer;
     }
-
-    /* ── Instellingen ── */
     .settings-knop {
       background: none; border: none; cursor: pointer;
       font-size: 20px; color: var(--muted); padding: 4px;
@@ -155,7 +133,6 @@
 </head>
 <body>
 
-<!-- Token-scherm (verborgen als token aanwezig) -->
 <div id="token-scherm" style="display:none">
   <h2>Concierge instellen</h2>
   <p>Voer eenmalig het GitHub-token in. Het wordt lokaal bewaard op dit toestel.</p>
@@ -163,7 +140,6 @@
   <button onclick="slaTokenOp()">Opslaan en doorgaan</button>
 </div>
 
-<!-- Hoofd-app (verborgen tot token aanwezig) -->
 <div id="app" style="display:none">
   <header>
     <div class="header-top">
@@ -186,7 +162,6 @@
   </header>
 
   <main>
-    <!-- Boodschappen -->
     <div id="sectie-boodschappen">
       <div class="toevoeg-rij">
         <input type="text" id="nieuw-boodschap" placeholder="Item toevoegen…" autocomplete="off"
@@ -199,7 +174,6 @@
       </div>
     </div>
 
-    <!-- Taken -->
     <div id="sectie-taken" style="display:none">
       <div class="toevoeg-rij">
         <input type="text" id="nieuw-taak" placeholder="Taak toevoegen…" autocomplete="off"
@@ -225,12 +199,10 @@ let huidigTab = 'boodschappen';
 let data = { boodschappen: [], taken: [] };
 let huidigeSha = null;
 
-// ── Datum ──
 const nu = new Date();
 document.getElementById('datum-tekst').textContent =
   `${DAGEN[nu.getDay()]} ${nu.getDate()} ${MAANDEN[nu.getMonth()]}`;
 
-// ── Token ──
 function getToken() { return localStorage.getItem('gh_token'); }
 
 function slaTokenOp() {
@@ -247,14 +219,12 @@ function resetToken() {
   }
 }
 
-// ── Sync status ──
 function setSyncStatus(status, tekst) {
   const dot = document.getElementById('sync-dot');
   dot.className = 'sync-dot ' + status;
   document.getElementById('sync-tekst').textContent = tekst;
 }
 
-// ── Data lezen ──
 async function laadData() {
   setSyncStatus('bezig', 'laden…');
   try {
@@ -262,7 +232,6 @@ async function laadData() {
       headers: { Authorization: `Bearer ${getToken()}`, Accept: 'application/vnd.github.v3+json' }
     });
     if (r.status === 404) {
-      // Bestand bestaat nog niet
       huidigeSha = null;
       data = { boodschappen: [], taken: [] };
       setSyncStatus('ok', 'nieuw');
@@ -281,7 +250,6 @@ async function laadData() {
   toonLijsten();
 }
 
-// ── Data schrijven ──
 async function slaOp() {
   setSyncStatus('bezig', 'opslaan…');
   try {
@@ -299,8 +267,6 @@ async function slaOp() {
       body: JSON.stringify(body)
     });
     if (!r.ok) {
-      const err = await r.json();
-      // Conflict: iemand anders sloeg eerst op → herlaad en probeer opnieuw
       if (r.status === 409 || r.status === 422) {
         await laadData();
         setSyncStatus('fout', 'herlaad en probeer');
@@ -316,7 +282,6 @@ async function slaOp() {
   }
 }
 
-// ── Tab wisselen ──
 function toonTab(tab) {
   huidigTab = tab;
   document.getElementById('sectie-boodschappen').style.display = tab === 'boodschappen' ? '' : 'none';
@@ -325,7 +290,6 @@ function toonTab(tab) {
   document.getElementById('tab-taken').className = 'tab' + (tab === 'taken' ? ' actief' : '');
 }
 
-// ── Lijsten tonen ──
 function toonLijsten() {
   toonLijst('boodschappen');
   toonLijst('taken');
@@ -339,7 +303,7 @@ function toonLijst(type) {
     return;
   }
   ul.innerHTML = items.map((item, i) => `
-    <li class="item ${item.gedaan ? 'gedaan' : ''}" id="item-${type}-${i}">
+    <li class="item ${item.gedaan ? 'gedaan' : ''}">
       <div class="checkbox ${item.gedaan ? 'actief' : ''}" onclick="toggleItem('${type}', ${i})"></div>
       <span class="item-tekst">${escHtml(item.tekst)}</span>
       <div class="item-delete" onclick="verwijderItem('${type}', ${i})">×</div>
@@ -351,7 +315,6 @@ function escHtml(t) {
   return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
-// ── Acties ──
 function voegToe(type) {
   const input = document.getElementById('nieuw-' + (type === 'boodschappen' ? 'boodschap' : 'taak'));
   const tekst = input.value.trim();
@@ -380,7 +343,6 @@ function wisGedaan(type) {
   slaOp();
 }
 
-// ── Start ──
 function init() {
   if (!getToken()) {
     document.getElementById('token-scherm').style.display = '';
