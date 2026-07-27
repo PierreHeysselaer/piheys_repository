@@ -1,11 +1,27 @@
 <!DOCTYPE html>
+<script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Concierge Takenlijst",
+  "schemaVersion": 1,
+  "description": "Dagelijkse intelligente takenlijst met checkboxen. Secties A (elke dag), B (éénmalig), C (terugkerende taken aan de beurt), D (morgen al eens aan denken). Taken aanmaken met type, interval en condities (niet bij regen, vorst, winter, etc.). Weer via Home Assistant. Data blijft bewaard via localStorage.",
+  "mcpTools": [
+    "mcp__Home_Assistant__GetLiveContext",
+    "mcp__498d0ee3-34a0-487a-a776-c50a9346d81f__list_events"
+  ],
+  "mcpServerNames": [
+    "Home_Assistant",
+    "Google Calendar"
+  ]
+}
+</script>
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Goedemorgen, Pierre</title>
+  <title>Concierge</title>
   <style>
     :root {
+      color-scheme: light;
       --bg: #f5f4f0;
       --surface: #ffffff;
       --border: #e2dfd8;
@@ -13,121 +29,614 @@
       --accent-light: #eaf4ee;
       --text: #1a1a1a;
       --muted: #8a8680;
+      --done: #c0bdb8;
+      --col-a: #4a7c59;
+      --col-ac: #2a7a9a;
+      --col-b: #4a6a9c;
+      --col-c: #9c6a2a;
+      --col-d: #7a4a9c;
+      --red: #c0392b;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: var(--bg);
       color: var(--text);
-      padding: 24px 16px 60px;
-      max-width: 640px;
+      padding: 16px 16px 60px;
+      max-width: 700px;
       margin: 0 auto;
     }
-    .datum { font-size: 12px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 4px; }
-    .groet { font-size: 26px; font-weight: 500; margin-bottom: 24px; }
-    .kaart { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; margin-bottom: 12px; }
-    .kaart-label { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
-    .temp-groot { font-size: 40px; font-weight: 400; line-height: 1; }
-    .temp-rij { display: flex; gap: 20px; margin-top: 10px; flex-wrap: wrap; }
-    .temp-item { font-size: 13px; color: var(--muted); }
-    .temp-item strong { color: var(--text); font-weight: 500; }
-    .dag-rij { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
-    .dag-kaartje { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; text-align: center; min-width: 72px; }
-    .dag-naam { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
-    .dag-max { font-size: 18px; font-weight: 500; margin: 2px 0; }
-    .dag-neerslag { font-size: 11px; color: var(--muted); }
-    .vandaag { border-color: var(--accent); background: var(--accent-light); }
-    .vandaag .dag-max { color: var(--accent); }
-    .kalender-placeholder { color: var(--muted); font-size: 14px; font-style: italic; }
-    .taken-knop {
-      display: inline-flex; align-items: center; gap: 7px;
-      background: var(--accent-light); color: var(--accent);
-      border: 1px solid #b8dfc5; border-radius: 8px;
-      padding: 8px 16px; font-size: 14px; font-weight: 500;
-      cursor: pointer; text-decoration: none; margin-top: 10px;
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
     }
-    .fout { color: #c0392b; font-size: 13px; }
-    .laden { color: var(--muted); font-size: 14px; }
+    .header-left h1 { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.3px; }
+    .header-left .subdate { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+    .weather-pill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .progress-wrap {
+      height: 5px; background: var(--border); border-radius: 3px;
+      margin-bottom: 18px; overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%; background: var(--accent); border-radius: 3px;
+      transition: width .35s ease;
+    }
+    .section { margin-bottom: 18px; }
+    .section-head {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 7px;
+    }
+    .badge {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: .07em;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 12px; color: #fff;
+    }
+    .badge-a  { background: var(--col-a); }
+    .badge-ac { background: var(--col-ac); }
+    .badge-b  { background: var(--col-b); }
+    .badge-c  { background: var(--col-c); }
+    .badge-d  { background: var(--col-d); }
+    .section-sub { font-size: 0.78rem; color: var(--muted); }
+    .task-list {
+      background: var(--surface); border-radius: 13px;
+      border: 1px solid var(--border); overflow: hidden;
+    }
+    .task-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 11px 15px; border-bottom: 1px solid var(--border);
+      transition: background .12s; position: relative;
+    }
+    .task-item:last-child { border-bottom: none; }
+    .task-item:hover { background: #faf9f7; }
+    .task-item.done { background: #faf9f7; }
+    .task-item.done .task-name { text-decoration: line-through; color: var(--done); }
+    .task-item.done .task-meta { color: #d0ccc8; }
+    .cb {
+      width: 23px; height: 23px; min-width: 23px;
+      border: 2px solid var(--border); border-radius: 6px;
+      background: #fff; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .15s; user-select: none;
+    }
+    .cb.checked { background: var(--accent); border-color: var(--accent); }
+    .cb.checked::after { content: '✓'; color: #fff; font-size: 13px; font-weight: 800; }
+    .cb.disabled { opacity: 0.3; pointer-events: none; }
+    .task-body { flex: 1; min-width: 0; }
+    .task-name { font-size: 0.93rem; font-weight: 500; }
+    .task-meta { font-size: 0.73rem; color: var(--muted); margin-top: 2px; }
+    .cond-tags { display: inline-flex; gap: 4px; flex-wrap: wrap; margin-top: 4px; }
+    .ctag {
+      font-size: 0.63rem; padding: 2px 7px; border-radius: 10px;
+      background: #fff3e0; color: #c77700; border: 1px solid #ffe0b0;
+    }
+    .task-acts { display: flex; gap: 3px; opacity: 0; transition: opacity .15s; }
+    .task-item:hover .task-acts { opacity: 1; }
+    .icon-btn {
+      background: none; border: none; cursor: pointer;
+      color: var(--muted); padding: 4px 5px; border-radius: 5px; font-size: 13px; line-height: 1;
+    }
+    .icon-btn:hover { background: var(--border); color: var(--text); }
+    .icon-btn.del:hover { background: #fde; color: var(--red); }
+    .empty { padding: 14px 16px; font-size: 0.82rem; color: var(--muted); font-style: italic; }
+
+    /* Calendar event item */
+    .cal-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 11px 15px; border-bottom: 1px solid var(--border);
+    }
+    .cal-item:last-child { border-bottom: none; }
+    .cal-dot {
+      width: 10px; height: 10px; min-width: 10px;
+      border-radius: 50%; background: var(--col-ac);
+      margin: 0 6px;
+    }
+    .cal-time { font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
+
+    /* dim section D */
+    .task-item.dim .task-name { color: #aaa; }
+
+    .btn-add {
+      width: 100%; margin-top: 6px; padding: 13px;
+      background: var(--surface); border: 2px dashed var(--border);
+      border-radius: 13px; color: var(--muted); font-size: 0.9rem;
+      cursor: pointer; display: flex; align-items: center;
+      justify-content: center; gap: 7px; transition: all .15s;
+    }
+    .btn-add:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+
+    /* Modal */
+    .overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,.38);
+      display: flex; align-items: flex-end; justify-content: center;
+      z-index: 200; opacity: 0; pointer-events: none; transition: opacity .2s;
+    }
+    .overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: var(--surface); border-radius: 20px 20px 0 0;
+      padding: 22px 22px 32px; width: 100%; max-width: 700px;
+      max-height: 88vh; overflow-y: auto;
+      transform: translateY(100%); transition: transform .25s ease-out;
+    }
+    .overlay.open .modal { transform: translateY(0); }
+    .modal-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 16px; }
+    .fg { margin-bottom: 13px; }
+    .fg label {
+      display: block; font-size: 0.73rem; font-weight: 700; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .06em; margin-bottom: 5px;
+    }
+    .fg input[type=text], .fg select, .fg input[type=number] {
+      width: 100%; padding: 10px 12px; border: 1px solid var(--border);
+      border-radius: 9px; font-size: 0.93rem; background: #fff; color: var(--text);
+    }
+    .fg input:focus, .fg select:focus {
+      outline: none; border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(74,124,89,.12);
+    }
+    .type-row { display: flex; gap: 7px; }
+    .type-opt {
+      flex: 1; padding: 10px 6px; border: 2px solid var(--border);
+      border-radius: 9px; background: #fff; cursor: pointer;
+      font-size: 0.83rem; text-align: center; transition: all .13s;
+    }
+    .type-opt.on { border-color: var(--accent); background: var(--accent-light); color: var(--accent); font-weight: 700; }
+    .interval-row { display: flex; gap: 8px; align-items: center; }
+    .interval-row input { max-width: 68px; }
+    .cond-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .cond-opt {
+      padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px;
+      background: #fff; cursor: pointer; font-size: 0.79rem; text-align: left; transition: all .13s;
+    }
+    .cond-opt.on { border-color: #e67700; background: #fff8f0; color: #c06000; }
+    .modal-foot { display: flex; gap: 9px; margin-top: 18px; }
+    .btn-save {
+      flex: 1; padding: 12px; background: var(--accent); color: #fff;
+      border: none; border-radius: 10px; font-size: .97rem; font-weight: 700; cursor: pointer;
+    }
+    .btn-save:hover { background: #3d6b4a; }
+    .btn-cancel {
+      padding: 12px 18px; background: var(--bg); color: var(--muted);
+      border: 1px solid var(--border); border-radius: 10px; font-size: .93rem; cursor: pointer;
+    }
+    .spinner {
+      display: inline-block; width: 14px; height: 14px;
+      border: 2px solid var(--border); border-top-color: var(--muted);
+      border-radius: 50%; animation: spin .7s linear infinite; margin-right: 6px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
 
-<div class="datum" id="datum-tekst"></div>
-<div class="groet">Goedemorgen, Pierre.</div>
+<header>
+  <div class="header-left">
+    <h1>🗂 Concierge</h1>
+    <div class="subdate" id="hdr-date"></div>
+  </div>
+  <div class="weather-pill" id="weather">🌤 laden…</div>
+</header>
 
-<div class="kaart" id="weer-kaart">
-  <div class="kaart-label">Temperatuur &amp; Weer</div>
-  <div class="laden">Ophalen…</div>
+<div class="progress-wrap">
+  <div class="progress-fill" id="prog" style="width:0%"></div>
 </div>
 
-<div class="kaart">
-  <div class="kaart-label">Agenda vandaag</div>
-  <iframe src="https://calendar.google.com/calendar/embed?src=htc07f3qd0crlllt5ojm4t0s24%40group.calendar.google.com&ctz=Europe%2FBrussels&mode=AGENDA&showTitle=0&showNav=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0"
-    style="border:0; width:100%; height:320px;" frameborder="0" scrolling="no"></iframe>
-</div>
+<div id="app"></div>
 
-<div class="kaart">
-  <div class="kaart-label">Taken</div>
-  <p style="font-size:15px;color:#555;line-height:1.6;">Dagelijkse taken via de Concierge.</p>
+<button class="btn-add" onclick="openModal()">＋ Nieuwe taak toevoegen</button>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay" onclick="bgClick(event)">
+  <div class="modal">
+    <div class="modal-title" id="modal-title">Nieuwe taak</div>
+    <div class="fg">
+      <label>Naam</label>
+      <input type="text" id="f-name" placeholder="Wat moet er gedaan worden?" />
+    </div>
+    <div class="fg">
+      <label>Categorie</label>
+      <select id="f-cat">
+        <option value="health">💊 Gezondheid</option>
+        <option value="garden">🌿 Tuin</option>
+        <option value="house">🏠 Huis</option>
+        <option value="other">📋 Andere</option>
+      </select>
+    </div>
+    <div class="fg">
+      <label>Type</label>
+      <div class="type-row">
+        <div class="type-opt on" data-t="once"      onclick="setType('once')">Éénmalig</div>
+        <div class="type-opt"    data-t="daily"     onclick="setType('daily')">Elke dag</div>
+        <div class="type-opt"    data-t="recurring" onclick="setType('recurring')">Herhalend</div>
+      </div>
+    </div>
+    <div class="fg" id="fg-interval" style="display:none">
+      <label>Herhaal elke</label>
+      <div class="interval-row">
+        <input type="number" id="f-n" value="1" min="1" max="365" />
+        <select id="f-unit">
+          <option value="1">dag(en)</option>
+          <option value="7">week/weken</option>
+          <option value="30">maand(en)</option>
+        </select>
+      </div>
+    </div>
+    <div class="fg">
+      <label>Niet uitvoeren wanneer…</label>
+      <div class="cond-grid">
+        <div class="cond-opt" data-c="no_rain"    onclick="togCond(this)">🌧 Bij regen</div>
+        <div class="cond-opt" data-c="no_frost"   onclick="togCond(this)">❄️ Bij vorst</div>
+        <div class="cond-opt" data-c="no_cold"    onclick="togCond(this)">🥶 Koud (&lt;8°C)</div>
+        <div class="cond-opt" data-c="no_wind"    onclick="togCond(this)">💨 Veel wind</div>
+        <div class="cond-opt" data-c="no_winter"  onclick="togCond(this)">🍂 Winter (dec–feb)</div>
+        <div class="cond-opt" data-c="only_dry"   onclick="togCond(this)">☀️ Niet volledig droog</div>
+        <div class="cond-opt" data-c="after_rain" onclick="togCond(this)">💧 Zonder recente regen</div>
+        <div class="cond-opt" data-c="no_summer"  onclick="togCond(this)">🌱 Buiten groeiseizoen</div>
+      </div>
+    </div>
+    <div class="fg">
+      <label>Notitie (optioneel)</label>
+      <input type="text" id="f-note" placeholder="Extra info of herinnering…" />
+    </div>
+    <div class="modal-foot">
+      <button class="btn-cancel" onclick="closeModal()">Annuleer</button>
+      <button class="btn-save"   onclick="saveTask()">Opslaan</button>
+    </div>
+  </div>
 </div>
 
 <script>
-const DAGEN = ['Zondag','Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag'];
-const MAANDEN = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
-const KORT = ['zo','ma','di','wo','do','vr','za'];
+// ─── STORAGE ─────────────────────────────────────────────────────────────────
+const SK = 'concierge_v3', CK = 'concierge_comp_v3';
+function load()  { try { return JSON.parse(localStorage.getItem(SK))  || defaults(); } catch { return defaults(); } }
+function loadC() { try { return JSON.parse(localStorage.getItem(CK)) || {}; } catch { return {}; } }
+function save(d)  { localStorage.setItem(SK, JSON.stringify(d)); }
+function saveC(c) { localStorage.setItem(CK, JSON.stringify(c)); }
 
-const nu = new Date();
-document.getElementById('datum-tekst').textContent =
-  `${DAGEN[nu.getDay()]} · ${nu.getDate()} ${MAANDEN[nu.getMonth()]} ${nu.getFullYear()}`;
-
-async function laadWeer() {
-  const kaart = document.getElementById('weer-kaart');
-  try {
-    const url = 'https://api.open-meteo.com/v1/forecast?latitude=50.78&longitude=4.24' +
-      '&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode' +
-      '&past_days=0&forecast_days=5&timezone=Europe%2FBrussels';
-    const resp = await fetch(url);
-    const data = await resp.json();
-    const d = data.daily;
-
-    const codes = { 0:'Helder',1:'Overwegend helder',2:'Gedeeltelijk bewolkt',3:'Bewolkt',
-      45:'Mist',48:'Mist',51:'Lichte motregen',53:'Motregen',55:'Zware motregen',
-      61:'Lichte regen',63:'Regen',65:'Zware regen',71:'Lichte sneeuw',73:'Sneeuw',
-      75:'Zware sneeuw',80:'Regenbuien',81:'Regenbuien',82:'Zware buien',
-      95:'Onweer',96:'Onweer met hagel',99:'Zwaar onweer' };
-
-    const vandaagCode = d.weathercode[0];
-    const vandaagBeschrijving = codes[vandaagCode] || '–';
-    const vandaagMax = d.temperature_2m_max[0];
-    const vandaagMin = d.temperature_2m_min[0];
-    const vandaagNeerslag = d.precipitation_sum[0];
-
-    let html = `<div class="kaart-label">Temperatuur &amp; Weer</div>
-      <div class="temp-groot">${vandaagMax.toFixed(0)}°C</div>
-      <div class="temp-rij">
-        <div class="temp-item"><strong>${vandaagBeschrijving}</strong></div>
-        <div class="temp-item">min <strong>${vandaagMin.toFixed(0)}°C</strong></div>
-        <div class="temp-item">neerslag <strong>${vandaagNeerslag.toFixed(1)} mm</strong></div>
-      </div>
-      <div class="dag-rij">`;
-
-    for (let i = 0; i < d.time.length; i++) {
-      const dag = new Date(d.time[i]);
-      const isVandaag = i === 0;
-      html += `<div class="dag-kaartje${isVandaag?' vandaag':''}">
-        <div class="dag-naam">${KORT[dag.getDay()]}</div>
-        <div class="dag-max">${d.temperature_2m_max[i].toFixed(0)}°</div>
-        <div class="dag-neerslag">${d.precipitation_sum[i].toFixed(0)}mm</div>
-      </div>`;
-    }
-    html += '</div>';
-    kaart.innerHTML = html;
-  } catch(e) {
-    kaart.innerHTML = '<div class="kaart-label">Weer</div><p class="fout">Kon weerdata niet ophalen.</p>';
-  }
+function defaults() {
+  return { tasks: [
+    { id:'h1', name:'Medicatie nemen',  category:'health',  type:'daily',     interval_days:1,  conditions:[], note:'', last_done:null },
+    { id:'h2', name:'Handen verzorgen', category:'health',  type:'daily',     interval_days:1,  conditions:[], note:'', last_done:null },
+    { id:'h3', name:'Voeten verzorgen', category:'health',  type:'daily',     interval_days:1,  conditions:[], note:'', last_done:null },
+    { id:'g1', name:'Gras maaien',      category:'garden',  type:'recurring', interval_days:10, conditions:['no_rain','no_frost','no_winter'], note:'Niet te kort bij droogte', last_done:null },
+    { id:'g2', name:'Netels wieden',    category:'garden',  type:'recurring', interval_days:14, conditions:['only_dry','after_rain'], note:'Makkelijker na regenperiode', last_done:null },
+    { id:'h4', name:'Ramen kuisen',     category:'house',   type:'recurring', interval_days:30, conditions:['no_rain','no_frost','no_wind'], note:'', last_done:null },
+    { id:'h5', name:'Vloer vegen',      category:'house',   type:'recurring', interval_days:7,  conditions:[], note:'', last_done:null },
+  ]};
 }
 
-laadWeer();
+// ─── STATE ───────────────────────────────────────────────────────────────────
+let data  = load();
+let comps = loadC();
+let editId = null, selType = 'once', selConds = new Set();
+// Use local date (Belgium), not UTC
+const now   = new Date();
+const today = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+const tomorrow = (() => { const d = new Date(now); d.setDate(d.getDate()+1); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; })();
+
+// ─── HEADER ──────────────────────────────────────────────────────────────────
+document.getElementById('hdr-date').textContent =
+  now.toLocaleDateString('nl-BE', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+
+async function loadWeather() {
+  try {
+    const r = await window.cowork.callMcpTool('mcp__Home_Assistant__GetLiveContext', {});
+    const txt = (r.content?.[0]?.text || '') + JSON.stringify(r.structuredContent || '');
+    const tm = txt.match(/(\d+(?:\.\d+)?)\s*°C/) || txt.match(/"temperature"[^:]*:\s*(\d+(?:\.\d+)?)/i);
+    const t  = tm ? Math.round(parseFloat(tm[1])) + '°C' : null;
+    const lo = txt.toLowerCase();
+    let ico = '🌤';
+    if (/rain|regen/.test(lo)) ico = '🌧';
+    else if (/frost|vorst|freez/.test(lo)) ico = '❄️';
+    else if (/cloud|bewolk/.test(lo)) ico = '☁️';
+    else if (/sun|zon|clear/.test(lo)) ico = '☀️';
+    document.getElementById('weather').textContent = t ? `${ico} ${t}` : ico;
+  } catch { document.getElementById('weather').textContent = '🌤'; }
+}
+loadWeather();
+
+// ─── CALENDAR ────────────────────────────────────────────────────────────────
+let calEvents = null;
+
+async function loadCalendar() {
+  try {
+    const tzOffset = now.getTimezoneOffset();
+    const sign = tzOffset <= 0 ? '+' : '-';
+    const absOff = Math.abs(tzOffset);
+    const hh = String(Math.floor(absOff/60)).padStart(2,'0');
+    const mm = String(absOff%60).padStart(2,'0');
+    const tz = `${sign}${hh}:${mm}`;
+    const startTime = `${today}T00:00:00${tz}`;
+    const endTime   = `${today}T23:59:59${tz}`;
+    const r = await window.cowork.callMcpTool(
+      'mcp__498d0ee3-34a0-487a-a776-c50a9346d81f__list_events',
+      { startTime, endTime, orderBy:'startTime', pageSize:10, timeZone:'Europe/Brussels' }
+    );
+    const parsed = r.structuredContent || JSON.parse(r.content?.[0]?.text || '{}');
+    calEvents = parsed.events || [];
+  } catch(e) {
+    calEvents = [];
+  }
+  render();
+}
+loadCalendar();
+
+function fmtTime(dtStr) {
+  if (!dtStr) return '';
+  const d = new Date(dtStr);
+  return d.toLocaleTimeString('nl-BE', { hour:'2-digit', minute:'2-digit' });
+}
+
+// ─── COMPLETION ──────────────────────────────────────────────────────────────
+function done(id)  { return (comps[today] || []).includes(id); }
+function dtime(id) { return comps[today + '_t']?.[id] || null; }
+
+function toggle(id) {
+  if (!comps[today])      comps[today]      = [];
+  if (!comps[today+'_t']) comps[today+'_t'] = {};
+  const i = comps[today].indexOf(id);
+  if (i >= 0) {
+    comps[today].splice(i, 1);
+    delete comps[today+'_t'][id];
+    // Reset last_done if unchecked today — so it doesn't count as recently done
+    const t = data.tasks.find(t => t.id === id);
+    if (t && t.type === 'recurring' && t.last_done === today) {
+      t.last_done = null;
+      save(data);
+    }
+  } else {
+    comps[today].push(id);
+    const n = new Date();
+    comps[today+'_t'][id] = String(n.getHours()).padStart(2,'0') + ':' + String(n.getMinutes()).padStart(2,'0');
+    const t = data.tasks.find(t => t.id === id);
+    if (t && t.type === 'recurring') { t.last_done = today; save(data); }
+  }
+  saveC(comps); render();
+}
+
+// ─── DUE LOGIC ───────────────────────────────────────────────────────────────
+// Returns full days since last_done (using local date, not UTC)
+function daysSince(task) {
+  if (!task.last_done) return null;
+  const [y,m,d] = task.last_done.split('-').map(Number);
+  const last = new Date(y, m-1, d);
+  const todayDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  return Math.floor((todayDate - last) / 86400000);
+}
+
+// How many days until the task is due again (0 = due now)
+function daysUntilDue(task) {
+  if (task.type !== 'recurring') return 0;
+  const d = daysSince(task);
+  if (d === null) return 0;
+  return Math.max(0, task.interval_days - d);
+}
+
+function isDue(task) {
+  if (task.type === 'daily') return true;
+  if (task.type === 'once')  return true;
+  if (task.type === 'recurring') {
+    const d = daysSince(task);
+    if (d === null) return true;       // never done → show
+    if (d === 0)    return false;      // done today → hide (shows as checked in C)
+    return d >= task.interval_days;    // only show when interval is fully elapsed
+  }
+  return true;
+}
+
+// Section D: tasks due in exactly 1 or 2 days (preparation window)
+function isDueSoon(task) {
+  if (task.type !== 'recurring') return false;
+  const left = daysUntilDue(task);
+  return left >= 1 && left <= 2;
+}
+
+// ─── RENDER ──────────────────────────────────────────────────────────────────
+const CONDS = {
+  no_rain:'🌧 niet bij regen', no_frost:'❄️ niet bij vorst', no_cold:'🥶 niet bij koude',
+  no_wind:'💨 niet bij wind', no_winter:'🍂 niet in winter', only_dry:'☀️ enkel droog',
+  after_rain:'💧 na regenperiode', no_summer:'🌱 buiten groeiseizoen'
+};
+const CAT_ICO = { health:'💊', garden:'🌿', house:'🏠', other:'📋' };
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function taskHTML(task, opts = {}) {
+  const { dim = false, preview = false } = opts;
+  const d = done(task.id), t = dtime(task.id);
+  const ds = daysSince(task);
+  let meta = '';
+  if (task.type === 'recurring') {
+    if (preview) {
+      const left = daysUntilDue(task);
+      meta = `nog ${left} dag${left !== 1 ? 'en' : ''}`;
+    } else {
+      meta = ds !== null ? `${ds} dag${ds!==1?'en':''} geleden` : 'nog nooit gedaan';
+      if (task.interval_days) meta += ` · elke ~${task.interval_days}d`;
+    }
+  }
+  if (task.note && !preview) meta += (meta ? ' · ' : '') + esc(task.note);
+  if (d && t && !preview) meta += (meta ? '  ' : '') + `<span style="color:#b0aca8">✓ ${t}</span>`;
+
+  const tags = (task.conditions||[]).map(c => `<span class="ctag">${CONDS[c]||c}</span>`).join('');
+
+  return `
+<div class="task-item ${d?'done':''} ${dim||preview?'dim':''}" id="ti-${task.id}">
+  <div class="cb ${d?'checked':''} ${preview?'disabled':''}" onclick="${preview?'':("toggle('"+task.id+"')")}"></div>
+  <div class="task-body">
+    <div class="task-name">${CAT_ICO[task.category]||'📋'} ${esc(task.name)}</div>
+    ${tags && !preview ? `<div class="cond-tags">${tags}</div>` : ''}
+    ${meta ? `<div class="task-meta">${meta}</div>` : ''}
+  </div>
+  ${!preview ? `<div class="task-acts">
+    <button class="icon-btn"     onclick="editTask('${task.id}')" title="Bewerken">✏️</button>
+    <button class="icon-btn del" onclick="delTask('${task.id}')"  title="Verwijderen">🗑</button>
+  </div>` : ''}
+</div>`;
+}
+
+function section(badge, cls, label, sub, innerHtml) {
+  return `
+<div class="section">
+  <div class="section-head">
+    <span class="badge badge-${cls}">${label}</span>
+    <span class="section-sub">${sub}</span>
+  </div>
+  <div class="task-list">${innerHtml}</div>
+</div>`;
+}
+
+function render() {
+  const daily  = data.tasks.filter(t => t.type === 'daily');
+  const once   = data.tasks.filter(t => t.type === 'once');
+  const recDue = data.tasks.filter(t => t.type === 'recurring' && (isDue(t) || done(t.id)));
+  const recSoon= data.tasks.filter(t => t.type === 'recurring' && !isDue(t) && !done(t.id) && isDueSoon(t));
+
+  // Progress only over today's actionable tasks
+  const allToday = [...daily, ...once, ...recDue.filter(t => isDue(t))];
+  const ndone    = allToday.filter(t => done(t.id)).length;
+  document.getElementById('prog').style.width =
+    allToday.length ? Math.round(ndone / allToday.length * 100) + '%' : '0%';
+
+  let html = '';
+
+  // A – Daily
+  html += section('A', 'a', 'A – Elke dag', 'vaste dagelijkse taken',
+    daily.length ? daily.map(t => taskHTML(t)).join('') : '<div class="empty">Geen dagelijkse taken</div>'
+  );
+
+  // AC – Agenda
+  let calHtml = '';
+  if (calEvents === null) {
+    calHtml = `<div class="empty"><span class="spinner"></span>Agenda laden…</div>`;
+  } else if (calEvents.length === 0) {
+    calHtml = '<div class="empty">Geen afspraken vandaag</div>';
+  } else {
+    calHtml = calEvents.map(ev => {
+      const start = ev.start?.dateTime ? fmtTime(ev.start.dateTime) : 'hele dag';
+      const end   = ev.end?.dateTime   ? fmtTime(ev.end.dateTime)   : '';
+      const time  = end ? `${start} – ${end}` : start;
+      return `
+<div class="cal-item">
+  <div class="cal-dot"></div>
+  <div class="task-body">
+    <div class="task-name">${esc(ev.summary || '(geen titel)')}</div>
+    <div class="task-meta cal-time">${time}</div>
+  </div>
+</div>`;
+    }).join('');
+  }
+  html += section('AC', 'ac', 'AC – Agenda', 'afspraken van vandaag', calHtml);
+
+  // B – Once
+  html += section('B', 'b', 'B – Vandaag', 'éénmalige taken',
+    once.length ? once.map(t => taskHTML(t)).join('') : '<div class="empty">Geen éénmalige taken</div>'
+  );
+
+  // C – Recurring due
+  html += section('C', 'c', 'C – Tijd voor…', 'terugkerende taken aan de beurt',
+    recDue.length ? recDue.map(t => taskHTML(t)).join('') : '<div class="empty">Niets aan de beurt vandaag</div>'
+  );
+
+  // D – Coming up within 2 days
+  if (recSoon.length) {
+    html += section('D', 'd', 'D – Morgen/overmorgen', 'om je op voor te bereiden',
+      recSoon.map(t => taskHTML(t, { preview: true })).join('')
+    );
+  }
+
+  document.getElementById('app').innerHTML = html;
+}
+
+// ─── MODAL ───────────────────────────────────────────────────────────────────
+function openModal() {
+  editId = null; selType = 'once'; selConds = new Set();
+  document.getElementById('modal-title').textContent = 'Nieuwe taak';
+  document.getElementById('f-name').value = '';
+  document.getElementById('f-cat').value  = 'other';
+  document.getElementById('f-note').value = '';
+  document.getElementById('f-n').value    = 1;
+  document.getElementById('f-unit').value = 7;
+  setType('once');
+  document.querySelectorAll('.cond-opt').forEach(e => e.classList.remove('on'));
+  document.getElementById('overlay').classList.add('open');
+  setTimeout(() => document.getElementById('f-name').focus(), 280);
+}
+
+function editTask(id) {
+  const t = data.tasks.find(x => x.id === id);
+  if (!t) return;
+  editId = id; selType = t.type; selConds = new Set(t.conditions||[]);
+  document.getElementById('modal-title').textContent = 'Taak bewerken';
+  document.getElementById('f-name').value = t.name;
+  document.getElementById('f-cat').value  = t.category || 'other';
+  document.getElementById('f-note').value = t.note || '';
+  if (t.type === 'recurring') {
+    const n = t.interval_days || 7;
+    if (n % 30 === 0)     { document.getElementById('f-n').value = n/30; document.getElementById('f-unit').value = 30; }
+    else if (n % 7 === 0) { document.getElementById('f-n').value = n/7;  document.getElementById('f-unit').value = 7;  }
+    else                  { document.getElementById('f-n').value = n;    document.getElementById('f-unit').value = 1;  }
+  }
+  setType(t.type);
+  document.querySelectorAll('.cond-opt').forEach(e => e.classList.toggle('on', selConds.has(e.dataset.c)));
+  document.getElementById('overlay').classList.add('open');
+}
+
+function closeModal() { document.getElementById('overlay').classList.remove('open'); }
+function bgClick(e)   { if (e.target === document.getElementById('overlay')) closeModal(); }
+
+function setType(type) {
+  selType = type;
+  document.querySelectorAll('.type-opt').forEach(e => e.classList.toggle('on', e.dataset.t === type));
+  document.getElementById('fg-interval').style.display = type === 'recurring' ? 'block' : 'none';
+}
+
+function togCond(el) {
+  const c = el.dataset.c;
+  if (selConds.has(c)) { selConds.delete(c); el.classList.remove('on'); }
+  else                  { selConds.add(c);    el.classList.add('on');    }
+}
+
+function saveTask() {
+  const name = document.getElementById('f-name').value.trim();
+  if (!name) { document.getElementById('f-name').focus(); return; }
+  let interval_days = 1;
+  if (selType === 'recurring') {
+    const n = parseInt(document.getElementById('f-n').value) || 1;
+    const u = parseInt(document.getElementById('f-unit').value) || 1;
+    interval_days = n * u;
+  }
+  const td = {
+    name, category: document.getElementById('f-cat').value,
+    type: selType, interval_days,
+    conditions: [...selConds],
+    note: document.getElementById('f-note').value.trim(),
+  };
+  if (editId) {
+    const i = data.tasks.findIndex(t => t.id === editId);
+    if (i >= 0) data.tasks[i] = { ...data.tasks[i], ...td };
+  } else {
+    td.id = 't' + Date.now(); td.last_done = null;
+    data.tasks.push(td);
+  }
+  save(data); closeModal(); render();
+}
+
+function delTask(id) {
+  if (!confirm('Taak verwijderen?')) return;
+  data.tasks = data.tasks.filter(t => t.id !== id);
+  save(data); render();
+}
+
+render();
 </script>
 </body>
 </html>
