@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Concierge</title>
+  <style>
+    :root {
+      --bg: #f5f4f0;
+      --surface: #ffffff;
+      --border: #e2dfd8;
+      --accent: #4a7c59;
+      --accent-light: #eaf4ee;
+      --accent-border: #b8dfc5;
+      --text: #1a1a1a;
+      --muted: #8a8680;
+      --danger: #c0392b;
+      --done-text: #b0ada8;
+      --radius: 10px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .app-titel { font-size: 20px; font-weight: 600; color: var(--accent); }
+    .datum-klein { font-size: 12px; color: var(--muted); }
+    .sync-status { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 5px; }
+    .sync-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); flex-shrink: 0; }
+    .sync-dot.ok { background: var(--accent); }
+    .sync-dot.bezig { background: #e6a817; animation: pulse 1s infinite; }
+    .sync-dot.fout { background: var(--danger); }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+    /* ── Tabs ── */
+    .tabs { display: flex; gap: 0; }
+    .tab {
+      flex: 1; text-align: center;
+      padding: 10px 0;
+      font-size: 14px; font-weight: 500;
+      color: var(--muted);
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+    .tab.actief { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* ── Inhoud ── */
+    main { padding: 16px; max-width: 640px; margin: 0 auto; }
+
+    /* ── Toevoegen ── */
+    .toevoeg-rij {
+      display: flex; gap: 8px; margin-bottom: 16px;
+    }
+    .toevoeg-rij input {
+      flex: 1; padding: 11px 14px;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      font-size: 16px; background: var(--surface); color: var(--text);
+      outline: none;
+    }
+    .toevoeg-rij input:focus { border-color: var(--accent); }
+    .toevoeg-rij button {
+      padding: 11px 18px;
+      background: var(--accent); color: white;
+      border: none; border-radius: var(--radius);
+      font-size: 16px; font-weight: 600; cursor: pointer;
+    }
+    .toevoeg-rij button:active { opacity: 0.8; }
+
+    /* ── Lijst ── */
+    .lijst { list-style: none; }
+    .item {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 13px 14px;
+      margin-bottom: 8px;
+      transition: opacity 0.2s;
+    }
+    .item.gedaan { opacity: 0.5; }
+    .item.gedaan .item-tekst { text-decoration: line-through; color: var(--done-text); }
+    .checkbox {
+      width: 24px; height: 24px; flex-shrink: 0;
+      border: 2px solid var(--border); border-radius: 6px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .checkbox.actief { background: var(--accent); border-color: var(--accent); }
+    .checkbox.actief::after { content: '✓'; color: white; font-size: 14px; font-weight: bold; }
+    .item-tekst { flex: 1; font-size: 16px; line-height: 1.3; }
+    .item-delete {
+      width: 28px; height: 28px; flex-shrink: 0;
+      color: var(--muted); cursor: pointer; font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 6px;
+    }
+    .item-delete:active { background: #fdecea; color: var(--danger); }
+
+    /* ── Acties onderaan ── */
+    .lijst-acties {
+      display: flex; justify-content: flex-end;
+      margin-top: 8px;
+    }
+    .wis-knop {
+      font-size: 13px; color: var(--muted);
+      background: none; border: none; cursor: pointer; padding: 4px 0;
+      text-decoration: underline;
+    }
+    .leeg { text-align: center; color: var(--muted); font-size: 15px; padding: 32px 0; font-style: italic; }
+
+    /* ── Token scherm ── */
+    #token-scherm {
+      max-width: 400px; margin: 60px auto; padding: 24px;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    }
+    #token-scherm h2 { font-size: 18px; margin-bottom: 8px; color: var(--accent); }
+    #token-scherm p { font-size: 14px; color: var(--muted); margin-bottom: 16px; line-height: 1.5; }
+    #token-scherm input {
+      width: 100%; padding: 11px 14px; margin-bottom: 10px;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      font-size: 14px; font-family: monospace; color: var(--text);
+    }
+    #token-scherm button {
+      width: 100%; padding: 12px;
+      background: var(--accent); color: white;
+      border: none; border-radius: var(--radius);
+      font-size: 16px; font-weight: 600; cursor: pointer;
+    }
+
+    /* ── Instellingen ── */
+    .settings-knop {
+      background: none; border: none; cursor: pointer;
+      font-size: 20px; color: var(--muted); padding: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Token-scherm (verborgen als token aanwezig) -->
+<div id="token-scherm" style="display:none">
+  <h2>Concierge instellen</h2>
+  <p>Voer eenmalig het GitHub-token in. Het wordt lokaal bewaard op dit toestel.</p>
+  <input type="password" id="token-invoer" placeholder="github_pat_..." autocomplete="off">
+  <button onclick="slaTokenOp()">Opslaan en doorgaan</button>
+</div>
+
+<!-- Hoofd-app (verborgen tot token aanwezig) -->
+<div id="app" style="display:none">
+  <header>
+    <div class="header-top">
+      <div>
+        <div class="app-titel">Concierge</div>
+        <div class="datum-klein" id="datum-tekst"></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div class="sync-status">
+          <div class="sync-dot" id="sync-dot"></div>
+          <span id="sync-tekst">–</span>
+        </div>
+        <button class="settings-knop" onclick="resetToken()" title="Token wijzigen">⚙</button>
+      </div>
+    </div>
+    <div class="tabs">
+      <div class="tab actief" id="tab-boodschappen" onclick="toonTab('boodschappen')">🛒 Boodschappen</div>
+      <div class="tab" id="tab-taken" onclick="toonTab('taken')">✓ Taken</div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Boodschappen -->
+    <div id="sectie-boodschappen">
+      <div class="toevoeg-rij">
+        <input type="text" id="nieuw-boodschap" placeholder="Item toevoegen…" autocomplete="off"
+          onkeydown="if(event.key==='Enter') voegToe('boodschappen')">
+        <button onclick="voegToe('boodschappen')">+</button>
+      </div>
+      <ul class="lijst" id="lijst-boodschappen"></ul>
+      <div class="lijst-acties">
+        <button class="wis-knop" onclick="wisGedaan('boodschappen')">Wis afgevinkte items</button>
+      </div>
+    </div>
+
+    <!-- Taken -->
+    <div id="sectie-taken" style="display:none">
+      <div class="toevoeg-rij">
+        <input type="text" id="nieuw-taak" placeholder="Taak toevoegen…" autocomplete="off"
+          onkeydown="if(event.key==='Enter') voegToe('taken')">
+        <button onclick="voegToe('taken')">+</button>
+      </div>
+      <ul class="lijst" id="lijst-taken"></ul>
+      <div class="lijst-acties">
+        <button class="wis-knop" onclick="wisGedaan('taken')">Wis afgevinkte taken</button>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+const REPO = 'PierreHeysselaer/piheys_repository';
+const BESTAND = 'data.json';
+const API_URL = `https://api.github.com/repos/${REPO}/contents/${BESTAND}`;
+const DAGEN = ['Zondag','Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag'];
+const MAANDEN = ['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
+
+let huidigTab = 'boodschappen';
+let data = { boodschappen: [], taken: [] };
+let huidigeSha = null;
+
+// ── Datum ──
+const nu = new Date();
+document.getElementById('datum-tekst').textContent =
+  `${DAGEN[nu.getDay()]} ${nu.getDate()} ${MAANDEN[nu.getMonth()]}`;
+
+// ── Token ──
+function getToken() { return localStorage.getItem('gh_token'); }
+
+function slaTokenOp() {
+  const t = document.getElementById('token-invoer').value.trim();
+  if (!t) return;
+  localStorage.setItem('gh_token', t);
+  init();
+}
+
+function resetToken() {
+  if (confirm('Token verwijderen van dit toestel?')) {
+    localStorage.removeItem('gh_token');
+    location.reload();
+  }
+}
+
+// ── Sync status ──
+function setSyncStatus(status, tekst) {
+  const dot = document.getElementById('sync-dot');
+  dot.className = 'sync-dot ' + status;
+  document.getElementById('sync-tekst').textContent = tekst;
+}
+
+// ── Data lezen ──
+async function laadData() {
+  setSyncStatus('bezig', 'laden…');
+  try {
+    const r = await fetch(API_URL, {
+      headers: { Authorization: `Bearer ${getToken()}`, Accept: 'application/vnd.github.v3+json' }
+    });
+    if (r.status === 404) {
+      // Bestand bestaat nog niet
+      huidigeSha = null;
+      data = { boodschappen: [], taken: [] };
+      setSyncStatus('ok', 'nieuw');
+      toonLijsten();
+      return;
+    }
+    if (!r.ok) throw new Error(r.status);
+    const json = await r.json();
+    huidigeSha = json.sha;
+    data = JSON.parse(atob(json.content.replace(/\n/g, '')));
+    setSyncStatus('ok', 'gesynchroniseerd');
+  } catch(e) {
+    setSyncStatus('fout', 'fout');
+    alert('Kon data niet laden. Controleer het token of de verbinding.');
+  }
+  toonLijsten();
+}
+
+// ── Data schrijven ──
+async function slaOp() {
+  setSyncStatus('bezig', 'opslaan…');
+  try {
+    const inhoud = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+    const body = { message: 'update via Concierge', content: inhoud };
+    if (huidigeSha) body.sha = huidigeSha;
+
+    const r = await fetch(API_URL, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${getToken()}`,
+        Accept: 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+    if (!r.ok) {
+      const err = await r.json();
+      // Conflict: iemand anders sloeg eerst op → herlaad en probeer opnieuw
+      if (r.status === 409 || r.status === 422) {
+        await laadData();
+        setSyncStatus('fout', 'herlaad en probeer');
+        return;
+      }
+      throw new Error(r.status);
+    }
+    const json = await r.json();
+    huidigeSha = json.content.sha;
+    setSyncStatus('ok', 'opgeslagen');
+  } catch(e) {
+    setSyncStatus('fout', 'fout bij opslaan');
+  }
+}
+
+// ── Tab wisselen ──
+function toonTab(tab) {
+  huidigTab = tab;
+  document.getElementById('sectie-boodschappen').style.display = tab === 'boodschappen' ? '' : 'none';
+  document.getElementById('sectie-taken').style.display = tab === 'taken' ? '' : 'none';
+  document.getElementById('tab-boodschappen').className = 'tab' + (tab === 'boodschappen' ? ' actief' : '');
+  document.getElementById('tab-taken').className = 'tab' + (tab === 'taken' ? ' actief' : '');
+}
+
+// ── Lijsten tonen ──
+function toonLijsten() {
+  toonLijst('boodschappen');
+  toonLijst('taken');
+}
+
+function toonLijst(type) {
+  const ul = document.getElementById('lijst-' + type);
+  const items = data[type] || [];
+  if (items.length === 0) {
+    ul.innerHTML = `<li class="leeg">${type === 'boodschappen' ? 'Lijst is leeg' : 'Geen taken'}</li>`;
+    return;
+  }
+  ul.innerHTML = items.map((item, i) => `
+    <li class="item ${item.gedaan ? 'gedaan' : ''}" id="item-${type}-${i}">
+      <div class="checkbox ${item.gedaan ? 'actief' : ''}" onclick="toggleItem('${type}', ${i})"></div>
+      <span class="item-tekst">${escHtml(item.tekst)}</span>
+      <div class="item-delete" onclick="verwijderItem('${type}', ${i})">×</div>
+    </li>
+  `).join('');
+}
+
+function escHtml(t) {
+  return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ── Acties ──
+function voegToe(type) {
+  const input = document.getElementById('nieuw-' + (type === 'boodschappen' ? 'boodschap' : 'taak'));
+  const tekst = input.value.trim();
+  if (!tekst) return;
+  data[type].push({ id: Date.now(), tekst, gedaan: false });
+  input.value = '';
+  toonLijst(type);
+  slaOp();
+}
+
+function toggleItem(type, i) {
+  data[type][i].gedaan = !data[type][i].gedaan;
+  toonLijst(type);
+  slaOp();
+}
+
+function verwijderItem(type, i) {
+  data[type].splice(i, 1);
+  toonLijst(type);
+  slaOp();
+}
+
+function wisGedaan(type) {
+  data[type] = data[type].filter(item => !item.gedaan);
+  toonLijst(type);
+  slaOp();
+}
+
+// ── Start ──
+function init() {
+  if (!getToken()) {
+    document.getElementById('token-scherm').style.display = '';
+    document.getElementById('app').style.display = 'none';
+  } else {
+    document.getElementById('token-scherm').style.display = 'none';
+    document.getElementById('app').style.display = '';
+    laadData();
+  }
+}
+
+init();
+</script>
+</body>
+</html>
