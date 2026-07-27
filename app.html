@@ -25,6 +25,12 @@
       color: var(--text);
       min-height: 100vh;
     }
+    #app {
+      max-width: 480px;
+      margin: 0 auto;
+      background: var(--bg);
+      min-height: 100vh;
+    }
     header {
       background: var(--surface);
       border-bottom: 1px solid var(--border);
@@ -58,7 +64,7 @@
       transition: color 0.15s;
     }
     .tab.actief { color: var(--accent); border-bottom-color: var(--accent); }
-    main { padding: 16px; max-width: 640px; margin: 0 auto; }
+    main { padding: 16px; }
     .toevoeg-rij { display: flex; gap: 8px; margin-bottom: 16px; }
     .toevoeg-rij input {
       flex: 1; padding: 11px 14px;
@@ -250,10 +256,17 @@ async function laadData() {
   toonLijsten();
 }
 
+function naarBase64(tekst) {
+  const bytes = new TextEncoder().encode(tekst);
+  let binair = '';
+  bytes.forEach(b => binair += String.fromCharCode(b));
+  return btoa(binair);
+}
+
 async function slaOp() {
   setSyncStatus('bezig', 'opslaan…');
   try {
-    const inhoud = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+    const inhoud = naarBase64(JSON.stringify(data, null, 2));
     const body = { message: 'update via Concierge', content: inhoud };
     if (huidigeSha) body.sha = huidigeSha;
 
@@ -267,18 +280,20 @@ async function slaOp() {
       body: JSON.stringify(body)
     });
     if (!r.ok) {
+      const foutInfo = await r.json().catch(() => ({}));
       if (r.status === 409 || r.status === 422) {
         await laadData();
         setSyncStatus('fout', 'herlaad en probeer');
         return;
       }
-      throw new Error(r.status);
+      throw new Error(`${r.status}: ${foutInfo.message || 'onbekend'}`);
     }
     const json = await r.json();
     huidigeSha = json.content.sha;
     setSyncStatus('ok', 'opgeslagen');
   } catch(e) {
-    setSyncStatus('fout', 'fout bij opslaan');
+    setSyncStatus('fout', 'fout: ' + e.message);
+    console.error('Opslaan mislukt:', e);
   }
 }
 
