@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goedemorgen, Pierre</title>
+  <style>
+    :root {
+      --bg: #f5f4f0;
+      --surface: #ffffff;
+      --border: #e2dfd8;
+      --accent: #4a7c59;
+      --accent-light: #eaf4ee;
+      --text: #1a1a1a;
+      --muted: #8a8680;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 24px 16px 60px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .datum { font-size: 12px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 4px; }
+    .groet { font-size: 26px; font-weight: 500; margin-bottom: 24px; }
+    .kaart { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; margin-bottom: 12px; }
+    .kaart-label { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .temp-groot { font-size: 40px; font-weight: 400; line-height: 1; }
+    .temp-rij { display: flex; gap: 20px; margin-top: 10px; flex-wrap: wrap; }
+    .temp-item { font-size: 13px; color: var(--muted); }
+    .temp-item strong { color: var(--text); font-weight: 500; }
+    .dag-rij { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+    .dag-kaartje { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; text-align: center; min-width: 72px; }
+    .dag-naam { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+    .dag-max { font-size: 18px; font-weight: 500; margin: 2px 0; }
+    .dag-neerslag { font-size: 11px; color: var(--muted); }
+    .vandaag { border-color: var(--accent); background: var(--accent-light); }
+    .vandaag .dag-max { color: var(--accent); }
+    .kalender-placeholder { color: var(--muted); font-size: 14px; font-style: italic; }
+    .taken-knop {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--accent-light); color: var(--accent);
+      border: 1px solid #b8dfc5; border-radius: 8px;
+      padding: 8px 16px; font-size: 14px; font-weight: 500;
+      cursor: pointer; text-decoration: none; margin-top: 10px;
+    }
+    .fout { color: #c0392b; font-size: 13px; }
+    .laden { color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+<body>
+
+<div class="datum" id="datum-tekst"></div>
+<div class="groet">Goedemorgen, Pierre.</div>
+
+<div class="kaart" id="weer-kaart">
+  <div class="kaart-label">Temperatuur &amp; Weer</div>
+  <div class="laden">Ophalen…</div>
+</div>
+
+<div class="kaart">
+  <div class="kaart-label">Agenda vandaag</div>
+  <iframe src="https://calendar.google.com/calendar/embed?src=htc07f3qd0crlllt5ojm4t0s24%40group.calendar.google.com&ctz=Europe%2FBrussels&mode=AGENDA&showTitle=0&showNav=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0"
+    style="border:0; width:100%; height:320px;" frameborder="0" scrolling="no"></iframe>
+</div>
+
+<div class="kaart">
+  <div class="kaart-label">Taken</div>
+  <p style="font-size:15px;color:#555;line-height:1.6;">Dagelijkse taken via de Concierge.</p>
+</div>
+
+<script>
+const DAGEN = ['Zondag','Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag'];
+const MAANDEN = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+const KORT = ['zo','ma','di','wo','do','vr','za'];
+
+const nu = new Date();
+document.getElementById('datum-tekst').textContent =
+  `${DAGEN[nu.getDay()]} · ${nu.getDate()} ${MAANDEN[nu.getMonth()]} ${nu.getFullYear()}`;
+
+async function laadWeer() {
+  const kaart = document.getElementById('weer-kaart');
+  try {
+    const url = 'https://api.open-meteo.com/v1/forecast?latitude=50.78&longitude=4.24' +
+      '&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode' +
+      '&past_days=0&forecast_days=5&timezone=Europe%2FBrussels';
+    const resp = await fetch(url);
+    const data = await resp.json();
+    const d = data.daily;
+
+    const codes = { 0:'Helder',1:'Overwegend helder',2:'Gedeeltelijk bewolkt',3:'Bewolkt',
+      45:'Mist',48:'Mist',51:'Lichte motregen',53:'Motregen',55:'Zware motregen',
+      61:'Lichte regen',63:'Regen',65:'Zware regen',71:'Lichte sneeuw',73:'Sneeuw',
+      75:'Zware sneeuw',80:'Regenbuien',81:'Regenbuien',82:'Zware buien',
+      95:'Onweer',96:'Onweer met hagel',99:'Zwaar onweer' };
+
+    const vandaagCode = d.weathercode[0];
+    const vandaagBeschrijving = codes[vandaagCode] || '–';
+    const vandaagMax = d.temperature_2m_max[0];
+    const vandaagMin = d.temperature_2m_min[0];
+    const vandaagNeerslag = d.precipitation_sum[0];
+
+    let html = `<div class="kaart-label">Temperatuur &amp; Weer</div>
+      <div class="temp-groot">${vandaagMax.toFixed(0)}°C</div>
+      <div class="temp-rij">
+        <div class="temp-item"><strong>${vandaagBeschrijving}</strong></div>
+        <div class="temp-item">min <strong>${vandaagMin.toFixed(0)}°C</strong></div>
+        <div class="temp-item">neerslag <strong>${vandaagNeerslag.toFixed(1)} mm</strong></div>
+      </div>
+      <div class="dag-rij">`;
+
+    for (let i = 0; i < d.time.length; i++) {
+      const dag = new Date(d.time[i]);
+      const isVandaag = i === 0;
+      html += `<div class="dag-kaartje${isVandaag?' vandaag':''}">
+        <div class="dag-naam">${KORT[dag.getDay()]}</div>
+        <div class="dag-max">${d.temperature_2m_max[i].toFixed(0)}°</div>
+        <div class="dag-neerslag">${d.precipitation_sum[i].toFixed(0)}mm</div>
+      </div>`;
+    }
+    html += '</div>';
+    kaart.innerHTML = html;
+  } catch(e) {
+    kaart.innerHTML = '<div class="kaart-label">Weer</div><p class="fout">Kon weerdata niet ophalen.</p>';
+  }
+}
+
+laadWeer();
+</script>
+</body>
+</html>
