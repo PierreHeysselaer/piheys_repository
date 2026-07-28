@@ -197,7 +197,9 @@
       "naam": "Weide",
       "type": "herhalend",
       "frequentie_dagen": 30,
-      "log": [],
+      "log": [
+        "2026-07-28"
+      ],
       "voorwaarden": {
         "seizoen": [
           "lente",
