@@ -32,7 +32,9 @@
       "naam": "Handen verzorgen",
       "type": "herhalend",
       "frequentie_dagen": 1,
-      "log": [],
+      "log": [
+        "2026-07-28"
+      ],
       "voorwaarden": {},
       "categorie": "medisch"
     },
