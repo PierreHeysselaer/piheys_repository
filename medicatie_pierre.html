@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Medicatie — Pierre</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html,body{max-width:100%;overflow-x:hidden;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f7f7f5;color:#111;padding-bottom:100px;}
+#header{background:#fff;border-bottom:1px solid #e5e3de;padding:12px 14px 10px;position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;}
+.sync-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#ccc;margin-right:3px;vertical-align:middle;transition:background .3s;}
+.sync-dot.ok{background:#4a7c59;}
+.sync-dot.bezig{background:#e6a817;animation:sdpulse 1s infinite;}
+.sync-dot.fout{background:#c0392b;}
+@keyframes sdpulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* Warnings */
+#warn-wrap{padding:8px 10px 0;}
+.warn-banner{background:#fff8e1;border:1px solid #f5c542;border-radius:10px;padding:10px 13px;margin-bottom:6px;}
+.warn-banner .warn-titel{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#9a7a00;margin-bottom:4px;}
+.warn-item{font-size:13px;color:#7a5f00;padding:2px 0;}
+
+/* Medicijn cards */
+#med-wrap{padding:8px 10px 0;}
+.med-card{background:#fff;border:1px solid #e8e6e1;border-radius:12px;margin-bottom:8px;overflow:hidden;}
+.med-card.kritiek{border-color:#e74c3c;border-width:2px;}
+.med-card.waarschuw{border-color:#f5c542;}
+
+.med-header{display:flex;align-items:flex-start;justify-content:space-between;padding:12px 14px 6px;}
+.med-naam{font-size:15px;font-weight:600;line-height:1.3;}
+.med-sub{font-size:12px;color:#888;margin-top:2px;}
+.med-knoppen{display:flex;gap:5px;flex-shrink:0;margin-left:8px;align-items:flex-start;}
+.btn-edit{font-size:11px;padding:4px 9px;border:1px solid #ddd;border-radius:6px;background:#f7f7f5;color:#666;cursor:pointer;white-space:nowrap;}
+.btn-edit:active{background:#e8e6e1;}
+.btn-del{font-size:18px;color:#ccc;border:none;background:none;cursor:pointer;padding:2px 4px;line-height:1;}
+.btn-del:active{color:#c0392b;}
+
+/* Stock rijen */
+.stock-blok{padding:4px 14px 10px;}
+.stock-row{display:flex;align-items:center;gap:6px;margin-bottom:5px;}
+.stock-lbl{font-size:12px;color:#888;width:64px;flex-shrink:0;}
+.stock-num{font-size:16px;font-weight:700;min-width:36px;text-align:center;color:#111;}
+.btn-s{width:30px;height:30px;border-radius:7px;border:1px solid #ddd;background:#f7f7f5;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;user-select:none;flex-shrink:0;}
+.btn-s:active{background:#e8e6e1;}
+.btn-snel{height:30px;padding:0 9px;border-radius:7px;border:1px solid #b8dfc5;background:#eaf4ee;font-size:11px;font-weight:700;color:#4a7c59;cursor:pointer;user-select:none;white-space:nowrap;}
+.btn-snel:active{background:#d5eedd;}
+.eenheid-lbl{font-size:11px;color:#aaa;margin-left:2px;}
+
+/* Beschikbaar-tot banner */
+.beschikbaar{margin:2px 14px 8px;padding:7px 11px;border-radius:8px;font-size:13px;display:flex;align-items:center;justify-content:space-between;}
+.beschikbaar.goed{background:#eaf4ee;color:#2e7d52;}
+.beschikbaar.middel{background:#fff8e1;color:#7a5f00;}
+.beschikbaar.slecht{background:#fdecea;color:#c0392b;}
+.beschikbaar .datum{font-weight:700;font-size:14px;}
+.beschikbaar .rest{font-size:11px;opacity:.75;}
+
+/* Doosje sectie */
+.doosje-blok{border-top:1px solid #f0ede8;padding:8px 14px 10px;background:#fafaf8;}
+.doosje-info{font-size:12px;color:#888;margin-bottom:7px;line-height:1.6;}
+.doosje-info .ok{color:#4a7c59;font-weight:500;}
+.doosje-info .warn{color:#e6a817;font-weight:500;}
+.doosje-info .err{color:#c0392b;font-weight:500;}
+.btn-vul{font-size:13px;font-weight:500;padding:8px 16px;background:#4a7c59;color:#fff;border:none;border-radius:8px;cursor:pointer;}
+.btn-vul:active{background:#3d6b4a;}
+.btn-vul.onvoldoende{background:#aaa;}
+
+/* Toevoeg-knop */
+#add-wrap{padding:0 10px;}
+.add-btn{width:100%;padding:11px;background:none;border:2px dashed #d5d3ce;border-radius:8px;font-size:14px;color:#aaa;cursor:pointer;text-align:center;margin-top:4px;}
+.add-btn:active{border-color:#4a7c59;color:#4a7c59;}
+
+/* Leeg */
+.leeg{text-align:center;padding:50px 20px;color:#bbb;font-size:14px;line-height:1.6;}
+
+/* Modal */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;align-items:flex-end;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal{background:#fff;border-radius:20px 20px 0 0;padding:22px 18px 44px;width:100%;max-width:640px;max-height:92vh;overflow-y:auto;}
+.modal-titel{font-size:17px;font-weight:600;margin-bottom:16px;}
+.fg{margin-bottom:12px;}
+.fl{display:block;font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;}
+.fi{width:100%;padding:9px 12px;border:1px solid #ddd;border-radius:7px;font-size:14px;color:#111;background:#fafaf8;outline:none;}
+.fi:focus{border-color:#4a7c59;}
+.fi-row{display:flex;gap:8px;}
+.fi-row .fg{flex:1;}
+.check-row{display:flex;align-items:center;gap:9px;}
+.check-row input[type=checkbox]{width:18px;height:18px;accent-color:#4a7c59;cursor:pointer;}
+.check-row label{font-size:14px;cursor:pointer;}
+.modal-knoppen{display:flex;gap:8px;margin-top:20px;}
+.btn-p{flex:1;padding:13px;background:#4a7c59;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;}
+.btn-ann{flex:1;padding:13px;background:#f2f1ec;color:#888;border:1px solid #e5e3de;border-radius:10px;font-size:15px;cursor:pointer;}
+</style>
+</head>
+<body>
+
+<div id="header">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="font-size:16px;font-weight:500;">💊 Medicatie Pierre</span>
+    <div>
+      <span class="sync-dot" id="sync-dot"></span>
+      <span id="sync-tekst" style="font-size:11px;color:#aaa;">–</span>
+    </div>
+  </div>
+  <button onclick="laadData()" style="font-size:12px;padding:4px 9px;border:1px solid #ddd;border-radius:6px;background:#fff;color:#888;cursor:pointer;" title="Herladen">↻</button>
+</div>
+
+<div id="warn-wrap"></div>
+<div id="med-wrap"></div>
+<div id="add-wrap">
+  <button class="add-btn" onclick="openModal(null)">+ Medicijn toevoegen</button>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="med-modal" onclick="sluitModalBuiten(event)">
+  <div class="modal">
+    <div class="modal-titel" id="modal-titel">Medicijn toevoegen</div>
+
+    <div class="fg">
+      <label class="fl">Naam</label>
+      <input class="fi" id="mf-naam" type="text" placeholder="bijv. Losartan 50mg" autocomplete="off">
+    </div>
+
+    <div class="fi-row">
+      <div class="fg">
+        <label class="fl">Doses per dag</label>
+        <input class="fi" id="mf-doses" type="number" min="0.25" step="0.25" placeholder="1">
+      </div>
+      <div class="fg">
+        <label class="fl">Eenheid</label>
+        <select class="fi" id="mf-eenheid">
+          <option value="tablet">tablet</option>
+          <option value="capsule">capsule</option>
+          <option value="pil">pil</option>
+          <option value="ml">ml</option>
+          <option value="druppel">druppel</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="fi-row">
+      <div class="fg">
+        <label class="fl">Voorraad thuis</label>
+        <input class="fi" id="mf-thuis" type="number" min="0" step="1" placeholder="0">
+      </div>
+      <div class="fg">
+        <label class="fl">Voorraad Helena</label>
+        <input class="fi" id="mf-helena" type="number" min="0" step="1" placeholder="0">
+      </div>
+    </div>
+
+    <div class="fg" style="margin-bottom:8px;">
+      <div class="check-row">
+        <input type="checkbox" id="mf-doosje" onchange="toggleDoosje()">
+        <label for="mf-doosje">Medicijndoosje gebruiken</label>
+      </div>
+    </div>
+
+    <div id="doosje-velden" style="display:none;">
+      <div class="fi-row">
+        <div class="fg">
+          <label class="fl">Doosje gevuld op</label>
+          <input class="fi" id="mf-gevuld" type="date">
+        </div>
+        <div class="fg">
+          <label class="fl">Looptijd (dagen)</label>
+          <input class="fi" id="mf-duur" type="number" min="7" max="90" value="28">
+        </div>
+      </div>
+    </div>
+
+    <div class="fg">
+      <label class="fl">Opmerking (optioneel)</label>
+      <input class="fi" id="mf-opm" type="text" placeholder="bijv. 's ochtends innemen">
+    </div>
+
+    <div class="modal-knoppen">
+      <button class="btn-ann" onclick="sluitModal()">Annuleren</button>
+      <button class="btn-p" onclick="slaanMedicijn()">Opslaan</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== CONFIGURATIE =====
+const DATA_KEY = 'medicatie_pierre';
+const REPO     = 'PierreHeysselaer/piheys_repository';
+const BESTAND  = 'data.json';
+const TOKEN    = ['github_pat_11AYGGRYA0mx','BmzBHFY6TP_XD','TD4hfTIO1fvuM2paNJ7R1OT','qXyBYmOo1ajP7nPoIY4IQAOPI5MKdiSTkP'].join('');
+const API_URL  = `https://api.github.com/repos/${REPO}/contents/${BESTAND}`;
+
+const TODAY  = new Date(); TODAY.setHours(12,0,0,0);
+let huidigeSha = null, syncData = {}, bewerkId = null;
+
+// ===== SYNC =====
+function setSyncStatus(s,t){
+  document.getElementById('sync-dot').className='sync-dot '+s;
+  document.getElementById('sync-tekst').textContent=t;
+}
+function naarBase64(tekst){
+  const b=new TextEncoder().encode(tekst);
+  let s=''; b.forEach(x=>s+=String.fromCharCode(x)); return btoa(s);
+}
+async function laadData(){
+  setSyncStatus('bezig','laden…');
+  try{
+    const r=await fetch(API_URL,{headers:{Authorization:`Bearer ${TOKEN}`,Accept:'application/vnd.github.v3+json'}});
+    if(r.status===404){huidigeSha=null;syncData={};setSyncStatus('ok','nieuw');}
+    else if(!r.ok) throw new Error(r.status);
+    else{
+      const j=await r.json();
+      huidigeSha=j.sha;
+      syncData=JSON.parse(atob(j.content.replace(/\n/g,'')));
+      setSyncStatus('ok','gesynchroniseerd');
+    }
+  }catch(e){setSyncStatus('fout','fout bij laden');console.error(e);}
+  render();
+}
+async function slaOp(){
+  setSyncStatus('bezig','opslaan…');
+  try{
+    const inhoud=naarBase64(JSON.stringify(syncData,null,2));
+    const body={message:'medicatie update',content:inhoud};
+    if(huidigeSha) body.sha=huidigeSha;
+    const r=await fetch(API_URL,{method:'PUT',headers:{Authorization:`Bearer ${TOKEN}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},body:JSON.stringify(body)});
+    if(!r.ok){if(r.status===409||r.status===422){await laadData();return;} throw new Error(r.status);}
+    const j=await r.json(); huidigeSha=j.content.sha;
+    setSyncStatus('ok','opgeslagen ✓');
+    setTimeout(()=>setSyncStatus('ok','gesynchroniseerd'),2500);
+  }catch(e){setSyncStatus('fout','fout');console.error(e);}
+}
+
+// ===== DATA HELPERS =====
+function getMeds(){ return syncData[DATA_KEY]||[]; }
+function setMeds(arr){ syncData[DATA_KEY]=arr; }
+function escHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function datumStr(d){ return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; }
+function formatDatum(s){
+  const d=new Date(s+'T12:00:00');
+  return `${d.getDate()} ${'jan feb mrt apr mei jun jul aug sep okt nov dec'.split(' ')[d.getMonth()]}`;
+}
+function dagsDatum(days){
+  const d=new Date(TODAY); d.setDate(d.getDate()+days);
+  return formatDatum(datumStr(d));
+}
+
+function doosjeRest(m){
+  if(!m.doosje_gevuld_op) return null;
+  const gevuld=new Date(m.doosje_gevuld_op+'T12:00:00');
+  const leeg=new Date(gevuld); leeg.setDate(leeg.getDate()+(m.doosje_duur||28));
+  return Math.max(0, Math.round((leeg-TODAY)/86400000));
+}
+function doosjeLeegDatum(m){
+  const gevuld=new Date(m.doosje_gevuld_op+'T12:00:00');
+  const leeg=new Date(gevuld); leeg.setDate(leeg.getDate()+(m.doosje_duur||28));
+  return formatDatum(datumStr(leeg));
+}
+function beschikbaarDagen(m){
+  // doosje-rest + thuis + helena, alles omgerekend naar dagen
+  const dr = doosjeRest(m)||0;
+  const thuisDagen = m.stock_thuis / (m.doses_per_dag||1);
+  const helenaDagen = m.stock_helena / (m.doses_per_dag||1);
+  return Math.floor(dr + thuisDagen + helenaDagen);
+}
+
+// ===== RENDER =====
+function render(){
+  const meds=getMeds();
+  renderWaarschuwingen(meds);
+  renderMeds(meds);
+}
+
+function renderWaarschuwingen(meds){
+  const warns=[];
+  meds.forEach(m=>{
+    const dagen=beschikbaarDagen(m);
+    if(dagen<14) warns.push(`⚠️ <strong>${escHtml(m.naam)}</strong>: nog ${dagen} dag${dagen===1?'':'en'} beschikbaar!`);
+    else if(m.doosje_gevuld_op){
+      const dr=doosjeRest(m);
+      const benodigd=(m.doosje_duur||28)*(m.doses_per_dag||1);
+      if(dr<7 && m.stock_thuis<benodigd)
+        warns.push(`📦 <strong>${escHtml(m.naam)}</strong>: doosje leeg over ${dr} dag${dr===1?'':'en'}, onvoldoende thuis (${m.stock_thuis}/${benodigd} ${m.eenheid})`);
+    }
+  });
+  const el=document.getElementById('warn-wrap');
+  el.innerHTML=warns.length?`<div class="warn-banner"><div class="warn-titel">Aandacht vereist</div>${warns.map(w=>`<div class="warn-item">${w}</div>`).join('')}</div>`:'';
+}
+
+function renderMeds(meds){
+  const el=document.getElementById('med-wrap');
+  if(!meds.length){el.innerHTML='<div class="leeg">Nog geen medicijnen.<br>Klik hieronder om er één toe te voegen.</div>';return;}
+  el.innerHTML=meds.map(m=>medCard(m)).join('');
+}
+
+function medCard(m){
+  const dagen=beschikbaarDagen(m);
+  const klasse=dagen<14?'slecht':dagen<30?'middel':'goed';
+  const icoon=dagen<14?'⚠️':dagen<30?'⏳':'✅';
+  const datumLabel=dagsDatum(dagen);
+  const isKritiek=dagen<14;
+  const dr=doosjeRest(m);
+  const benodigd=(m.doosje_duur||28)*(m.doses_per_dag||1);
+  const isWaarschuw=m.doosje_gevuld_op&&dr<7&&m.stock_thuis<benodigd&&!isKritiek;
+
+  let doosjeHTML='';
+  if(m.doosje_gevuld_op){
+    const drLabel=dr===0?'<span class="err">vandaag leeg!</span>':dr<7?`<span class="warn">leeg over ${dr} dagen</span>`:`<span class="ok">leeg over ${dr} dagen</span>`;
+    const kanVullen=m.stock_thuis>=benodigd;
+    doosjeHTML=`<div class="doosje-blok">
+      <div class="doosje-info">
+        Gevuld: <span class="ok">${formatDatum(m.doosje_gevuld_op)}</span> &nbsp;·&nbsp;
+        Leeg: <strong>${doosjeLeegDatum(m)}</strong> (${drLabel})<br>
+        Vullen kost ${benodigd} ${m.eenheid} — thuis: ${m.stock_thuis} ${m.eenheid}
+        ${m.stock_helena>0?`, Helena: ${m.stock_helena} ${m.eenheid}`:''}
+      </div>
+      <button class="btn-vul${kanVullen?'':' onvoldoende'}" onclick="vulDoosje('${m.id}')">
+        📦 Doosje vullen${kanVullen?` (−${benodigd} ${m.eenheid})`:''}
+      </button>
+    </div>`;
+  }
+
+  return `<div class="med-card${isKritiek?' kritiek':isWaarschuw?' waarschuw':''}">
+    <div class="med-header">
+      <div>
+        <div class="med-naam">${escHtml(m.naam)}</div>
+        <div class="med-sub">${m.doses_per_dag} ${m.eenheid} per dag${m.opm?' · '+escHtml(m.opm):''}</div>
+      </div>
+      <div class="med-knoppen">
+        <button class="btn-edit" onclick="openModal('${m.id}')">bewerk</button>
+        <button class="btn-del" onclick="verwijderMed('${m.id}')">×</button>
+      </div>
+    </div>
+    <div class="stock-blok">
+      <div class="stock-row">
+        <span class="stock-lbl">🏠 Thuis</span>
+        <button class="btn-s" onclick="adj('${m.id}','thuis',-1)">−</button>
+        <span class="stock-num">${m.stock_thuis}</span>
+        <button class="btn-s" onclick="adj('${m.id}','thuis',1)">+</button>
+        <button class="btn-snel" onclick="adj('${m.id}','thuis',${m.doosje_duur||28})">+${m.doosje_duur||28}</button>
+        <span class="eenheid-lbl">${m.eenheid}</span>
+      </div>
+      <div class="stock-row">
+        <span class="stock-lbl">💊 Helena</span>
+        <button class="btn-s" onclick="adj('${m.id}','helena',-1)">−</button>
+        <span class="stock-num">${m.stock_helena}</span>
+        <button class="btn-s" onclick="adj('${m.id}','helena',1)">+</button>
+        <button class="btn-snel" onclick="adj('${m.id}','helena',${m.doosje_duur||28})">+${m.doosje_duur||28}</button>
+        <span class="eenheid-lbl">${m.eenheid}</span>
+      </div>
+    </div>
+    <div class="beschikbaar ${klasse}">
+      <span>${icoon} Beschikbaar tot <span class="datum">${datumLabel}</span></span>
+      <span class="rest">${dagen} dagen</span>
+    </div>
+    ${doosjeHTML}
+  </div>`;
+}
+
+// ===== ACTIES =====
+function adj(id,type,delta){
+  const meds=getMeds();
+  const m=meds.find(x=>x.id===id);
+  if(!m) return;
+  if(type==='thuis') m.stock_thuis=Math.max(0,m.stock_thuis+delta);
+  else m.stock_helena=Math.max(0,m.stock_helena+delta);
+  setMeds(meds); render(); slaOp();
+}
+
+function vulDoosje(id){
+  const meds=getMeds();
+  const m=meds.find(x=>x.id===id);
+  if(!m) return;
+  const benodigd=(m.doosje_duur||28)*(m.doses_per_dag||1);
+  if(m.stock_thuis<benodigd){
+    if(!confirm(`Onvoldoende thuis: ${m.stock_thuis} van ${benodigd} ${m.eenheid} nodig.\nToch vullen?`)) return;
+  }
+  m.stock_thuis=Math.max(0,m.stock_thuis-benodigd);
+  m.doosje_gevuld_op=datumStr(TODAY);
+  setMeds(meds); render(); slaOp();
+}
+
+function verwijderMed(id){
+  if(!confirm('Medicijn verwijderen?')) return;
+  setMeds(getMeds().filter(m=>m.id!==id));
+  render(); slaOp();
+}
+
+// ===== MODAL =====
+function openModal(id){
+  bewerkId=id;
+  document.getElementById('modal-titel').textContent=id?'Medicijn bewerken':'Medicijn toevoegen';
+  if(id){
+    const m=getMeds().find(x=>x.id===id)||{};
+    document.getElementById('mf-naam').value=m.naam||'';
+    document.getElementById('mf-doses').value=m.doses_per_dag||1;
+    document.getElementById('mf-eenheid').value=m.eenheid||'tablet';
+    document.getElementById('mf-thuis').value=m.stock_thuis||0;
+    document.getElementById('mf-helena').value=m.stock_helena||0;
+    document.getElementById('mf-opm').value=m.opm||'';
+    const hd=!!m.doosje_gevuld_op;
+    document.getElementById('mf-doosje').checked=hd;
+    document.getElementById('doosje-velden').style.display=hd?'block':'none';
+    document.getElementById('mf-gevuld').value=m.doosje_gevuld_op||datumStr(TODAY);
+    document.getElementById('mf-duur').value=m.doosje_duur||28;
+  }else{
+    document.getElementById('mf-naam').value='';
+    document.getElementById('mf-doses').value=1;
+    document.getElementById('mf-eenheid').value='tablet';
+    document.getElementById('mf-thuis').value=0;
+    document.getElementById('mf-helena').value=0;
+    document.getElementById('mf-opm').value='';
+    document.getElementById('mf-doosje').checked=false;
+    document.getElementById('doosje-velden').style.display='none';
+    document.getElementById('mf-gevuld').value=datumStr(TODAY);
+    document.getElementById('mf-duur').value=28;
+  }
+  document.getElementById('med-modal').classList.add('open');
+  setTimeout(()=>document.getElementById('mf-naam').focus(),150);
+}
+function toggleDoosje(){
+  document.getElementById('doosje-velden').style.display=
+    document.getElementById('mf-doosje').checked?'block':'none';
+}
+function sluitModal(){ document.getElementById('med-modal').classList.remove('open'); }
+function sluitModalBuiten(e){ if(e.target===document.getElementById('med-modal')) sluitModal(); }
+
+function slaanMedicijn(){
+  const naam=document.getElementById('mf-naam').value.trim();
+  if(!naam){document.getElementById('mf-naam').focus();return;}
+  const hd=document.getElementById('mf-doosje').checked;
+  const med={
+    id: bewerkId||'m_'+Date.now(),
+    naam,
+    doses_per_dag: parseFloat(document.getElementById('mf-doses').value)||1,
+    eenheid: document.getElementById('mf-eenheid').value,
+    stock_thuis: parseInt(document.getElementById('mf-thuis').value)||0,
+    stock_helena: parseInt(document.getElementById('mf-helena').value)||0,
+    doosje_gevuld_op: hd?document.getElementById('mf-gevuld').value:null,
+    doosje_duur: hd?parseInt(document.getElementById('mf-duur').value)||28:null,
+    opm: document.getElementById('mf-opm').value.trim()
+  };
+  const meds=getMeds();
+  if(bewerkId){const i=meds.findIndex(m=>m.id===bewerkId);if(i>=0)meds[i]=med;}
+  else meds.push(med);
+  setMeds(meds); sluitModal(); render(); slaOp();
+}
+
+// ===== INIT =====
+laadData();
+</script>
+</body>
+</html>
