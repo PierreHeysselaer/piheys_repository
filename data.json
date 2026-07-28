@@ -1,25 +1,310 @@
 {
-  "boodschappen": [
-    {
-      "id": 1785173323234,
-      "tekst": "fdhkdhkjgh",
-      "gedaan": false
-    },
-    {
-      "id": 1785173495080,
-      "tekst": "nog wat",
-      "gedaan": false
-    }
-  ],
-  "taken": [
-    {
-      "id": 1785173521164,
-      "tekst": "houtwerk schilderen",
-      "gedaan": false
-    }
-  ],
-  "boodschappen_geselecteerd": [
-    "wenskaarten",
-    "kabeljauw (geen haasje)"
-  ]
+    "boodschappen":  [
+                         {
+                             "id":  1785173323234,
+                             "tekst":  "fdhkdhkjgh",
+                             "gedaan":  false
+                         },
+                         {
+                             "id":  1785173495080,
+                             "tekst":  "nog wat",
+                             "gedaan":  false
+                         }
+                     ],
+    "boodschappen_geselecteerd":  [
+                                      "wenskaarten",
+                                      "kabeljauw (geen haasje)"
+                                  ],
+    "taken":  [
+                  {
+                      "id":  "t_voeten",
+                      "naam":  "Voeten verzorgen",
+                      "type":  "herhalend",
+                      "frequentie_dagen":  1,
+                      "log":  [
+
+                              ],
+                      "voorwaarden":  {
+
+                                      },
+                      "categorie":  "medisch"
+                  },
+                  {
+                      "id":  "t_handen",
+                      "naam":  "Handen verzorgen",
+                      "type":  "herhalend",
+                      "frequentie_dagen":  1,
+                      "log":  [
+
+                              ],
+                      "voorwaarden":  {
+
+                                      },
+                      "categorie":  "medisch"
+                  },
+                  {
+                      "id":  "t_medicatie",
+                      "naam":  "Medicatie in schuifjes",
+                      "type":  "herhalend",
+                      "frequentie_dagen":  28,
+                      "log":  [
+                                  "2026-07-24"
+                              ],
+                      "voorwaarden":  {
+
+                                      },
+                      "categorie":  "medisch"
+                  },
+                  {
+                      "id":  "t_diepvries",
+                      "naam":  "Diepvries op orde zetten",
+                      "type":  "herhalend",
+                      "frequentie_dagen":  90,
+                      "log":  [
+                                  "2026-02-04"
+                              ],
+                      "voorwaarden":  {
+
+                                      },
+                      "categorie":  "huis"
+                  },
+                  {
+                      "id":  "t_frigo",
+                      "naam":  "Frigo op orde zetten",
+                      "type":  "herhalend",
+                      "frequentie_dagen":  30,
+                      "log":  [
+                                  "2026-07-14",
+                                  "2026-05-30"
+                              ],
+                      "voorwaarden":  {
+
+                                      },
+                      "categorie":  "huis"
+                  },
+                  {
+                      "id":  "t_ha_batterijen",
+                      "naam":  "Batterijen HA sensoren nakijken",
+                      "type":  "herhalend",
+                      "frequentie_dagen":  30,
+                      "log":  [
+
+                              ],
+                      "voorwaarden":  {
+
+                                      },
+                      "categorie":  "technisch"
+                  },
+                  {
+                      "id":  "t_ramen",
+                      "naam":  "Ramen lappen",
+                      "type":  "herhalend",
+                      "frequentie_dagen":  30,
+                      "log":  [
+                                  "2026-05-01"
+                              ],
+                      "voorwaarden":  {
+                                          "weer":  [
+                                                       "droog"
+                                                   ],
+                                          "temp_min":  5
+                                      },
+                      "categorie":  "huis"
+                  },
+                  {
+                      "id":  "t_rookmelders",
+                      "naam":  "Rookmelderbatterijen testen",
+                      "type":  "herhalend",
+                      "frequentie_dagen":  180,
+                      "log":  [
+
+                              ],
+                      "voorwaarden":  {
+                                          "seizoen":  [
+                                                          "lente",
+                                                          "herfst"
+                                                      ]
+                                      },
+                      "categorie":  "veiligheid"
+                  },
+                  {
+                      "id":  "t_dakgoot",
+                      "naam":  "Dakgoot kuisen",
+                      "type":  "herhalend",
+                      "frequentie_dagen":  180,
+                      "log":  [
+                                  "2026-03-15"
+                              ],
+                      "voorwaarden":  {
+                                          "seizoen":  [
+                                                          "lente",
+                                                          "herfst"
+                                                      ]
+                                      },
+                      "categorie":  "huis"
+                  },
+                  {
+                      "id":  "t_schrikdraad",
+                      "naam":  "Schrikdraad controleren",
+                      "type":  "herhalend",
+                      "frequentie_dagen":  30,
+                      "log":  [
+                                  "2026-07-24"
+                              ],
+                      "voorwaarden":  {
+                                          "weer":  [
+                                                       "droog"
+                                                   ]
+                                      },
+                      "categorie":  "tuin"
+                  },
+                  {
+                      "id":  "t_bosmaaier",
+                      "naam":  "Ronde doen met bosmaaier",
+                      "type":  "herhalend",
+                      "frequentie_dagen":  14,
+                      "log":  [
+                                  "2026-07-15"
+                              ],
+                      "voorwaarden":  {
+                                          "seizoen":  [
+                                                          "lente",
+                                                          "zomer",
+                                                          "herfst"
+                                                      ]
+                                      },
+                      "categorie":  "tuin"
+                  },
+                  {
+                      "id":  "t_netels",
+                      "naam":  "Netels wieden",
+                      "type":  "herhalend",
+                      "frequentie_dagen":  21,
+                      "log":  [
+                                  "2026-06-20"
+                              ],
+                      "voorwaarden":  {
+                                          "seizoen":  [
+                                                          "lente",
+                                                          "zomer",
+                                                          "herfst"
+                                                      ]
+                                      },
+                      "categorie":  "tuin"
+                  },
+                  {
+                      "id":  "t_gras",
+                      "naam":  "Gras afrijden",
+                      "type":  "herhalend",
+                      "frequentie_dagen":  10,
+                      "log":  [
+
+                              ],
+                      "voorwaarden":  {
+                                          "weer":  [
+                                                       "droog"
+                                                   ],
+                                          "seizoen":  [
+                                                          "lente",
+                                                          "zomer",
+                                                          "herfst"
+                                                      ]
+                                      },
+                      "categorie":  "tuin"
+                  },
+                  {
+                      "id":  "t_weide",
+                      "naam":  "Weide",
+                      "type":  "herhalend",
+                      "frequentie_dagen":  30,
+                      "log":  [
+
+                              ],
+                      "voorwaarden":  {
+                                          "seizoen":  [
+                                                          "lente",
+                                                          "zomer"
+                                                      ]
+                                      },
+                      "categorie":  "tuin"
+                  },
+                  {
+                      "id":  "t_vergif",
+                      "naam":  "Vergif op plafond living",
+                      "type":  "eenmalig",
+                      "gedaan":  false,
+                      "log":  [
+
+                              ],
+                      "voorwaarden":  {
+
+                                      },
+                      "categorie":  "huis"
+                  },
+                  {
+                      "id":  "t_cv_kraan",
+                      "naam":  "CV kraan vervangen in de badkamer GLV",
+                      "type":  "eenmalig",
+                      "gedaan":  false,
+                      "log":  [
+
+                              ],
+                      "voorwaarden":  {
+
+                                      },
+                      "categorie":  "huis"
+                  },
+                  {
+                      "id":  "t_hout",
+                      "naam":  "Rondslingerend hout verzagen",
+                      "type":  "eenmalig",
+                      "gedaan":  false,
+                      "log":  [
+
+                              ],
+                      "voorwaarden":  {
+
+                                      },
+                      "categorie":  "huis"
+                  },
+                  {
+                      "id":  "t_kieren",
+                      "naam":  "Afdichten kieren naar plafond",
+                      "type":  "eenmalig",
+                      "gedaan":  false,
+                      "log":  [
+
+                              ],
+                      "voorwaarden":  {
+
+                                      },
+                      "categorie":  "huis"
+                  },
+                  {
+                      "id":  "t_strips",
+                      "naam":  "Strips op lekkende aflopen plakken",
+                      "type":  "eenmalig",
+                      "gedaan":  false,
+                      "log":  [
+
+                              ],
+                      "voorwaarden":  {
+
+                                      },
+                      "categorie":  "huis"
+                  },
+                  {
+                      "id":  "t_ha_script",
+                      "naam":  "HA: script die alle batterijen van sensoren checkt",
+                      "type":  "eenmalig",
+                      "gedaan":  false,
+                      "log":  [
+
+                              ],
+                      "voorwaarden":  {
+
+                                      },
+                      "categorie":  "technisch"
+                  }
+              ]
 }
