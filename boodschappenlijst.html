@@ -2,35 +2,40 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Boodschappenlijst</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Concierge</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html,body{max-width:100%;overflow-x:hidden;}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f7f7f5;color:#111;padding-bottom:80px;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f7f7f5;color:#111;padding-bottom:100px;}
 #header{background:#fff;border-bottom:1px solid #e5e3de;padding:10px 12px 0;position:sticky;top:0;z-index:20;}
-#header h1{font-size:16px;font-weight:500;margin-bottom:8px;}
 #search-wrap{margin-bottom:8px;}
 #search{width:100%;font-size:15px;padding:7px 10px;border:1px solid #ddd;border-radius:8px;background:#fafaf8;}
 #tabbar{display:flex;}
-.tab{padding:8px 14px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-size:14px;color:#888;font-weight:400;}
-.tab.active{color:#1a6bc4;border-bottom-color:#1a6bc4;font-weight:500;}
-#badge{display:inline-block;background:#1a6bc4;color:#fff;border-radius:10px;font-size:11px;padding:1px 6px;margin-left:5px;vertical-align:middle;}
-#app{padding:8px 10px 0;width:100%;}
+.tab{flex:1;text-align:center;padding:9px 0;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-size:13px;color:#888;font-weight:400;}
+.tab.active{color:#4a7c59;border-bottom-color:#4a7c59;font-weight:600;}
+#badge{display:inline-block;background:#4a7c59;color:#fff;border-radius:10px;font-size:11px;padding:1px 6px;margin-left:4px;vertical-align:middle;}
+/* Sync */
+.sync-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#ccc;margin-right:3px;vertical-align:middle;transition:background .3s;}
+.sync-dot.ok{background:#4a7c59;}
+.sync-dot.bezig{background:#e6a817;animation:sdpulse 1s infinite;}
+.sync-dot.fout{background:#c0392b;}
+@keyframes sdpulse{0%,100%{opacity:1}50%{opacity:.3}}
+/* Aanstiplijst */
+#app-wrap{padding:8px 10px 0;}
 .cat-block{margin-bottom:4px;border:1px solid #e8e6e1;border-radius:8px;overflow:hidden;background:#fff;}
 .cat-head{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;cursor:pointer;background:#f2f1ec;user-select:none;}
 .cat-head span.label{font-size:13px;font-weight:500;text-transform:capitalize;}
-.cat-head span.cnt{font-size:11px;color:#aaa;}
 .cat-head .arr{font-size:11px;color:#bbb;transition:transform .15s;}
 .cat-head.open .arr{transform:rotate(90deg);}
 .cat-items{display:none;}
 .cat-items.open{display:block;}
 .item-row{display:flex;align-items:center;gap:8px;padding:8px 12px;border-top:1px solid #f0ede8;}
-.item-row input{width:20px;height:20px;cursor:pointer;accent-color:#1a6bc4;flex-shrink:0;}
+.item-row input{width:20px;height:20px;cursor:pointer;accent-color:#4a7c59;flex-shrink:0;}
 .item-row .name{flex:1;font-size:14px;line-height:1.3;word-break:break-word;}
 .item-row .specs{font-size:12px;color:#aaa;display:block;}
-.item-row .opm{font-size:11px;color:#c47f00;}
-.item-row.checked .name{color:#ccc;text-decoration:line-through;}
+.item-row.checked .name{color:#bbb;text-decoration:line-through;}
+.item-extra-badge{font-size:10px;background:#eaf4ee;color:#4a7c59;border-radius:6px;padding:1px 5px;margin-left:4px;vertical-align:middle;}
 /* Winkellijst */
 .store-block{margin-bottom:16px;}
 .store-hd{display:flex;align-items:center;justify-content:space-between;background:#eae8e2;border-radius:8px;padding:10px 12px;margin-bottom:2px;}
@@ -40,52 +45,239 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .wclosed{font-size:11px;color:#c47f00;font-weight:400;margin-left:6px;}
 .wrow{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid #f0ede8;background:#fff;}
 .wrow:first-child{border-top:1px solid #f0ede8;}
-.wrow input{width:20px;height:20px;cursor:pointer;accent-color:#1a6bc4;flex-shrink:0;}
+.wrow input{width:20px;height:20px;cursor:pointer;accent-color:#4a7c59;flex-shrink:0;}
 .wrow.dimmed{opacity:.35;}
 .wrow.wdone .wname{text-decoration:line-through;color:#bbb;}
 .wname{flex:1;font-size:14px;word-break:break-word;}
 .wspecs{font-size:12px;color:#aaa;}
 .wnote{font-size:11px;color:#c47f00;margin-left:4px;}
-.wcheck{color:#2a9d5c;font-size:15px;}
-#empty{text-align:center;padding:40px 0;color:#bbb;font-size:15px;}
-#actions{width:100%;margin:12px auto 0;padding:0 10px;}
+.wcheck{color:#4a7c59;font-size:15px;}
+/* Acties */
+#actions{padding:0 10px;margin-top:8px;}
 .confirm-btn{width:100%;font-size:15px;padding:13px;border:1px solid #ddd;border-radius:9px;cursor:pointer;background:#fff;color:#111;}
-/* Sync */
-.sync-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#ccc;margin-right:3px;vertical-align:middle;}
-.sync-dot.ok{background:#4a7c59;}
-.sync-dot.bezig{background:#e6a817;animation:sdpulse 1s infinite;}
-.sync-dot.fout{background:#c0392b;}
-@keyframes sdpulse{0%,100%{opacity:1}50%{opacity:.3}}
+#empty-winkel{text-align:center;padding:40px 0;color:#bbb;font-size:15px;}
+/* Nieuw artikel */
+#nieuw-artikel-wrap{padding:10px 10px 0;}
+.toevoeg-toggle{width:100%;padding:11px;background:none;border:2px dashed #d5d3ce;border-radius:8px;font-size:14px;color:#aaa;cursor:pointer;text-align:center;}
+.toevoeg-toggle:active{border-color:#4a7c59;color:#4a7c59;}
+#nieuw-artikel-form{background:#fff;border:1px solid #e8e6e1;border-radius:8px;padding:14px;margin-top:6px;}
+.fg{margin-bottom:10px;}
+.fl{display:block;font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;}
+.fi{width:100%;padding:9px 12px;border:1px solid #ddd;border-radius:7px;font-size:14px;color:#111;background:#fafaf8;outline:none;}
+.fi:focus{border-color:#4a7c59;}
+.fi-row{display:flex;gap:8px;}
+.fi-row .fi{flex:1;}
+.btn-add{width:100%;padding:11px;background:#4a7c59;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;margin-top:4px;}
+/* Taken tab */
+#taken-wrap{padding:8px 10px 0;}
+.sectie-titel{font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.05em;margin:10px 0 6px;}
+.taak-item{display:flex;align-items:flex-start;gap:12px;border:1px solid #e8e6e1;border-radius:10px;padding:11px 13px;margin-bottom:6px;background:#fff;}
+.taak-item.relevant{border-color:#b8dfc5;background:#eaf4ee;}
+.taak-item.gedaan{opacity:.4;}
+.taak-item.gedaan .taak-naam{text-decoration:line-through;}
+.taak-check{width:24px;height:24px;flex-shrink:0;margin-top:1px;border:2px solid #ddd;border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s,border-color .15s;}
+.taak-item.relevant .taak-check{border-color:#b8dfc5;}
+.taak-check.actief{background:#4a7c59;border-color:#4a7c59;}
+.taak-check.actief::after{content:'✓';color:#fff;font-size:13px;font-weight:700;}
+.taak-info{flex:1;min-width:0;}
+.taak-naam{font-size:14px;font-weight:500;line-height:1.3;}
+.taak-meta{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-top:4px;}
+.tbadge{font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600;}
+.tbadge-h{background:#e8f0fe;color:#1a73e8;}
+.tbadge-e{background:#fef3e8;color:#d97706;}
+.tbadge-v{background:#eaf4ee;color:#4a7c59;border:1px solid #b8dfc5;}
+.taak-when{font-size:11px;color:#aaa;}
+.taak-delete{flex-shrink:0;color:#bbb;cursor:pointer;font-size:20px;line-height:1;padding:2px 4px;border-radius:5px;}
+.taak-delete:active{color:#c0392b;background:#fdecea;}
+.nieuw-taak-btn{width:100%;padding:11px;background:none;border:2px dashed #d5d3ce;border-radius:8px;font-size:14px;color:#aaa;cursor:pointer;text-align:center;margin-top:6px;}
+.nieuw-taak-btn:active{border-color:#4a7c59;color:#4a7c59;}
+.taken-leeg{text-align:center;color:#bbb;font-size:14px;padding:24px 0;font-style:italic;}
+/* Modal */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;align-items:flex-end;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal{background:#fff;border-radius:20px 20px 0 0;padding:22px 18px 44px;width:100%;max-width:640px;max-height:92vh;overflow-y:auto;}
+.modal-titel{font-size:17px;font-weight:600;margin-bottom:16px;}
+.chips{display:flex;flex-wrap:wrap;gap:6px;}
+.chip{padding:7px 14px;border-radius:20px;border:1px solid #ddd;background:#f7f7f5;font-size:13px;cursor:pointer;user-select:none;}
+.chip.actief{background:#4a7c59;color:#fff;border-color:#4a7c59;}
+.temp-fg{display:flex;align-items:center;gap:8px;}
+.temp-fg .fi{width:90px;flex:none;}
+.modal-knoppen{display:flex;gap:8px;margin-top:20px;}
+.btn-p{flex:1;padding:13px;background:#4a7c59;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;}
+.btn-s{flex:1;padding:13px;background:#f2f1ec;color:#888;border:1px solid #e5e3de;border-radius:10px;font-size:15px;cursor:pointer;}
 </style>
 </head>
 <body>
+
 <div id="header">
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
     <div style="display:flex;align-items:center;gap:8px;">
-      <h1>Boodschappenlijst</h1>
+      <span style="font-size:16px;font-weight:500;">Concierge</span>
       <div>
         <span class="sync-dot" id="sync-dot"></span>
         <span id="sync-tekst" style="font-size:11px;color:#aaa;">–</span>
       </div>
     </div>
-    <div style="display:flex;gap:6px;align-items:center;">
-      <button id="save-btn" onclick="slaOp()" style="font-size:12px;padding:4px 10px;border:1px solid #1a6bc4;border-radius:6px;background:#1a6bc4;color:#fff;cursor:pointer;">💾</button>
-      <button onclick="herlaad()" style="font-size:12px;padding:4px 10px;border:1px solid #ddd;border-radius:6px;background:#fff;color:#888;cursor:pointer;">↻</button>
-      <button onclick="resetLijst()" style="font-size:12px;padding:4px 10px;border:1px solid #ddd;border-radius:6px;background:#fff;color:#aaa;cursor:pointer;">Wis lijst</button>
+    <div style="display:flex;gap:5px;align-items:center;">
+      <button onclick="laadData()" style="font-size:12px;padding:4px 9px;border:1px solid #ddd;border-radius:6px;background:#fff;color:#888;cursor:pointer;" title="Herlaad">↻</button>
+      <button onclick="slaOp()" style="font-size:12px;padding:4px 9px;border:1px solid #4a7c59;border-radius:6px;background:#4a7c59;color:#fff;cursor:pointer;" title="Opslaan">💾</button>
+      <button onclick="resetLijst()" style="font-size:12px;padding:4px 9px;border:1px solid #ddd;border-radius:6px;background:#fff;color:#bbb;cursor:pointer;">Wis</button>
     </div>
   </div>
-  <div id="search-wrap" style="margin-bottom:10px;"><input id="search" type="search" placeholder="zoeken..." oninput="filterItems(this.value)"></div>
+  <div id="search-wrap" style="margin-bottom:8px;"><input id="search" type="search" placeholder="zoeken in boodschappen…" oninput="filterItems(this.value)"></div>
   <div id="tabbar">
     <button class="tab active" onclick="setTab('aanstip')">Aanstiplijst</button>
     <button class="tab" onclick="setTab('winkel')">Winkellijst <span id="badge">0</span></button>
+    <button class="tab" onclick="setTab('taken')">✓ Taken</button>
   </div>
 </div>
-<div id="app"></div>
+
+<!-- Aanstip + Winkel content -->
+<div id="app-wrap"></div>
 <div id="actions"></div>
 
+<!-- Nieuw artikel (onderaan aanstip) -->
+<div id="nieuw-artikel-wrap" style="display:none;">
+  <button class="toevoeg-toggle" onclick="toggleArtikelForm()">+ Nieuw artikel toevoegen</button>
+  <div id="nieuw-artikel-form" style="display:none;">
+    <div class="fg">
+      <label class="fl">Naam</label>
+      <input class="fi" id="na-naam" type="text" placeholder="Naam van het artikel" autocomplete="off">
+    </div>
+    <div class="fg">
+      <label class="fl">Specs (optioneel)</label>
+      <input class="fi" id="na-specs" type="text" placeholder="bijv. gezouten, 1 kg…" autocomplete="off">
+    </div>
+    <div class="fi-row">
+      <div class="fg" style="flex:1;">
+        <label class="fl">Categorie</label>
+        <select class="fi" id="na-cat">
+          <option value="snack">snack</option>
+          <option value="maaltijd">maaltijd</option>
+          <option value="keuken" selected>keuken</option>
+          <option value="groenten">groenten</option>
+          <option value="vlees">vlees</option>
+          <option value="vis">vis</option>
+          <option value="beleg">beleg</option>
+          <option value="brood">brood</option>
+          <option value="ontbijt">ontbijt</option>
+          <option value="fruit">fruit</option>
+          <option value="kruiden">kruiden</option>
+          <option value="drank">drank</option>
+          <option value="melk">melk</option>
+          <option value="sausen ed">sausen ed</option>
+          <option value="persoonlijk">persoonlijk</option>
+          <option value="vaatwas">vaatwas</option>
+          <option value="was">was</option>
+          <option value="dier">dier</option>
+          <option value="logistiek">logistiek</option>
+          <option value="onderhoud">onderhoud</option>
+          <option value="batterijen">batterijen</option>
+          <option value="rest">rest</option>
+          <option value="special">special</option>
+          <option value="leeggoed">leeggoed</option>
+        </select>
+      </div>
+      <div class="fg" style="flex:1;">
+        <label class="fl">Winkel</label>
+        <select class="fi" id="na-pref">
+          <option value="OKAY" selected>OKAY</option>
+          <option value="SPAR">SPAR</option>
+          <option value="Bakker">Bakker</option>
+        </select>
+      </div>
+    </div>
+    <div class="fg">
+      <label class="fl">Backup winkel (optioneel)</label>
+      <select class="fi" id="na-backup">
+        <option value="">geen</option>
+        <option value="OKAY">OKAY</option>
+        <option value="SPAR" selected>SPAR</option>
+      </select>
+    </div>
+    <button class="btn-add" onclick="voegArtikelToe()">Toevoegen aan lijst</button>
+  </div>
+</div>
+
+<!-- Taken sectie -->
+<div id="taken-wrap" style="display:none;">
+  <div id="taken-lijst"></div>
+  <button class="nieuw-taak-btn" onclick="openTaakModal()">+ Nieuwe taak</button>
+</div>
+
+<!-- Modal nieuwe taak -->
+<div class="modal-overlay" id="taak-modal" onclick="sluitTaakModalBuiten(event)">
+  <div class="modal">
+    <div class="modal-titel">Nieuwe taak</div>
+    <div class="fg">
+      <label class="fl">Naam</label>
+      <input class="fi" id="tf-naam" type="text" placeholder="Wat moet er gedaan worden?" autocomplete="off"
+        onkeydown="if(event.key==='Enter') voegTaakToe()">
+    </div>
+    <div class="fg">
+      <label class="fl">Type</label>
+      <div class="chips">
+        <div class="chip actief" data-g="type" data-v="eenmalig" onclick="kiesChip(this)">Éénmalig</div>
+        <div class="chip" data-g="type" data-v="herhalend" onclick="kiesChip(this)">Herhalend</div>
+      </div>
+    </div>
+    <div class="fg">
+      <label class="fl">Weer (optioneel)</label>
+      <div class="chips" id="tcg-weer">
+        <div class="chip" data-v="droog" onclick="toggleChip(this)">☀️ Droog</div>
+        <div class="chip" data-v="bewolkt" onclick="toggleChip(this)">☁️ Bewolkt</div>
+        <div class="chip" data-v="regen" onclick="toggleChip(this)">🌧️ Regen</div>
+      </div>
+    </div>
+    <div class="fg">
+      <label class="fl">Temperatuur (optioneel)</label>
+      <div class="temp-fg">
+        <input class="fi" id="tf-tmin" type="number" placeholder="Min °C">
+        <span style="color:#aaa;font-size:13px;">tot</span>
+        <input class="fi" id="tf-tmax" type="number" placeholder="Max °C">
+        <span style="color:#aaa;font-size:13px;">°C</span>
+      </div>
+    </div>
+    <div class="fg">
+      <label class="fl">Seizoen (optioneel)</label>
+      <div class="chips" id="tcg-seizoen">
+        <div class="chip" data-v="lente" onclick="toggleChip(this)">🌱 Lente</div>
+        <div class="chip" data-v="zomer" onclick="toggleChip(this)">☀️ Zomer</div>
+        <div class="chip" data-v="herfst" onclick="toggleChip(this)">🍂 Herfst</div>
+        <div class="chip" data-v="winter" onclick="toggleChip(this)">❄️ Winter</div>
+      </div>
+    </div>
+    <div class="fg">
+      <label class="fl">Dag van de week (optioneel)</label>
+      <div class="chips" id="tcg-dag">
+        <div class="chip" data-v="ma" onclick="toggleChip(this)">Ma</div>
+        <div class="chip" data-v="di" onclick="toggleChip(this)">Di</div>
+        <div class="chip" data-v="wo" onclick="toggleChip(this)">Wo</div>
+        <div class="chip" data-v="do" onclick="toggleChip(this)">Do</div>
+        <div class="chip" data-v="vr" onclick="toggleChip(this)">Vr</div>
+        <div class="chip" data-v="za" onclick="toggleChip(this)">Za</div>
+        <div class="chip" data-v="zo" onclick="toggleChip(this)">Zo</div>
+      </div>
+    </div>
+    <div class="fg">
+      <label class="fl">Feestdag (optioneel)</label>
+      <div class="chips">
+        <div class="chip actief" data-g="feestdag" data-v="null" onclick="kiesChip(this)">Maakt niet uit</div>
+        <div class="chip" data-g="feestdag" data-v="true" onclick="kiesChip(this)">Alleen feestdag</div>
+        <div class="chip" data-g="feestdag" data-v="false" onclick="kiesChip(this)">Geen feestdag</div>
+      </div>
+    </div>
+    <div class="modal-knoppen">
+      <button class="btn-s" onclick="sluitTaakModal()">Annuleren</button>
+      <button class="btn-p" onclick="voegTaakToe()">Toevoegen</button>
+    </div>
+  </div>
+</div>
+
 <script>
+// ===== CATALOGUS =====
 const ALL_ITEMS = [{"naam": "oude batterijen en bruisgasflessen leeg", "specs": "", "volgw": 100, "volgb": 5, "cat": "leeggoed", "pref": "OKAY", "backup": "", "opm": ""}, {"naam": "wenskaarten", "specs": "", "volgw": 1050, "volgb": 8, "cat": "special", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "chips paprika", "specs": "", "volgw": 110, "volgb": 10, "cat": "snack", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "chips zout", "specs": "", "volgw": 120, "volgb": 10, "cat": "snack", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "nootjes", "specs": "gezouten", "volgw": 130, "volgb": 10, "cat": "snack", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "speculoos everyday", "specs": "", "volgw": 200, "volgb": 10, "cat": "snack", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "energierepen", "specs": "", "volgw": 220, "volgb": 10, "cat": "snack", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "chocolade of zo", "specs": "", "volgw": 230, "volgb": 10, "cat": "snack", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "frisk fresh effect of iets gelijkaardigs", "specs": "", "volgw": 240, "volgb": 10, "cat": "snack", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "pims boni", "specs": "", "volgw": 290, "volgb": 10, "cat": "snack", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "salami & kaasblokjes", "specs": "", "volgw": 1250, "volgb": 10, "cat": "snack", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "pannenkoeken", "specs": "", "volgw": 1260, "volgb": 10, "cat": "snack", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "droge worstjes", "specs": "", "volgw": 1410, "volgb": 10, "cat": "snack", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "cervela", "specs": "", "volgw": 1560, "volgb": 10, "cat": "snack", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "chocoladeijs", "specs": "", "volgw": 2030, "volgb": 10, "cat": "snack", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "citroenijs", "specs": "", "volgw": 2040, "volgb": 10, "cat": "snack", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "ijsjes", "specs": "", "volgw": 2080, "volgb": 10, "cat": "snack", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "Magnum", "specs": "", "volgw": 2090, "volgb": 10, "cat": "snack", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "vanilleijs", "specs": "", "volgw": 2100, "volgb": 10, "cat": "snack", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "cesar salad", "specs": "", "volgw": 1400, "volgb": 15, "cat": "maaltijd", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "oetker pizza", "specs": "", "volgw": 1770, "volgb": 15, "cat": "maaltijd", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "bami goreng", "specs": "", "volgw": 1800, "volgb": 15, "cat": "maaltijd", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "macaroni", "specs": "", "volgw": 1810, "volgb": 15, "cat": "maaltijd", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "moussaka", "specs": "", "volgw": 1820, "volgb": 15, "cat": "maaltijd", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "lasagne", "specs": "", "volgw": 1830, "volgb": 15, "cat": "maaltijd", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "loempia", "specs": "", "volgw": 1950, "volgb": 15, "cat": "maaltijd", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "bechamel", "specs": "", "volgw": 310, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "bruine rijst", "specs": "", "volgw": 330, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "couscous", "specs": "", "volgw": 360, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "frituurolie", "specs": "", "volgw": 370, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "griekse pasta", "specs": "", "volgw": 380, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "tagliatelli", "specs": "", "volgw": 440, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "tomatenconcentraat", "specs": "", "volgw": 460, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "arachideolie", "specs": "", "volgw": 480, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "witte wijn azijn", "specs": "", "volgw": 590, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "olijfolie", "specs": "", "volgw": 600, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "look", "specs": "", "volgw": 1060, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "aardappelen bloem aardappelen", "specs": "", "volgw": 1070, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "ajuin", "specs": "", "volgw": 1080, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "nicola aardappelen 5 kilo", "specs": "", "volgw": 1090, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "rode ajuin", "specs": "", "volgw": 1100, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "effi of becel", "specs": "", "volgw": 1280, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "eieren", "specs": "", "volgw": 1300, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "gehakt gemengd 1 kilo", "specs": "", "volgw": 1510, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "spaghettigroenten 3 zakjes", "specs": "", "volgw": 1780, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "voorgebakken frietjes", "specs": "", "volgw": 1960, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "frietjes diepvries", "specs": "", "volgw": 1980, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "diepvrieskroketten", "specs": "", "volgw": 2000, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "diepvriesgroenten mix pierre", "specs": "", "volgw": 2010, "volgb": 20, "cat": "keuken", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "prei veel wit", "specs": "", "volgw": 1570, "volgb": 30, "cat": "groenten", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "komkommer", "specs": "Molly", "volgw": 1580, "volgb": 30, "cat": "groenten", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "tomaten", "specs": "", "volgw": 1590, "volgb": 30, "cat": "groenten", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "witloof", "specs": "", "volgw": 1600, "volgb": 30, "cat": "groenten", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "champignons", "specs": "", "volgw": 1610, "volgb": 30, "cat": "groenten", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "chili pepers", "specs": "", "volgw": 1620, "volgb": 30, "cat": "groenten", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "muizenoortjes", "specs": "", "volgw": 1630, "volgb": 30, "cat": "groenten", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "wortelen", "specs": "", "volgw": 1640, "volgb": 30, "cat": "groenten", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "sla 3 kleuren met wortel", "specs": "", "volgw": 1650, "volgb": 30, "cat": "groenten", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "groene kool", "specs": "", "volgw": 1660, "volgb": 30, "cat": "groenten", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "pitskool", "specs": "", "volgw": 1670, "volgb": 30, "cat": "groenten", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "dille met wortel", "specs": "", "volgw": 1680, "volgb": 30, "cat": "groenten", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "diepvriesgroenten spinazie, bloe...", "specs": "", "volgw": 1970, "volgb": 30, "cat": "groenten", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "soepgroenten", "specs": "", "volgw": 1990, "volgb": 30, "cat": "groenten", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "diepvriessoepgroenten", "specs": "", "volgw": 2020, "volgb": 30, "cat": "groenten", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "diepvriesgroenten catalaans 2x", "specs": "", "volgw": 2050, "volgb": 30, "cat": "groenten", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "diepvriesgroenten mediteraan 2x", "specs": "", "volgw": 2060, "volgb": 30, "cat": "groenten", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "pruimen", "specs": "", "volgw": 2170, "volgb": 30, "cat": "groenten", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "Kip", "specs": "", "volgw": 1440, "volgb": 40, "cat": "vlees", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "kippegehakt", "specs": "", "volgw": 1450, "volgb": 40, "cat": "vlees", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "ribbetjes", "specs": "", "volgw": 1500, "volgb": 40, "cat": "vlees", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "entrecôte rund", "specs": "", "volgw": 1460, "volgb": 40, "cat": "vlees", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "contrefillet rund", "specs": "", "volgw": 1490, "volgb": 40, "cat": "vlees", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "dikke ribbetjes", "specs": "", "volgw": 1480, "volgb": 40, "cat": "vlees", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "spiering varken", "specs": "", "volgw": 1540, "volgb": 40, "cat": "vlees", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "gehakt voor balletjes 1 kg gemeng...", "specs": "", "volgw": 1530, "volgb": 40, "cat": "vlees", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "cordon bleu", "specs": "", "volgw": 1550, "volgb": 40, "cat": "vlees", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "zalm", "specs": "", "volgw": 1420, "volgb": 50, "cat": "vis", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "kabeljauw (geen haasje)", "specs": "", "volgw": 1430, "volgb": 50, "cat": "vis", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "fish sticks", "specs": "", "volgw": 2070, "volgb": 50, "cat": "vis", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "bâton dunne salami worst", "specs": "", "volgw": 1180, "volgb": 60, "cat": "beleg", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "spek blokjes gerookt", "specs": "", "volgw": 1200, "volgb": 60, "cat": "beleg", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "spek sneden", "specs": "", "volgw": 1210, "volgb": 60, "cat": "beleg", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "vers spek ongezouten sneetjes", "specs": "", "volgw": 1220, "volgb": 60, "cat": "beleg", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "americain prepare", "specs": "", "volgw": 1230, "volgb": 60, "cat": "beleg", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "martino", "specs": "", "volgw": 1240, "volgb": 60, "cat": "beleg", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "platte kaas vol 3 dozen", "specs": "", "volgw": 1290, "volgb": 60, "cat": "beleg", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "philadelphia", "specs": "", "volgw": 1320, "volgb": 60, "cat": "beleg", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "raclettekaas", "specs": "", "volgw": 1330, "volgb": 60, "cat": "beleg", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "americain natuur", "specs": "", "volgw": 1470, "volgb": 60, "cat": "beleg", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "gehakt varken kalf voor de boterh...", "specs": "", "volgw": 1520, "volgb": 60, "cat": "beleg", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "salami met look", "specs": "", "volgw": 2180, "volgb": 60, "cat": "beleg", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "bruin frans brood", "specs": "", "volgw": 1910, "volgb": 70, "cat": "brood", "pref": "Bakker", "backup": "OKAY", "opm": ""}, {"naam": "wit caréken", "specs": "", "volgw": 1920, "volgb": 70, "cat": "brood", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "brood lichtbruin", "specs": "", "volgw": 1930, "volgb": 70, "cat": "brood", "pref": "Bakker", "backup": "OKAY", "opm": ""}, {"naam": "brood donker", "specs": "", "volgw": 1940, "volgb": 70, "cat": "brood", "pref": "Bakker", "backup": "OKAY", "opm": ""}, {"naam": "havermout", "specs": "", "volgw": 160, "volgb": 75, "cat": "ontbijt", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "confituur rabarber aardbei", "specs": "", "volgw": 170, "volgb": 75, "cat": "ontbijt", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "muesli (gedroogd fruit & granen)", "specs": "", "volgw": 180, "volgb": 75, "cat": "ontbijt", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "corn flakes [DUBBEL]", "specs": "", "volgw": 190, "volgb": 75, "cat": "ontbijt", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "speculoospasta", "specs": "", "volgw": 210, "volgb": 75, "cat": "ontbijt", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "hagelslag fondant", "specs": "", "volgw": 250, "volgb": 75, "cat": "ontbijt", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "bruine kinderkessuiker", "specs": "", "volgw": 320, "volgb": 75, "cat": "ontbijt", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "choco", "specs": "", "volgw": 350, "volgb": 75, "cat": "ontbijt", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "honing", "specs": "", "volgw": 410, "volgb": 75, "cat": "ontbijt", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "kristal suiker (voor brood)", "specs": "", "volgw": 430, "volgb": 75, "cat": "ontbijt", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "betterfood", "specs": "", "volgw": 1110, "volgb": 75, "cat": "ontbijt", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "bananen", "specs": "", "volgw": 1170, "volgb": 80, "cat": "fruit", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "6 appelsienen", "specs": "", "volgw": 1690, "volgb": 80, "cat": "fruit", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "appelsien pers", "specs": "", "volgw": 1700, "volgb": 80, "cat": "fruit", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "kiwi", "specs": "", "volgw": 1710, "volgb": 80, "cat": "fruit", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "mandarijntjes, geen doos, aan de...", "specs": "", "volgw": 1720, "volgb": 80, "cat": "fruit", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "platte perziken", "specs": "", "volgw": 1730, "volgb": 80, "cat": "fruit", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "appelen", "specs": "", "volgw": 1740, "volgb": 80, "cat": "fruit", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "druiven", "specs": "", "volgw": 1750, "volgb": 80, "cat": "fruit", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "aardbeien 2 doosjes", "specs": "", "volgw": 1760, "volgb": 80, "cat": "fruit", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "basilicum met wortel", "specs": "", "volgw": 1790, "volgb": 80, "cat": "kruiden", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "Citroenconcentraat voor frisdrank", "specs": "", "volgw": 140, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "volle melk 12L", "specs": "", "volgw": 150, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "koffie", "specs": "", "volgw": 260, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "nesquick", "specs": "", "volgw": 270, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "canderelsuiker", "specs": "", "volgw": 340, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "klontjes suiker", "specs": "", "volgw": 420, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "sodastream volle fles", "specs": "", "volgw": 540, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "evian Louis water", "specs": "", "volgw": 910, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "fanta 6 blikjes", "specs": "", "volgw": 920, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "gini", "specs": "", "volgw": 930, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "ice tea", "specs": "", "volgw": 940, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "schweppes mochitto", "specs": "", "volgw": 950, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "cola 6 blikjes (gewone)", "specs": "", "volgw": 960, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "cola zero", "specs": "", "volgw": 970, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "schweppes zero", "specs": "", "volgw": 980, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "plat water contrex 2 à 4 flessen", "specs": "", "volgw": 1000, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "bruisend water bru?", "specs": "", "volgw": 1010, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "jupiler", "specs": "", "volgw": 1020, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "fles bruin piedboeuf", "specs": "", "volgw": 1030, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "red bull", "specs": "", "volgw": 1040, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "appelsiensap", "specs": "", "volgw": 1900, "volgb": 90, "cat": "drank", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "kaas", "specs": "", "volgw": 1270, "volgb": 100, "cat": "melk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "kruidenboter", "specs": "", "volgw": 1310, "volgb": 100, "cat": "melk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "room om ijskreem te maken", "specs": "", "volgw": 1340, "volgb": 100, "cat": "melk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "solo vloeibaar bak", "specs": "", "volgw": 1350, "volgb": 100, "cat": "melk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "boter", "specs": "", "volgw": 1360, "volgb": 100, "cat": "melk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "boter 2 pakken", "specs": "", "volgw": 1370, "volgb": 100, "cat": "melk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "gorgonzola", "specs": "", "volgw": 1380, "volgb": 100, "cat": "melk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "gemalen kaas", "specs": "", "volgw": 1390, "volgb": 100, "cat": "melk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "platte kaasjes voor Louis", "specs": "", "volgw": 1840, "volgb": 100, "cat": "melk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "yoghurt", "specs": "", "volgw": 1850, "volgb": 100, "cat": "melk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "yoghurt natuur witte producten 1/2L", "specs": "", "volgw": 1860, "volgb": 100, "cat": "melk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "alpro vanille", "specs": "", "volgw": 1870, "volgb": 100, "cat": "melk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "skyr", "specs": "", "volgw": 1880, "volgb": 100, "cat": "melk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "karnemelk 2 x", "specs": "", "volgw": 1890, "volgb": 100, "cat": "melk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "augurken", "specs": "", "volgw": 300, "volgb": 150, "cat": "sausen ed", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "harissa", "specs": "", "volgw": 390, "volgb": 150, "cat": "sausen ed", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "hollandaise", "specs": "", "volgw": 400, "volgb": 150, "cat": "sausen ed", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "zout", "specs": "", "volgw": 450, "volgb": 150, "cat": "sausen ed", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "amerikaanse saus", "specs": "", "volgw": 470, "volgb": 150, "cat": "sausen ed", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "ketchup", "specs": "", "volgw": 490, "volgb": 150, "cat": "sausen ed", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "Mayo devos lemmens ei", "specs": "", "volgw": 500, "volgb": 150, "cat": "sausen ed", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "mosterd", "specs": "", "volgw": 510, "volgb": 150, "cat": "sausen ed", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "pickels", "specs": "", "volgw": 520, "volgb": 150, "cat": "sausen ed", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "Samourai", "specs": "", "volgw": 530, "volgb": 150, "cat": "sausen ed", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "balsamico", "specs": "", "volgw": 560, "volgb": 150, "cat": "sausen ed", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "engelse saus", "specs": "", "volgw": 570, "volgb": 150, "cat": "sausen ed", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "tabasco", "specs": "", "volgw": 580, "volgb": 150, "cat": "sausen ed", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "shampoo", "specs": "", "volgw": 990, "volgb": 160, "cat": "persoonlijk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "oorstokjes", "specs": "", "volgw": 1120, "volgb": 160, "cat": "persoonlijk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "after sun voor kinderen", "specs": "", "volgw": 1130, "volgb": 160, "cat": "persoonlijk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "handwaszeep", "specs": "", "volgw": 1140, "volgb": 160, "cat": "persoonlijk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "douchegel", "specs": "", "volgw": 1150, "volgb": 160, "cat": "persoonlijk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "tandpasta", "specs": "", "volgw": 1160, "volgb": 160, "cat": "persoonlijk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "scheermesjes mach3", "specs": "", "volgw": 2140, "volgb": 160, "cat": "persoonlijk", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "spoelmiddel vaatwas", "specs": "", "volgw": 770, "volgb": 170, "cat": "vaatwas", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "vaatwastabletten", "specs": "", "volgw": 780, "volgb": 170, "cat": "vaatwas", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "wasmiddel kleur", "specs": "", "volgw": 610, "volgb": 180, "cat": "was", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "wasmiddel voor witte was", "specs": "", "volgw": 620, "volgb": 180, "cat": "was", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "wasverzachter", "specs": "", "volgw": 630, "volgb": 180, "cat": "was", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "dentastix", "specs": "", "volgw": 810, "volgb": 200, "cat": "dier", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "jumbone", "specs": "", "volgw": 820, "volgb": 200, "cat": "dier", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "zwarte schoensmeer", "specs": "", "volgw": 550, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "reinigingspray ruiten open haard", "specs": "", "volgw": 640, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "ontstopper", "specs": "", "volgw": 650, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "ontvochtingszout", "specs": "", "volgw": 660, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "dethol citroen", "specs": "", "volgw": 670, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "spray dettol ajax", "specs": "", "volgw": 680, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "spray schimmel voegen badkamer", "specs": "", "volgw": 690, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "wasmachinereiniger", "specs": "", "volgw": 700, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "instanet", "specs": "", "volgw": 710, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "zwarte vuilzakken", "specs": "", "volgw": 720, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "soda-reiniger", "specs": "", "volgw": 730, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "steradent waterleidingreiniger", "specs": "", "volgw": 740, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "glansmiddel vaatwas", "specs": "", "volgw": 750, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "Regenereerzout vaatwas", "specs": "", "volgw": 760, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "wc cleaner met klem op wc pot", "specs": "", "volgw": 790, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "swifferdoekjes", "specs": "", "volgw": 800, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "huishoudpapier", "specs": "", "volgw": 830, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "servetten", "specs": "", "volgw": 840, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "WC papier", "specs": "", "volgw": 850, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "blauwe vuilzakken", "specs": "", "volgw": 860, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "zwarte vuilzakken", "specs": "", "volgw": 870, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "boterhamzakjes 5 L en 1 L", "specs": "", "volgw": 880, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "doggybagzakken met sluiting", "specs": "", "volgw": 890, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "aluminium folie", "specs": "", "volgw": 900, "volgb": 300, "cat": "logistiek", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "ontkalker koffiezet", "specs": "", "volgw": 280, "volgb": 300, "cat": "onderhoud", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "Houtskool", "specs": "", "volgw": 1190, "volgb": 900, "cat": "rest", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "AA-batterijen", "specs": "", "volgw": 2110, "volgb": 990, "cat": "batterijen", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "AAA-batterijen", "specs": "", "volgw": 2120, "volgb": 990, "cat": "batterijen", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "aanstekers", "specs": "", "volgw": 2130, "volgb": 990, "cat": "batterijen", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "2032 batterijen", "specs": "", "volgw": 2150, "volgb": 990, "cat": "batterijen", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "geld afhalen", "specs": "", "volgw": 2160, "volgb": 990, "cat": "rest", "pref": "OKAY", "backup": "SPAR", "opm": ""}, {"naam": "kartonnen dozen", "specs": "", "volgw": 9999, "volgb": 999, "cat": "rest", "pref": "OKAY", "backup": "", "opm": ""}];
-const CAT_ORDER = ["leeggoed", "special", "snack", "maaltijd", "keuken", "groenten", "vlees", "vis", "beleg", "brood", "ontbijt", "fruit", "kruiden", "drank", "melk", "sausen ed", "persoonlijk", "vaatwas", "was", "dier", "logistiek", "onderhoud", "rest", "batterijen"];
+const CAT_ORDER = ["leeggoed","special","snack","maaltijd","keuken","groenten","vlees","vis","beleg","brood","ontbijt","fruit","kruiden","drank","melk","sausen ed","persoonlijk","vaatwas","was","dier","logistiek","onderhoud","rest","batterijen"];
 const STORE_ORDER = ['Bakker','OKAY','SPAR'];
 const STORE_CLOSED_UNTIL = { 'Bakker': '2026-08-05' };
 const TODAY = new Date();
@@ -99,46 +291,35 @@ const API_URL = `https://api.github.com/repos/${REPO}/contents/${BESTAND}`;
 let huidigeSha = null;
 let syncData = {};
 let saveTimer = null;
+let weerInfo = null;
 
-function setSyncStatus(status, tekst) {
-  const dot = document.getElementById('sync-dot');
-  dot.className = 'sync-dot ' + status;
-  document.getElementById('sync-tekst').textContent = tekst;
+function setSyncStatus(s, t) {
+  document.getElementById('sync-dot').className = 'sync-dot ' + s;
+  document.getElementById('sync-tekst').textContent = t;
 }
-
 function naarBase64(tekst) {
   const bytes = new TextEncoder().encode(tekst);
-  let binair = '';
-  bytes.forEach(b => binair += String.fromCharCode(b));
-  return btoa(binair);
+  let b = ''; bytes.forEach(x => b += String.fromCharCode(x)); return btoa(b);
 }
 
 async function laadData() {
   setSyncStatus('bezig', 'laden…');
   try {
-    const r = await fetch(API_URL, {
-      headers: { Authorization: `Bearer ${TOKEN}`, Accept: 'application/vnd.github.v3+json' }
-    });
-    if (r.status === 404) {
-      huidigeSha = null;
-      syncData = {};
-      setSyncStatus('ok', 'nieuw');
-      return;
+    const r = await fetch(API_URL, { headers: { Authorization: `Bearer ${TOKEN}`, Accept: 'application/vnd.github.v3+json' } });
+    if (r.status === 404) { huidigeSha = null; syncData = {}; setSyncStatus('ok', 'nieuw'); }
+    else if (!r.ok) throw new Error(r.status);
+    else {
+      const json = await r.json();
+      huidigeSha = json.sha;
+      syncData = JSON.parse(atob(json.content.replace(/\n/g, '')));
+      if (syncData.boodschappen_geselecteerd) {
+        selected.clear();
+        syncData.boodschappen_geselecteerd.forEach(n => selected.add(n));
+      }
+      setSyncStatus('ok', 'gesynchroniseerd');
     }
-    if (!r.ok) throw new Error(r.status);
-    const json = await r.json();
-    huidigeSha = json.sha;
-    syncData = JSON.parse(atob(json.content.replace(/\n/g, '')));
-    if (syncData.boodschappen_geselecteerd) {
-      selected.clear();
-      syncData.boodschappen_geselecteerd.forEach(n => selected.add(n));
-      render();
-    }
-    setSyncStatus('ok', 'gesynchroniseerd');
-  } catch(e) {
-    setSyncStatus('fout', 'fout bij laden');
-    console.error('Laden mislukt:', e);
-  }
+  } catch(e) { setSyncStatus('fout', 'fout bij laden'); console.error(e); }
+  render();
 }
 
 async function slaOp() {
@@ -147,33 +328,22 @@ async function slaOp() {
   try {
     syncData.boodschappen_geselecteerd = [...selected];
     const inhoud = naarBase64(JSON.stringify(syncData, null, 2));
-    const body = { message: 'boodschappen update', content: inhoud };
+    const body = { message: 'update', content: inhoud };
     if (huidigeSha) body.sha = huidigeSha;
     const r = await fetch(API_URL, {
       method: 'PUT',
-      headers: {
-        Authorization: `Bearer ${TOKEN}`,
-        Accept: 'application/vnd.github.v3+json',
-        'Content-Type': 'application/json'
-      },
+      headers: { Authorization: `Bearer ${TOKEN}`, Accept: 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
     });
     if (!r.ok) {
-      if (r.status === 409 || r.status === 422) {
-        await laadData();
-        return;
-      }
-      const fout = await r.json().catch(() => ({}));
-      throw new Error(`${r.status}: ${fout.message || ''}`);
+      if (r.status === 409 || r.status === 422) { await laadData(); return; }
+      throw new Error(r.status);
     }
     const json = await r.json();
     huidigeSha = json.content.sha;
     setSyncStatus('ok', 'opgeslagen ✓');
     setTimeout(() => setSyncStatus('ok', 'gesynchroniseerd'), 2500);
-  } catch(e) {
-    setSyncStatus('fout', 'fout bij opslaan');
-    console.error('Opslaan mislukt:', e);
-  }
+  } catch(e) { setSyncStatus('fout', 'fout'); console.error(e); }
 }
 
 function saveDebounced() {
@@ -181,19 +351,18 @@ function saveDebounced() {
   saveTimer = setTimeout(() => slaOp(), 2000);
 }
 
-function herlaad() {
-  laadData();
+// ===== CATALOGUS HELPERS =====
+function getMergedItems() {
+  return [...ALL_ITEMS, ...(syncData.artikelen_extra || [])];
 }
 
-// ===== WINKEL LOGIC =====
-function storeOpen(s) {
-  if (!STORE_CLOSED_UNTIL[s]) return true;
-  return TODAY > new Date(STORE_CLOSED_UNTIL[s]);
+function isExtraArtikel(naam) {
+  return (syncData.artikelen_extra || []).some(i => i.naam === naam);
 }
-function closedLabel(s) {
-  const d = new Date(STORE_CLOSED_UNTIL[s]);
-  return `gesloten t/m ${d.getDate()}/${d.getMonth()+1}`;
-}
+
+// ===== WINKEL HELPERS =====
+function storeOpen(s) { return !STORE_CLOSED_UNTIL[s] || TODAY > new Date(STORE_CLOSED_UNTIL[s]); }
+function closedLabel(s) { const d = new Date(STORE_CLOSED_UNTIL[s]); return `gesloten t/m ${d.getDate()}/${d.getMonth()+1}`; }
 
 // ===== STATE =====
 const selected = new Set(["oude batterijen en bruisgasflessen leeg","entrecôte rund","dikke ribbetjes","kruidenboter","gorgonzola","spoelmiddel vaatwas","zwarte schoensmeer","reinigingspray ruiten open haard","AA-batterijen","zalm","vaatwastabletten","spek sneden","americain prepare","martino"]);
@@ -201,8 +370,21 @@ const winkDone = new Set();
 let currentTab = 'aanstip';
 let searchQ = '';
 
-function setTab(t) { currentTab = t; render(); }
-function filterItems(q) { searchQ = q.toLowerCase().trim(); render(); }
+function setTab(t) {
+  currentTab = t;
+  document.querySelectorAll('.tab').forEach((el, i) => el.classList.toggle('active', ['aanstip','winkel','taken'][i] === t));
+  document.getElementById('search-wrap').style.display = t === 'aanstip' ? 'block' : 'none';
+  document.getElementById('app-wrap').style.display = t === 'taken' ? 'none' : 'block';
+  document.getElementById('actions').style.display = t === 'taken' ? 'none' : 'block';
+  document.getElementById('nieuw-artikel-wrap').style.display = t === 'aanstip' ? 'block' : 'none';
+  document.getElementById('taken-wrap').style.display = t === 'taken' ? 'block' : 'none';
+  if (t === 'aanstip') renderAanstip();
+  else if (t === 'winkel') renderWinkel();
+  else renderTaken();
+  renderActions();
+}
+
+function filterItems(q) { searchQ = q.toLowerCase().trim(); renderAanstip(); }
 
 function toggleSelect(naam) {
   if (selected.has(naam)) selected.delete(naam);
@@ -213,135 +395,294 @@ function toggleSelect(naam) {
   if (cb) { cb.checked = selected.has(naam); cb.closest('.item-row').classList.toggle('checked', selected.has(naam)); }
   saveDebounced();
 }
-
 function toggleWinkDone(naam) {
-  if (winkDone.has(naam)) winkDone.delete(naam);
-  else winkDone.add(naam);
-  renderWinkel();
-  renderActions();
+  if (winkDone.has(naam)) winkDone.delete(naam); else winkDone.add(naam);
+  renderWinkel(); renderActions();
 }
-
 function renderBadge() { document.getElementById('badge').textContent = selected.size; }
-
 function resetLijst() {
   if (!confirm('Alle aangestipte artikelen wissen?')) return;
   selected.clear(); winkDone.clear();
-  render();
-  slaOp();
+  render(); slaOp();
 }
-
 function confirmDone() {
-  const allDone = [...selected];
   selected.clear(); winkDone.clear();
-  render();
-  slaOp();
+  render(); slaOp();
 }
 
 function renderActions() {
   const ac = document.getElementById('actions');
-  if (currentTab === 'winkel' && selected.size > 0) {
-    const doneCount = winkDone.size;
-    ac.innerHTML = doneCount > 0
-      ? `<button class="confirm-btn" onclick="confirmDone()">✓ Klaar — verwijder ${selected.size} artikel${selected.size > 1 ? 'en' : ''} uit lijst</button>`
-      : '';
+  if (currentTab === 'winkel' && selected.size > 0 && winkDone.size > 0) {
+    ac.innerHTML = `<button class="confirm-btn" onclick="confirmDone()">✓ Klaar — verwijder ${selected.size} artikel${selected.size>1?'en':''} uit lijst</button>`;
   } else { ac.innerHTML = ''; }
 }
 
+// ===== AANSTIPLIJST =====
 function renderAanstip() {
-  const ap = document.getElementById('app');
+  const ap = document.getElementById('app-wrap');
+  const items = getMergedItems();
   let cats = CAT_ORDER;
   if (searchQ) {
-    const matched = new Set(ALL_ITEMS.filter(i => i.naam.toLowerCase().includes(searchQ) || i.specs.toLowerCase().includes(searchQ)).map(i => i.cat));
+    const matched = new Set(items.filter(i => i.naam.toLowerCase().includes(searchQ)||i.specs.toLowerCase().includes(searchQ)).map(i=>i.cat));
     cats = CAT_ORDER.filter(c => matched.has(c));
   }
-  if (!cats.length) { ap.innerHTML = '<p style="text-align:center;padding:40px;color:#bbb;">Geen resultaten</p>'; return; }
+  if (!cats.length) { ap.innerHTML='<p style="text-align:center;padding:40px;color:#bbb;">Geen resultaten</p>'; return; }
   ap.innerHTML = cats.map(cat => {
-    let items = ALL_ITEMS.filter(i => i.cat === cat);
-    if (searchQ) items = items.filter(i => i.naam.toLowerCase().includes(searchQ) || i.specs.toLowerCase().includes(searchQ));
-    if (!items.length) return '';
-    const selInCat = items.filter(i => selected.has(i.naam)).length;
+    let catItems = items.filter(i => i.cat === cat);
+    if (searchQ) catItems = catItems.filter(i => i.naam.toLowerCase().includes(searchQ)||i.specs.toLowerCase().includes(searchQ));
+    if (!catItems.length) return '';
+    const selInCat = catItems.filter(i => selected.has(i.naam)).length;
     return `<div class="cat-block">
-      <div class="cat-head${searchQ ? ' open' : ''}" onclick="toggleCat(this)">
+      <div class="cat-head${searchQ?' open':''}" onclick="toggleCat(this)">
         <span class="label">${cat}</span>
         <span style="display:flex;align-items:center;gap:8px;">
-          ${selInCat > 0 ? `<span style="font-size:11px;color:#1a6bc4;font-weight:500;">${selInCat} gekozen</span>` : ''}
-          <span class="cnt">${items.length}</span>
+          ${selInCat>0?`<span style="font-size:11px;color:#4a7c59;font-weight:500;">${selInCat} gekozen</span>`:''}
+          <span style="font-size:11px;color:#aaa;">${catItems.length}</span>
           <span class="arr">▶</span>
         </span>
       </div>
-      <div class="cat-items${searchQ ? ' open' : ''}">
-        ${items.map(it => `
-          <div class="item-row${selected.has(it.naam) ? ' checked' : ''}">
-            <input type="checkbox" id="cb_${it.naam.replace(/"/g, '')}" ${selected.has(it.naam) ? 'checked' : ''} onchange="toggleSelect('${it.naam.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}')">
-            <span class="name">${it.naam}${it.specs ? `<span class="specs">${it.specs}</span>` : ''}</span>
-            ${it.opm ? `<span class="opm">${it.opm}</span>` : ''}
+      <div class="cat-items${searchQ?' open':''}">
+        ${catItems.map(it=>`
+          <div class="item-row${selected.has(it.naam)?' checked':''}">
+            <input type="checkbox" id="cb_${it.naam.replace(/"/g,'')}" ${selected.has(it.naam)?'checked':''} onchange="toggleSelect('${it.naam.replace(/\\/g,'\\\\').replace(/'/g,"\\'")}')">
+            <span class="name">${it.naam}${it.specs?`<span class="specs">${it.specs}</span>`:''}${isExtraArtikel(it.naam)?'<span class="item-extra-badge">nieuw</span>':''}</span>
           </div>`).join('')}
       </div>
     </div>`;
   }).join('');
 }
 
-function toggleCat(head) {
-  head.classList.toggle('open');
-  head.nextElementSibling.classList.toggle('open');
-}
+function toggleCat(head) { head.classList.toggle('open'); head.nextElementSibling.classList.toggle('open'); }
 
+// ===== WINKELLIJST =====
 function renderWinkel() {
-  const ap = document.getElementById('app');
-  if (selected.size === 0) { ap.innerHTML = '<div id="empty">Nog niets aangevinkt.<br>Ga naar de aanstiplijst.</div>'; renderActions(); return; }
-
-  const byStore = {};
-  STORE_ORDER.forEach(s => byStore[s] = []);
-
-  const selItems = ALL_ITEMS.filter(i => selected.has(i.naam));
-  selItems.forEach(it => {
+  const ap = document.getElementById('app-wrap');
+  const items = getMergedItems();
+  if (selected.size === 0) { ap.innerHTML='<div id="empty-winkel">Nog niets aangevinkt.<br>Ga naar de aanstiplijst.</div>'; renderActions(); return; }
+  const byStore = {}; STORE_ORDER.forEach(s => byStore[s] = []);
+  items.filter(i => selected.has(i.naam)).forEach(it => {
     const open = storeOpen(it.pref);
     if (open) {
-      byStore[it.pref] = byStore[it.pref] || [];
-      byStore[it.pref].push({...it, _note: null, _fb: false});
-      if (it.backup) {
-        byStore[it.backup] = byStore[it.backup] || [];
-        byStore[it.backup].push({...it, _note: `al bij ${it.pref} gekocht?`, _fb: true});
-      }
+      (byStore[it.pref] = byStore[it.pref]||[]).push({...it,_note:null,_fb:false});
+      if (it.backup) (byStore[it.backup]=byStore[it.backup]||[]).push({...it,_note:`al bij ${it.pref} gekocht?`,_fb:true});
     } else {
-      const fb = it.backup || 'OKAY';
-      byStore[fb] = byStore[fb] || [];
-      byStore[fb].push({...it, _note: `${it.pref} ${closedLabel(it.pref)}`, _fb: false});
+      const fb = it.backup||'OKAY';
+      (byStore[fb]=byStore[fb]||[]).push({...it,_note:`${it.pref} ${closedLabel(it.pref)}`,_fb:false});
     }
   });
-
-  const activeStores = STORE_ORDER.filter(s => byStore[s] && byStore[s].length);
+  const activeStores = STORE_ORDER.filter(s => byStore[s]&&byStore[s].length);
   ap.innerHTML = activeStores.map(store => {
     const si = byStore[store];
-    const main = si.filter(i => !i._fb).sort((a, b) => a.volgw - b.volgw);
-    const fb = si.filter(i => i._fb).sort((a, b) => a.volgw - b.volgw);
-    const done = main.filter(i => winkDone.has(i.naam));
-    const todo = main.filter(i => !winkDone.has(i.naam));
+    const main = si.filter(i=>!i._fb).sort((a,b)=>a.volgw-b.volgw);
+    const fb   = si.filter(i=>i._fb).sort((a,b)=>a.volgw-b.volgw);
+    const done = main.filter(i=>winkDone.has(i.naam));
+    const todo = main.filter(i=>!winkDone.has(i.naam));
     const open = storeOpen(store);
     return `<div class="store-block">
-      <div class="store-hd${open ? '' : ' closed'}">
-        <span class="sname">🛒 ${store}${!open ? `<span class="wclosed">${closedLabel(store)}</span>` : ''}</span>
+      <div class="store-hd${open?'':' closed'}">
+        <span class="sname">🛒 ${store}${!open?`<span class="wclosed">${closedLabel(store)}</span>`:''}</span>
         <span class="scnt">${done.length}/${main.length}</span>
       </div>
-      ${[...todo, ...done, ...fb].map(it => `
-        <div class="wrow${it._fb ? ' dimmed' : ''}${winkDone.has(it.naam) ? ' wdone' : ''}">
-          <input type="checkbox" ${winkDone.has(it.naam) ? 'checked' : ''} ${it._fb ? 'disabled' : ''} onchange="toggleWinkDone('${it.naam.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}')">
-          <span class="wname">${it.naam}${it.specs ? `<span class="wspecs"> — ${it.specs}</span>` : ''}${it._note ? `<span class="wnote">(${it._note})</span>` : ''}</span>
-          ${winkDone.has(it.naam) ? '<span class="wcheck">✓</span>' : ''}
+      ${[...todo,...done,...fb].map(it=>`
+        <div class="wrow${it._fb?' dimmed':''}${winkDone.has(it.naam)?' wdone':''}">
+          <input type="checkbox" ${winkDone.has(it.naam)?'checked':''} ${it._fb?'disabled':''} onchange="toggleWinkDone('${it.naam.replace(/\\/g,'\\\\').replace(/'/g,"\\'")}')">
+          <span class="wname">${it.naam}${it.specs?`<span class="wspecs"> — ${it.specs}</span>`:''}${it._note?`<span class="wnote">(${it._note})</span>`:''}</span>
+          ${winkDone.has(it.naam)?'<span class="wcheck">✓</span>':''}
         </div>`).join('')}
     </div>`;
   }).join('');
   renderActions();
 }
 
+// ===== NIEUW ARTIKEL =====
+function toggleArtikelForm() {
+  const f = document.getElementById('nieuw-artikel-form');
+  f.style.display = f.style.display === 'none' ? 'block' : 'none';
+  if (f.style.display === 'block') setTimeout(() => document.getElementById('na-naam').focus(), 100);
+}
+
+function voegArtikelToe() {
+  const naam = document.getElementById('na-naam').value.trim();
+  if (!naam) { document.getElementById('na-naam').focus(); return; }
+  // Dubbel check
+  const bestaand = getMergedItems().find(i => i.naam.toLowerCase() === naam.toLowerCase());
+  if (bestaand) { alert(`"${naam}" staat al in de lijst (categorie: ${bestaand.cat}).`); return; }
+  const specs  = document.getElementById('na-specs').value.trim();
+  const cat    = document.getElementById('na-cat').value;
+  const pref   = document.getElementById('na-pref').value;
+  const backup = document.getElementById('na-backup').value;
+  // Bereken volgorde: einde van categorie
+  const catItems = getMergedItems().filter(i => i.cat === cat);
+  const volgw = catItems.length ? Math.max(...catItems.map(i => i.volgw)) + 10 : 5000;
+  const volgb = catItems.length ? catItems[0].volgb : 50;
+  const nieuw = { naam, specs, volgw, volgb, cat, pref, backup, opm: '' };
+  if (!syncData.artikelen_extra) syncData.artikelen_extra = [];
+  syncData.artikelen_extra.push(nieuw);
+  // Meteen aanvinken
+  selected.add(naam);
+  // Reset form
+  document.getElementById('na-naam').value = '';
+  document.getElementById('na-specs').value = '';
+  document.getElementById('nieuw-artikel-form').style.display = 'none';
+  slaOp();
+  renderAanstip();
+  renderBadge();
+}
+
+// ===== TAKEN TAB =====
+// Belgische feestdagen
+const FEESTDAGEN = new Set(['2026-01-01','2026-04-06','2026-05-01','2026-05-14','2026-05-25','2026-07-21','2026-08-15','2026-11-01','2026-11-11','2026-12-25','2027-01-01','2027-03-29','2027-05-01','2027-05-06','2027-05-17','2027-07-21','2027-08-15','2027-11-01','2027-11-11','2027-12-25']);
+const KORT_DAG = ['zo','ma','di','wo','do','vr','za'];
+
+function datumStr(d) { return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; }
+function isFeestdag(d) { return FEESTDAGEN.has(datumStr(d)); }
+function getSeizoeen(d) { const m=d.getMonth()+1; return m<=2||m===12?'winter':m<=5?'lente':m<=8?'zomer':'herfst'; }
+
+function heeftVoorwaarden(t) {
+  const v = t.voorwaarden||{};
+  return (v.dag&&v.dag.length)||(v.seizoen&&v.seizoen.length)||(v.weer&&v.weer.length)||v.feestdag!=null||v.temp_min!=null||v.temp_max!=null;
+}
+function taakRelevantVandaag(t) {
+  const v = t.voorwaarden||{};
+  if (v.dag&&v.dag.length&&!v.dag.includes(KORT_DAG[TODAY.getDay()])) return false;
+  if (v.seizoen&&v.seizoen.length&&!v.seizoen.includes(getSeizoeen(TODAY))) return false;
+  if (v.feestdag===true&&!isFeestdag(TODAY)) return false;
+  if (v.feestdag===false&&isFeestdag(TODAY)) return false;
+  if (weerInfo&&v.weer&&v.weer.length&&!v.weer.includes(weerInfo.weerType)) return false;
+  if (weerInfo&&v.temp_min!=null&&weerInfo.temp<v.temp_min) return false;
+  if (weerInfo&&v.temp_max!=null&&weerInfo.temp>v.temp_max) return false;
+  return true;
+}
+
+function formatLaatste(log) {
+  if (!log||!log.length) return 'nooit gedaan';
+  const d = new Date(log[log.length-1]+'T12:00:00');
+  const diff = Math.floor((TODAY-d)/86400000);
+  if (diff===0) return 'vandaag gedaan';
+  if (diff===1) return 'gisteren gedaan';
+  if (diff<7) return `${diff} dagen geleden`;
+  if (diff<14) return '1 week geleden';
+  if (diff<60) return `${Math.floor(diff/7)} weken geleden`;
+  return `meer dan ${Math.floor(diff/30)} maanden geleden`;
+}
+
+function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function renderTaken() {
+  const el = document.getElementById('taken-lijst');
+  const taken = syncData.taken||[];
+  if (!taken.length) { el.innerHTML='<div class="taken-leeg">Geen taken. Klik hieronder om er een toe te voegen.</div>'; return; }
+  const actief = taken.filter(t => !(t.type==='eenmalig'&&t.gedaan));
+  const gedaan = taken.filter(t => t.type==='eenmalig'&&t.gedaan);
+  const vandaag = actief.filter(t => !heeftVoorwaarden(t)||taakRelevantVandaag(t));
+  const andere  = actief.filter(t => heeftVoorwaarden(t)&&!taakRelevantVandaag(t));
+  let html = '';
+  if (vandaag.length) {
+    if (andere.length||gedaan.length) html += '<div class="sectie-titel">Vandaag</div>';
+    html += vandaag.map(t => taakHTML(t, true)).join('');
+  }
+  if (andere.length) { html += '<div class="sectie-titel" style="margin-top:14px;">Andere taken</div>'; html += andere.map(t=>taakHTML(t,false)).join(''); }
+  if (gedaan.length) { html += '<div class="sectie-titel" style="margin-top:14px;opacity:.5;">Afgewerkt</div>'; html += gedaan.map(t=>taakHTML(t,false)).join(''); }
+  el.innerHTML = html;
+}
+
+function taakHTML(t, relevant) {
+  const isH = t.type==='herhalend', isG = t.type==='eenmalig'&&t.gedaan;
+  const vandaagGedaan = isH && t.log && t.log[t.log.length-1] === datumStr(TODAY);
+  let badges = isH ? `<span class="tbadge tbadge-h">Herhalend</span>` : `<span class="tbadge tbadge-e">Éénmalig</span>`;
+  if (relevant&&heeftVoorwaarden(t)) badges += `<span class="tbadge tbadge-v">✓ vandaag</span>`;
+  const meta = isH ? `<span class="taak-when">${formatLaatste(t.log)}</span>` : '';
+  const checkActief = isG || vandaagGedaan;
+  return `<div class="taak-item${relevant?' relevant':''}${isG?' gedaan':''}">
+    <div class="taak-check${checkActief?' actief':''}" onclick="toggleTaak('${escHtml(t.id)}')"></div>
+    <div class="taak-info">
+      <div class="taak-naam">${escHtml(t.naam)}</div>
+      <div class="taak-meta">${badges}${meta}</div>
+    </div>
+    <div class="taak-delete" onclick="verwijderTaak('${escHtml(t.id)}')">×</div>
+  </div>`;
+}
+
+function toggleTaak(id) {
+  const t = (syncData.taken||[]).find(x=>x.id===id);
+  if (!t) return;
+  if (t.type==='herhalend') {
+    if (!t.log) t.log=[];
+    const v = datumStr(TODAY);
+    if (t.log[t.log.length-1]===v) t.log.pop(); else t.log.push(v);
+  } else { t.gedaan=!t.gedaan; }
+  renderTaken(); slaOp();
+}
+
+function verwijderTaak(id) {
+  if (!confirm('Taak verwijderen?')) return;
+  syncData.taken=(syncData.taken||[]).filter(x=>x.id!==id);
+  renderTaken(); slaOp();
+}
+
+// ===== TAAK MODAL =====
+function openTaakModal() {
+  document.getElementById('tf-naam').value='';
+  document.querySelectorAll('[data-g="type"]').forEach(el=>el.classList.toggle('actief',el.dataset.v==='eenmalig'));
+  document.querySelectorAll('[data-g="feestdag"]').forEach(el=>el.classList.toggle('actief',el.dataset.v==='null'));
+  document.querySelectorAll('#tcg-weer .chip,#tcg-seizoen .chip,#tcg-dag .chip').forEach(el=>el.classList.remove('actief'));
+  document.getElementById('tf-tmin').value='';
+  document.getElementById('tf-tmax').value='';
+  document.getElementById('taak-modal').classList.add('open');
+  setTimeout(()=>document.getElementById('tf-naam').focus(),150);
+}
+function sluitTaakModal() { document.getElementById('taak-modal').classList.remove('open'); }
+function sluitTaakModalBuiten(e) { if(e.target===document.getElementById('taak-modal')) sluitTaakModal(); }
+function kiesChip(el) {
+  const g=el.dataset.g;
+  document.querySelectorAll(`[data-g="${g}"]`).forEach(e=>e.classList.remove('actief'));
+  el.classList.add('actief');
+}
+function toggleChip(el) { el.classList.toggle('actief'); }
+function getChipWaarde(g) { const a=document.querySelector(`[data-g="${g}"].actief`); return a?a.dataset.v:null; }
+function getCheckWaarden(id) { return [...document.querySelectorAll(`#${id} .chip.actief`)].map(el=>el.dataset.v); }
+
+function voegTaakToe() {
+  const naam=document.getElementById('tf-naam').value.trim();
+  if (!naam) { document.getElementById('tf-naam').focus(); return; }
+  const type=getChipWaarde('type')||'eenmalig';
+  const fdV=getChipWaarde('feestdag');
+  const feestdag=fdV==='true'?true:fdV==='false'?false:null;
+  const tmin=document.getElementById('tf-tmin').value;
+  const tmax=document.getElementById('tf-tmax').value;
+  const v={};
+  const wArr=getCheckWaarden('tcg-weer'); if(wArr.length) v.weer=wArr;
+  if(tmin!=='') v.temp_min=parseInt(tmin);
+  if(tmax!=='') v.temp_max=parseInt(tmax);
+  const sArr=getCheckWaarden('tcg-seizoen'); if(sArr.length) v.seizoen=sArr;
+  const dArr=getCheckWaarden('tcg-dag'); if(dArr.length) v.dag=dArr;
+  if(feestdag!==null) v.feestdag=feestdag;
+  const taak={id:'t_'+Date.now(),naam,type,voorwaarden:v,...(type==='herhalend'?{log:[]}:{gedaan:false})};
+  if(!syncData.taken) syncData.taken=[];
+  syncData.taken.push(taak);
+  sluitTaakModal(); renderTaken(); slaOp();
+}
+
+// ===== INIT =====
 function render() {
   renderBadge();
-  document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', i === (currentTab === 'aanstip' ? 0 : 1)));
-  document.getElementById('search-wrap').style.display = currentTab === 'aanstip' ? 'block' : 'none';
-  if (currentTab === 'aanstip') renderAanstip();
-  else renderWinkel();
+  if (currentTab==='aanstip') renderAanstip();
+  else if (currentTab==='winkel') renderWinkel();
+  else renderTaken();
   renderActions();
 }
+
+// Stille weerdata ophalen voor taakfiltering
+fetch('https://api.open-meteo.com/v1/forecast?latitude=50.78&longitude=4.24&daily=temperature_2m_max,precipitation_sum,weathercode&past_days=0&forecast_days=1&timezone=Europe%2FBrussels')
+  .then(r=>r.json()).then(data=>{
+    const d=data.daily;
+    const neerslag=d.precipitation_sum[0], code=d.weathercode[0];
+    let weerType='droog';
+    if(neerslag>=1||code>=51) weerType='regen';
+    else if(code===3) weerType='bewolkt';
+    weerInfo={temp:d.temperature_2m_max[0],weerType};
+    if(currentTab==='taken') renderTaken();
+  }).catch(()=>{});
 
 render();
 laadData();
