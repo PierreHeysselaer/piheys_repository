@@ -21,9 +21,7 @@
       "naam": "Voeten verzorgen",
       "type": "herhalend",
       "frequentie_dagen": 1,
-      "log": [
-        "2026-07-28"
-      ],
+      "log": [],
       "voorwaarden": {},
       "categorie": "medisch"
     },
