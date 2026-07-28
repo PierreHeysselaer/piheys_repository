@@ -272,5 +272,18 @@
       "voorwaarden": {},
       "categorie": "technisch"
     }
+  ],
+  "medicatie_pierre": [
+    {
+      "id": "m_1785241920222",
+      "naam": "Forzatzen",
+      "doses_per_dag": 1,
+      "eenheid": "tablet",
+      "stock_thuis": 129,
+      "stock_helena": 0,
+      "doosje_gevuld_op": "2026-07-26",
+      "doosje_duur": 28,
+      "opm": ""
+    }
   ]
 }
