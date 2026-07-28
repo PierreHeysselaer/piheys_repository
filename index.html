@@ -2,84 +2,368 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Goedemorgen, Pierre</title>
   <style>
     :root {
       --bg: #f5f4f0;
-      --surface: #ffffff;
+      --surface: #fff;
       --border: #e2dfd8;
       --accent: #4a7c59;
       --accent-light: #eaf4ee;
+      --accent-border: #b8dfc5;
       --text: #1a1a1a;
       --muted: #8a8680;
+      --danger: #c0392b;
+      --radius: 12px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      padding: 24px 16px 60px;
-      max-width: 640px;
-      margin: 0 auto;
+      background: var(--bg); color: var(--text);
+      padding: 20px 16px 80px; max-width: 640px; margin: 0 auto;
     }
-    .datum { font-size: 12px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 4px; }
-    .groet { font-size: 26px; font-weight: 500; margin-bottom: 24px; }
-    .kaart { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; margin-bottom: 12px; }
-    .kaart-label { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .datum { font-size: 12px; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; margin-bottom: 4px; }
+    .groet { font-size: 26px; font-weight: 500; margin-bottom: 20px; }
+    .kaart { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 12px; }
+    .kaart-label { font-size: 11px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    /* Weer */
     .temp-groot { font-size: 40px; font-weight: 400; line-height: 1; }
     .temp-rij { display: flex; gap: 20px; margin-top: 10px; flex-wrap: wrap; }
     .temp-item { font-size: 13px; color: var(--muted); }
     .temp-item strong { color: var(--text); font-weight: 500; }
-    .dag-rij { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+    .dag-rij { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
     .dag-kaartje { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; text-align: center; min-width: 72px; }
-    .dag-naam { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+    .dag-naam { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
     .dag-max { font-size: 18px; font-weight: 500; margin: 2px 0; }
     .dag-neerslag { font-size: 11px; color: var(--muted); }
-    .vandaag { border-color: var(--accent); background: var(--accent-light); }
-    .vandaag .dag-max { color: var(--accent); }
-    .fout { color: #c0392b; font-size: 13px; }
-    .laden { color: var(--muted); font-size: 14px; }
+    .vandaag-weer { border-color: var(--accent); background: var(--accent-light); }
+    .vandaag-weer .dag-max { color: var(--accent); }
+    /* Sync */
+    .kaart-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .sync-status { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--muted); }
+    .sync-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); flex-shrink: 0; }
+    .sync-dot.ok { background: var(--accent); }
+    .sync-dot.bezig { background: #e6a817; animation: pulse 1s infinite; }
+    .sync-dot.fout { background: var(--danger); }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.4} }
+    /* Taken */
+    .sectie-titel { font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; margin: 10px 0 6px; }
+    .taak-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 12px 14px; margin-bottom: 6px; background: var(--surface);
+      transition: opacity .2s;
+    }
+    .taak-item.relevant { border-color: var(--accent-border); background: var(--accent-light); }
+    .taak-item.gedaan { opacity: .45; }
+    .taak-item.gedaan .taak-naam { text-decoration: line-through; }
+    .taak-check {
+      width: 24px; height: 24px; flex-shrink: 0; margin-top: 1px;
+      border: 2px solid var(--border); border-radius: 6px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background .15s, border-color .15s;
+    }
+    .taak-item.relevant .taak-check { border-color: var(--accent-border); }
+    .taak-check.actief { background: var(--accent); border-color: var(--accent); }
+    .taak-check.actief::after { content: '✓'; color: #fff; font-size: 13px; font-weight: 700; }
+    .taak-info { flex: 1; min-width: 0; }
+    .taak-naam { font-size: 15px; font-weight: 500; line-height: 1.3; }
+    .taak-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 4px; }
+    .badge { font-size: 10px; padding: 2px 7px; border-radius: 10px; font-weight: 600; }
+    .badge-herhalend { background: #e8f0fe; color: #1a73e8; }
+    .badge-eenmalig { background: #fef3e8; color: #d97706; }
+    .badge-vandaag { background: var(--accent-light); color: var(--accent); border: 1px solid var(--accent-border); }
+    .taak-when { font-size: 11px; color: var(--muted); }
+    .taak-delete { flex-shrink: 0; color: var(--muted); cursor: pointer; font-size: 20px; line-height: 1; padding: 2px 4px; border-radius: 5px; margin-top: -1px; }
+    .taak-delete:active { color: var(--danger); background: #fdecea; }
+    .nieuw-taak-knop {
+      width: 100%; padding: 11px; margin-top: 8px;
+      background: none; border: 2px dashed var(--border);
+      border-radius: 10px; font-size: 14px; color: var(--muted);
+      cursor: pointer; text-align: center;
+    }
+    .nieuw-taak-knop:active { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+    /* App knop */
     .app-knop {
       display: inline-flex; align-items: center; gap: 7px;
       background: var(--accent-light); color: var(--accent);
-      border: 1px solid #b8dfc5; border-radius: 8px;
+      border: 1px solid var(--accent-border); border-radius: 8px;
       padding: 10px 18px; font-size: 15px; font-weight: 500;
-      cursor: pointer; text-decoration: none; margin-top: 10px;
+      cursor: pointer; text-decoration: none; margin-top: 8px;
     }
+    .fout { color: var(--danger); font-size: 13px; }
+    .laden { color: var(--muted); font-size: 14px; }
+    .leeg-taken { text-align: center; color: var(--muted); font-size: 14px; padding: 16px 0; font-style: italic; }
+    /* Modal */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,.45); z-index: 100;
+      align-items: flex-end; justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--surface); border-radius: 20px 20px 0 0;
+      padding: 24px 20px 44px; width: 100%; max-width: 640px;
+      max-height: 92vh; overflow-y: auto;
+    }
+    .modal-titel { font-size: 18px; font-weight: 600; margin-bottom: 18px; }
+    .fg { margin-bottom: 14px; }
+    .fl { font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; margin-bottom: 6px; display: block; }
+    .fi {
+      width: 100%; padding: 10px 14px;
+      border: 1px solid var(--border); border-radius: 8px;
+      font-size: 15px; color: var(--text); background: var(--surface); outline: none;
+    }
+    .fi:focus { border-color: var(--accent); }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip {
+      padding: 7px 14px; border-radius: 20px;
+      border: 1px solid var(--border); background: var(--bg);
+      font-size: 13px; cursor: pointer; user-select: none; transition: all .1s;
+    }
+    .chip.actief { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .temp-rij-form { display: flex; align-items: center; gap: 8px; }
+    .temp-rij-form .fi { width: 90px; flex: none; }
+    .modal-knoppen { display: flex; gap: 8px; margin-top: 22px; }
+    .btn-p { flex: 1; padding: 13px; background: var(--accent); color: #fff; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; }
+    .btn-s { flex: 1; padding: 13px; background: var(--bg); color: var(--muted); border: 1px solid var(--border); border-radius: 10px; font-size: 16px; cursor: pointer; }
+    /* Herlaad knop */
+    .herlaad-knop { font-size: 12px; color: var(--muted); background: none; border: none; cursor: pointer; padding: 2px 4px; border-radius: 4px; }
+    .herlaad-knop:active { color: var(--accent); }
   </style>
 </head>
 <body>
 
 <div class="datum" id="datum-tekst"></div>
-<div class="groet">Goedemorgen, Pierre.</div>
+<div class="groet" id="groet-tekst">Goedemorgen, Pierre.</div>
 
+<!-- Weer -->
 <div class="kaart" id="weer-kaart">
   <div class="kaart-label">Temperatuur &amp; Weer</div>
   <div class="laden">Ophalen…</div>
 </div>
 
+<!-- Agenda -->
 <div class="kaart">
   <div class="kaart-label">Agenda vandaag</div>
   <iframe src="https://calendar.google.com/calendar/embed?src=htc07f3qd0crlllt5ojm4t0s24%40group.calendar.google.com&ctz=Europe%2FBrussels&mode=AGENDA&showTitle=0&showNav=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0"
-    style="border:0; width:100%; height:320px;" frameborder="0" scrolling="no"></iframe>
+    style="border:0;width:100%;height:280px;" frameborder="0" scrolling="no"></iframe>
 </div>
 
+<!-- Taken -->
 <div class="kaart">
-  <div class="kaart-label">Boodschappen &amp; Taken</div>
-  <p style="font-size:15px;color:#555;line-height:1.6;">Boodschappen toevoegen, afvinken en taken beheren.</p>
-  <a class="app-knop" href="app.html">→ Open de lijst</a>
+  <div class="kaart-header">
+    <div class="kaart-label" style="margin-bottom:0;">Taken</div>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <div class="sync-status">
+        <div class="sync-dot" id="sync-dot"></div>
+        <span id="sync-tekst">–</span>
+      </div>
+      <button class="herlaad-knop" onclick="laadData()" title="Herlaad">↻</button>
+    </div>
+  </div>
+  <div id="taken-lijst"><div class="laden">Laden…</div></div>
+  <button class="nieuw-taak-knop" onclick="openModal()">+ Nieuwe taak</button>
+</div>
+
+<!-- Boodschappenlijst -->
+<div class="kaart">
+  <div class="kaart-label">Boodschappen</div>
+  <p style="font-size:14px;color:var(--muted);margin-bottom:4px;">Aanstiplijst met alle artikelen, ingedeeld per winkel.</p>
+  <a class="app-knop" href="boodschappenlijst.html">🛒 Open boodschappenlijst</a>
+</div>
+
+<!-- Modal nieuwe taak -->
+<div class="modal-overlay" id="modal-overlay" onclick="sluitModalBuiten(event)">
+  <div class="modal">
+    <div class="modal-titel">Nieuwe taak</div>
+
+    <div class="fg">
+      <label class="fl">Naam</label>
+      <input class="fi" id="f-naam" type="text" placeholder="Wat moet er gedaan worden?" autocomplete="off"
+        onkeydown="if(event.key==='Enter') voegTaakToe()">
+    </div>
+
+    <div class="fg">
+      <label class="fl">Type</label>
+      <div class="chips">
+        <div class="chip actief" data-g="type" data-v="eenmalig" onclick="kiesChip(this)">Éénmalig</div>
+        <div class="chip" data-g="type" data-v="herhalend" onclick="kiesChip(this)">Herhalend</div>
+      </div>
+    </div>
+
+    <div class="fg">
+      <label class="fl">Weer (optioneel)</label>
+      <div class="chips" id="cg-weer">
+        <div class="chip" data-v="droog" onclick="toggleChip(this)">☀️ Droog</div>
+        <div class="chip" data-v="bewolkt" onclick="toggleChip(this)">☁️ Bewolkt</div>
+        <div class="chip" data-v="regen" onclick="toggleChip(this)">🌧️ Regen</div>
+      </div>
+    </div>
+
+    <div class="fg">
+      <label class="fl">Temperatuur (optioneel)</label>
+      <div class="temp-rij-form">
+        <input class="fi" id="f-tmin" type="number" placeholder="Min °C">
+        <span style="color:var(--muted);font-size:13px;">tot</span>
+        <input class="fi" id="f-tmax" type="number" placeholder="Max °C">
+        <span style="color:var(--muted);font-size:13px;">°C</span>
+      </div>
+    </div>
+
+    <div class="fg">
+      <label class="fl">Seizoen (optioneel)</label>
+      <div class="chips" id="cg-seizoen">
+        <div class="chip" data-v="lente" onclick="toggleChip(this)">🌱 Lente</div>
+        <div class="chip" data-v="zomer" onclick="toggleChip(this)">☀️ Zomer</div>
+        <div class="chip" data-v="herfst" onclick="toggleChip(this)">🍂 Herfst</div>
+        <div class="chip" data-v="winter" onclick="toggleChip(this)">❄️ Winter</div>
+      </div>
+    </div>
+
+    <div class="fg">
+      <label class="fl">Dag van de week (optioneel)</label>
+      <div class="chips" id="cg-dag">
+        <div class="chip" data-v="ma" onclick="toggleChip(this)">Ma</div>
+        <div class="chip" data-v="di" onclick="toggleChip(this)">Di</div>
+        <div class="chip" data-v="wo" onclick="toggleChip(this)">Wo</div>
+        <div class="chip" data-v="do" onclick="toggleChip(this)">Do</div>
+        <div class="chip" data-v="vr" onclick="toggleChip(this)">Vr</div>
+        <div class="chip" data-v="za" onclick="toggleChip(this)">Za</div>
+        <div class="chip" data-v="zo" onclick="toggleChip(this)">Zo</div>
+      </div>
+    </div>
+
+    <div class="fg">
+      <label class="fl">Feestdag (optioneel)</label>
+      <div class="chips">
+        <div class="chip actief" data-g="feestdag" data-v="null" onclick="kiesChip(this)">Maakt niet uit</div>
+        <div class="chip" data-g="feestdag" data-v="true" onclick="kiesChip(this)">Alleen feestdag</div>
+        <div class="chip" data-g="feestdag" data-v="false" onclick="kiesChip(this)">Geen feestdag</div>
+      </div>
+    </div>
+
+    <div class="modal-knoppen">
+      <button class="btn-s" onclick="sluitModal()">Annuleren</button>
+      <button class="btn-p" onclick="voegTaakToe()">Toevoegen</button>
+    </div>
+  </div>
 </div>
 
 <script>
+// ===== CONFIG =====
+const REPO = 'PierreHeysselaer/piheys_repository';
+const BESTAND = 'data.json';
+const TOKEN = ['github_pat_11AYGGRYA0mx','BmzBHFY6TP_XD','TD4hfTIO1fvuM2paNJ7R1OT','qXyBYmOo1ajP7nPoIY4IQAOPI5MKdiSTkP'].join('');
+const API_URL = `https://api.github.com/repos/${REPO}/contents/${BESTAND}`;
+
+// ===== DATUM & GROET =====
 const DAGEN = ['Zondag','Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag'];
 const MAANDEN = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
-const KORT = ['zo','ma','di','wo','do','vr','za'];
+const KORT_DAG = ['zo','ma','di','wo','do','vr','za'];
+const KORT_M = ['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
 
 const nu = new Date();
+const uur = nu.getHours();
+const groetWoord = uur < 12 ? 'Goedemorgen' : uur < 18 ? 'Goedemiddag' : 'Goedenavond';
 document.getElementById('datum-tekst').textContent =
   `${DAGEN[nu.getDay()]} · ${nu.getDate()} ${MAANDEN[nu.getMonth()]} ${nu.getFullYear()}`;
+document.getElementById('groet-tekst').textContent = `${groetWoord}, Pierre.`;
 
+// ===== BELGISCHE FEESTDAGEN =====
+const FEESTDAGEN = new Set([
+  '2026-01-01','2026-04-06','2026-05-01','2026-05-14','2026-05-25',
+  '2026-07-21','2026-08-15','2026-11-01','2026-11-11','2026-12-25',
+  '2027-01-01','2027-03-29','2027-05-01','2027-05-06','2027-05-17',
+  '2027-07-21','2027-08-15','2027-11-01','2027-11-11','2027-12-25',
+  '2028-01-01','2028-04-17','2028-05-01','2028-05-25','2028-06-05',
+  '2028-07-21','2028-08-15','2028-11-01','2028-11-11','2028-12-25'
+]);
+
+function datumStr(d) {
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+function isFeestdag(d) { return FEESTDAGEN.has(datumStr(d)); }
+function getSeizoeen(d) {
+  const m = d.getMonth() + 1;
+  return m <= 2 || m === 12 ? 'winter' : m <= 5 ? 'lente' : m <= 8 ? 'zomer' : 'herfst';
+}
+
+// ===== GITHUB SYNC =====
+let huidigeSha = null;
+let syncData = { taken: [] };
+let weerInfo = null; // { temp, weerType }
+
+function setSyncStatus(status, tekst) {
+  const dot = document.getElementById('sync-dot');
+  dot.className = 'sync-dot ' + status;
+  document.getElementById('sync-tekst').textContent = tekst;
+}
+
+function naarBase64(tekst) {
+  const bytes = new TextEncoder().encode(tekst);
+  let binair = '';
+  bytes.forEach(b => binair += String.fromCharCode(b));
+  return btoa(binair);
+}
+
+async function laadData() {
+  setSyncStatus('bezig', 'laden…');
+  try {
+    const r = await fetch(API_URL, {
+      headers: { Authorization: `Bearer ${TOKEN}`, Accept: 'application/vnd.github.v3+json' }
+    });
+    if (r.status === 404) {
+      huidigeSha = null;
+      syncData = { taken: [] };
+      setSyncStatus('ok', 'nieuw');
+      renderTaken();
+      return;
+    }
+    if (!r.ok) throw new Error(r.status);
+    const json = await r.json();
+    huidigeSha = json.sha;
+    syncData = JSON.parse(atob(json.content.replace(/\n/g, '')));
+    if (!syncData.taken) syncData.taken = [];
+    setSyncStatus('ok', 'gesynchroniseerd');
+  } catch(e) {
+    setSyncStatus('fout', 'fout bij laden');
+    console.error(e);
+  }
+  renderTaken();
+}
+
+async function slaOp() {
+  setSyncStatus('bezig', 'opslaan…');
+  try {
+    const inhoud = naarBase64(JSON.stringify(syncData, null, 2));
+    const body = { message: 'taken update', content: inhoud };
+    if (huidigeSha) body.sha = huidigeSha;
+    const r = await fetch(API_URL, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        Accept: 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+    if (!r.ok) {
+      if (r.status === 409 || r.status === 422) { await laadData(); return; }
+      throw new Error(r.status);
+    }
+    const json = await r.json();
+    huidigeSha = json.content.sha;
+    setSyncStatus('ok', 'opgeslagen ✓');
+    setTimeout(() => setSyncStatus('ok', 'gesynchroniseerd'), 2500);
+  } catch(e) {
+    setSyncStatus('fout', 'fout: ' + e.message);
+    console.error(e);
+  }
+}
+
+// ===== WEER =====
 async function laadWeer() {
   const kaart = document.getElementById('weer-kaart');
   try {
@@ -90,30 +374,36 @@ async function laadWeer() {
     const data = await resp.json();
     const d = data.daily;
 
-    const codes = { 0:'Helder',1:'Overwegend helder',2:'Gedeeltelijk bewolkt',3:'Bewolkt',
+    const WMO = {0:'Helder',1:'Overwegend helder',2:'Gedeeltelijk bewolkt',3:'Bewolkt',
       45:'Mist',48:'Mist',51:'Lichte motregen',53:'Motregen',55:'Zware motregen',
       61:'Lichte regen',63:'Regen',65:'Zware regen',71:'Lichte sneeuw',73:'Sneeuw',
       75:'Zware sneeuw',80:'Regenbuien',81:'Regenbuien',82:'Zware buien',
-      95:'Onweer',96:'Onweer met hagel',99:'Zwaar onweer' };
+      95:'Onweer',96:'Onweer met hagel',99:'Zwaar onweer'};
 
-    const vandaagMax = d.temperature_2m_max[0];
-    const vandaagMin = d.temperature_2m_min[0];
-    const vandaagNeerslag = d.precipitation_sum[0];
-    const vandaagBeschrijving = codes[d.weathercode[0]] || '–';
+    const code = d.weathercode[0];
+    const maxT = d.temperature_2m_max[0];
+    const minT = d.temperature_2m_min[0];
+    const neerslag = d.precipitation_sum[0];
+
+    // Bepaal weertype voor taakfiltering
+    let weerType = 'droog';
+    if (neerslag >= 1 || code >= 51) weerType = 'regen';
+    else if (code === 3) weerType = 'bewolkt';
+    weerInfo = { temp: maxT, weerType };
+    renderTaken();
 
     let html = `<div class="kaart-label">Temperatuur &amp; Weer</div>
-      <div class="temp-groot">${vandaagMax.toFixed(0)}°C</div>
+      <div class="temp-groot">${maxT.toFixed(0)}°C</div>
       <div class="temp-rij">
-        <div class="temp-item"><strong>${vandaagBeschrijving}</strong></div>
-        <div class="temp-item">min <strong>${vandaagMin.toFixed(0)}°C</strong></div>
-        <div class="temp-item">neerslag <strong>${vandaagNeerslag.toFixed(1)} mm</strong></div>
+        <div class="temp-item"><strong>${WMO[code] || '–'}</strong></div>
+        <div class="temp-item">min <strong>${minT.toFixed(0)}°C</strong></div>
+        <div class="temp-item">neerslag <strong>${neerslag.toFixed(1)} mm</strong></div>
       </div>
       <div class="dag-rij">`;
-
     for (let i = 0; i < d.time.length; i++) {
-      const dag = new Date(d.time[i]);
-      html += `<div class="dag-kaartje${i===0?' vandaag':''}">
-        <div class="dag-naam">${KORT[dag.getDay()]}</div>
+      const dag = new Date(d.time[i] + 'T12:00:00');
+      html += `<div class="dag-kaartje${i===0?' vandaag-weer':''}">
+        <div class="dag-naam">${KORT_DAG[dag.getDay()]}</div>
         <div class="dag-max">${d.temperature_2m_max[i].toFixed(0)}°</div>
         <div class="dag-neerslag">${d.precipitation_sum[i].toFixed(0)}mm</div>
       </div>`;
@@ -125,7 +415,214 @@ async function laadWeer() {
   }
 }
 
+// ===== TAAK CONDITIONS =====
+function heeftVoorwaarden(taak) {
+  const v = taak.voorwaarden || {};
+  return (v.dag && v.dag.length) || (v.seizoen && v.seizoen.length) ||
+         (v.weer && v.weer.length) || v.feestdag != null ||
+         v.temp_min != null || v.temp_max != null;
+}
+
+function taakIsVandaagRelevant(taak) {
+  const v = taak.voorwaarden || {};
+  if (v.dag && v.dag.length && !v.dag.includes(KORT_DAG[nu.getDay()])) return false;
+  if (v.seizoen && v.seizoen.length && !v.seizoen.includes(getSeizoeen(nu))) return false;
+  if (v.feestdag === true && !isFeestdag(nu)) return false;
+  if (v.feestdag === false && isFeestdag(nu)) return false;
+  if (weerInfo && v.weer && v.weer.length && !v.weer.includes(weerInfo.weerType)) return false;
+  if (weerInfo && v.temp_min != null && weerInfo.temp < v.temp_min) return false;
+  if (weerInfo && v.temp_max != null && weerInfo.temp > v.temp_max) return false;
+  return true;
+}
+
+// ===== TAAK DISPLAY =====
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function dagenGeleden(datumStr) {
+  if (!datumStr) return null;
+  const d = new Date(datumStr + 'T12:00:00');
+  return Math.floor((nu - d) / 86400000);
+}
+
+function formatLaatsteGedaan(log) {
+  if (!log || log.length === 0) return 'nooit gedaan';
+  const diff = dagenGeleden(log[log.length - 1]);
+  if (diff === 0) return 'vandaag gedaan';
+  if (diff === 1) return 'gisteren gedaan';
+  if (diff < 7) return `${diff} dagen geleden`;
+  if (diff < 14) return '1 week geleden';
+  if (diff < 60) return `${Math.floor(diff/7)} weken geleden`;
+  return `meer dan ${Math.floor(diff/30)} maanden geleden`;
+}
+
+function renderTaken() {
+  const el = document.getElementById('taken-lijst');
+  const taken = syncData.taken || [];
+
+  if (taken.length === 0) {
+    el.innerHTML = '<div class="leeg-taken">Geen taken. Klik hieronder om er een toe te voegen.</div>';
+    return;
+  }
+
+  // Splits: relevant vandaag / andere / klaar
+  const actief = taken.filter(t => !(t.type === 'eenmalig' && t.gedaan));
+  const gedaan = taken.filter(t => t.type === 'eenmalig' && t.gedaan);
+
+  const relevantVandaag = actief.filter(t => !heeftVoorwaarden(t) || taakIsVandaagRelevant(t));
+  const andere = actief.filter(t => heeftVoorwaarden(t) && !taakIsVandaagRelevant(t));
+
+  let html = '';
+
+  if (relevantVandaag.length > 0) {
+    if (andere.length > 0 || gedaan.length > 0) {
+      html += '<div class="sectie-titel">Vandaag</div>';
+    }
+    html += relevantVandaag.map(t => renderTaakHTML(t, true)).join('');
+  }
+
+  if (andere.length > 0) {
+    html += '<div class="sectie-titel" style="margin-top:12px;">Andere taken</div>';
+    html += andere.map(t => renderTaakHTML(t, false)).join('');
+  }
+
+  if (gedaan.length > 0) {
+    html += '<div class="sectie-titel" style="margin-top:12px;opacity:.55;">Afgewerkt</div>';
+    html += gedaan.map(t => renderTaakHTML(t, false)).join('');
+  }
+
+  el.innerHTML = html;
+}
+
+function renderTaakHTML(taak, relevant) {
+  const isHerhalend = taak.type === 'herhalend';
+  const isGedaan = taak.type === 'eenmalig' && taak.gedaan;
+
+  let badges = isHerhalend
+    ? `<span class="badge badge-herhalend">Herhalend</span>`
+    : `<span class="badge badge-eenmalig">Éénmalig</span>`;
+
+  if (relevant && heeftVoorwaarden(taak)) {
+    badges += `<span class="badge badge-vandaag">✓ vandaag</span>`;
+  }
+
+  let meta = '';
+  if (isHerhalend) {
+    meta = `<span class="taak-when">${formatLaatsteGedaan(taak.log)}</span>`;
+  }
+
+  return `<div class="taak-item${relevant ? ' relevant' : ''}${isGedaan ? ' gedaan' : ''}">
+    <div class="taak-check${isGedaan ? ' actief' : ''}" onclick="toggleTaak('${escHtml(taak.id)}')"></div>
+    <div class="taak-info">
+      <div class="taak-naam">${escHtml(taak.naam)}</div>
+      <div class="taak-meta">${badges}${meta}</div>
+    </div>
+    <div class="taak-delete" onclick="verwijderTaak('${escHtml(taak.id)}')" title="Verwijder">×</div>
+  </div>`;
+}
+
+function toggleTaak(id) {
+  const taak = (syncData.taken || []).find(t => t.id === id);
+  if (!taak) return;
+  if (taak.type === 'herhalend') {
+    if (!taak.log) taak.log = [];
+    const vandaag = datumStr(nu);
+    if (taak.log[taak.log.length - 1] !== vandaag) {
+      taak.log.push(vandaag);
+    }
+  } else {
+    taak.gedaan = !taak.gedaan;
+  }
+  renderTaken();
+  slaOp();
+}
+
+function verwijderTaak(id) {
+  if (!confirm('Taak verwijderen?')) return;
+  syncData.taken = (syncData.taken || []).filter(t => t.id !== id);
+  renderTaken();
+  slaOp();
+}
+
+// ===== MODAL =====
+function openModal() {
+  document.getElementById('f-naam').value = '';
+  document.querySelectorAll('[data-g="type"]').forEach(el => el.classList.toggle('actief', el.dataset.v === 'eenmalig'));
+  document.querySelectorAll('[data-g="feestdag"]').forEach(el => el.classList.toggle('actief', el.dataset.v === 'null'));
+  document.querySelectorAll('#cg-weer .chip, #cg-seizoen .chip, #cg-dag .chip').forEach(el => el.classList.remove('actief'));
+  document.getElementById('f-tmin').value = '';
+  document.getElementById('f-tmax').value = '';
+  document.getElementById('modal-overlay').classList.add('open');
+  setTimeout(() => document.getElementById('f-naam').focus(), 150);
+}
+
+function sluitModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+}
+
+function sluitModalBuiten(evt) {
+  if (evt.target === document.getElementById('modal-overlay')) sluitModal();
+}
+
+function kiesChip(el) {
+  const g = el.dataset.g;
+  document.querySelectorAll(`[data-g="${g}"]`).forEach(e => e.classList.remove('actief'));
+  el.classList.add('actief');
+}
+
+function toggleChip(el) { el.classList.toggle('actief'); }
+
+function getChipWaarde(g) {
+  const a = document.querySelector(`[data-g="${g}"].actief`);
+  return a ? a.dataset.v : null;
+}
+
+function getCheckWaarden(containerId) {
+  return [...document.querySelectorAll(`#${containerId} .chip.actief`)].map(el => el.dataset.v);
+}
+
+function voegTaakToe() {
+  const naam = document.getElementById('f-naam').value.trim();
+  if (!naam) { document.getElementById('f-naam').focus(); return; }
+
+  const type = getChipWaarde('type') || 'eenmalig';
+  const fdWaarde = getChipWaarde('feestdag');
+  const feestdag = fdWaarde === 'true' ? true : fdWaarde === 'false' ? false : null;
+
+  const tminVal = document.getElementById('f-tmin').value;
+  const tmaxVal = document.getElementById('f-tmax').value;
+
+  const v = {};
+  const weerArr = getCheckWaarden('cg-weer');
+  if (weerArr.length) v.weer = weerArr;
+  if (tminVal !== '') v.temp_min = parseInt(tminVal);
+  if (tmaxVal !== '') v.temp_max = parseInt(tmaxVal);
+  const seizoenArr = getCheckWaarden('cg-seizoen');
+  if (seizoenArr.length) v.seizoen = seizoenArr;
+  const dagArr = getCheckWaarden('cg-dag');
+  if (dagArr.length) v.dag = dagArr;
+  if (feestdag !== null) v.feestdag = feestdag;
+
+  const taak = {
+    id: 't_' + Date.now(),
+    naam,
+    type,
+    voorwaarden: v,
+    ...(type === 'herhalend' ? { log: [] } : { gedaan: false })
+  };
+
+  if (!syncData.taken) syncData.taken = [];
+  syncData.taken.push(taak);
+
+  sluitModal();
+  renderTaken();
+  slaOp();
+}
+
+// ===== INIT =====
 laadWeer();
+laadData();
 </script>
 </body>
 </html>
