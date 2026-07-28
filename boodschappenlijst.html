@@ -68,43 +68,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .fi-row{display:flex;gap:8px;}
 .fi-row .fi{flex:1;}
 .btn-add{width:100%;padding:11px;background:#4a7c59;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;margin-top:4px;}
-/* Taken tab */
-#taken-wrap{padding:8px 10px 0;}
-.sectie-titel{font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.05em;margin:10px 0 6px;}
-.taak-item{display:flex;align-items:flex-start;gap:12px;border:1px solid #e8e6e1;border-radius:10px;padding:11px 13px;margin-bottom:6px;background:#fff;}
-.taak-item.relevant{border-color:#b8dfc5;background:#eaf4ee;}
-.taak-item.gedaan{opacity:.4;}
-.taak-item.gedaan .taak-naam{text-decoration:line-through;}
-.taak-check{width:24px;height:24px;flex-shrink:0;margin-top:1px;border:2px solid #ddd;border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s,border-color .15s;}
-.taak-item.relevant .taak-check{border-color:#b8dfc5;}
-.taak-check.actief{background:#4a7c59;border-color:#4a7c59;}
-.taak-check.actief::after{content:'✓';color:#fff;font-size:13px;font-weight:700;}
-.taak-info{flex:1;min-width:0;}
-.taak-naam{font-size:14px;font-weight:500;line-height:1.3;}
-.taak-meta{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-top:4px;}
-.tbadge{font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600;}
-.tbadge-h{background:#e8f0fe;color:#1a73e8;}
-.tbadge-e{background:#fef3e8;color:#d97706;}
-.tbadge-v{background:#eaf4ee;color:#4a7c59;border:1px solid #b8dfc5;}
-.taak-when{font-size:11px;color:#aaa;}
-.taak-delete{flex-shrink:0;color:#bbb;cursor:pointer;font-size:20px;line-height:1;padding:2px 4px;border-radius:5px;}
-.taak-delete:active{color:#c0392b;background:#fdecea;}
-.nieuw-taak-btn{width:100%;padding:11px;background:none;border:2px dashed #d5d3ce;border-radius:8px;font-size:14px;color:#aaa;cursor:pointer;text-align:center;margin-top:6px;}
-.nieuw-taak-btn:active{border-color:#4a7c59;color:#4a7c59;}
-.taken-leeg{text-align:center;color:#bbb;font-size:14px;padding:24px 0;font-style:italic;}
-/* Modal */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;align-items:flex-end;justify-content:center;}
-.modal-overlay.open{display:flex;}
-.modal{background:#fff;border-radius:20px 20px 0 0;padding:22px 18px 44px;width:100%;max-width:640px;max-height:92vh;overflow-y:auto;}
-.modal-titel{font-size:17px;font-weight:600;margin-bottom:16px;}
-.chips{display:flex;flex-wrap:wrap;gap:6px;}
-.chip{padding:7px 14px;border-radius:20px;border:1px solid #ddd;background:#f7f7f5;font-size:13px;cursor:pointer;user-select:none;}
-.chip.actief{background:#4a7c59;color:#fff;border-color:#4a7c59;}
-.temp-fg{display:flex;align-items:center;gap:8px;}
-.temp-fg .fi{width:90px;flex:none;}
-.modal-knoppen{display:flex;gap:8px;margin-top:20px;}
-.btn-p{flex:1;padding:13px;background:#4a7c59;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;}
-.btn-s{flex:1;padding:13px;background:#f2f1ec;color:#888;border:1px solid #e5e3de;border-radius:10px;font-size:15px;cursor:pointer;}
 </style>
 </head>
 <body>
@@ -128,7 +91,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div id="tabbar">
     <button class="tab active" onclick="setTab('aanstip')">Aanstiplijst</button>
     <button class="tab" onclick="setTab('winkel')">Winkellijst <span id="badge">0</span></button>
-    <button class="tab" onclick="setTab('taken')">✓ Taken</button>
   </div>
 </div>
 
@@ -199,80 +161,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   </div>
 </div>
 
-<!-- Taken sectie -->
-<div id="taken-wrap" style="display:none;">
-  <div id="taken-lijst"></div>
-  <button class="nieuw-taak-btn" onclick="openTaakModal()">+ Nieuwe taak</button>
-</div>
-
-<!-- Modal nieuwe taak -->
-<div class="modal-overlay" id="taak-modal" onclick="sluitTaakModalBuiten(event)">
-  <div class="modal">
-    <div class="modal-titel">Nieuwe taak</div>
-    <div class="fg">
-      <label class="fl">Naam</label>
-      <input class="fi" id="tf-naam" type="text" placeholder="Wat moet er gedaan worden?" autocomplete="off"
-        onkeydown="if(event.key==='Enter') voegTaakToe()">
-    </div>
-    <div class="fg">
-      <label class="fl">Type</label>
-      <div class="chips">
-        <div class="chip actief" data-g="type" data-v="eenmalig" onclick="kiesChip(this)">Éénmalig</div>
-        <div class="chip" data-g="type" data-v="herhalend" onclick="kiesChip(this)">Herhalend</div>
-      </div>
-    </div>
-    <div class="fg">
-      <label class="fl">Weer (optioneel)</label>
-      <div class="chips" id="tcg-weer">
-        <div class="chip" data-v="droog" onclick="toggleChip(this)">☀️ Droog</div>
-        <div class="chip" data-v="bewolkt" onclick="toggleChip(this)">☁️ Bewolkt</div>
-        <div class="chip" data-v="regen" onclick="toggleChip(this)">🌧️ Regen</div>
-      </div>
-    </div>
-    <div class="fg">
-      <label class="fl">Temperatuur (optioneel)</label>
-      <div class="temp-fg">
-        <input class="fi" id="tf-tmin" type="number" placeholder="Min °C">
-        <span style="color:#aaa;font-size:13px;">tot</span>
-        <input class="fi" id="tf-tmax" type="number" placeholder="Max °C">
-        <span style="color:#aaa;font-size:13px;">°C</span>
-      </div>
-    </div>
-    <div class="fg">
-      <label class="fl">Seizoen (optioneel)</label>
-      <div class="chips" id="tcg-seizoen">
-        <div class="chip" data-v="lente" onclick="toggleChip(this)">🌱 Lente</div>
-        <div class="chip" data-v="zomer" onclick="toggleChip(this)">☀️ Zomer</div>
-        <div class="chip" data-v="herfst" onclick="toggleChip(this)">🍂 Herfst</div>
-        <div class="chip" data-v="winter" onclick="toggleChip(this)">❄️ Winter</div>
-      </div>
-    </div>
-    <div class="fg">
-      <label class="fl">Dag van de week (optioneel)</label>
-      <div class="chips" id="tcg-dag">
-        <div class="chip" data-v="ma" onclick="toggleChip(this)">Ma</div>
-        <div class="chip" data-v="di" onclick="toggleChip(this)">Di</div>
-        <div class="chip" data-v="wo" onclick="toggleChip(this)">Wo</div>
-        <div class="chip" data-v="do" onclick="toggleChip(this)">Do</div>
-        <div class="chip" data-v="vr" onclick="toggleChip(this)">Vr</div>
-        <div class="chip" data-v="za" onclick="toggleChip(this)">Za</div>
-        <div class="chip" data-v="zo" onclick="toggleChip(this)">Zo</div>
-      </div>
-    </div>
-    <div class="fg">
-      <label class="fl">Feestdag (optioneel)</label>
-      <div class="chips">
-        <div class="chip actief" data-g="feestdag" data-v="null" onclick="kiesChip(this)">Maakt niet uit</div>
-        <div class="chip" data-g="feestdag" data-v="true" onclick="kiesChip(this)">Alleen feestdag</div>
-        <div class="chip" data-g="feestdag" data-v="false" onclick="kiesChip(this)">Geen feestdag</div>
-      </div>
-    </div>
-    <div class="modal-knoppen">
-      <button class="btn-s" onclick="sluitTaakModal()">Annuleren</button>
-      <button class="btn-p" onclick="voegTaakToe()">Toevoegen</button>
-    </div>
-  </div>
-</div>
 
 <script>
 // ===== CATALOGUS =====
@@ -291,7 +179,6 @@ const API_URL = `https://api.github.com/repos/${REPO}/contents/${BESTAND}`;
 let huidigeSha = null;
 let syncData = {};
 let saveTimer = null;
-let weerInfo = null;
 
 function setSyncStatus(s, t) {
   document.getElementById('sync-dot').className = 'sync-dot ' + s;
@@ -372,15 +259,11 @@ let searchQ = '';
 
 function setTab(t) {
   currentTab = t;
-  document.querySelectorAll('.tab').forEach((el, i) => el.classList.toggle('active', ['aanstip','winkel','taken'][i] === t));
+  document.querySelectorAll('.tab').forEach((el, i) => el.classList.toggle('active', ['aanstip','winkel'][i] === t));
   document.getElementById('search-wrap').style.display = t === 'aanstip' ? 'block' : 'none';
-  document.getElementById('app-wrap').style.display = t === 'taken' ? 'none' : 'block';
-  document.getElementById('actions').style.display = t === 'taken' ? 'none' : 'block';
   document.getElementById('nieuw-artikel-wrap').style.display = t === 'aanstip' ? 'block' : 'none';
-  document.getElementById('taken-wrap').style.display = t === 'taken' ? 'block' : 'none';
   if (t === 'aanstip') renderAanstip();
-  else if (t === 'winkel') renderWinkel();
-  else renderTaken();
+  else renderWinkel();
   renderActions();
 }
 
@@ -529,160 +412,13 @@ function voegArtikelToe() {
   renderBadge();
 }
 
-// ===== TAKEN TAB =====
-// Belgische feestdagen
-const FEESTDAGEN = new Set(['2026-01-01','2026-04-06','2026-05-01','2026-05-14','2026-05-25','2026-07-21','2026-08-15','2026-11-01','2026-11-11','2026-12-25','2027-01-01','2027-03-29','2027-05-01','2027-05-06','2027-05-17','2027-07-21','2027-08-15','2027-11-01','2027-11-11','2027-12-25']);
-const KORT_DAG = ['zo','ma','di','wo','do','vr','za'];
-
-function datumStr(d) { return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; }
-function isFeestdag(d) { return FEESTDAGEN.has(datumStr(d)); }
-function getSeizoeen(d) { const m=d.getMonth()+1; return m<=2||m===12?'winter':m<=5?'lente':m<=8?'zomer':'herfst'; }
-
-function heeftVoorwaarden(t) {
-  const v = t.voorwaarden||{};
-  return (v.dag&&v.dag.length)||(v.seizoen&&v.seizoen.length)||(v.weer&&v.weer.length)||v.feestdag!=null||v.temp_min!=null||v.temp_max!=null;
-}
-function taakRelevantVandaag(t) {
-  const v = t.voorwaarden||{};
-  if (v.dag&&v.dag.length&&!v.dag.includes(KORT_DAG[TODAY.getDay()])) return false;
-  if (v.seizoen&&v.seizoen.length&&!v.seizoen.includes(getSeizoeen(TODAY))) return false;
-  if (v.feestdag===true&&!isFeestdag(TODAY)) return false;
-  if (v.feestdag===false&&isFeestdag(TODAY)) return false;
-  if (weerInfo&&v.weer&&v.weer.length&&!v.weer.includes(weerInfo.weerType)) return false;
-  if (weerInfo&&v.temp_min!=null&&weerInfo.temp<v.temp_min) return false;
-  if (weerInfo&&v.temp_max!=null&&weerInfo.temp>v.temp_max) return false;
-  return true;
-}
-
-function formatLaatste(log) {
-  if (!log||!log.length) return 'nooit gedaan';
-  const d = new Date(log[log.length-1]+'T12:00:00');
-  const diff = Math.floor((TODAY-d)/86400000);
-  if (diff===0) return 'vandaag gedaan';
-  if (diff===1) return 'gisteren gedaan';
-  if (diff<7) return `${diff} dagen geleden`;
-  if (diff<14) return '1 week geleden';
-  if (diff<60) return `${Math.floor(diff/7)} weken geleden`;
-  return `meer dan ${Math.floor(diff/30)} maanden geleden`;
-}
-
-function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-
-function renderTaken() {
-  const el = document.getElementById('taken-lijst');
-  const taken = syncData.taken||[];
-  if (!taken.length) { el.innerHTML='<div class="taken-leeg">Geen taken. Klik hieronder om er een toe te voegen.</div>'; return; }
-  const actief = taken.filter(t => !(t.type==='eenmalig'&&t.gedaan));
-  const gedaan = taken.filter(t => t.type==='eenmalig'&&t.gedaan);
-  const vandaag = actief.filter(t => !heeftVoorwaarden(t)||taakRelevantVandaag(t));
-  const andere  = actief.filter(t => heeftVoorwaarden(t)&&!taakRelevantVandaag(t));
-  let html = '';
-  if (vandaag.length) {
-    if (andere.length||gedaan.length) html += '<div class="sectie-titel">Vandaag</div>';
-    html += vandaag.map(t => taakHTML(t, true)).join('');
-  }
-  if (andere.length) { html += '<div class="sectie-titel" style="margin-top:14px;">Andere taken</div>'; html += andere.map(t=>taakHTML(t,false)).join(''); }
-  if (gedaan.length) { html += '<div class="sectie-titel" style="margin-top:14px;opacity:.5;">Afgewerkt</div>'; html += gedaan.map(t=>taakHTML(t,false)).join(''); }
-  el.innerHTML = html;
-}
-
-function taakHTML(t, relevant) {
-  const isH = t.type==='herhalend', isG = t.type==='eenmalig'&&t.gedaan;
-  const vandaagGedaan = isH && t.log && t.log[t.log.length-1] === datumStr(TODAY);
-  let badges = isH ? `<span class="tbadge tbadge-h">Herhalend</span>` : `<span class="tbadge tbadge-e">Éénmalig</span>`;
-  if (relevant&&heeftVoorwaarden(t)) badges += `<span class="tbadge tbadge-v">✓ vandaag</span>`;
-  const meta = isH ? `<span class="taak-when">${formatLaatste(t.log)}</span>` : '';
-  const checkActief = isG || vandaagGedaan;
-  return `<div class="taak-item${relevant?' relevant':''}${isG?' gedaan':''}">
-    <div class="taak-check${checkActief?' actief':''}" onclick="toggleTaak('${escHtml(t.id)}')"></div>
-    <div class="taak-info">
-      <div class="taak-naam">${escHtml(t.naam)}</div>
-      <div class="taak-meta">${badges}${meta}</div>
-    </div>
-    <div class="taak-delete" onclick="verwijderTaak('${escHtml(t.id)}')">×</div>
-  </div>`;
-}
-
-function toggleTaak(id) {
-  const t = (syncData.taken||[]).find(x=>x.id===id);
-  if (!t) return;
-  if (t.type==='herhalend') {
-    if (!t.log) t.log=[];
-    const v = datumStr(TODAY);
-    if (t.log[t.log.length-1]===v) t.log.pop(); else t.log.push(v);
-  } else { t.gedaan=!t.gedaan; }
-  renderTaken(); slaOp();
-}
-
-function verwijderTaak(id) {
-  if (!confirm('Taak verwijderen?')) return;
-  syncData.taken=(syncData.taken||[]).filter(x=>x.id!==id);
-  renderTaken(); slaOp();
-}
-
-// ===== TAAK MODAL =====
-function openTaakModal() {
-  document.getElementById('tf-naam').value='';
-  document.querySelectorAll('[data-g="type"]').forEach(el=>el.classList.toggle('actief',el.dataset.v==='eenmalig'));
-  document.querySelectorAll('[data-g="feestdag"]').forEach(el=>el.classList.toggle('actief',el.dataset.v==='null'));
-  document.querySelectorAll('#tcg-weer .chip,#tcg-seizoen .chip,#tcg-dag .chip').forEach(el=>el.classList.remove('actief'));
-  document.getElementById('tf-tmin').value='';
-  document.getElementById('tf-tmax').value='';
-  document.getElementById('taak-modal').classList.add('open');
-  setTimeout(()=>document.getElementById('tf-naam').focus(),150);
-}
-function sluitTaakModal() { document.getElementById('taak-modal').classList.remove('open'); }
-function sluitTaakModalBuiten(e) { if(e.target===document.getElementById('taak-modal')) sluitTaakModal(); }
-function kiesChip(el) {
-  const g=el.dataset.g;
-  document.querySelectorAll(`[data-g="${g}"]`).forEach(e=>e.classList.remove('actief'));
-  el.classList.add('actief');
-}
-function toggleChip(el) { el.classList.toggle('actief'); }
-function getChipWaarde(g) { const a=document.querySelector(`[data-g="${g}"].actief`); return a?a.dataset.v:null; }
-function getCheckWaarden(id) { return [...document.querySelectorAll(`#${id} .chip.actief`)].map(el=>el.dataset.v); }
-
-function voegTaakToe() {
-  const naam=document.getElementById('tf-naam').value.trim();
-  if (!naam) { document.getElementById('tf-naam').focus(); return; }
-  const type=getChipWaarde('type')||'eenmalig';
-  const fdV=getChipWaarde('feestdag');
-  const feestdag=fdV==='true'?true:fdV==='false'?false:null;
-  const tmin=document.getElementById('tf-tmin').value;
-  const tmax=document.getElementById('tf-tmax').value;
-  const v={};
-  const wArr=getCheckWaarden('tcg-weer'); if(wArr.length) v.weer=wArr;
-  if(tmin!=='') v.temp_min=parseInt(tmin);
-  if(tmax!=='') v.temp_max=parseInt(tmax);
-  const sArr=getCheckWaarden('tcg-seizoen'); if(sArr.length) v.seizoen=sArr;
-  const dArr=getCheckWaarden('tcg-dag'); if(dArr.length) v.dag=dArr;
-  if(feestdag!==null) v.feestdag=feestdag;
-  const taak={id:'t_'+Date.now(),naam,type,voorwaarden:v,...(type==='herhalend'?{log:[]}:{gedaan:false})};
-  if(!syncData.taken) syncData.taken=[];
-  syncData.taken.push(taak);
-  sluitTaakModal(); renderTaken(); slaOp();
-}
-
 // ===== INIT =====
 function render() {
   renderBadge();
   if (currentTab==='aanstip') renderAanstip();
-  else if (currentTab==='winkel') renderWinkel();
-  else renderTaken();
+  else renderWinkel();
   renderActions();
 }
-
-// Stille weerdata ophalen voor taakfiltering
-fetch('https://api.open-meteo.com/v1/forecast?latitude=50.78&longitude=4.24&daily=temperature_2m_max,precipitation_sum,weathercode&past_days=0&forecast_days=1&timezone=Europe%2FBrussels')
-  .then(r=>r.json()).then(data=>{
-    const d=data.daily;
-    const neerslag=d.precipitation_sum[0], code=d.weathercode[0];
-    let weerType='droog';
-    if(neerslag>=1||code>=51) weerType='regen';
-    else if(code===3) weerType='bewolkt';
-    weerInfo={temp:d.temperature_2m_max[0],weerType};
-    if(currentTab==='taken') renderTaken();
-  }).catch(()=>{});
 
 render();
 laadData();
