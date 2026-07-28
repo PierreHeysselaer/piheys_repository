@@ -179,9 +179,7 @@
       "naam": "Gras afrijden",
       "type": "herhalend",
       "frequentie_dagen": 10,
-      "log": [
-        "2026-07-28"
-      ],
+      "log": [],
       "voorwaarden": {
         "weer": [
           "droog"
