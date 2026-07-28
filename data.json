@@ -130,7 +130,8 @@
       "type": "herhalend",
       "frequentie_dagen": 30,
       "log": [
-        "2026-07-24"
+        "2026-07-24",
+        "2026-07-28"
       ],
       "voorwaarden": {
         "weer": [
