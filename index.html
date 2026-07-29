@@ -26,13 +26,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .taak-check.actief{background:#4a7c59;border-color:#4a7c59;}
 .taak-check.actief::after{content:'✓';color:#fff;font-size:13px;font-weight:700;}
 .taak-info{flex:1;min-width:0;}
-.taak-naam{font-size:14px;font-weight:500;line-height:1.3;}
-.taak-meta{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-top:4px;}
-.tbadge{font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600;}
+.taak-naam{font-size:16px;font-weight:500;line-height:1.3;}
+.taak-meta{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-top:5px;}
+.tbadge{font-size:11px;padding:2px 8px;border-radius:10px;font-weight:600;}
 .tbadge-h{background:#e8f0fe;color:#1a73e8;}
 .tbadge-e{background:#fef3e8;color:#d97706;}
 .tbadge-v{background:#eaf4ee;color:#4a7c59;border:1px solid #b8dfc5;}
-.taak-when{font-size:11px;color:#aaa;}
+.tbadge-w{background:#f2f1ec;color:#888;}
+.taak-when{font-size:12px;color:#aaa;}
+.taak-item.vandaag-klaar{opacity:.65;}
 .taak-delete{flex-shrink:0;color:#bbb;cursor:pointer;font-size:20px;line-height:1;padding:2px 4px;border-radius:5px;}
 .taak-delete:active{color:#c0392b;background:#fdecea;}
 .nieuw-taak-btn{width:100%;padding:11px;background:none;border:2px dashed #d5d3ce;border-radius:8px;font-size:14px;color:#aaa;cursor:pointer;text-align:center;margin-top:6px;}
@@ -88,9 +90,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="fg">
       <label class="fl">Type</label>
       <div class="chips">
-        <div class="chip actief" data-g="type" data-v="eenmalig" onclick="kiesChip(this)">Éénmalig</div>
-        <div class="chip" data-g="type" data-v="herhalend" onclick="kiesChip(this)">Herhalend</div>
+        <div class="chip actief" data-g="type" data-v="eenmalig" onclick="kiesChip(this);document.getElementById('fg-freq').style.display='none'">Éénmalig</div>
+        <div class="chip" data-g="type" data-v="herhalend" onclick="kiesChip(this);document.getElementById('fg-freq').style.display='block'">Herhalend</div>
       </div>
+    </div>
+    <div class="fg" id="fg-freq" style="display:none;">
+      <label class="fl">Frequentie (dagen)</label>
+      <input class="fi" id="tf-freq" type="number" min="1" max="365" placeholder="bijv. 7 voor wekelijks">
     </div>
     <div class="fg">
       <label class="fl">Weer (optioneel)</label>
@@ -211,6 +217,24 @@ function isFeestdag(d) { return FEESTDAGEN.has(datumStr(d)); }
 function getSeizoeen(d) { const m=d.getMonth()+1; return m<=2||m===12?'winter':m<=5?'lente':m<=8?'zomer':'herfst'; }
 function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
+function isDue(t) {
+  if (t.type !== 'herhalend') return true;
+  const freq = t.frequentie_dagen || 7;
+  if (!t.log || !t.log.length) return true;
+  const lastDone = new Date(t.log[t.log.length-1] + 'T12:00:00');
+  const daysSince = Math.floor((TODAY - lastDone) / 86400000);
+  return daysSince >= freq;
+}
+function doneToday(t) {
+  return t.type === 'herhalend' && t.log && t.log.length > 0 && t.log[t.log.length-1] === datumStr(TODAY);
+}
+function dagenTotDue(t) {
+  const freq = t.frequentie_dagen || 7;
+  if (!t.log || !t.log.length) return 0;
+  const lastDone = new Date(t.log[t.log.length-1] + 'T12:00:00');
+  const daysSince = Math.floor((TODAY - lastDone) / 86400000);
+  return Math.max(0, freq - daysSince);
+}
 function heeftVoorwaarden(t) {
   const v = t.voorwaarden||{};
   return (v.dag&&v.dag.length)||(v.seizoen&&v.seizoen.length)||(v.weer&&v.weer.length)||v.feestdag!=null||v.temp_min!=null||v.temp_max!=null;
@@ -242,27 +266,53 @@ function renderTaken() {
   const el = document.getElementById('taken-lijst');
   const taken = syncData.taken||[];
   if (!taken.length) { el.innerHTML='<div class="taken-leeg">Geen taken. Klik hieronder om er een toe te voegen.</div>'; return; }
-  const actief = taken.filter(t => !(t.type==='eenmalig'&&t.gedaan));
-  const gedaan = taken.filter(t => t.type==='eenmalig'&&t.gedaan);
-  const vandaag = actief.filter(t => !heeftVoorwaarden(t)||taakRelevantVandaag(t));
-  const andere  = actief.filter(t => heeftVoorwaarden(t)&&!taakRelevantVandaag(t));
+
+  const herhalend = taken.filter(t => t.type === 'herhalend');
+  const eenmalig_actief = taken.filter(t => t.type === 'eenmalig' && !t.gedaan);
+  const gedaan_eenmalig = taken.filter(t => t.type === 'eenmalig' && t.gedaan);
+
+  // Vandaag: eenmalige taken (die passen) + herhalende gedaan vandaag + herhalende die aan de beurt zijn en condities kloppen
+  const vandaag = [
+    ...eenmalig_actief.filter(t => !heeftVoorwaarden(t) || taakRelevantVandaag(t)),
+    ...herhalend.filter(t => doneToday(t) || (isDue(t) && (!heeftVoorwaarden(t) || taakRelevantVandaag(t))))
+  ];
+  // Wacht op condities: aan de beurt maar condities kloppen niet vandaag
+  const wachten = herhalend.filter(t => !doneToday(t) && isDue(t) && heeftVoorwaarden(t) && !taakRelevantVandaag(t));
+  // Niet aan de beurt: interval nog niet verstreken
+  const nietAanBeurt = herhalend.filter(t => !doneToday(t) && !isDue(t));
+
+  const aantalSecties = [vandaag.length, wachten.length, nietAanBeurt.length, gedaan_eenmalig.length].filter(x=>x>0).length;
   let html = '';
   if (vandaag.length) {
-    if (andere.length||gedaan.length) html += '<div class="sectie-titel">Vandaag</div>';
-    html += vandaag.map(t => taakHTML(t, true)).join('');
+    if (aantalSecties > 1) html += '<div class="sectie-titel">Vandaag</div>';
+    html += vandaag.map(t => taakHTML(t, !doneToday(t))).join('');
   }
-  if (andere.length) { html += '<div class="sectie-titel" style="margin-top:14px;">Andere taken</div>'; html += andere.map(t=>taakHTML(t,false)).join(''); }
-  if (gedaan.length) { html += '<div class="sectie-titel" style="margin-top:14px;opacity:.5;">Afgewerkt</div>'; html += gedaan.map(t=>taakHTML(t,false)).join(''); }
+  if (wachten.length) {
+    html += '<div class="sectie-titel" style="margin-top:14px;">Wacht op condities</div>';
+    html += wachten.map(t => taakHTML(t, false)).join('');
+  }
+  if (nietAanBeurt.length) {
+    html += '<div class="sectie-titel" style="margin-top:14px;">Niet aan de beurt</div>';
+    html += nietAanBeurt.map(t => taakHTML(t, false)).join('');
+  }
+  if (gedaan_eenmalig.length) {
+    html += '<div class="sectie-titel" style="margin-top:14px;opacity:.5;">Afgewerkt</div>';
+    html += gedaan_eenmalig.map(t => taakHTML(t, false)).join('');
+  }
   el.innerHTML = html;
 }
 function taakHTML(t, relevant) {
   const isH = t.type==='herhalend', isG = t.type==='eenmalig'&&t.gedaan;
-  const vandaagGedaan = isH && t.log && t.log[t.log.length-1] === datumStr(TODAY);
+  const vandaagGedaan = doneToday(t);
   let badges = isH ? `<span class="tbadge tbadge-h">Herhalend</span>` : `<span class="tbadge tbadge-e">Éénmalig</span>`;
-  if (relevant&&heeftVoorwaarden(t)) badges += `<span class="tbadge tbadge-v">✓ vandaag</span>`;
+  if (relevant && heeftVoorwaarden(t)) badges += `<span class="tbadge tbadge-v">✓ vandaag</span>`;
+  if (isH && !isDue(t)) {
+    const d = dagenTotDue(t);
+    badges += `<span class="tbadge tbadge-w">over ${d} dag${d===1?'':'en'}</span>`;
+  }
   const meta = isH ? `<span class="taak-when">${formatLaatste(t.log)}</span>` : '';
   const checkActief = isG || vandaagGedaan;
-  return `<div class="taak-item${relevant?' relevant':''}${isG?' gedaan':''}">
+  return `<div class="taak-item${relevant?' relevant':''}${isG?' gedaan':''}${vandaagGedaan?' vandaag-klaar':''}">
     <div class="taak-check${checkActief?' actief':''}" onclick="toggleTaak('${escHtml(t.id)}')"></div>
     <div class="taak-info">
       <div class="taak-naam">${escHtml(t.naam)}</div>
@@ -288,6 +338,8 @@ function verwijderTaak(id) {
 }
 function openTaakModal() {
   document.getElementById('tf-naam').value='';
+  document.getElementById('tf-freq').value='';
+  document.getElementById('fg-freq').style.display='none';
   document.querySelectorAll('[data-g="type"]').forEach(el=>el.classList.toggle('actief',el.dataset.v==='eenmalig'));
   document.querySelectorAll('[data-g="feestdag"]').forEach(el=>el.classList.toggle('actief',el.dataset.v==='null'));
   document.querySelectorAll('#tcg-weer .chip,#tcg-seizoen .chip,#tcg-dag .chip').forEach(el=>el.classList.remove('actief'));
@@ -321,7 +373,8 @@ function voegTaakToe() {
   const sArr=getCheckWaarden('tcg-seizoen'); if(sArr.length) v.seizoen=sArr;
   const dArr=getCheckWaarden('tcg-dag'); if(dArr.length) v.dag=dArr;
   if(feestdag!==null) v.feestdag=feestdag;
-  const taak={id:'t_'+Date.now(),naam,type,voorwaarden:v,...(type==='herhalend'?{log:[]}:{gedaan:false})};
+  const freqVal = parseInt(document.getElementById('tf-freq').value);
+  const taak={id:'t_'+Date.now(),naam,type,voorwaarden:v,...(type==='herhalend'?{frequentie_dagen:freqVal||7,log:[]}:{gedaan:false})};
   if(!syncData.taken) syncData.taken=[];
   syncData.taken.push(taak);
   sluitTaakModal(); renderTaken(); slaOp();
