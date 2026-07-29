@@ -11,11 +11,7 @@
       "gedaan": false
     }
   ],
-  "boodschappen_geselecteerd": [
-    "wenskaarten",
-    "kabeljauw (geen haasje)",
-    "bechamel"
-  ],
+  "boodschappen_geselecteerd": [],
   "taken": [
     {
       "id": "t_voeten",
