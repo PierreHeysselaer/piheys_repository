@@ -1,0 +1,2106 @@
+{
+ "versie": 2,
+ "bijgewerkt": "2026-07-29",
+ "artikelen": [
+  {
+   "naam": "oude batterijen en bruisgasflessen leeg",
+   "specs": "",
+   "volgw": 100,
+   "volgb": 5,
+   "cat": "leeggoed",
+   "pref": "OKAY",
+   "backup": "",
+   "opm": ""
+  },
+  {
+   "naam": "wenskaarten",
+   "specs": "",
+   "volgw": 1050,
+   "volgb": 8,
+   "cat": "special",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "chips paprika",
+   "specs": "",
+   "volgw": 110,
+   "volgb": 10,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "chips zout",
+   "specs": "",
+   "volgw": 120,
+   "volgb": 10,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "nootjes",
+   "specs": "gezouten",
+   "volgw": 130,
+   "volgb": 10,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "speculoos everyday",
+   "specs": "",
+   "volgw": 200,
+   "volgb": 10,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "energierepen",
+   "specs": "",
+   "volgw": 220,
+   "volgb": 10,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "chocolade of zo",
+   "specs": "",
+   "volgw": 230,
+   "volgb": 10,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "frisk fresh effect of iets gelijkaardigs",
+   "specs": "",
+   "volgw": 240,
+   "volgb": 10,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "pims boni",
+   "specs": "",
+   "volgw": 290,
+   "volgb": 10,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "salami & kaasblokjes",
+   "specs": "",
+   "volgw": 1250,
+   "volgb": 10,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "pannenkoeken",
+   "specs": "",
+   "volgw": 1260,
+   "volgb": 10,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "droge worstjes",
+   "specs": "",
+   "volgw": 1410,
+   "volgb": 10,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "cervela",
+   "specs": "",
+   "volgw": 1560,
+   "volgb": 10,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "chocoladeijs",
+   "specs": "",
+   "volgw": 2030,
+   "volgb": 10,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "citroenijs",
+   "specs": "",
+   "volgw": 2040,
+   "volgb": 10,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "ijsjes",
+   "specs": "",
+   "volgw": 2080,
+   "volgb": 10,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "Magnum",
+   "specs": "",
+   "volgw": 2090,
+   "volgb": 10,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "vanilleijs",
+   "specs": "",
+   "volgw": 2100,
+   "volgb": 10,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "cesar salad",
+   "specs": "",
+   "volgw": 1400,
+   "volgb": 15,
+   "cat": "maaltijd",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "oetker pizza",
+   "specs": "",
+   "volgw": 1770,
+   "volgb": 15,
+   "cat": "maaltijd",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "bami goreng",
+   "specs": "",
+   "volgw": 1800,
+   "volgb": 15,
+   "cat": "maaltijd",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "macaroni",
+   "specs": "",
+   "volgw": 1810,
+   "volgb": 15,
+   "cat": "maaltijd",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "moussaka",
+   "specs": "",
+   "volgw": 1820,
+   "volgb": 15,
+   "cat": "maaltijd",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "lasagne",
+   "specs": "",
+   "volgw": 1830,
+   "volgb": 15,
+   "cat": "maaltijd",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "loempia",
+   "specs": "",
+   "volgw": 1950,
+   "volgb": 15,
+   "cat": "maaltijd",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "bechamel",
+   "specs": "",
+   "volgw": 310,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "bruine rijst",
+   "specs": "",
+   "volgw": 330,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "couscous",
+   "specs": "",
+   "volgw": 360,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "frituurolie",
+   "specs": "",
+   "volgw": 370,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "griekse pasta",
+   "specs": "",
+   "volgw": 380,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "tagliatelli",
+   "specs": "",
+   "volgw": 440,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "tomatenconcentraat",
+   "specs": "",
+   "volgw": 460,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "arachideolie",
+   "specs": "",
+   "volgw": 480,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "witte wijn azijn",
+   "specs": "",
+   "volgw": 590,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "olijfolie",
+   "specs": "",
+   "volgw": 600,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "look",
+   "specs": "",
+   "volgw": 1060,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "aardappelen bloem aardappelen",
+   "specs": "",
+   "volgw": 1070,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "ajuin",
+   "specs": "",
+   "volgw": 1080,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "nicola aardappelen 5 kilo",
+   "specs": "",
+   "volgw": 1090,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "rode ajuin",
+   "specs": "",
+   "volgw": 1100,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "effi of becel",
+   "specs": "",
+   "volgw": 1280,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "eieren",
+   "specs": "",
+   "volgw": 1300,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "gehakt gemengd 1 kilo",
+   "specs": "",
+   "volgw": 1510,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "spaghettigroenten 3 zakjes",
+   "specs": "",
+   "volgw": 1780,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "voorgebakken frietjes",
+   "specs": "",
+   "volgw": 1960,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "frietjes diepvries",
+   "specs": "",
+   "volgw": 1980,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "diepvrieskroketten",
+   "specs": "",
+   "volgw": 2000,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "diepvriesgroenten mix pierre",
+   "specs": "",
+   "volgw": 2010,
+   "volgb": 20,
+   "cat": "keuken",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "prei veel wit",
+   "specs": "",
+   "volgw": 1570,
+   "volgb": 30,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "komkommer",
+   "specs": "Molly",
+   "volgw": 1580,
+   "volgb": 30,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "tomaten",
+   "specs": "",
+   "volgw": 1590,
+   "volgb": 30,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "witloof",
+   "specs": "",
+   "volgw": 1600,
+   "volgb": 30,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "champignons",
+   "specs": "",
+   "volgw": 1610,
+   "volgb": 30,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "chili pepers",
+   "specs": "",
+   "volgw": 1620,
+   "volgb": 30,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "muizenoortjes",
+   "specs": "",
+   "volgw": 1630,
+   "volgb": 30,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "wortelen",
+   "specs": "",
+   "volgw": 1640,
+   "volgb": 30,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "sla 3 kleuren met wortel",
+   "specs": "",
+   "volgw": 1650,
+   "volgb": 30,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "groene kool",
+   "specs": "",
+   "volgw": 1660,
+   "volgb": 30,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "pitskool",
+   "specs": "",
+   "volgw": 1670,
+   "volgb": 30,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "dille met wortel",
+   "specs": "",
+   "volgw": 1680,
+   "volgb": 30,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "diepvriesgroenten spinazie, bloe...",
+   "specs": "",
+   "volgw": 1970,
+   "volgb": 30,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "soepgroenten",
+   "specs": "",
+   "volgw": 1990,
+   "volgb": 30,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "diepvriessoepgroenten",
+   "specs": "",
+   "volgw": 2020,
+   "volgb": 30,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "diepvriesgroenten catalaans 2x",
+   "specs": "",
+   "volgw": 2050,
+   "volgb": 30,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "diepvriesgroenten mediteraan 2x",
+   "specs": "",
+   "volgw": 2060,
+   "volgb": 30,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "pruimen",
+   "specs": "",
+   "volgw": 2170,
+   "volgb": 30,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "Kip",
+   "specs": "",
+   "volgw": 1440,
+   "volgb": 40,
+   "cat": "vlees",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "kippegehakt",
+   "specs": "",
+   "volgw": 1450,
+   "volgb": 40,
+   "cat": "vlees",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "ribbetjes",
+   "specs": "",
+   "volgw": 1500,
+   "volgb": 40,
+   "cat": "vlees",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "entrecôte rund",
+   "specs": "",
+   "volgw": 1460,
+   "volgb": 40,
+   "cat": "vlees",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "contrefillet rund",
+   "specs": "",
+   "volgw": 1490,
+   "volgb": 40,
+   "cat": "vlees",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "dikke ribbetjes",
+   "specs": "",
+   "volgw": 1480,
+   "volgb": 40,
+   "cat": "vlees",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "spiering varken",
+   "specs": "",
+   "volgw": 1540,
+   "volgb": 40,
+   "cat": "vlees",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "gehakt voor balletjes 1 kg gemeng...",
+   "specs": "",
+   "volgw": 1530,
+   "volgb": 40,
+   "cat": "vlees",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "cordon bleu",
+   "specs": "",
+   "volgw": 1550,
+   "volgb": 40,
+   "cat": "vlees",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "zalm",
+   "specs": "",
+   "volgw": 1420,
+   "volgb": 50,
+   "cat": "vis",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "kabeljauw (geen haasje)",
+   "specs": "",
+   "volgw": 1430,
+   "volgb": 50,
+   "cat": "vis",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "fish sticks",
+   "specs": "",
+   "volgw": 2070,
+   "volgb": 50,
+   "cat": "vis",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "bâton dunne salami worst",
+   "specs": "",
+   "volgw": 1180,
+   "volgb": 60,
+   "cat": "beleg",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "spek blokjes gerookt",
+   "specs": "",
+   "volgw": 1200,
+   "volgb": 60,
+   "cat": "beleg",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "spek sneden",
+   "specs": "",
+   "volgw": 1210,
+   "volgb": 60,
+   "cat": "beleg",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "vers spek ongezouten sneetjes",
+   "specs": "",
+   "volgw": 1220,
+   "volgb": 60,
+   "cat": "beleg",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "americain prepare",
+   "specs": "",
+   "volgw": 1230,
+   "volgb": 60,
+   "cat": "beleg",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "martino",
+   "specs": "",
+   "volgw": 1240,
+   "volgb": 60,
+   "cat": "beleg",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "platte kaas vol 3 dozen",
+   "specs": "",
+   "volgw": 1290,
+   "volgb": 60,
+   "cat": "beleg",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "philadelphia",
+   "specs": "",
+   "volgw": 1320,
+   "volgb": 60,
+   "cat": "beleg",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "raclettekaas",
+   "specs": "",
+   "volgw": 1330,
+   "volgb": 60,
+   "cat": "beleg",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "americain natuur",
+   "specs": "",
+   "volgw": 1470,
+   "volgb": 60,
+   "cat": "beleg",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "gehakt varken kalf voor de boterh...",
+   "specs": "",
+   "volgw": 1520,
+   "volgb": 60,
+   "cat": "beleg",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "salami met look",
+   "specs": "",
+   "volgw": 2180,
+   "volgb": 60,
+   "cat": "beleg",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "bruin frans brood",
+   "specs": "",
+   "volgw": 1910,
+   "volgb": 70,
+   "cat": "brood",
+   "pref": "Bakker",
+   "backup": "OKAY",
+   "opm": ""
+  },
+  {
+   "naam": "wit caréken",
+   "specs": "",
+   "volgw": 1920,
+   "volgb": 70,
+   "cat": "brood",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "brood lichtbruin",
+   "specs": "",
+   "volgw": 1930,
+   "volgb": 70,
+   "cat": "brood",
+   "pref": "Bakker",
+   "backup": "OKAY",
+   "opm": ""
+  },
+  {
+   "naam": "brood donker",
+   "specs": "",
+   "volgw": 1940,
+   "volgb": 70,
+   "cat": "brood",
+   "pref": "Bakker",
+   "backup": "OKAY",
+   "opm": ""
+  },
+  {
+   "naam": "havermout",
+   "specs": "",
+   "volgw": 160,
+   "volgb": 75,
+   "cat": "ontbijt",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "confituur rabarber aardbei",
+   "specs": "",
+   "volgw": 170,
+   "volgb": 75,
+   "cat": "ontbijt",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "muesli (gedroogd fruit & granen)",
+   "specs": "",
+   "volgw": 180,
+   "volgb": 75,
+   "cat": "ontbijt",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "corn flakes [DUBBEL]",
+   "specs": "",
+   "volgw": 190,
+   "volgb": 75,
+   "cat": "ontbijt",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "speculoospasta",
+   "specs": "",
+   "volgw": 210,
+   "volgb": 75,
+   "cat": "ontbijt",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "hagelslag fondant",
+   "specs": "",
+   "volgw": 250,
+   "volgb": 75,
+   "cat": "ontbijt",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "bruine kinderkessuiker",
+   "specs": "",
+   "volgw": 320,
+   "volgb": 75,
+   "cat": "ontbijt",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "choco",
+   "specs": "",
+   "volgw": 350,
+   "volgb": 75,
+   "cat": "ontbijt",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "honing",
+   "specs": "",
+   "volgw": 410,
+   "volgb": 75,
+   "cat": "ontbijt",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "kristal suiker (voor brood)",
+   "specs": "",
+   "volgw": 430,
+   "volgb": 75,
+   "cat": "ontbijt",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "betterfood",
+   "specs": "",
+   "volgw": 1110,
+   "volgb": 75,
+   "cat": "ontbijt",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "bananen",
+   "specs": "",
+   "volgw": 1170,
+   "volgb": 80,
+   "cat": "fruit",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "6 appelsienen",
+   "specs": "",
+   "volgw": 1690,
+   "volgb": 80,
+   "cat": "fruit",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "appelsien pers",
+   "specs": "",
+   "volgw": 1700,
+   "volgb": 80,
+   "cat": "fruit",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "kiwi",
+   "specs": "",
+   "volgw": 1710,
+   "volgb": 80,
+   "cat": "fruit",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "mandarijntjes, geen doos, aan de...",
+   "specs": "",
+   "volgw": 1720,
+   "volgb": 80,
+   "cat": "fruit",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "platte perziken",
+   "specs": "",
+   "volgw": 1730,
+   "volgb": 80,
+   "cat": "fruit",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "appelen",
+   "specs": "",
+   "volgw": 1740,
+   "volgb": 80,
+   "cat": "fruit",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "druiven",
+   "specs": "",
+   "volgw": 1750,
+   "volgb": 80,
+   "cat": "fruit",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "aardbeien 2 doosjes",
+   "specs": "",
+   "volgw": 1760,
+   "volgb": 80,
+   "cat": "fruit",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "basilicum met wortel",
+   "specs": "",
+   "volgw": 1790,
+   "volgb": 80,
+   "cat": "kruiden",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "Citroenconcentraat voor frisdrank",
+   "specs": "",
+   "volgw": 140,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "volle melk 12L",
+   "specs": "",
+   "volgw": 150,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "koffie",
+   "specs": "",
+   "volgw": 260,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "nesquick",
+   "specs": "",
+   "volgw": 270,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "canderelsuiker",
+   "specs": "",
+   "volgw": 340,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "klontjes suiker",
+   "specs": "",
+   "volgw": 420,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "sodastream volle fles",
+   "specs": "",
+   "volgw": 540,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "evian Louis water",
+   "specs": "",
+   "volgw": 910,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "fanta 6 blikjes",
+   "specs": "",
+   "volgw": 920,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "gini",
+   "specs": "",
+   "volgw": 930,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "ice tea",
+   "specs": "",
+   "volgw": 940,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "schweppes mochitto",
+   "specs": "",
+   "volgw": 950,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "cola 6 blikjes (gewone)",
+   "specs": "",
+   "volgw": 960,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "cola zero",
+   "specs": "",
+   "volgw": 970,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "schweppes zero",
+   "specs": "",
+   "volgw": 980,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "plat water contrex 2 à 4 flessen",
+   "specs": "",
+   "volgw": 1000,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "bruisend water bru?",
+   "specs": "",
+   "volgw": 1010,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "jupiler",
+   "specs": "",
+   "volgw": 1020,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "fles bruin piedboeuf",
+   "specs": "",
+   "volgw": 1030,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "red bull",
+   "specs": "",
+   "volgw": 1040,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "appelsiensap",
+   "specs": "",
+   "volgw": 1900,
+   "volgb": 90,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "kaas",
+   "specs": "",
+   "volgw": 1270,
+   "volgb": 100,
+   "cat": "melk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "kruidenboter",
+   "specs": "",
+   "volgw": 1310,
+   "volgb": 100,
+   "cat": "melk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "room om ijskreem te maken",
+   "specs": "",
+   "volgw": 1340,
+   "volgb": 100,
+   "cat": "melk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "solo vloeibaar bak",
+   "specs": "",
+   "volgw": 1350,
+   "volgb": 100,
+   "cat": "melk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "boter",
+   "specs": "",
+   "volgw": 1360,
+   "volgb": 100,
+   "cat": "melk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "boter 2 pakken",
+   "specs": "",
+   "volgw": 1370,
+   "volgb": 100,
+   "cat": "melk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "gorgonzola",
+   "specs": "",
+   "volgw": 1380,
+   "volgb": 100,
+   "cat": "melk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "gemalen kaas",
+   "specs": "",
+   "volgw": 1390,
+   "volgb": 100,
+   "cat": "melk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "platte kaasjes voor Louis",
+   "specs": "",
+   "volgw": 1840,
+   "volgb": 100,
+   "cat": "melk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "yoghurt",
+   "specs": "",
+   "volgw": 1850,
+   "volgb": 100,
+   "cat": "melk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "yoghurt natuur witte producten 1/2L",
+   "specs": "",
+   "volgw": 1860,
+   "volgb": 100,
+   "cat": "melk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "alpro vanille",
+   "specs": "",
+   "volgw": 1870,
+   "volgb": 100,
+   "cat": "melk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "skyr",
+   "specs": "",
+   "volgw": 1880,
+   "volgb": 100,
+   "cat": "melk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "karnemelk 2 x",
+   "specs": "",
+   "volgw": 1890,
+   "volgb": 100,
+   "cat": "melk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "augurken",
+   "specs": "",
+   "volgw": 300,
+   "volgb": 150,
+   "cat": "sausen ed",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "harissa",
+   "specs": "",
+   "volgw": 390,
+   "volgb": 150,
+   "cat": "sausen ed",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "hollandaise",
+   "specs": "",
+   "volgw": 400,
+   "volgb": 150,
+   "cat": "sausen ed",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "zout",
+   "specs": "",
+   "volgw": 450,
+   "volgb": 150,
+   "cat": "sausen ed",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "amerikaanse saus",
+   "specs": "",
+   "volgw": 470,
+   "volgb": 150,
+   "cat": "sausen ed",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "ketchup",
+   "specs": "",
+   "volgw": 490,
+   "volgb": 150,
+   "cat": "sausen ed",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "Mayo devos lemmens ei",
+   "specs": "",
+   "volgw": 500,
+   "volgb": 150,
+   "cat": "sausen ed",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "mosterd",
+   "specs": "",
+   "volgw": 510,
+   "volgb": 150,
+   "cat": "sausen ed",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "pickels",
+   "specs": "",
+   "volgw": 520,
+   "volgb": 150,
+   "cat": "sausen ed",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "Samourai",
+   "specs": "",
+   "volgw": 530,
+   "volgb": 150,
+   "cat": "sausen ed",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "balsamico",
+   "specs": "",
+   "volgw": 560,
+   "volgb": 150,
+   "cat": "sausen ed",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "engelse saus",
+   "specs": "",
+   "volgw": 570,
+   "volgb": 150,
+   "cat": "sausen ed",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "tabasco",
+   "specs": "",
+   "volgw": 580,
+   "volgb": 150,
+   "cat": "sausen ed",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "shampoo",
+   "specs": "",
+   "volgw": 990,
+   "volgb": 160,
+   "cat": "persoonlijk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "oorstokjes",
+   "specs": "",
+   "volgw": 1120,
+   "volgb": 160,
+   "cat": "persoonlijk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "after sun voor kinderen",
+   "specs": "",
+   "volgw": 1130,
+   "volgb": 160,
+   "cat": "persoonlijk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "handwaszeep",
+   "specs": "",
+   "volgw": 1140,
+   "volgb": 160,
+   "cat": "persoonlijk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "douchegel",
+   "specs": "",
+   "volgw": 1150,
+   "volgb": 160,
+   "cat": "persoonlijk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "tandpasta",
+   "specs": "",
+   "volgw": 1160,
+   "volgb": 160,
+   "cat": "persoonlijk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "scheermesjes mach3",
+   "specs": "",
+   "volgw": 2140,
+   "volgb": 160,
+   "cat": "persoonlijk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "spoelmiddel vaatwas",
+   "specs": "",
+   "volgw": 770,
+   "volgb": 170,
+   "cat": "vaatwas",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "vaatwastabletten",
+   "specs": "",
+   "volgw": 780,
+   "volgb": 170,
+   "cat": "vaatwas",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "wasmiddel kleur",
+   "specs": "",
+   "volgw": 610,
+   "volgb": 180,
+   "cat": "was",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "wasmiddel voor witte was",
+   "specs": "",
+   "volgw": 620,
+   "volgb": 180,
+   "cat": "was",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "wasverzachter",
+   "specs": "",
+   "volgw": 630,
+   "volgb": 180,
+   "cat": "was",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "dentastix",
+   "specs": "",
+   "volgw": 810,
+   "volgb": 200,
+   "cat": "dier",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "jumbone",
+   "specs": "",
+   "volgw": 820,
+   "volgb": 200,
+   "cat": "dier",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "zwarte schoensmeer",
+   "specs": "",
+   "volgw": 550,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "reinigingspray ruiten open haard",
+   "specs": "",
+   "volgw": 640,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "ontstopper",
+   "specs": "",
+   "volgw": 650,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "ontvochtingszout",
+   "specs": "",
+   "volgw": 660,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "dethol citroen",
+   "specs": "",
+   "volgw": 670,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "spray dettol ajax",
+   "specs": "",
+   "volgw": 680,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "spray schimmel voegen badkamer",
+   "specs": "",
+   "volgw": 690,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "wasmachinereiniger",
+   "specs": "",
+   "volgw": 700,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "instanet",
+   "specs": "",
+   "volgw": 710,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "zwarte vuilzakken",
+   "specs": "",
+   "volgw": 720,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "soda-reiniger",
+   "specs": "",
+   "volgw": 730,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "steradent waterleidingreiniger",
+   "specs": "",
+   "volgw": 740,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "glansmiddel vaatwas",
+   "specs": "",
+   "volgw": 750,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "Regenereerzout vaatwas",
+   "specs": "",
+   "volgw": 760,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "wc cleaner met klem op wc pot",
+   "specs": "",
+   "volgw": 790,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "swifferdoekjes",
+   "specs": "",
+   "volgw": 800,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "huishoudpapier",
+   "specs": "",
+   "volgw": 830,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "servetten",
+   "specs": "",
+   "volgw": 840,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "WC papier",
+   "specs": "",
+   "volgw": 850,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "blauwe vuilzakken",
+   "specs": "",
+   "volgw": 860,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "zwarte vuilzakken",
+   "specs": "",
+   "volgw": 870,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "boterhamzakjes 5 L en 1 L",
+   "specs": "",
+   "volgw": 880,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "doggybagzakken met sluiting",
+   "specs": "",
+   "volgw": 890,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "aluminium folie",
+   "specs": "",
+   "volgw": 900,
+   "volgb": 300,
+   "cat": "logistiek",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "ontkalker koffiezet",
+   "specs": "",
+   "volgw": 280,
+   "volgb": 300,
+   "cat": "onderhoud",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "Houtskool",
+   "specs": "",
+   "volgw": 1190,
+   "volgb": 900,
+   "cat": "rest",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "AA-batterijen",
+   "specs": "",
+   "volgw": 2110,
+   "volgb": 990,
+   "cat": "batterijen",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "AAA-batterijen",
+   "specs": "",
+   "volgw": 2120,
+   "volgb": 990,
+   "cat": "batterijen",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "aanstekers",
+   "specs": "",
+   "volgw": 2130,
+   "volgb": 990,
+   "cat": "batterijen",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "2032 batterijen",
+   "specs": "",
+   "volgw": 2150,
+   "volgb": 990,
+   "cat": "batterijen",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "geld afhalen",
+   "specs": "",
+   "volgw": 2160,
+   "volgb": 990,
+   "cat": "rest",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "kartonnen dozen",
+   "specs": "",
+   "volgw": 9999,
+   "volgb": 999,
+   "cat": "rest",
+   "pref": "OKAY",
+   "backup": "",
+   "opm": ""
+  }
+ ]
+}
