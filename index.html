@@ -3,145 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Taken</title>
+<title>Concierge</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html,body{max-width:100%;overflow-x:hidden;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f7f7f5;color:#111;
-     padding-bottom:100px;font-size:16px;max-width:1000px;margin:0 auto;}
-#header{background:#fff;border-bottom:1px solid #e5e3de;padding:12px;position:sticky;top:0;z-index:20;
-        display:flex;align-items:center;justify-content:space-between;gap:8px;}
-.sync-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ccc;margin-right:4px;
-          vertical-align:middle;transition:background .3s;}
-.sync-dot.ok{background:#4a7c59;} .sync-dot.bezig{background:#e6a817;animation:p 1s infinite;}
-.sync-dot.fout{background:#c0392b;}
-@keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
-#weer{font-size:13px;color:#666;background:#f2f1ec;border-radius:8px;padding:5px 10px;white-space:nowrap;}
-#wrap{padding:10px 12px 0;}
-.sectie{font-size:12px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.06em;
-        margin:20px 0 8px 2px;}
-.sectie:first-child{margin-top:8px;}
-.sectie .tel{font-weight:400;text-transform:none;letter-spacing:0;color:#bbb;margin-left:5px;}
+     font-size:16px;max-width:1000px;margin:0 auto;padding:0 0 60px;}
 
-.dagelijks{background:#fff;border:1px solid #e8e6e1;border-radius:11px;padding:12px 15px;margin-bottom:6px;}
-.dagelijks .d-item{font-size:16px;padding:5px 0;color:#444;}
-.dagelijks .d-item::before{content:'•';color:#b8dfc5;font-weight:700;margin-right:10px;}
+#kop{padding:26px 18px 20px;}
+.titel{font-size:27px;font-weight:600;letter-spacing:-.01em;}
+.datum{font-size:15px;color:#8d8d8d;margin-top:5px;text-transform:capitalize;}
+.weerbalk{display:flex;align-items:center;gap:9px;margin-top:14px;background:#fff;
+          border:1px solid #e8e6e1;border-radius:11px;padding:11px 14px;font-size:15px;color:#555;}
+.weerbalk .ic{font-size:19px;}
+.weerbalk .los{color:#aaa;font-size:13.5px;}
 
-.agenda{background:#fff;border:1px solid #e8e6e1;border-radius:11px;padding:12px 15px;margin-bottom:6px;}
-.a-item{display:flex;gap:12px;align-items:baseline;padding:5px 0;}
-.a-tijd{font-size:13.5px;color:#4a7c59;font-weight:600;min-width:64px;flex-shrink:0;}
-.a-tekst{font-size:16px;color:#444;line-height:1.3;}
-.a-plaats{display:block;font-size:13px;color:#aaa;margin-top:1px;}
+#agenda{margin:0 18px 6px;background:#fff;border:1px solid #e8e6e1;border-radius:12px;padding:13px 16px;}
+#agenda .kopje{font-size:11.5px;font-weight:700;color:#999;text-transform:uppercase;
+               letter-spacing:.06em;margin-bottom:8px;}
+.ag{display:flex;gap:12px;align-items:baseline;padding:4px 0;}
+.ag .t{font-size:13.5px;color:#4a7c59;font-weight:600;min-width:66px;flex-shrink:0;}
+.ag .x{font-size:15.5px;color:#444;line-height:1.3;}
 
-.taak{display:flex;align-items:flex-start;gap:13px;border:1px solid #e8e6e1;border-radius:11px;
-      padding:13px 15px;margin-bottom:7px;background:#fff;}
-.taak.relevant{border-color:#b8dfc5;background:#eaf4ee;}
-.taak.klaar{opacity:.55;}
-.taak.klaar .naam{text-decoration:line-through;}
-.taak.grijs{opacity:.62;}
-.check{width:26px;height:26px;flex-shrink:0;margin-top:1px;border:2px solid #ddd;border-radius:7px;
-       cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s;}
-.taak.relevant .check{border-color:#8fc7a3;}
-.check.aan{background:#4a7c59;border-color:#4a7c59;}
-.check.aan::after{content:'✓';color:#fff;font-size:15px;font-weight:700;}
-.info{flex:1;min-width:0;}
-.naam{font-size:16px;font-weight:500;line-height:1.3;}
-.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:5px;}
-.b{font-size:11px;padding:2px 8px;border-radius:10px;font-weight:600;}
-.b-h{background:#e8f0fe;color:#1a73e8;} .b-e{background:#fef3e8;color:#d97706;}
-.b-ok{background:#eaf4ee;color:#4a7c59;border:1px solid #b8dfc5;}
-.b-w{background:#f2f1ec;color:#8a8a8a;} .b-n{background:#fdecea;color:#c0392b;}
-.wanneer{font-size:12.5px;color:#a5a5a5;}
-.waarom{font-size:13px;color:#7d7d7d;margin-top:5px;line-height:1.35;}
-.waarom.ai{color:#4a7c59;font-style:italic;}
-.wis{flex-shrink:0;color:#ccc;cursor:pointer;font-size:22px;line-height:1;padding:0 4px;}
-.wis:active{color:#c0392b;}
-.leeg{text-align:center;color:#c0c0c0;font-size:15px;padding:26px 0;font-style:italic;}
-.knop-nieuw{width:100%;padding:13px;background:none;border:2px dashed #d5d3ce;border-radius:9px;
-            font-size:15px;color:#a5a5a5;cursor:pointer;margin-top:14px;}
-.knop-nieuw:active{border-color:#4a7c59;color:#4a7c59;}
-.bedenking{background:#fffdf5;border:1px solid #f0e4c0;border-radius:10px;padding:13px 15px;
-           font-size:14.5px;color:#7a6636;line-height:1.45;margin-top:16px;}
+#tegels{padding:12px 18px 0;display:flex;flex-direction:column;gap:11px;}
+.tegel{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid #e8e6e1;
+       border-radius:14px;padding:18px 19px;transition:border-color .15s,transform .08s;}
+.tegel:active{border-color:#4a7c59;transform:scale(.995);}
+.tegel-rij{display:flex;align-items:center;gap:15px;}
+.ic-vak{width:46px;height:46px;flex-shrink:0;border-radius:12px;background:#eaf4ee;
+        display:flex;align-items:center;justify-content:center;font-size:23px;}
+.tegel-naam{font-size:19px;font-weight:600;}
+.tegel-sub{font-size:14px;color:#999;margin-top:2px;}
+.tegel-sub.let{color:#c0392b;font-weight:600;}
+.pijl{margin-left:auto;color:#ccc;font-size:20px;flex-shrink:0;}
 
-.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;
-         align-items:flex-end;justify-content:center;}
-.overlay.open{display:flex;}
-.modal{background:#fff;border-radius:20px 20px 0 0;padding:22px 18px 44px;width:100%;max-width:640px;
-       max-height:92vh;overflow-y:auto;}
-.m-titel{font-size:18px;font-weight:600;margin-bottom:16px;}
-.fg{margin-bottom:14px;}
-.fl{display:block;font-size:11.5px;font-weight:600;color:#888;text-transform:uppercase;
-    letter-spacing:.04em;margin-bottom:6px;}
-.fi{width:100%;padding:11px 13px;border:1px solid #ddd;border-radius:8px;font-size:16px;
-    color:#111;background:#fafaf8;outline:none;}
-.fi:focus{border-color:#4a7c59;}
-.chips{display:flex;flex-wrap:wrap;gap:7px;}
-.chip{padding:9px 16px;border-radius:20px;border:1px solid #ddd;background:#f7f7f5;font-size:14.5px;
-      cursor:pointer;user-select:none;}
-.chip.aan{background:#4a7c59;color:#fff;border-color:#4a7c59;}
-.knoppen{display:flex;gap:9px;margin-top:22px;}
-.bp{flex:1;padding:14px;background:#4a7c59;color:#fff;border:none;border-radius:10px;font-size:16px;
-    font-weight:600;cursor:pointer;}
-.bs{flex:1;padding:14px;background:#f2f1ec;color:#888;border:1px solid #e5e3de;border-radius:10px;
-    font-size:16px;cursor:pointer;}
-.hint{font-size:13px;color:#a5a5a5;margin-top:7px;line-height:1.4;}
+.duo{display:flex;gap:9px;margin-top:13px;padding-top:13px;border-top:1px solid #f2f1ec;}
+.duo a{flex:1;text-align:center;text-decoration:none;padding:11px;border:1px solid #e5e3de;
+       border-radius:9px;font-size:15px;color:#555;background:#fafaf8;}
+.duo a:active{border-color:#4a7c59;color:#4a7c59;background:#eaf4ee;}
+
+#voet{text-align:center;font-size:12.5px;color:#c2c2c2;padding:26px 18px 0;}
 </style>
 </head>
 <body>
 
-<div id="header">
-  <div style="display:flex;align-items:center;gap:9px;min-width:0;">
-    <span style="font-size:17px;font-weight:500;">Taken</span>
-    <span><span class="sync-dot" id="dot"></span><span id="sync" style="font-size:12px;color:#aaa;">–</span></span>
-  </div>
-  <div style="display:flex;gap:6px;align-items:center;">
-    <span id="weer">–</span>
-    <button onclick="laadAlles()" style="font-size:14px;padding:6px 11px;border:1px solid #ddd;
-      border-radius:7px;background:#fff;color:#888;cursor:pointer;">↻</button>
+<div id="kop">
+  <div class="titel">Concierge</div>
+  <div class="datum" id="datum"></div>
+  <div class="weerbalk" id="weerbalk" style="display:none;">
+    <span class="ic" id="w-ic"></span>
+    <span id="w-tekst"></span>
+    <span class="los" id="w-los"></span>
   </div>
 </div>
 
-<div id="wrap"><div id="lijst"></div>
-  <button class="knop-nieuw" onclick="openModal()">+ Nieuwe taak</button>
+<div id="agenda" style="display:none;">
+  <div class="kopje">Vandaag in de agenda</div>
+  <div id="agenda-lijst"></div>
 </div>
 
-<div class="overlay" id="modal" onclick="if(event.target===this)sluit()">
-  <div class="modal">
-    <div class="m-titel">Nieuwe taak</div>
-    <div class="fg">
-      <label class="fl">Wat moet er gebeuren?</label>
-      <input class="fi" id="f-naam" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')bewaar()">
+<div id="tegels">
+
+  <a class="tegel" href="boodschappenlijst.html">
+    <div class="tegel-rij">
+      <div class="ic-vak">🛒</div>
+      <div>
+        <div class="tegel-naam">Boodschappen</div>
+        <div class="tegel-sub" id="sub-bood">aanstiplijst en winkellijst</div>
+      </div>
+      <div class="pijl">›</div>
     </div>
-    <div class="fg">
-      <label class="fl">Soort</label>
-      <div class="chips">
-        <div class="chip aan" data-g="type" data-v="eenmalig" onclick="kies(this)">Eenmalig</div>
-        <div class="chip" data-g="type" data-v="herhalend" onclick="kies(this)">Herhalend</div>
+  </a>
+
+  <a class="tegel" href="taken.html">
+    <div class="tegel-rij">
+      <div class="ic-vak">🌿</div>
+      <div>
+        <div class="tegel-naam">Taken</div>
+        <div class="tegel-sub" id="sub-taken">wat kan er vandaag</div>
+      </div>
+      <div class="pijl">›</div>
+    </div>
+  </a>
+
+  <div class="tegel">
+    <div class="tegel-rij">
+      <div class="ic-vak">💊</div>
+      <div>
+        <div class="tegel-naam">Medicijnen</div>
+        <div class="tegel-sub" id="sub-med">voorraad en weekdoosje</div>
       </div>
     </div>
-    <div class="fg" id="fg-freq" style="display:none;">
-      <label class="fl">Om de hoeveel dagen?</label>
-      <input class="fi" id="f-freq" type="number" min="1" max="400" placeholder="bijv. 30">
-    </div>
-    <div class="fg">
-      <label class="fl">Opmerking (optioneel)</label>
-      <input class="fi" id="f-opm" type="text" autocomplete="off"
-             placeholder="bijv. enkel bij droog weer">
-      <div class="hint">Schrijf gerust in gewone taal onder welke voorwaarden.
-        De taak wordt bewaard en later op de pc verfijnd.</div>
-    </div>
-    <div class="knoppen">
-      <button class="bs" onclick="sluit()">Annuleren</button>
-      <button class="bp" onclick="bewaar()">Toevoegen</button>
+    <div class="duo">
+      <a href="medicatie_pierre.html">Pierre</a>
+      <a href="medicatie_bea.html">Bea</a>
     </div>
   </div>
+
 </div>
+
+<div id="voet">bijgewerkt <span id="voet-tijd">–</span></div>
 
 <script>
 /* ============================================================
-   Concierge — takenlijst
-   Leest config.json (taken), status.json (logboek),
-   dag.json (weer) en briefing.json (commentaar, optioneel).
+   Concierge — beginpagina
+   Puur een vertrekpunt. Alles wat hieronder gebeurt is
+   versiering: lukt het laden niet, dan blijven de knoppen
+   gewoon werken.
    ============================================================ */
 
 const REPO = 'PierreHeysselaer/piheys_repository';
@@ -150,432 +118,106 @@ const TOKEN = ['github_pat_11AYGGRYA0mx','BmzBHFY6TP_XD','TD4hfTIO1fvuM2paNJ7R1O
 const API = n => `https://api.github.com/repos/${REPO}/contents/${n}`;
 const H = () => ({Authorization:`Bearer ${TOKEN}`, Accept:'application/vnd.github.v3+json'});
 
-/* velden van status.json die DEZE pagina beheert */
-const MIJN = ['taken_log','taken_gedaan','taken_nieuw'];
+const DAGEN = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+const MND = ['januari','februari','maart','april','mei','juni','juli',
+             'augustus','september','oktober','november','december'];
 
-const KORT = ['zo','ma','di','wo','do','vr','za'];
-const MND  = ['januari','februari','maart','april','mei','juni','juli',
-              'augustus','september','oktober','november','december'];
-
-let CONFIG = null, STATUS = null, DAG = null, BRIEF = null;
-let sha = null, bezig = false, nogEens = false;
-
-/* ---------- hulpjes ---------- */
 const dstr = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 const VANDAAG = dstr(new Date());
-function plusDagen(s, n){ const d=new Date(s+'T12:00:00'); d.setDate(d.getDate()+n); return dstr(d); }
-function dagenTussen(a, b){
-  return Math.round((new Date(b+'T12:00:00') - new Date(a+'T12:00:00'))/86400000);
-}
-function seizoen(s){ const m=+s.slice(5,7); return m<=2||m===12?'winter':m<=5?'lente':m<=8?'zomer':'herfst'; }
-const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-function b64(t){ const by=new TextEncoder().encode(t); let s=''; by.forEach(x=>s+=String.fromCharCode(x)); return btoa(s); }
+const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 function vanB64(c){ return new TextDecoder().decode(Uint8Array.from(atob(c.replace(/\n/g,'')), x=>x.charCodeAt(0))); }
-function setSync(k,t){ document.getElementById('dot').className='sync-dot '+k;
-                       document.getElementById('sync').textContent=t; }
 
-/* ---------- laden ---------- */
-async function haalJson(naam){
-  const r = await fetch(API(naam)+'?t='+Date.now(), {headers:H(), cache:'no-store'});
-  if (r.status===404) return null;
-  if (!r.ok) throw new Error(naam+': '+r.status);
-  const j = await r.json();
-  return {sha:j.sha, data:JSON.parse(vanB64(j.content))};
-}
+/* datum meteen tonen, ook zonder netwerk */
+(function(){
+  const d = new Date();
+  document.getElementById('datum').textContent =
+    `${DAGEN[d.getDay()]} ${d.getDate()} ${MND[d.getMonth()]}`;
+})();
 
-async function laadAlles(){
-  setSync('bezig','laden…');
+async function haal(naam){
   try {
-    const [c, s, d] = await Promise.all([
-      haalJson('config.json'), haalJson('status.json'), haalJson('dag.json')
-    ]);
-    CONFIG = c ? c.data : {taken:{dagelijks:[],herhalend:[],eenmalig:[]}};
-    STATUS = s ? s.data : {};
-    sha    = s ? s.sha  : null;
-    DAG    = d ? d.data : null;
-    for (const k of MIJN) if (!STATUS[k]) STATUS[k] = (k==='taken_log') ? {} : [];
-
-    try { const b = await haalJson('briefing.json');
-          BRIEF = (b && b.data.datum===VANDAAG) ? b.data : null; } catch(e){ BRIEF=null; }
-
-    setSync('ok','gesynchroniseerd');
-  } catch(e){ setSync('fout','fout bij laden'); console.error(e); }
-  toonWeer(); teken();
+    const r = await fetch(API(naam)+'?t='+Date.now(), {headers:H(), cache:'no-store'});
+    if (!r.ok) return null;
+    return JSON.parse(vanB64((await r.json()).content));
+  } catch(e){ return null; }
 }
 
-/* ---------- opslaan (met conflictafhandeling) ----------
-   Bij een botsing halen we de verse versie op, zetten ONZE velden
-   erin terug en proberen opnieuw. Zo gaat er nooit iets verloren —
-   ook niet van de boodschappen- of medicatiepagina.            */
-async function bewaarStatus(){
-  if (bezig){ nogEens = true; return; }
-  bezig = true; setSync('bezig','opslaan…');
-  try {
-    for (let poging=0; poging<4; poging++){
-      STATUS.gewijzigd = new Date().toISOString();
-      const body = {message:'taken', content:b64(JSON.stringify(STATUS,null,1))};
-      if (sha) body.sha = sha;
-      const r = await fetch(API('status.json'), {
-        method:'PUT', headers:{...H(),'Content-Type':'application/json'}, body:JSON.stringify(body)});
-
-      if (r.ok){
-        sha = (await r.json()).content.sha;
-        setSync('ok','opgeslagen ✓');
-        setTimeout(()=>setSync('ok','gesynchroniseerd'), 2200);
-        return;
-      }
-      if (r.status===409 || r.status===422){
-        const vers = await haalJson('status.json');
-        if (vers){
-          sha = vers.sha;
-          for (const k of MIJN) vers.data[k] = STATUS[k];   /* eigen werk behouden */
-          STATUS = vers.data;
-        }
-        continue;
-      }
-      throw new Error(r.status);
-    }
-    setSync('fout','opslaan lukt niet');
-  } catch(e){ setSync('fout','fout'); console.error(e); }
-  finally {
-    bezig = false;
-    if (nogEens){ nogEens = false; bewaarStatus(); }
-  }
+/* dagen voorraad — zelfde regel als de medicatiepagina:
+   wat er ligt, min het verbruik sinds de peildatum         */
+function dagenVoorraad(m){
+  const perDag = +m.doses_per_dag || 0;
+  if (!perDag) return 9999;
+  const basis = +m.stock_thuis || 0;
+  const vanaf = m.stock_bijgewerkt_op || VANDAAG;
+  const dagen = Math.max(0, Math.round(
+    (new Date(VANDAAG+'T12:00:00') - new Date(vanaf+'T12:00:00'))/86400000));
+  const nu = Math.max(0, basis - dagen*perDag);
+  const totaal = nu + (+m.dozen_apotheek||0) * (+m.units_per_doos||0);
+  return Math.floor(totaal / perDag);
 }
 
-/* ============================================================
-   DE CONDITIEMOTOR
-   ============================================================ */
+async function vul(){
+  const [status, dag, brief] = await Promise.all([
+    haal('status.json'), haal('dag.json'), haal('briefing.json')
+  ]);
 
-function weer(datum){ return DAG ? (DAG.dagen||[]).find(d=>d.datum===datum) : null; }
-
-/* som van de neerslag over de N dagen VOOR 'datum' */
-function regenVoorbije(datum, n){
-  let som = 0, gevonden = 0;
-  for (let i=1; i<=n; i++){
-    const w = weer(plusDagen(datum,-i));
-    if (w){ som += w.regen_mm; gevonden++; }
-  }
-  return gevonden ? som : null;
-}
-
-/* frequentie voor dit seizoen; null = in dit seizoen niet nodig */
-function frequentie(t, datum){
-  const f = t.frequentie || {};
-  const s = seizoen(datum);
-  if (s in f) return f[s];
-  if ('*' in f) return f['*'];
-  return 30;
-}
-
-/* is de termijn verstreken? */
-function termijn(t, datum){
-  const freq = frequentie(t, datum);
-  if (freq === null) return {aanBeurt:false, seizoenstop:true};
-  const log = (STATUS.taken_log||{})[t.id] || [];
-  if (!log.length) return {aanBeurt:true, nooit:true, freq};
-  const laatst = log[log.length-1];
-  const sinds  = dagenTussen(laatst, datum);
-  return {aanBeurt: sinds>=freq, sinds, freq, over: freq-sinds, laatst};
-}
-
-/* kloppen de omstandigheden? geeft ook terug waaróm niet */
-function condities(t, datum){
-  const v = t.voorwaarden || {};
-  const w = weer(datum);
-  const d = new Date(datum+'T12:00:00');
-  const nee = [];
-
-  if (v.maanden && !v.maanden.includes(d.getMonth()+1))
-    nee.push('niet in ' + MND[d.getMonth()]);
-  if (v.dag && !v.dag.includes(KORT[d.getDay()]))
-    nee.push('andere dag van de week');
-
-  if (w){
-    if (v.regen_vandaag_max_mm != null && w.regen_mm > v.regen_vandaag_max_mm)
-      nee.push(`het regent (${w.regen_mm} mm)`);
-    if (v.temp_min != null && w.temp_max < v.temp_min)
-      nee.push(`te koud (${w.temp_max}°)`);
-    if (v.temp_max != null && w.temp_max > v.temp_max)
-      nee.push(`te warm (${w.temp_max}°)`);
-    if (v.wind_max_kmu != null && w.wind_max_kmu > v.wind_max_kmu)
-      nee.push(`te veel wind (${w.wind_max_kmu} km/u)`);
-    if (v.bewolking_min_pct != null && w.bewolking_pct < v.bewolking_min_pct)
-      nee.push('te felle zon');
-
-    if (v.regen_vorige_dagen){
-      const r = v.regen_vorige_dagen;
-      const som = regenVoorbije(datum, r.dagen);
-      if (som !== null){
-        if (r.min_mm != null && som < r.min_mm)
-          nee.push(`te droog geweest (${som.toFixed(1)} mm in ${r.dagen} dagen)`);
-        if (r.max_mm != null && som > r.max_mm)
-          nee.push(`net geregend (${som.toFixed(1)} mm in ${r.dagen} dagen)`);
-      }
-    }
-  } else if (Object.keys(v).some(k=>k.indexOf('regen')===0||k.indexOf('temp')===0||
-                                    k.indexOf('wind')===0||k.indexOf('bewolking')===0)){
-    nee.push('geen weergegevens');
-  }
-  return {ok: nee.length===0, nee};
-}
-
-function heeftVoorwaarden(t){
-  return Object.keys(t.voorwaarden||{}).length > 0;
-}
-
-/* ---------- weerbalk ---------- */
-function toonWeer(){
-  const w = weer(VANDAAG);
-  const el = document.getElementById('weer');
-  if (!w){ el.textContent='geen weerdata'; el.title='dag.json ontbreekt of is verouderd'; return; }
-  const ic = w.type==='regen' ? '🌧️' : w.type==='bewolkt' ? '☁️' : '☀️';
-  el.textContent = `${ic} ${w.temp_max}° · ${w.regen_mm} mm`;
-  el.title = `wind ${w.wind_max_kmu} km/u · zon ${w.zon_pct}%`;
-}
-
-/* ============================================================
-   TEKENEN
-   ============================================================ */
-function teken(){
-  const el = document.getElementById('lijst');
-  if (!CONFIG){ el.innerHTML='<div class="leeg">Nog niets geladen.</div>'; return; }
-
-  const T = CONFIG.taken || {};
-  const dagelijks = T.dagelijks || [];
-  const herh = T.herhalend || [];
-  const een  = T.eenmalig  || [];
-  const gedaan = STATUS.taken_gedaan || [];
-  const nieuw  = STATUS.taken_nieuw  || [];
-
-  let html = '';
-
-  /* --- dagelijks (geheugensteun, geen vinkjes) --- */
-  if (dagelijks.length){
-    html += '<div class="sectie">Elke dag</div><div class="dagelijks">';
-    html += dagelijks.map(d=>`<div class="d-item">${esc(d.naam)}</div>`).join('');
-    html += '</div>';
-  }
-
-  /* --- agenda van vandaag, uit briefing.json (optioneel) --- */
-  if (BRIEF && BRIEF.agenda && BRIEF.agenda.length){
-    html += '<div class="sectie">Agenda vandaag</div><div class="agenda">';
-    html += BRIEF.agenda.map(a=>`<div class="a-item">
-      <span class="a-tijd">${esc(a.tijd || '')}</span>
-      <span class="a-tekst">${esc(a.tekst)}${a.plaats?`<span class="a-plaats">${esc(a.plaats)}</span>`:''}</span>
-    </div>`).join('');
-    html += '</div>';
-  }
-
-  /* --- verdeel de taken --- */
-  const vandaag = [], wacht = [], nietAanBeurt = [], seizoenrust = [];
-
-  for (const t of herh){
-    const log = (STATUS.taken_log||{})[t.id] || [];
-    if (log[log.length-1] === VANDAAG){ vandaag.push({t, klaar:true}); continue; }
-    const tm = termijn(t, VANDAAG);
-    if (tm.seizoenstop){ seizoenrust.push({t}); continue; }
-    if (!tm.aanBeurt){ nietAanBeurt.push({t, tm}); continue; }
-    const c = condities(t, VANDAAG);
-    if (c.ok) vandaag.push({t, tm});
-    else      wacht.push({t, tm, c});
-  }
-  for (const t of een){
-    if (gedaan.includes(t.id)) continue;
-    const c = condities(t, VANDAAG);
-    if (c.ok) vandaag.push({t, een:true});
-    else      wacht.push({t, een:true, c});
-  }
-
-  /* --- vandaag --- */
-  html += `<div class="sectie">Vandaag${vandaag.length?`<span class="tel">${vandaag.length}</span>`:''}</div>`;
-  html += vandaag.length
-    ? vandaag.map(x=>kaart(x, true)).join('')
-    : '<div class="leeg">Niets dat vandaag moet. Geniet ervan.</div>';
-
-  /* --- wacht op condities --- */
-  if (wacht.length){
-    html += '<div class="sectie">Wacht op betere omstandigheden</div>';
-    html += wacht.map(x=>kaart(x, false)).join('');
-  }
-
-  /* --- morgen --- */
-  const dmorgen = plusDagen(VANDAAG, 1);
-  const morgen = [];
-  for (const x of wacht){
-    if (condities(x.t, dmorgen).ok) morgen.push(x.t);
-  }
-  for (const x of nietAanBeurt){
-    const tm = termijn(x.t, dmorgen);
-    if (tm.aanBeurt && !tm.seizoenstop && condities(x.t, dmorgen).ok) morgen.push(x.t);
-  }
-  if (morgen.length){
-    html += '<div class="sectie">Morgen mogelijk</div>';
-    const w = weer(dmorgen);
-    const uitleg = w ? `${w.temp_max}°, ${w.regen_mm} mm regen, wind ${w.wind_max_kmu} km/u` : '';
-    html += morgen.map(t=>
-      `<div class="taak grijs"><div class="info">
-        <div class="naam">${esc(t.naam)}</div>
-        ${uitleg?`<div class="waarom">${uitleg}</div>`:''}</div></div>`).join('');
-  }
-
-  /* --- niet aan de beurt --- */
-  if (nietAanBeurt.length){
-    html += `<div class="sectie">Niet aan de beurt<span class="tel">${nietAanBeurt.length}</span></div>`;
-    html += nietAanBeurt.sort((a,b)=>a.tm.over-b.tm.over).map(x=>kaart(x,false)).join('');
-  }
-
-  /* --- seizoensrust --- */
-  if (seizoenrust.length){
-    html += '<div class="sectie">Rust deze tijd van het jaar</div>';
-    html += seizoenrust.map(x=>
-      `<div class="taak grijs"><div class="info"><div class="naam">${esc(x.t.naam)}</div>
-       <div class="meta"><span class="b b-w">niet in de ${seizoen(VANDAAG)}</span></div>
-       </div></div>`).join('');
-  }
-
-  /* --- nieuw toegevoegd, nog te verfijnen --- */
-  if (nieuw.length){
-    html += `<div class="sectie">Nieuw toegevoegd<span class="tel">nog te verfijnen</span></div>`;
-    html += nieuw.map((n,i)=>`
-      <div class="taak">
-        <div class="check" onclick="wisNieuw(${i})"></div>
-        <div class="info">
-          <div class="naam">${esc(n.naam)}</div>
-          <div class="meta">
-            <span class="b ${n.type==='herhalend'?'b-h':'b-e'}">${n.type==='herhalend'
-              ? 'herhalend · '+n.frequentie_dagen+' d' : 'eenmalig'}</span>
-            <span class="b b-n">nieuw</span>
-          </div>
-          ${n.opm?`<div class="waarom">${esc(n.opm)}</div>`:''}
-        </div>
-        <div class="wis" onclick="wisNieuw(${i})">×</div>
-      </div>`).join('');
-  }
-
-  /* --- gisteren gedaan --- */
-  const gisteren = plusDagen(VANDAAG,-1);
-  const gd = herh.filter(t=>((STATUS.taken_log||{})[t.id]||[]).includes(gisteren));
-  if (gd.length){
-    html += '<div class="sectie">Gisteren gedaan</div>';
-    html += gd.map(t=>`<div class="taak grijs"><div class="check aan"></div>
-      <div class="info"><div class="naam">${esc(t.naam)}</div></div></div>`).join('');
-  }
-
-  /* --- afgewerkte eenmalige --- */
-  const af = een.filter(t=>gedaan.includes(t.id));
-  if (af.length){
-    html += `<div class="sectie">Afgewerkt<span class="tel">${af.length}</span></div>`;
-    html += af.map(t=>`<div class="taak klaar">
-      <div class="check aan" onclick="toggleEen('${t.id}')"></div>
-      <div class="info"><div class="naam">${esc(t.naam)}</div></div></div>`).join('');
-  }
-
-  /* --- bedenking van de conciërge --- */
-  if (BRIEF && BRIEF.bedenking){
-    html += `<div class="bedenking">${esc(BRIEF.bedenking)}</div>`;
-  }
-
-  el.innerHTML = html;
-}
-
-function kaart(x, relevant){
-  const t = x.t;
-  const isEen = !!x.een;
-  const klaar = !!x.klaar;
-  let b = isEen ? '<span class="b b-e">eenmalig</span>'
-                : '<span class="b b-h">herhalend</span>';
-
-  if (relevant && !klaar && heeftVoorwaarden(t))
-    b += '<span class="b b-ok">✓ omstandigheden kloppen</span>';
-  if (x.tm && !x.tm.aanBeurt && x.tm.over>0)
-    b += `<span class="b b-w">over ${x.tm.over} dag${x.tm.over===1?'':'en'}</span>`;
-
-  let wanneer = '';
-  if (!isEen && x.tm){
-    if (x.tm.nooit) wanneer = '<span class="wanneer">nog nooit gedaan</span>';
-    else if (x.tm.sinds!=null){
-      const s = x.tm.sinds;
-      const tk = s===0?'vandaag gedaan':s===1?'gisteren gedaan':
-                 s<14?`${s} dagen geleden`:s<70?`${Math.round(s/7)} weken geleden`:
-                 `${Math.round(s/30)} maanden geleden`;
-      wanneer = `<span class="wanneer">${tk}</span>`;
+  /* --- weer --- */
+  if (dag && dag.dagen){
+    const w = dag.dagen.find(x => x.datum === VANDAAG);
+    if (w){
+      document.getElementById('w-ic').textContent =
+        w.type === 'regen' ? '🌧️' : w.type === 'bewolkt' ? '☁️' : '☀️';
+      document.getElementById('w-tekst').textContent =
+        `${w.temp_min}° tot ${w.temp_max}°` + (w.regen_mm > 0 ? `, ${w.regen_mm} mm regen` : ', droog');
+      document.getElementById('w-los').textContent =
+        `wind ${w.wind_max_kmu} km/u`;
+      document.getElementById('weerbalk').style.display = 'flex';
     }
   }
 
-  let waarom = '';
-  if (x.c && !x.c.ok) waarom = `<div class="waarom">${esc(x.c.nee.join(' · '))}</div>`;
-  else if (t.reden_uitleg && relevant && !klaar)
-    waarom = `<div class="waarom">${esc(t.reden_uitleg)}</div>`;
+  /* --- agenda uit de briefing --- */
+  if (brief && brief.datum === VANDAAG && brief.agenda && brief.agenda.length){
+    document.getElementById('agenda-lijst').innerHTML = brief.agenda.map(a =>
+      `<div class="ag"><span class="t">${esc(a.tijd||'')}</span>
+       <span class="x">${esc(a.tekst)}</span></div>`).join('');
+    document.getElementById('agenda').style.display = 'block';
+  }
 
-  if (BRIEF && BRIEF.bij_taak && BRIEF.bij_taak[t.id])
-    waarom += `<div class="waarom ai">${esc(BRIEF.bij_taak[t.id])}</div>`;
+  if (!status) return;
 
-  const fn  = isEen ? `toggleEen('${t.id}')` : `toggleHerh('${t.id}')`;
-  const cls = 'taak' + (relevant&&!klaar ? ' relevant' : '') + (!relevant||klaar ? ' grijs' : '');
+  /* --- boodschappen --- */
+  const gekozen = (status.boodschappen && status.boodschappen.aangevinkt) || [];
+  document.getElementById('sub-bood').textContent = gekozen.length
+    ? `${gekozen.length} artikel${gekozen.length===1?'':'en'} op de lijst`
+    : 'lijst is leeg';
 
-  return `<div class="${cls}">
-    <div class="check${klaar?' aan':''}" onclick="${fn}"></div>
-    <div class="info">
-      <div class="naam">${esc(t.naam)}</div>
-      <div class="meta">${b}${wanneer}</div>
-      ${waarom}
-    </div>
-  </div>`;
-}
+  /* --- taken: alleen wat vandaag al afgevinkt is --- */
+  const log = status.taken_log || {};
+  const vandaagGedaan = Object.values(log)
+    .filter(l => Array.isArray(l) && l[l.length-1] === VANDAAG).length;
+  document.getElementById('sub-taken').textContent = vandaagGedaan
+    ? `${vandaagGedaan} vandaag afgevinkt`
+    : 'wat kan er vandaag';
 
-/* ---------- acties ---------- */
-function toggleHerh(id){
-  if (!STATUS.taken_log) STATUS.taken_log = {};
-  const log = STATUS.taken_log[id] || (STATUS.taken_log[id] = []);
-  if (log[log.length-1] === VANDAAG) log.pop(); else log.push(VANDAAG);
-  teken(); bewaarStatus();
-}
-function toggleEen(id){
-  if (!STATUS.taken_gedaan) STATUS.taken_gedaan = [];
-  const i = STATUS.taken_gedaan.indexOf(id);
-  if (i>=0) STATUS.taken_gedaan.splice(i,1); else STATUS.taken_gedaan.push(id);
-  teken(); bewaarStatus();
-}
-function wisNieuw(i){
-  STATUS.taken_nieuw.splice(i,1);
-  teken(); bewaarStatus();
-}
+  /* --- medicijnen: enkel waarschuwen als het krap wordt --- */
+  const alle = [...(status.medicatie_pierre||[]), ...(status.medicatie_bea||[])];
+  const krap = alle.filter(m => dagenVoorraad(m) < 21);
+  const el = document.getElementById('sub-med');
+  if (krap.length){
+    el.textContent = krap.length === 1
+      ? `${krap[0].naam} raakt op`
+      : `${krap.length} medicijnen raken op`;
+    el.classList.add('let');
+  }
 
-/* ---------- modal ---------- */
-function openModal(){
-  document.getElementById('f-naam').value='';
-  document.getElementById('f-opm').value='';
-  document.getElementById('f-freq').value='';
-  document.getElementById('fg-freq').style.display='none';
-  document.querySelectorAll('[data-g="type"]').forEach(e=>e.classList.toggle('aan', e.dataset.v==='eenmalig'));
-  document.getElementById('modal').classList.add('open');
-  setTimeout(()=>document.getElementById('f-naam').focus(), 150);
-}
-function sluit(){ document.getElementById('modal').classList.remove('open'); }
-function kies(el){
-  const g = el.dataset.g;
-  document.querySelectorAll(`[data-g="${g}"]`).forEach(e=>e.classList.remove('aan'));
-  el.classList.add('aan');
-  if (g==='type') document.getElementById('fg-freq').style.display =
-    (el.dataset.v==='herhalend') ? 'block' : 'none';
-}
-function bewaar(){
-  const naam = document.getElementById('f-naam').value.trim();
-  if (!naam){ document.getElementById('f-naam').focus(); return; }
-  const type = document.querySelector('[data-g="type"].aan').dataset.v;
-  const freq = parseInt(document.getElementById('f-freq').value) || 30;
-  if (!STATUS.taken_nieuw) STATUS.taken_nieuw = [];
-  STATUS.taken_nieuw.push({
-    naam, type,
-    frequentie_dagen: type==='herhalend' ? freq : null,
-    opm: document.getElementById('f-opm').value.trim(),
-    toegevoegd: VANDAAG
-  });
-  sluit(); teken(); bewaarStatus();
+  if (status.gewijzigd){
+    const d = new Date(status.gewijzigd);
+    document.getElementById('voet-tijd').textContent =
+      `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+  }
 }
 
-laadAlles();
+vul();
 </script>
 </body>
 </html>
