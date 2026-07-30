@@ -11,9 +11,7 @@
       "gedaan": false
     }
   ],
-  "boodschappen_geselecteerd": [
-    "Maaltijd Bea"
-  ],
+  "boodschappen_geselecteerd": [],
   "taken": [
     {
       "id": "t_voeten",
