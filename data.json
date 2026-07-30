@@ -11,20 +11,7 @@
       "gedaan": false
     }
   ],
-  "boodschappen_geselecteerd": [
-    "chips paprika",
-    "komkommer",
-    "wortelen",
-    "pitskool",
-    "Kip",
-    "tomaten",
-    "skyr",
-    "kiwi",
-    "wasmiddel kleur",
-    "martino",
-    "philadelphia",
-    "americain prepare"
-  ],
+  "boodschappen_geselecteerd": [],
   "taken": [
     {
       "id": "t_voeten",
