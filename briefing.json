@@ -1,0 +1,12 @@
+{
+ "datum": "2026-07-30",
+ "agenda": [
+  { "tijd": "09:00", "tekst": "Schrikdraad afwerken" },
+  { "tijd": "13:00", "tekst": "Molly 2e ontworming geven" },
+  { "tijd": "14:30", "tekst": "Cinema?" }
+ ],
+ "bij_taak": {},
+ "bij_winkel": {
+  "Bakker": "dicht tot 5 augustus — brood voorlopig bij OKAY"
+ }
+}
