@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-07-30T14:32:43.938Z",
+ "gewijzigd": "2026-07-30T14:33:00.629Z",
  "boodschappen": {
   "aangevinkt": [],
   "nieuw": []
@@ -59,7 +59,7 @@
    "naam": "Metformine",
    "doses_per_dag": 2,
    "eenheid": "tablet",
-   "units_per_doos": 28,
+   "units_per_doos": 100,
    "stock_thuis": 289,
    "stock_bijgewerkt_op": "2026-07-30",
    "dozen_apotheek": 0,
