@@ -3,450 +3,502 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Medicatie — Bea</title>
+<title>Medicatie Bea</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html,body{max-width:100%;overflow-x:hidden;}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f7f7f5;color:#111;padding-bottom:100px;}
-#header{background:#fff;border-bottom:1px solid #e5e3de;padding:12px 14px 10px;position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;}
-.sync-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#ccc;margin-right:3px;vertical-align:middle;transition:background .3s;}
-.sync-dot.ok{background:#4a7c59;}
-.sync-dot.bezig{background:#e6a817;animation:sdpulse 1s infinite;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f7f7f5;color:#111;
+     padding-bottom:100px;font-size:16px;max-width:1000px;margin:0 auto;}
+#header{background:#fff;border-bottom:1px solid #e5e3de;padding:12px;position:sticky;top:0;z-index:20;
+        display:flex;align-items:center;justify-content:space-between;}
+.sync-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ccc;margin-right:4px;
+          vertical-align:middle;transition:background .3s;}
+.sync-dot.ok{background:#4a7c59;} .sync-dot.bezig{background:#e6a817;animation:p 1s infinite;}
 .sync-dot.fout{background:#c0392b;}
-@keyframes sdpulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
+#wrap{padding:12px;}
 
-/* Warnings */
-#warn-wrap{padding:8px 10px 0;}
-.warn-banner{background:#fff8e1;border:1px solid #f5c542;border-radius:10px;padding:10px 13px;margin-bottom:6px;}
-.warn-banner .warn-titel{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#9a7a00;margin-bottom:4px;}
-.warn-item{font-size:13px;color:#7a5f00;padding:2px 0;}
+.alarm{border-radius:11px;padding:14px 16px;margin-bottom:12px;font-size:15px;line-height:1.45;}
+.alarm.rood{background:#fdecea;border:1px solid #f3c4bd;color:#a3271a;}
+.alarm.oranje{background:#fff8e8;border:1px solid #f0dcb0;color:#8a6414;}
+.alarm b{font-weight:650;}
+.alarm ul{margin:7px 0 0 18px;} .alarm li{margin:3px 0;}
 
-/* Medicijn cards */
-#med-wrap{padding:8px 10px 0;}
-.med-card{background:#fff;border:1px solid #e8e6e1;border-radius:12px;margin-bottom:8px;overflow:hidden;}
-.med-card.kritiek{border-color:#e74c3c;border-width:2px;}
-.med-card.waarschuw{border-color:#f5c542;}
+.med{background:#fff;border:1px solid #e8e6e1;border-radius:12px;padding:15px;margin-bottom:10px;}
+.med.krap{border-color:#f3c4bd;}
+.med-kop{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:3px;}
+.med-naam{font-size:17px;font-weight:600;line-height:1.25;}
+.med-sub{font-size:13.5px;color:#999;margin-bottom:12px;}
+.tot{font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:9px;white-space:nowrap;}
+.tot.groen{background:#eaf4ee;color:#3d6b4a;} .tot.oranje{background:#fff5e0;color:#96700f;}
+.tot.rood{background:#fdecea;color:#a3271a;}
 
-.med-header{display:flex;align-items:flex-start;justify-content:space-between;padding:12px 14px 6px;}
-.med-naam{font-size:15px;font-weight:600;line-height:1.3;}
-.med-sub{font-size:12px;color:#888;margin-top:2px;}
-.med-knoppen{display:flex;gap:5px;flex-shrink:0;margin-left:8px;align-items:flex-start;}
-.btn-edit{font-size:11px;padding:4px 9px;border:1px solid #ddd;border-radius:6px;background:#f7f7f5;color:#666;cursor:pointer;white-space:nowrap;}
-.btn-edit:active{background:#e8e6e1;}
-.btn-del{font-size:18px;color:#ccc;border:none;background:none;cursor:pointer;padding:2px 4px;line-height:1;}
-.btn-del:active{color:#c0392b;}
+.rij{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;
+     border-top:1px solid #f2f1ec;}
+.rij-label{font-size:14.5px;color:#555;flex:1;min-width:0;}
+.rij-label small{display:block;color:#aaa;font-size:12.5px;margin-top:1px;}
+.rij-waarde{font-size:16px;font-weight:600;min-width:52px;text-align:right;}
+.rij-waarde.tikbaar{cursor:pointer;border-bottom:1px dashed #c8c6c1;padding-bottom:1px;}
+.rij-waarde.tikbaar:active{color:#4a7c59;border-bottom-color:#4a7c59;}
+.knopjes{display:flex;gap:5px;align-items:center;}
+.kn{width:34px;height:34px;border:1px solid #ddd;border-radius:8px;background:#fafaf8;font-size:17px;
+    color:#555;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.kn:active{background:#eaf4ee;border-color:#4a7c59;color:#4a7c59;}
+.kn.breed{width:auto;padding:0 11px;font-size:13.5px;font-weight:600;}
 
-/* Stock rijen */
-.stock-blok{padding:4px 14px 10px;}
-.stock-row{display:flex;align-items:center;gap:6px;margin-bottom:5px;}
-.stock-lbl{font-size:12px;color:#888;width:64px;flex-shrink:0;}
-.stock-num{font-size:16px;font-weight:700;min-width:36px;text-align:center;color:#111;}
-.btn-s{width:30px;height:30px;border-radius:7px;border:1px solid #ddd;background:#f7f7f5;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;user-select:none;flex-shrink:0;}
-.btn-s:active{background:#e8e6e1;}
-.btn-snel{height:30px;padding:0 9px;border-radius:7px;border:1px solid #b8dfc5;background:#eaf4ee;font-size:11px;font-weight:700;color:#4a7c59;cursor:pointer;user-select:none;white-space:nowrap;}
-.btn-snel:active{background:#d5eedd;}
-.eenheid-lbl{font-size:11px;color:#aaa;margin-left:2px;}
+.doosje{background:#f9f9f7;border-radius:9px;padding:11px 13px;margin-top:11px;}
+.doosje-rij{display:flex;justify-content:space-between;align-items:center;gap:10px;}
+.doosje-tekst{font-size:14px;color:#555;line-height:1.4;}
+.doosje-tekst b{color:#111;}
+.waarschuw{font-size:13.5px;color:#a3271a;margin-top:7px;line-height:1.4;}
+.vul-knop{padding:9px 14px;background:#4a7c59;color:#fff;border:none;border-radius:8px;font-size:14px;
+          font-weight:600;cursor:pointer;white-space:nowrap;}
+.vul-knop.uit{background:#e8e6e1;color:#999;}
 
-/* Beschikbaar-tot banner */
-.beschikbaar{margin:2px 14px 8px;padding:7px 11px;border-radius:8px;font-size:13px;display:flex;align-items:center;justify-content:space-between;}
-.beschikbaar.goed{background:#eaf4ee;color:#2e7d52;}
-.beschikbaar.middel{background:#fff8e1;color:#7a5f00;}
-.beschikbaar.slecht{background:#fdecea;color:#c0392b;}
-.beschikbaar .datum{font-weight:700;font-size:14px;}
-.beschikbaar .rest{font-size:11px;opacity:.75;}
+.acties{display:flex;gap:7px;margin-top:12px;}
+.mini{flex:1;padding:8px;background:#f7f7f5;border:1px solid #e5e3de;border-radius:8px;font-size:13.5px;
+      color:#888;cursor:pointer;}
+.mini:active{color:#4a7c59;border-color:#b8dfc5;}
+.leeg{text-align:center;color:#c0c0c0;font-size:15px;padding:40px 0;font-style:italic;}
+.knop-nieuw{width:100%;padding:13px;background:none;border:2px dashed #d5d3ce;border-radius:9px;
+            font-size:15px;color:#a5a5a5;cursor:pointer;margin-top:8px;}
+.knop-nieuw:active{border-color:#4a7c59;color:#4a7c59;}
 
-/* Doosje sectie */
-.doosje-blok{border-top:1px solid #f0ede8;padding:8px 14px 10px;background:#fafaf8;}
-.doosje-info{font-size:12px;color:#888;margin-bottom:7px;line-height:1.6;}
-.doosje-info .ok{color:#4a7c59;font-weight:500;}
-.doosje-info .warn{color:#e6a817;font-weight:500;}
-.doosje-info .err{color:#c0392b;font-weight:500;}
-.btn-vul{font-size:13px;font-weight:500;padding:8px 16px;background:#4a7c59;color:#fff;border:none;border-radius:8px;cursor:pointer;}
-.btn-vul:active{background:#3d6b4a;}
-.btn-vul.onvoldoende{background:#aaa;}
-
-/* Toevoeg-knop */
-#add-wrap{padding:0 10px;}
-.add-btn{width:100%;padding:11px;background:none;border:2px dashed #d5d3ce;border-radius:8px;font-size:14px;color:#aaa;cursor:pointer;text-align:center;margin-top:4px;}
-.add-btn:active{border-color:#4a7c59;color:#4a7c59;}
-
-/* Leeg */
-.leeg{text-align:center;padding:50px 20px;color:#bbb;font-size:14px;line-height:1.6;}
-
-/* Modal */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;align-items:flex-end;justify-content:center;}
-.modal-overlay.open{display:flex;}
-.modal{background:#fff;border-radius:20px 20px 0 0;padding:22px 18px 44px;width:100%;max-width:640px;max-height:92vh;overflow-y:auto;}
-.modal-titel{font-size:17px;font-weight:600;margin-bottom:16px;}
-.fg{margin-bottom:12px;}
-.fl{display:block;font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;}
-.fi{width:100%;padding:9px 12px;border:1px solid #ddd;border-radius:7px;font-size:14px;color:#111;background:#fafaf8;outline:none;}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;
+         align-items:flex-end;justify-content:center;}
+.overlay.open{display:flex;}
+.modal{background:#fff;border-radius:20px 20px 0 0;padding:22px 18px 44px;width:100%;max-width:640px;
+       max-height:92vh;overflow-y:auto;}
+.m-titel{font-size:18px;font-weight:600;margin-bottom:16px;}
+.fg{margin-bottom:13px;}
+.fl{display:block;font-size:11.5px;font-weight:600;color:#888;text-transform:uppercase;
+    letter-spacing:.04em;margin-bottom:6px;}
+.fi{width:100%;padding:11px 13px;border:1px solid #ddd;border-radius:8px;font-size:16px;
+    background:#fafaf8;outline:none;}
 .fi:focus{border-color:#4a7c59;}
-.fi-row{display:flex;gap:8px;}
-.fi-row .fg{flex:1;}
-.check-row{display:flex;align-items:center;gap:9px;}
-.check-row input[type=checkbox]{width:18px;height:18px;accent-color:#4a7c59;cursor:pointer;}
-.check-row label{font-size:14px;cursor:pointer;}
-.modal-knoppen{display:flex;gap:8px;margin-top:20px;}
-.btn-p{flex:1;padding:13px;background:#4a7c59;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;}
-.btn-ann{flex:1;padding:13px;background:#f2f1ec;color:#888;border:1px solid #e5e3de;border-radius:10px;font-size:15px;cursor:pointer;}
+.duo{display:flex;gap:9px;} .duo>div{flex:1;}
+.hint{font-size:12.5px;color:#aaa;margin-top:5px;line-height:1.35;}
+.knoppen{display:flex;gap:9px;margin-top:20px;}
+.bp{flex:1;padding:14px;background:#4a7c59;color:#fff;border:none;border-radius:10px;font-size:16px;
+    font-weight:600;cursor:pointer;}
+.bs{flex:1;padding:14px;background:#f2f1ec;color:#888;border:1px solid #e5e3de;border-radius:10px;
+    font-size:16px;cursor:pointer;}
 </style>
 </head>
 <body>
 
 <div id="header">
-  <div style="display:flex;align-items:center;gap:8px;">
-    <span style="font-size:16px;font-weight:500;">💊 Medicatie Bea</span>
-    <div>
-      <span class="sync-dot" id="sync-dot"></span>
-      <span id="sync-tekst" style="font-size:11px;color:#aaa;">–</span>
-    </div>
+  <div style="display:flex;align-items:center;gap:9px;">
+    <span style="font-size:17px;font-weight:500;">Medicatie Bea</span>
+    <span><span class="sync-dot" id="dot"></span><span id="sync" style="font-size:12px;color:#aaa;">–</span></span>
   </div>
-  <button onclick="laadData()" style="font-size:12px;padding:4px 9px;border:1px solid #ddd;border-radius:6px;background:#fff;color:#888;cursor:pointer;" title="Herladen">↻</button>
+  <button onclick="laadAlles()" style="font-size:14px;padding:6px 11px;border:1px solid #ddd;
+    border-radius:7px;background:#fff;color:#888;cursor:pointer;">↻</button>
 </div>
 
-<div id="warn-wrap"></div>
-<div id="med-wrap"></div>
-<div id="add-wrap">
-  <button class="add-btn" onclick="openModal(null)">+ Medicijn toevoegen</button>
+<div id="wrap">
+  <div id="alarmen"></div>
+  <div id="lijst"></div>
+  <button class="knop-nieuw" onclick="openModal()">+ Medicijn toevoegen</button>
 </div>
 
-<!-- Modal -->
-<div class="modal-overlay" id="med-modal" onclick="sluitModalBuiten(event)">
+<div class="overlay" id="modal" onclick="if(event.target===this)sluit()">
   <div class="modal">
-    <div class="modal-titel" id="modal-titel">Medicijn toevoegen</div>
-
+    <div class="m-titel" id="m-titel">Medicijn</div>
     <div class="fg">
-      <label class="fl">Naam</label>
-      <input class="fi" id="mf-naam" type="text" placeholder="bijv. Losartan 50mg" autocomplete="off">
+      <label class="fl">Naam en sterkte</label>
+      <input class="fi" id="f-naam" type="text" placeholder="bijv. Losartan 50 mg" autocomplete="off">
     </div>
-
-    <div class="fi-row">
-      <div class="fg">
-        <label class="fl">Doses per dag</label>
-        <input class="fi" id="mf-doses" type="number" min="0.25" step="0.25" placeholder="1">
+    <div class="fg duo">
+      <div>
+        <label class="fl">Per dag</label>
+        <input class="fi" id="f-doses" type="number" step="0.5" min="0" value="1">
+        <div class="hint">0,5 = om de dag</div>
       </div>
-      <div class="fg">
+      <div>
         <label class="fl">Eenheid</label>
-        <select class="fi" id="mf-eenheid">
-          <option value="tablet">tablet</option>
-          <option value="capsule">capsule</option>
-          <option value="pil">pil</option>
-          <option value="ml">ml</option>
-          <option value="druppel">druppel</option>
-        </select>
+        <input class="fi" id="f-eenheid" type="text" value="tablet">
       </div>
     </div>
-
-    <div class="fi-row">
-      <div class="fg">
-        <label class="fl">Voorraad thuis</label>
-        <input class="fi" id="mf-thuis" type="number" min="0" step="1" placeholder="0">
+    <div class="fg duo">
+      <div>
+        <label class="fl">Per doosje</label>
+        <input class="fi" id="f-perdoos" type="number" min="1" value="28">
+        <div class="hint">aantal in één verpakking van de apotheek</div>
       </div>
-      <div class="fg">
-        <label class="fl">Voorraad Helena</label>
-        <input class="fi" id="mf-helena" type="number" min="0" step="1" placeholder="0">
-      </div>
-    </div>
-
-    <div class="fg" style="margin-bottom:8px;">
-      <div class="check-row">
-        <input type="checkbox" id="mf-doosje" onchange="toggleDoosje()">
-        <label for="mf-doosje">Medicijndoosje gebruiken</label>
+      <div>
+        <label class="fl">Weekdoosje dekt</label>
+        <input class="fi" id="f-duur" type="number" min="1" value="28">
+        <div class="hint">dagen per vulling</div>
       </div>
     </div>
-
-    <div id="doosje-velden" style="display:none;">
-      <div class="fi-row">
-        <div class="fg">
-          <label class="fl">Doosje gevuld op</label>
-          <input class="fi" id="mf-gevuld" type="date">
-        </div>
-        <div class="fg">
-          <label class="fl">Looptijd (dagen)</label>
-          <input class="fi" id="mf-duur" type="number" min="7" max="90" value="28">
-        </div>
+    <div class="fg duo">
+      <div>
+        <label class="fl">Nu in huis</label>
+        <input class="fi" id="f-thuis" type="number" min="0" value="0">
+        <div class="hint">losse eenheden, ook die in het doosje</div>
+      </div>
+      <div>
+        <label class="fl">Bij apotheek</label>
+        <input class="fi" id="f-apo" type="number" min="0" value="0">
+        <div class="hint">doosjes klaar / voorgeschreven</div>
       </div>
     </div>
-
     <div class="fg">
-      <label class="fl">Opmerking (optioneel)</label>
-      <input class="fi" id="mf-opm" type="text" placeholder="bijv. 's ochtends innemen">
+      <label class="fl">Opmerking</label>
+      <input class="fi" id="f-opm" type="text" autocomplete="off">
     </div>
-
-    <div class="modal-knoppen">
-      <button class="btn-ann" onclick="sluitModal()">Annuleren</button>
-      <button class="btn-p" onclick="slaanMedicijn()">Opslaan</button>
+    <div class="knoppen">
+      <button class="bs" onclick="sluit()">Annuleren</button>
+      <button class="bp" onclick="bewaarMed()">Bewaren</button>
     </div>
   </div>
 </div>
 
 <script>
-// ===== CONFIGURATIE =====
-const DATA_KEY = 'medicatie_bea';
-const REPO     = 'PierreHeysselaer/piheys_repository';
-const BESTAND  = 'data.json';
-const TOKEN    = ['github_pat_11AYGGRYA0mx','BmzBHFY6TP_XD','TD4hfTIO1fvuM2paNJ7R1OT','qXyBYmOo1ajP7nPoIY4IQAOPI5MKdiSTkP'].join('');
-const API_URL  = `https://api.github.com/repos/${REPO}/contents/${BESTAND}`;
+/* ============================================================
+   Concierge — medicatie
+   Kernregels:
+   - de voorraad thuis wordt in EENHEDEN (pillen) geteld
+   - het weekdoosje vullen verandert de thuisvoorraad NIET;
+     die pillen lagen al in huis
+   - wat telt is: heb ik op de volgende vuldatum genoeg om
+     het doosje vol te krijgen? Zo niet: eerst naar de apotheek
+   ============================================================ */
 
-const TODAY  = new Date(); TODAY.setHours(12,0,0,0);
-let huidigeSha = null, syncData = {}, bewerkId = null;
+/* hoeveel dagen vóór de vuldatum we waarschuwen dat er te weinig in huis is —
+   ruim genoeg om nog langs de apotheek te kunnen                            */
+const VERWITTIG_DAGEN = 7;
 
-// ===== SYNC =====
-function setSyncStatus(s,t){
-  document.getElementById('sync-dot').className='sync-dot '+s;
-  document.getElementById('sync-tekst').textContent=t;
+const PERSOON = 'medicatie_bea';
+const REPO = 'PierreHeysselaer/piheys_repository';
+const TOKEN = ['github_pat_11AYGGRYA0mx','BmzBHFY6TP_XD','TD4hfTIO1fvuM2paNJ7R1OT',
+               'qXyBYmOo1ajP7nPoIY4IQAOPI5MKdiSTkP'].join('');
+const API = n => `https://api.github.com/repos/${REPO}/contents/${n}`;
+const H = () => ({Authorization:`Bearer ${TOKEN}`, Accept:'application/vnd.github.v3+json'});
+const MIJN = [PERSOON];
+
+let STATUS = null, sha = null, bezig = false, nogEens = false, bewerkId = null;
+
+const dstr = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const VANDAAG = dstr(new Date());
+function plusDagen(s,n){ const d=new Date(s+'T12:00:00'); d.setDate(d.getDate()+n); return dstr(d); }
+function dagenTussen(a,b){ return Math.round((new Date(b+'T12:00:00')-new Date(a+'T12:00:00'))/86400000); }
+function toonDatum(s){ if(!s) return '—'; const d=new Date(s+'T12:00:00');
+  return `${d.getDate()}/${d.getMonth()+1}`; }
+const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function b64(t){ const by=new TextEncoder().encode(t); let s=''; by.forEach(x=>s+=String.fromCharCode(x)); return btoa(s); }
+function vanB64(c){ return new TextDecoder().decode(Uint8Array.from(atob(c.replace(/\n/g,'')), x=>x.charCodeAt(0))); }
+function setSync(k,t){ document.getElementById('dot').className='sync-dot '+k;
+                       document.getElementById('sync').textContent=t; }
+
+async function haalJson(naam){
+  const r = await fetch(API(naam)+'?t='+Date.now(), {headers:H(), cache:'no-store'});
+  if (r.status===404) return null;
+  if (!r.ok) throw new Error(naam+': '+r.status);
+  const j = await r.json();
+  return {sha:j.sha, data:JSON.parse(vanB64(j.content))};
 }
-function naarBase64(tekst){
-  const b=new TextEncoder().encode(tekst);
-  let s=''; b.forEach(x=>s+=String.fromCharCode(x)); return btoa(s);
+
+async function laadAlles(){
+  setSync('bezig','laden…');
+  try {
+    const s = await haalJson('status.json');
+    STATUS = s ? s.data : {};
+    sha    = s ? s.sha  : null;
+    if (!STATUS[PERSOON]) STATUS[PERSOON] = [];
+    setSync('ok','gesynchroniseerd');
+  } catch(e){ setSync('fout','fout bij laden'); console.error(e); }
+  teken();
 }
-async function laadData(){
-  setSyncStatus('bezig','laden…');
-  try{
-    const r=await fetch(API_URL,{headers:{Authorization:`Bearer ${TOKEN}`,Accept:'application/vnd.github.v3+json'}});
-    if(r.status===404){huidigeSha=null;syncData={};setSyncStatus('ok','nieuw');}
-    else if(!r.ok) throw new Error(r.status);
-    else{
-      const j=await r.json();
-      huidigeSha=j.sha;
-      syncData=JSON.parse(atob(j.content.replace(/\n/g,'')));
-      setSyncStatus('ok','gesynchroniseerd');
+
+/* ---- opslaan met conflictafhandeling (dit was de bug) ---- */
+async function bewaarStatus(){
+  if (bezig){ nogEens = true; return; }
+  bezig = true; setSync('bezig','opslaan…');
+  try {
+    for (let poging=0; poging<4; poging++){
+      STATUS.gewijzigd = new Date().toISOString();
+      const body = {message:'medicatie', content:b64(JSON.stringify(STATUS,null,1))};
+      if (sha) body.sha = sha;
+      const r = await fetch(API('status.json'), {
+        method:'PUT', headers:{...H(),'Content-Type':'application/json'}, body:JSON.stringify(body)});
+      if (r.ok){
+        sha = (await r.json()).content.sha;
+        setSync('ok','opgeslagen ✓');
+        setTimeout(()=>setSync('ok','gesynchroniseerd'), 2200);
+        return;
+      }
+      if (r.status===409 || r.status===422){
+        const vers = await haalJson('status.json');
+        if (vers){
+          sha = vers.sha;
+          for (const k of MIJN) vers.data[k] = STATUS[k];
+          STATUS = vers.data;
+        }
+        continue;
+      }
+      throw new Error(r.status);
     }
-  }catch(e){setSyncStatus('fout','fout bij laden');console.error(e);}
-  render();
-}
-async function slaOp(){
-  setSyncStatus('bezig','opslaan…');
-  try{
-    const inhoud=naarBase64(JSON.stringify(syncData,null,2));
-    const body={message:'medicatie bea update',content:inhoud};
-    if(huidigeSha) body.sha=huidigeSha;
-    const r=await fetch(API_URL,{method:'PUT',headers:{Authorization:`Bearer ${TOKEN}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},body:JSON.stringify(body)});
-    if(!r.ok){if(r.status===409||r.status===422){await laadData();return;} throw new Error(r.status);}
-    const j=await r.json(); huidigeSha=j.content.sha;
-    setSyncStatus('ok','opgeslagen ✓');
-    setTimeout(()=>setSyncStatus('ok','gesynchroniseerd'),2500);
-  }catch(e){setSyncStatus('fout','fout');console.error(e);}
+    setSync('fout','opslaan lukt niet');
+  } catch(e){ setSync('fout','fout'); console.error(e); }
+  finally { bezig=false; if(nogEens){ nogEens=false; bewaarStatus(); } }
 }
 
-// ===== DATA HELPERS =====
-function getMeds(){ return syncData[DATA_KEY]||[]; }
-function setMeds(arr){ syncData[DATA_KEY]=arr; }
-function escHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-function datumStr(d){ return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; }
-function formatDatum(s){
-  const d=new Date(s+'T12:00:00');
-  return `${d.getDate()} ${'jan feb mrt apr mei jun jul aug sep okt nov dec'.split(' ')[d.getMonth()]}`;
-}
-function dagsDatum(days){
-  const d=new Date(TODAY); d.setDate(d.getDate()+days);
-  return formatDatum(datumStr(d));
+/* ============================================================
+   BEREKENINGEN
+   ============================================================ */
+function meds(){ return STATUS[PERSOON] || []; }
+
+/* wat ligt er nu werkelijk in huis? de opgegeven stand min het
+   verbruik sinds die stand werd genoteerd                      */
+function voorraadNu(m, opDatum){
+  const d = opDatum || VANDAAG;
+  const basis = +m.stock_thuis || 0;
+  const vanaf = m.stock_bijgewerkt_op || d;
+  const dagen = Math.max(0, dagenTussen(vanaf, d));
+  return Math.max(0, basis - dagen * (+m.doses_per_dag || 0));
 }
 
-function doosjeRest(m){
-  if(!m.doosje_gevuld_op) return null;
-  const gevuld=new Date(m.doosje_gevuld_op+'T12:00:00');
-  const leeg=new Date(gevuld); leeg.setDate(leeg.getDate()+(m.doosje_duur||28));
-  return Math.max(0, Math.round((leeg-TODAY)/86400000));
-}
-function doosjeLeegDatum(m){
-  const gevuld=new Date(m.doosje_gevuld_op+'T12:00:00');
-  const leeg=new Date(gevuld); leeg.setDate(leeg.getDate()+(m.doosje_duur||28));
-  return formatDatum(datumStr(leeg));
-}
-function beschikbaarDagen(m){
-  // doosje-rest + thuis + helena, alles omgerekend naar dagen
-  const dr = doosjeRest(m)||0;
-  const thuisDagen = m.stock_thuis / (m.doses_per_dag||1);
-  const helenaDagen = m.stock_helena / (m.doses_per_dag||1);
-  return Math.floor(dr + thuisDagen + helenaDagen);
+function rekening(m){
+  const perDag   = +m.doses_per_dag || 0;
+  const perDoos  = +m.units_per_doos || 28;
+  const duur     = +m.doosje_duur || 28;
+  const dozenApo = +m.dozen_apotheek || 0;
+
+  const nu       = voorraadNu(m);
+  const totaal   = nu + dozenApo * perDoos;
+  const dagenOp  = perDag > 0 ? Math.floor(totaal / perDag) : 9999;
+  const opDatum  = plusDagen(VANDAAG, dagenOp);
+
+  /* het weekdoosje */
+  const gevuld   = m.doosje_gevuld_op || null;
+  const vuldatum = gevuld ? plusDagen(gevuld, duur) : VANDAAG;
+  const totVullen= dagenTussen(VANDAAG, vuldatum);
+  const nodig    = Math.ceil(duur * perDag);
+  const bijVullen= voorraadNu(m, totVullen > 0 ? vuldatum : VANDAAG);
+  const tekort   = Math.max(0, nodig - Math.floor(bijVullen));
+
+  return {perDag, perDoos, duur, dozenApo, nu:Math.floor(nu), totaal:Math.floor(totaal),
+          dagenOp, opDatum, vuldatum, totVullen, nodig, tekort};
 }
 
-// ===== RENDER =====
-function render(){
-  const meds=getMeds();
-  renderWaarschuwingen(meds);
-  renderMeds(meds);
-}
+/* ============================================================
+   TEKENEN
+   ============================================================ */
+function teken(){
+  const lijst = document.getElementById('lijst');
+  const L = meds();
+  if (!L.length){
+    lijst.innerHTML = '<div class="leeg">Nog geen medicijnen toegevoegd.</div>';
+    document.getElementById('alarmen').innerHTML = '';
+    return;
+  }
 
-function renderWaarschuwingen(meds){
-  const warns=[];
-  meds.forEach(m=>{
-    const dagen=beschikbaarDagen(m);
-    if(dagen<14) warns.push(`⚠️ <strong>${escHtml(m.naam)}</strong>: nog ${dagen} dag${dagen===1?'':'en'} beschikbaar!`);
-    else if(m.doosje_gevuld_op){
-      const dr=doosjeRest(m);
-      const benodigd=(m.doosje_duur||28)*(m.doses_per_dag||1);
-      if(dr<7 && m.stock_thuis<benodigd)
-        warns.push(`📦 <strong>${escHtml(m.naam)}</strong>: doosje leeg over ${dr} dag${dr===1?'':'en'}, onvoldoende thuis (${m.stock_thuis}/${benodigd} ${m.eenheid})`);
+  /* --- alarmen bovenaan --- */
+  const bijnaOp = [], tekorten = [];
+  for (const m of L){
+    const r = rekening(m);
+    if (r.dagenOp < 14) bijnaOp.push({m, r});
+    if (r.tekort > 0 && r.totVullen <= VERWITTIG_DAGEN) tekorten.push({m, r});
+  }
+  let a = '';
+  if (tekorten.length){
+    const eerste = tekorten.reduce((x,y)=>x.r.totVullen<y.r.totVullen?x:y);
+    a += `<div class="alarm oranje">
+      <b>Apotheekbezoek nodig vóór ${toonDatum(eerste.r.vuldatum)}</b><br>
+      Bij het vullen van het doosje kom je tekort:
+      <ul>${tekorten.map(t=>`<li>${esc(t.m.naam)} — ${t.r.tekort} ${esc(t.m.eenheid)}
+        te weinig op ${toonDatum(t.r.vuldatum)}</li>`).join('')}</ul>
+      Ga er vóór die datum langs, dan kun je in één keer vullen.</div>`;
+  }
+  if (bijnaOp.length){
+    a += `<div class="alarm rood"><b>Voorraad raakt op</b>
+      <ul>${bijnaOp.map(x=>`<li>${esc(x.m.naam)} — nog ${x.r.dagenOp} dagen
+        (tot ${toonDatum(x.r.opDatum)})</li>`).join('')}</ul></div>`;
+  }
+  document.getElementById('alarmen').innerHTML = a;
+
+  /* --- kaarten --- */
+  lijst.innerHTML = L.map((m, i)=>{
+    const r = rekening(m);
+    const kleur = r.dagenOp > 30 ? 'groen' : r.dagenOp > 14 ? 'oranje' : 'rood';
+    const krap  = r.dagenOp <= 14 || r.tekort > 0;
+
+    let doosjeTekst, vulKlaar = false;
+    if (!m.doosje_gevuld_op){
+      doosjeTekst = 'Pillendoosje nog nooit gevuld.';
+      vulKlaar = true;
+    } else if (r.totVullen > 0){
+      doosjeTekst = `Gevuld op <b>${toonDatum(m.doosje_gevuld_op)}</b> ·
+                     volgende vulling <b>${toonDatum(r.vuldatum)}</b>
+                     — nog ${r.totVullen} dag${r.totVullen===1?'':'en'}.`;
+      vulKlaar = r.totVullen <= 2;
+    } else if (r.totVullen === 0){
+      doosjeTekst = '<b>Vandaag het doosje opnieuw vullen</b> — het is leeg.';
+      vulKlaar = true;
+    } else {
+      doosjeTekst = `<b>Vullen is ${-r.totVullen} dag${r.totVullen===-1?'':'en'} over tijd.</b>`;
+      vulKlaar = true;
     }
-  });
-  const el=document.getElementById('warn-wrap');
-  el.innerHTML=warns.length?`<div class="warn-banner"><div class="warn-titel">Aandacht vereist</div>${warns.map(w=>`<div class="warn-item">${w}</div>`).join('')}</div>`:'';
-}
 
-function renderMeds(meds){
-  const el=document.getElementById('med-wrap');
-  if(!meds.length){el.innerHTML='<div class="leeg">Nog geen medicijnen.<br>Klik hieronder om er één toe te voegen.</div>';return;}
-  el.innerHTML=meds.map(m=>medCard(m)).join('');
-}
+    const waarschuwing = r.tekort > 0
+      ? `<div class="waarschuw">Op ${toonDatum(r.vuldatum)} kom je ${r.tekort}
+         ${esc(m.eenheid)} tekort — dan blijven er vakjes leeg. Eerst langs de apotheek.</div>` : '';
 
-function medCard(m){
-  const dagen=beschikbaarDagen(m);
-  const klasse=dagen<14?'slecht':dagen<30?'middel':'goed';
-  const icoon=dagen<14?'⚠️':dagen<30?'⏳':'✅';
-  const datumLabel=dagsDatum(dagen);
-  const isKritiek=dagen<14;
-  const dr=doosjeRest(m);
-  const benodigd=(m.doosje_duur||28)*(m.doses_per_dag||1);
-  const isWaarschuw=m.doosje_gevuld_op&&dr<7&&m.stock_thuis<benodigd&&!isKritiek;
-
-  let doosjeHTML='';
-  if(m.doosje_gevuld_op){
-    const drLabel=dr===0?'<span class="err">vandaag leeg!</span>':dr<7?`<span class="warn">leeg over ${dr} dagen</span>`:`<span class="ok">leeg over ${dr} dagen</span>`;
-    const kanVullen=m.stock_thuis>=benodigd;
-    doosjeHTML=`<div class="doosje-blok">
-      <div class="doosje-info">
-        Gevuld: <span class="ok">${formatDatum(m.doosje_gevuld_op)}</span> &nbsp;·&nbsp;
-        Leeg: <strong>${doosjeLeegDatum(m)}</strong> (${drLabel})<br>
-        Vullen kost ${benodigd} ${m.eenheid} — thuis: ${m.stock_thuis} ${m.eenheid}
-        ${m.stock_helena>0?`, Helena: ${m.stock_helena} ${m.eenheid}`:''}
+    return `<div class="med${krap?' krap':''}">
+      <div class="med-kop">
+        <div>
+          <div class="med-naam">${esc(m.naam)}</div>
+          <div class="med-sub">${m.doses_per_dag} ${esc(m.eenheid)}${m.doses_per_dag==1?'':'s'} per dag
+            · ${m.units_per_doos} per doosje${m.opm?' · '+esc(m.opm):''}</div>
+        </div>
+        <span class="tot ${kleur}">${r.dagenOp>=999?'ruim':r.dagenOp+' d'}</span>
       </div>
-      <button class="btn-vul${kanVullen?'':' onvoldoende'}" onclick="vulDoosje('${m.id}')">
-        📦 Doosje vullen${kanVullen?` (−${benodigd} ${m.eenheid})`:''}
-      </button>
+
+      <div class="rij">
+        <div class="rij-label">In huis
+          <small>voorraad tot ${toonDatum(r.opDatum)}</small></div>
+        <div class="rij-waarde tikbaar" onclick="tel(${i})" title="tik om het juiste aantal in te geven">${r.nu}</div>
+        <div class="knopjes">
+          <button class="kn" onclick="pas(${i},-1)">−</button>
+          <button class="kn" onclick="pas(${i},1)">+</button>
+          <button class="kn breed" onclick="tel(${i})">tel</button>
+        </div>
+      </div>
+
+      <div class="rij">
+        <div class="rij-label">Bij de apotheek
+          <small>${r.dozenApo} doosje${r.dozenApo===1?'':'s'} = ${r.dozenApo*r.perDoos} ${esc(m.eenheid)}</small></div>
+        <div class="rij-waarde">${r.dozenApo}</div>
+        <div class="knopjes">
+          <button class="kn" onclick="apo(${i},-1)">−</button>
+          <button class="kn" onclick="apo(${i},1)">+</button>
+          <button class="kn breed" onclick="afgehaald(${i})">afgehaald</button>
+        </div>
+      </div>
+
+      <div class="doosje">
+        <div class="doosje-rij">
+          <div class="doosje-tekst">${doosjeTekst}</div>
+          <button class="vul-knop${vulKlaar?'':' uit'}" onclick="vulDoosje(${i})">Doosje gevuld</button>
+        </div>
+        ${waarschuwing}
+      </div>
+
+      <div class="acties">
+        <button class="mini" onclick="bewerk(${i})">Bewerken</button>
+        <button class="mini" onclick="verwijder(${i})">Verwijderen</button>
+      </div>
     </div>`;
-  }
-
-  return `<div class="med-card${isKritiek?' kritiek':isWaarschuw?' waarschuw':''}">
-    <div class="med-header">
-      <div>
-        <div class="med-naam">${escHtml(m.naam)}</div>
-        <div class="med-sub">${m.doses_per_dag} ${m.eenheid} per dag${m.opm?' · '+escHtml(m.opm):''}</div>
-      </div>
-      <div class="med-knoppen">
-        <button class="btn-edit" onclick="openModal('${m.id}')">bewerk</button>
-        <button class="btn-del" onclick="verwijderMed('${m.id}')">×</button>
-      </div>
-    </div>
-    <div class="stock-blok">
-      <div class="stock-row">
-        <span class="stock-lbl">🏠 Thuis</span>
-        <button class="btn-s" onclick="adj('${m.id}','thuis',-1)">−</button>
-        <span class="stock-num">${m.stock_thuis}</span>
-        <button class="btn-s" onclick="adj('${m.id}','thuis',1)">+</button>
-        <button class="btn-snel" onclick="adj('${m.id}','thuis',${m.doosje_duur||28})">+${m.doosje_duur||28}</button>
-        <span class="eenheid-lbl">${m.eenheid}</span>
-      </div>
-      <div class="stock-row">
-        <span class="stock-lbl">💊 Helena</span>
-        <button class="btn-s" onclick="adj('${m.id}','helena',-1)">−</button>
-        <span class="stock-num">${m.stock_helena}</span>
-        <button class="btn-s" onclick="adj('${m.id}','helena',1)">+</button>
-        <button class="btn-snel" onclick="adj('${m.id}','helena',${m.doosje_duur||28})">+${m.doosje_duur||28}</button>
-        <span class="eenheid-lbl">${m.eenheid}</span>
-      </div>
-    </div>
-    <div class="beschikbaar ${klasse}">
-      <span>${icoon} Beschikbaar tot <span class="datum">${datumLabel}</span></span>
-      <span class="rest">${dagen} dagen</span>
-    </div>
-    ${doosjeHTML}
-  </div>`;
+  }).join('');
 }
 
-// ===== ACTIES =====
-function adj(id,type,delta){
-  const meds=getMeds();
-  const m=meds.find(x=>x.id===id);
-  if(!m) return;
-  if(type==='thuis') m.stock_thuis=Math.max(0,m.stock_thuis+delta);
-  else m.stock_helena=Math.max(0,m.stock_helena+delta);
-  setMeds(meds); render(); slaOp();
+/* ============================================================
+   ACTIES
+   ============================================================ */
+
+/* +/− werken op de HUIDIGE stand en zetten meteen de peildatum
+   op vandaag — anders zou de correctie terugvallen op de oude stand */
+function pas(i, delta){
+  const m = meds()[i];
+  m.stock_thuis = Math.max(0, Math.round(voorraadNu(m) + delta));
+  m.stock_bijgewerkt_op = VANDAAG;
+  teken(); bewaarStatus();
+}
+function tel(i){
+  const m = meds()[i];
+  const v = prompt(`Hoeveel ${m.eenheid}s liggen er nu in huis?\n(inclusief wat in het weekdoosje zit)`,
+                   Math.floor(voorraadNu(m)));
+  if (v === null) return;
+  const n = parseInt(v);
+  if (isNaN(n) || n < 0) return;
+  m.stock_thuis = n;
+  m.stock_bijgewerkt_op = VANDAAG;
+  teken(); bewaarStatus();
+}
+function apo(i, delta){
+  const m = meds()[i];
+  m.dozen_apotheek = Math.max(0, (+m.dozen_apotheek||0) + delta);
+  teken(); bewaarStatus();
+}
+/* doosje bij de apotheek opgehaald: verhuist naar de voorraad thuis */
+function afgehaald(i){
+  const m = meds()[i];
+  if ((+m.dozen_apotheek||0) < 1) return;
+  m.stock_thuis = Math.round(voorraadNu(m) + (+m.units_per_doos||28));
+  m.stock_bijgewerkt_op = VANDAAG;
+  m.dozen_apotheek = (+m.dozen_apotheek||0) - 1;
+  teken(); bewaarStatus();
+}
+/* het doosje vullen verandert de voorraad NIET — die pillen lagen al in huis */
+function vulDoosje(i){
+  const m = meds()[i];
+  m.doosje_gevuld_op = VANDAAG;
+  teken(); bewaarStatus();
+}
+function verwijder(i){
+  const m = meds()[i];
+  if (!confirm(`"${m.naam}" verwijderen?`)) return;
+  STATUS[PERSOON].splice(i,1);
+  teken(); bewaarStatus();
 }
 
-function vulDoosje(id){
-  const meds=getMeds();
-  const m=meds.find(x=>x.id===id);
-  if(!m) return;
-  const benodigd=(m.doosje_duur||28)*(m.doses_per_dag||1);
-  if(m.stock_thuis<benodigd){
-    if(!confirm(`Onvoldoende thuis: ${m.stock_thuis} van ${benodigd} ${m.eenheid} nodig.\nToch vullen?`)) return;
-  }
-  m.stock_thuis=Math.max(0,m.stock_thuis-benodigd);
-  m.doosje_gevuld_op=datumStr(TODAY);
-  setMeds(meds); render(); slaOp();
+/* ---------- modal ---------- */
+function openModal(){
+  bewerkId = null;
+  document.getElementById('m-titel').textContent = 'Nieuw medicijn';
+  document.getElementById('f-naam').value='';
+  document.getElementById('f-doses').value='1';
+  document.getElementById('f-eenheid').value='tablet';
+  document.getElementById('f-perdoos').value='28';
+  document.getElementById('f-duur').value='28';
+  document.getElementById('f-thuis').value='0';
+  document.getElementById('f-apo').value='0';
+  document.getElementById('f-opm').value='';
+  document.getElementById('modal').classList.add('open');
+  setTimeout(()=>document.getElementById('f-naam').focus(),150);
 }
+function bewerk(i){
+  const m = meds()[i];
+  bewerkId = m.id;
+  document.getElementById('m-titel').textContent = 'Medicijn bewerken';
+  document.getElementById('f-naam').value    = m.naam || '';
+  document.getElementById('f-doses').value   = m.doses_per_dag ?? 1;
+  document.getElementById('f-eenheid').value = m.eenheid || 'tablet';
+  document.getElementById('f-perdoos').value = m.units_per_doos ?? 28;
+  document.getElementById('f-duur').value    = m.doosje_duur ?? 28;
+  document.getElementById('f-thuis').value   = Math.floor(voorraadNu(m));
+  document.getElementById('f-apo').value     = m.dozen_apotheek ?? 0;
+  document.getElementById('f-opm').value     = m.opm || '';
+  document.getElementById('modal').classList.add('open');
+}
+function sluit(){ document.getElementById('modal').classList.remove('open'); }
 
-function verwijderMed(id){
-  if(!confirm('Medicijn verwijderen?')) return;
-  setMeds(getMeds().filter(m=>m.id!==id));
-  render(); slaOp();
-}
-
-// ===== MODAL =====
-function openModal(id){
-  bewerkId=id;
-  document.getElementById('modal-titel').textContent=id?'Medicijn bewerken':'Medicijn toevoegen';
-  if(id){
-    const m=getMeds().find(x=>x.id===id)||{};
-    document.getElementById('mf-naam').value=m.naam||'';
-    document.getElementById('mf-doses').value=m.doses_per_dag||1;
-    document.getElementById('mf-eenheid').value=m.eenheid||'tablet';
-    document.getElementById('mf-thuis').value=m.stock_thuis||0;
-    document.getElementById('mf-helena').value=m.stock_helena||0;
-    document.getElementById('mf-opm').value=m.opm||'';
-    const hd=!!m.doosje_gevuld_op;
-    document.getElementById('mf-doosje').checked=hd;
-    document.getElementById('doosje-velden').style.display=hd?'block':'none';
-    document.getElementById('mf-gevuld').value=m.doosje_gevuld_op||datumStr(TODAY);
-    document.getElementById('mf-duur').value=m.doosje_duur||28;
-  }else{
-    document.getElementById('mf-naam').value='';
-    document.getElementById('mf-doses').value=1;
-    document.getElementById('mf-eenheid').value='tablet';
-    document.getElementById('mf-thuis').value=0;
-    document.getElementById('mf-helena').value=0;
-    document.getElementById('mf-opm').value='';
-    document.getElementById('mf-doosje').checked=false;
-    document.getElementById('doosje-velden').style.display='none';
-    document.getElementById('mf-gevuld').value=datumStr(TODAY);
-    document.getElementById('mf-duur').value=28;
-  }
-  document.getElementById('med-modal').classList.add('open');
-  setTimeout(()=>document.getElementById('mf-naam').focus(),150);
-}
-function toggleDoosje(){
-  document.getElementById('doosje-velden').style.display=
-    document.getElementById('mf-doosje').checked?'block':'none';
-}
-function sluitModal(){ document.getElementById('med-modal').classList.remove('open'); }
-function sluitModalBuiten(e){ if(e.target===document.getElementById('med-modal')) sluitModal(); }
-
-function slaanMedicijn(){
-  const naam=document.getElementById('mf-naam').value.trim();
-  if(!naam){document.getElementById('mf-naam').focus();return;}
-  const hd=document.getElementById('mf-doosje').checked;
-  const med={
-    id: bewerkId||'m_'+Date.now(),
+function bewaarMed(){
+  const naam = document.getElementById('f-naam').value.trim();
+  if (!naam){ document.getElementById('f-naam').focus(); return; }
+  const veld = {
     naam,
-    doses_per_dag: parseFloat(document.getElementById('mf-doses').value)||1,
-    eenheid: document.getElementById('mf-eenheid').value,
-    stock_thuis: parseInt(document.getElementById('mf-thuis').value)||0,
-    stock_helena: parseInt(document.getElementById('mf-helena').value)||0,
-    doosje_gevuld_op: hd?document.getElementById('mf-gevuld').value:null,
-    doosje_duur: hd?parseInt(document.getElementById('mf-duur').value)||28:null,
-    opm: document.getElementById('mf-opm').value.trim()
+    doses_per_dag : parseFloat(document.getElementById('f-doses').value) || 1,
+    eenheid       : document.getElementById('f-eenheid').value.trim() || 'tablet',
+    units_per_doos: parseInt(document.getElementById('f-perdoos').value) || 28,
+    doosje_duur   : parseInt(document.getElementById('f-duur').value) || 28,
+    stock_thuis   : parseInt(document.getElementById('f-thuis').value) || 0,
+    dozen_apotheek: parseInt(document.getElementById('f-apo').value) || 0,
+    opm           : document.getElementById('f-opm').value.trim(),
+    stock_bijgewerkt_op: VANDAAG
   };
-  const meds=getMeds();
-  if(bewerkId){const i=meds.findIndex(m=>m.id===bewerkId);if(i>=0)meds[i]=med;}
-  else meds.push(med);
-  setMeds(meds); sluitModal(); render(); slaOp();
+  if (bewerkId){
+    const m = meds().find(x=>x.id===bewerkId);
+    Object.assign(m, veld);
+  } else {
+    STATUS[PERSOON].push({id:'m_'+Date.now(), doosje_gevuld_op:null, ...veld});
+  }
+  sluit(); teken(); bewaarStatus();
 }
 
-// ===== INIT =====
-laadData();
+laadAlles();
 </script>
 </body>
 </html>
