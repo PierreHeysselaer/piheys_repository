@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-07-30T17:20:59.007Z",
+ "gewijzigd": "2026-07-30T17:21:02.479Z",
  "boodschappen": {
   "aangevinkt": [],
   "nieuw": []
@@ -37,6 +37,9 @@
   "h_gras": [
    "2026-07-28",
    "2026-07-29"
+  ],
+  "h_weide": [
+   "2026-07-30"
   ]
  },
  "taken_gedaan": [],
