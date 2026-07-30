@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-07-30T14:33:00.629Z",
+ "gewijzigd": "2026-07-30T14:33:17.846Z",
  "boodschappen": {
   "aangevinkt": [],
   "nieuw": []
@@ -72,7 +72,7 @@
    "naam": "Zyloric",
    "doses_per_dag": 2,
    "eenheid": "tablet",
-   "units_per_doos": 28,
+   "units_per_doos": 90,
    "stock_thuis": 219,
    "stock_bijgewerkt_op": "2026-07-30",
    "dozen_apotheek": 0,
