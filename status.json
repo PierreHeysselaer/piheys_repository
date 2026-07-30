@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-07-30T14:31:22.516Z",
+ "gewijzigd": "2026-07-30T14:31:23.810Z",
  "boodschappen": {
   "aangevinkt": [],
   "nieuw": []
@@ -47,7 +47,7 @@
    "doses_per_dag": 1,
    "eenheid": "tablet",
    "units_per_doos": 28,
-   "stock_thuis": 178,
+   "stock_thuis": 171,
    "stock_bijgewerkt_op": "2026-07-30",
    "dozen_apotheek": 0,
    "doosje_gevuld_op": "2026-07-30",
