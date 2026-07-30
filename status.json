@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-07-30T14:31:31.645Z",
+ "gewijzigd": "2026-07-30T14:32:43.938Z",
  "boodschappen": {
   "aangevinkt": [],
   "nieuw": []
@@ -46,7 +46,7 @@
    "naam": "Forzatzen",
    "doses_per_dag": 1,
    "eenheid": "tablet",
-   "units_per_doos": 28,
+   "units_per_doos": 98,
    "stock_thuis": 136,
    "stock_bijgewerkt_op": "2026-07-30",
    "dozen_apotheek": 0,
