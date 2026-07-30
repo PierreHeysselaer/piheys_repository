@@ -145,6 +145,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       </div>
     </div>
     <div class="fg">
+      <label class="fl">Doosje laatst gevuld op</label>
+      <input class="fi" id="f-gevuld" type="date">
+      <div class="hint">corrigeer hier als de datum niet klopt</div>
+    </div>
+    <div class="fg">
       <label class="fl">Opmerking</label>
       <input class="fi" id="f-opm" type="text" autocomplete="off">
     </div>
@@ -455,6 +460,7 @@ function openModal(){
   document.getElementById('f-duur').value='28';
   document.getElementById('f-thuis').value='0';
   document.getElementById('f-apo').value='0';
+  document.getElementById('f-gevuld').value='';
   document.getElementById('f-opm').value='';
   document.getElementById('modal').classList.add('open');
   setTimeout(()=>document.getElementById('f-naam').focus(),150);
@@ -470,6 +476,7 @@ function bewerk(i){
   document.getElementById('f-duur').value    = m.doosje_duur ?? 28;
   document.getElementById('f-thuis').value   = Math.floor(voorraadNu(m));
   document.getElementById('f-apo').value     = m.dozen_apotheek ?? 0;
+  document.getElementById('f-gevuld').value  = m.doosje_gevuld_op || '';
   document.getElementById('f-opm').value     = m.opm || '';
   document.getElementById('modal').classList.add('open');
 }
@@ -487,13 +494,14 @@ function bewaarMed(){
     stock_thuis   : parseInt(document.getElementById('f-thuis').value) || 0,
     dozen_apotheek: parseInt(document.getElementById('f-apo').value) || 0,
     opm           : document.getElementById('f-opm').value.trim(),
-    stock_bijgewerkt_op: VANDAAG
+    stock_bijgewerkt_op: VANDAAG,
+    doosje_gevuld_op: document.getElementById('f-gevuld').value || null
   };
   if (bewerkId){
     const m = meds().find(x=>x.id===bewerkId);
     Object.assign(m, veld);
   } else {
-    STATUS[PERSOON].push({id:'m_'+Date.now(), doosje_gevuld_op:null, ...veld});
+    STATUS[PERSOON].push({id:'m_'+Date.now(), ...veld});
   }
   sluit(); teken(); bewaarStatus();
 }
