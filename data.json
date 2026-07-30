@@ -23,7 +23,8 @@
     "wasmiddel kleur",
     "martino",
     "philadelphia",
-    "americain prepare"
+    "americain prepare",
+    "Maaltijd Bea"
   ],
   "taken": [
     {
@@ -340,6 +341,18 @@
       "stock_helena": 0,
       "doosje_gevuld_op": "2026-07-28",
       "doosje_duur": 28,
+      "opm": ""
+    }
+  ],
+  "artikelen_extra": [
+    {
+      "naam": "Maaltijd Bea",
+      "specs": "",
+      "volgw": 1960,
+      "volgb": 15,
+      "cat": "maaltijd",
+      "pref": "OKAY",
+      "backup": "SPAR",
       "opm": ""
     }
   ]
