@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-07-30T21:15:01+02:00",
+    "opgehaald":  "2026-07-30T21:45:01+02:00",
     "vandaag":  "2026-07-30",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -71,23 +71,23 @@
                   },
                   {
                       "datum":  "2026-07-31",
-                      "regen_mm":  0,
+                      "regen_mm":  0.1,
                       "temp_max":  26,
-                      "temp_min":  19,
-                      "wind_max_kmu":  16,
-                      "zon_pct":  58,
-                      "bewolking_pct":  42,
-                      "code":  3,
-                      "type":  "droog"
+                      "temp_min":  18,
+                      "wind_max_kmu":  17,
+                      "zon_pct":  65,
+                      "bewolking_pct":  35,
+                      "code":  51,
+                      "type":  "regen"
                   },
                   {
                       "datum":  "2026-08-01",
                       "regen_mm":  0,
-                      "temp_max":  28,
-                      "temp_min":  16,
-                      "wind_max_kmu":  21,
-                      "zon_pct":  88,
-                      "bewolking_pct":  12,
+                      "temp_max":  27,
+                      "temp_min":  15,
+                      "wind_max_kmu":  19,
+                      "zon_pct":  89,
+                      "bewolking_pct":  11,
                       "code":  3,
                       "type":  "droog"
                   },
@@ -95,10 +95,10 @@
                       "datum":  "2026-08-02",
                       "regen_mm":  0,
                       "temp_max":  28,
-                      "temp_min":  15,
-                      "wind_max_kmu":  12,
-                      "zon_pct":  96,
-                      "bewolking_pct":  4,
+                      "temp_min":  16,
+                      "wind_max_kmu":  14,
+                      "zon_pct":  95,
+                      "bewolking_pct":  5,
                       "code":  3,
                       "type":  "droog"
                   },
