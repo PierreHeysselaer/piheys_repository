@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-07-30T14:27:17.979Z",
+ "gewijzigd": "2026-07-30T14:27:19.424Z",
  "boodschappen": {
   "aangevinkt": [],
   "nieuw": []
@@ -49,7 +49,7 @@
    "units_per_doos": 28,
    "stock_thuis": 147,
    "stock_bijgewerkt_op": "2026-07-30",
-   "dozen_apotheek": 4,
+   "dozen_apotheek": 3,
    "doosje_gevuld_op": "2026-07-30",
    "doosje_duur": 28,
    "opm": ""
