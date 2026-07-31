@@ -29,7 +29,7 @@
     "do": "08:00-19:30",
     "vr": "08:00-19:30",
     "za": "08:00-19:30",
-    "zo": null
+    "zo": "09:00-12:00"
    },
    "gesloten_tot": null,
    "opm": "aan een fruitzakje denken"
@@ -45,7 +45,7 @@
     "do": "08:00-18:00",
     "vr": "08:00-18:00",
     "za": "08:00-18:00",
-    "zo": null
+    "zo": "09:00-12:00"
    },
    "gesloten_tot": null,
    "opm": "uren nog te bevestigen"
@@ -244,7 +244,7 @@
   "eenmalig": [
    {
     "id": "e_vergif",
-    "naam": "Vergif op plafond living",
+    "naam": "afsluiten plafond living",
     "categorie": "huis",
     "streefdatum": null,
     "voorwaarden": {}
