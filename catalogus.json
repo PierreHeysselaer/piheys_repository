@@ -1,6 +1,6 @@
 {
  "versie": 2,
- "bijgewerkt": "2026-07-29",
+ "bijgewerkt": "2026-07-31",
  "artikelen": [
   {
    "naam": "oude batterijen en bruisgasflessen leeg",
@@ -1438,6 +1438,16 @@
    "volgw": 1380,
    "volgb": 100,
    "cat": "melk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "Fondue enkel opwarmen",
+   "specs": "",
+   "volgw": 1385,
+   "volgb": 15,
+   "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
