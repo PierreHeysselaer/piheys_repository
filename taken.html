@@ -18,10 +18,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 @keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
 #weer{font-size:13px;color:#666;background:#f2f1ec;border-radius:8px;padding:5px 10px;white-space:nowrap;}
 #wrap{padding:10px 12px 0;}
+#dagkop{padding:4px 2px 10px;}
+#dagkop .dag{font-size:21px;font-weight:600;letter-spacing:-.01em;text-transform:capitalize;}
+#dagkop .weerregel{font-size:14px;color:#8d8d8d;margin-top:3px;}
 .sectie{font-size:12px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.06em;
         margin:20px 0 8px 2px;}
 .sectie:first-child{margin-top:8px;}
 .sectie .tel{font-weight:400;text-transform:none;letter-spacing:0;color:#bbb;margin-left:5px;}
+.inklap{margin-top:20px;border:1px solid #eceae5;border-radius:10px;background:#fbfbf9;overflow:hidden;}
+.inklap-kop{padding:12px 15px;cursor:pointer;font-size:13.5px;color:#9a9a9a;display:flex;
+            justify-content:space-between;align-items:center;}
+.inklap-kop:active{color:#4a7c59;}
+.inklap-body{display:none;padding:0 10px 10px;}
+.inklap.open .inklap-body{display:block;}
+.inklap .pijl{transition:transform .15s;font-size:12px;}
+.inklap.open .pijl{transform:rotate(90deg);}
 
 .dagelijks{background:#fff;border:1px solid #e8e6e1;border-radius:11px;padding:12px 15px;margin-bottom:6px;}
 .dagelijks .d-item{font-size:16px;padding:5px 0;color:#444;}
@@ -101,7 +112,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   </div>
 </div>
 
-<div id="wrap"><div id="lijst"></div>
+<div id="wrap">
+  <div id="dagkop">
+    <div class="dag" id="dagkop-datum"></div>
+    <div class="weerregel" id="dagkop-weer"></div>
+  </div>
+  <div id="lijst"></div>
   <button class="knop-nieuw" onclick="openModal()">+ Nieuwe taak</button>
 </div>
 
@@ -156,6 +172,7 @@ const MIJN = ['taken_log','taken_gedaan','taken_nieuw'];
 const KORT = ['zo','ma','di','wo','do','vr','za'];
 const MND  = ['januari','februari','maart','april','mei','juni','juli',
               'augustus','september','oktober','november','december'];
+const DAGEN = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
 
 let CONFIG = null, STATUS = null, DAG = null, BRIEF = null;
 let sha = null, bezig = false, nogEens = false;
@@ -194,6 +211,14 @@ async function laadAlles(){
     sha    = s ? s.sha  : null;
     DAG    = d ? d.data : null;
     for (const k of MIJN) if (!STATUS[k]) STATUS[k] = (k==='taken_log') ? {} : [];
+
+    /* een logboek met één datum kan als losse tekst zijn opgeslagen
+       in plaats van als lijst — hier rechttrekken                    */
+    for (const id in STATUS.taken_log){
+      const v = STATUS.taken_log[id];
+      if (typeof v === 'string') STATUS.taken_log[id] = [v];
+      else if (!Array.isArray(v)) STATUS.taken_log[id] = [];
+    }
 
     try { const b = await haalJson('briefing.json');
           BRIEF = (b && b.data.datum===VANDAAG) ? b.data : null; } catch(e){ BRIEF=null; }
@@ -249,6 +274,14 @@ async function bewaarStatus(){
 
 function weer(datum){ return DAG ? (DAG.dagen||[]).find(d=>d.datum===datum) : null; }
 
+/* logboek van een taak, altijd als lijst */
+function logVan(id){
+  const v = (STATUS.taken_log||{})[id];
+  if (Array.isArray(v)) return v;
+  if (typeof v === 'string') return [v];
+  return [];
+}
+
 /* som van de neerslag over de N dagen VOOR 'datum' */
 function regenVoorbije(datum, n){
   let som = 0, gevonden = 0;
@@ -272,7 +305,7 @@ function frequentie(t, datum){
 function termijn(t, datum){
   const freq = frequentie(t, datum);
   if (freq === null) return {aanBeurt:false, seizoenstop:true};
-  const log = (STATUS.taken_log||{})[t.id] || [];
+  const log = logVan(t.id);
   if (!log.length) return {aanBeurt:true, nooit:true, freq};
   const laatst = log[log.length-1];
   const sinds  = dagenTussen(laatst, datum);
@@ -284,12 +317,13 @@ function condities(t, datum){
   const v = t.voorwaarden || {};
   const w = weer(datum);
   const d = new Date(datum+'T12:00:00');
-  const nee = [];
+  const neeK = [];          /* kalender: verandert pas over weken */
+  const nee  = [];          /* weer: kan morgen al anders zijn    */
 
   if (v.maanden && !v.maanden.includes(d.getMonth()+1))
-    nee.push('niet in ' + MND[d.getMonth()]);
+    neeK.push('pas in ' + v.maanden.map(m=>MND[m-1]).join(' of '));
   if (v.dag && !v.dag.includes(KORT[d.getDay()]))
-    nee.push('andere dag van de week');
+    neeK.push('andere dag van de week');
 
   if (w){
     if (v.regen_vandaag_max_mm != null && w.regen_mm > v.regen_vandaag_max_mm)
@@ -317,7 +351,11 @@ function condities(t, datum){
                                     k.indexOf('wind')===0||k.indexOf('bewolking')===0)){
     nee.push('geen weergegevens');
   }
-  return {ok: nee.length===0, nee};
+  return {
+    ok: nee.length===0 && neeK.length===0,
+    nee: neeK.concat(nee),
+    kalenderOnly: nee.length===0 && neeK.length>0   /* wacht op de kalender, niet op het weer */
+  };
 }
 
 function heeftVoorwaarden(t){
@@ -326,12 +364,24 @@ function heeftVoorwaarden(t){
 
 /* ---------- weerbalk ---------- */
 function toonWeer(){
+  const d = new Date();
+  document.getElementById('dagkop-datum').textContent =
+    `${DAGEN[d.getDay()]} ${d.getDate()} ${MND[d.getMonth()]}`;
+
   const w = weer(VANDAAG);
   const el = document.getElementById('weer');
-  if (!w){ el.textContent='geen weerdata'; el.title='dag.json ontbreekt of is verouderd'; return; }
+  const regel = document.getElementById('dagkop-weer');
+  if (!w){
+    el.textContent='geen weerdata'; el.title='dag.json ontbreekt of is verouderd';
+    regel.textContent = 'geen weergegevens — de sync heeft nog niet gedraaid';
+    return;
+  }
   const ic = w.type==='regen' ? '🌧️' : w.type==='bewolkt' ? '☁️' : '☀️';
   el.textContent = `${ic} ${w.temp_max}° · ${w.regen_mm} mm`;
   el.title = `wind ${w.wind_max_kmu} km/u · zon ${w.zon_pct}%`;
+  regel.textContent = `${w.temp_min}° tot ${w.temp_max}°, ` +
+    (w.regen_mm > 0 ? `${w.regen_mm} mm regen` : 'droog') +
+    `, wind ${w.wind_max_kmu} km/u`;
 }
 
 /* ============================================================
@@ -368,23 +418,30 @@ function teken(){
   }
 
   /* --- verdeel de taken --- */
-  const vandaag = [], wacht = [], nietAanBeurt = [], seizoenrust = [];
+  const vandaag = [], wacht = [], later = [];
+  const vandaagKlaar = new Set();
 
   for (const t of herh){
-    const log = (STATUS.taken_log||{})[t.id] || [];
-    if (log[log.length-1] === VANDAAG){ vandaag.push({t, klaar:true}); continue; }
+    const log = logVan(t.id);
+    if (log[log.length-1] === VANDAAG){
+      vandaag.push({t, klaar:true}); vandaagKlaar.add(t.id); continue;
+    }
     const tm = termijn(t, VANDAAG);
-    if (tm.seizoenstop){ seizoenrust.push({t}); continue; }
-    if (!tm.aanBeurt){ nietAanBeurt.push({t, tm}); continue; }
+    if (tm.seizoenstop){ later.push({t, tm, reden:`niet in de ${seizoen(VANDAAG)}`}); continue; }
+    if (!tm.aanBeurt){
+      later.push({t, tm, reden:`over ${tm.over} dag${tm.over===1?'':'en'}`}); continue;
+    }
     const c = condities(t, VANDAAG);
-    if (c.ok) vandaag.push({t, tm});
-    else      wacht.push({t, tm, c});
+    if (c.ok)              vandaag.push({t, tm});
+    else if (c.kalenderOnly) later.push({t, tm, reden:c.nee.join(' · ')});
+    else                   wacht.push({t, tm, c});
   }
   for (const t of een){
     if (gedaan.includes(t.id)) continue;
     const c = condities(t, VANDAAG);
-    if (c.ok) vandaag.push({t, een:true});
-    else      wacht.push({t, een:true, c});
+    if (c.ok)                vandaag.push({t, een:true});
+    else if (c.kalenderOnly) later.push({t, een:true, reden:c.nee.join(' · ')});
+    else                     wacht.push({t, een:true, c});
   }
 
   /* --- vandaag --- */
@@ -405,7 +462,7 @@ function teken(){
   for (const x of wacht){
     if (condities(x.t, dmorgen).ok) morgen.push(x.t);
   }
-  for (const x of nietAanBeurt){
+  for (const x of later){
     const tm = termijn(x.t, dmorgen);
     if (tm.aanBeurt && !tm.seizoenstop && condities(x.t, dmorgen).ok) morgen.push(x.t);
   }
@@ -417,21 +474,6 @@ function teken(){
       `<div class="taak grijs"><div class="info">
         <div class="naam">${esc(t.naam)}</div>
         ${uitleg?`<div class="waarom">${uitleg}</div>`:''}</div></div>`).join('');
-  }
-
-  /* --- niet aan de beurt --- */
-  if (nietAanBeurt.length){
-    html += `<div class="sectie">Niet aan de beurt<span class="tel">${nietAanBeurt.length}</span></div>`;
-    html += nietAanBeurt.sort((a,b)=>a.tm.over-b.tm.over).map(x=>kaart(x,false)).join('');
-  }
-
-  /* --- seizoensrust --- */
-  if (seizoenrust.length){
-    html += '<div class="sectie">Rust deze tijd van het jaar</div>';
-    html += seizoenrust.map(x=>
-      `<div class="taak grijs"><div class="info"><div class="naam">${esc(x.t.naam)}</div>
-       <div class="meta"><span class="b b-w">niet in de ${seizoen(VANDAAG)}</span></div>
-       </div></div>`).join('');
   }
 
   /* --- nieuw toegevoegd, nog te verfijnen --- */
@@ -453,9 +495,9 @@ function teken(){
       </div>`).join('');
   }
 
-  /* --- gisteren gedaan --- */
+  /* --- gisteren gedaan (niet herhalen wat vandaag al staat) --- */
   const gisteren = plusDagen(VANDAAG,-1);
-  const gd = herh.filter(t=>((STATUS.taken_log||{})[t.id]||[]).includes(gisteren));
+  const gd = herh.filter(t => !vandaagKlaar.has(t.id) && logVan(t.id).includes(gisteren));
   if (gd.length){
     html += '<div class="sectie">Gisteren gedaan</div>';
     html += gd.map(t=>`<div class="taak grijs"><div class="check aan"></div>
@@ -474,6 +516,26 @@ function teken(){
   /* --- bedenking van de conciërge --- */
   if (BRIEF && BRIEF.bedenking){
     html += `<div class="bedenking">${esc(BRIEF.bedenking)}</div>`;
+  }
+
+  /* --- alles wat nog niet aan de beurt is: ingeklapt onderaan --- */
+  if (later.length){
+    later.sort((a,b)=>{
+      const ao = (a.tm && a.tm.over!=null) ? a.tm.over : 999;
+      const bo = (b.tm && b.tm.over!=null) ? b.tm.over : 999;
+      return ao-bo;
+    });
+    html += `<div class="inklap" id="inklap">
+      <div class="inklap-kop" onclick="document.getElementById('inklap').classList.toggle('open')">
+        <span>Nog niet aan de beurt — ${later.length} taken</span>
+        <span class="pijl">▶</span>
+      </div>
+      <div class="inklap-body">${later.map(x=>
+        `<div class="taak grijs"><div class="info">
+          <div class="naam">${esc(x.t.naam)}</div>
+          <div class="meta"><span class="b b-w">${esc(x.reden)}</span></div>
+        </div></div>`).join('')}</div>
+    </div>`;
   }
 
   el.innerHTML = html;
