@@ -1,8 +1,18 @@
 {
- "gewijzigd": "2026-07-31T09:17:56.081Z",
+ "gewijzigd": "2026-07-31T19:24:24.697Z",
  "boodschappen": {
-  "aangevinkt": [],
-  "nieuw": []
+  "aangevinkt": [
+   "Fondue enkel opwarmen"
+  ],
+  "nieuw": [
+   {
+    "naam": "Fondue enkel opwarmen",
+    "cat": "maaltijd",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-07-31"
+   }
+  ]
  },
  "taken_log": {
   "h_bosmaaier": [
