@@ -1,10 +1,14 @@
 {
  "datum": "2026-07-31",
  "agenda": [
-  { "tijd": "09:00", "tekst": "Katten Martine verzorgen" }
+  { "tijd": "09:00", "tekst": "Katten Martine verzorgen" },
+  { "tijd": "12:00", "tekst": "Etentje ergens" }
  ],
- "bij_taak": {},
+ "bij_taak": {
+  "h_gras": "volgende beurt valt midden in de regendagen (3–5 aug) — 1 of 2 augustus zijn de droge kansen"
+ },
  "bij_winkel": {
   "Bakker": "nog dicht tot 5 augustus — brood voorlopig bij OKAY"
- }
+ },
+ "bedenking": "Etentje om 12:00 — ochtend is beschikbaar, maar plan buitenwerk kort."
 }
