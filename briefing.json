@@ -1,12 +1,10 @@
 {
- "datum": "2026-07-30",
+ "datum": "2026-07-31",
  "agenda": [
-  { "tijd": "09:00", "tekst": "Schrikdraad afwerken" },
-  { "tijd": "13:00", "tekst": "Molly 2e ontworming geven" },
-  { "tijd": "14:30", "tekst": "Cinema?" }
+  { "tijd": "09:00", "tekst": "Katten Martine verzorgen" }
  ],
  "bij_taak": {},
  "bij_winkel": {
-  "Bakker": "dicht tot 5 augustus — brood voorlopig bij OKAY"
+  "Bakker": "nog dicht tot 5 augustus — brood voorlopig bij OKAY"
  }
 }
