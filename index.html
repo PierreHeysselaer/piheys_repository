@@ -157,8 +157,8 @@ function dagenVoorraad(m){
 }
 
 async function vul(){
-  const [status, dag, brief] = await Promise.all([
-    haal('status.json'), haal('dag.json'), haal('briefing.json')
+  const [status, dag, brief, extra] = await Promise.all([
+    haal('status.json'), haal('dag.json'), haal('briefing.json'), haal('extra_paginas.json')
   ]);
 
   /* --- weer --- */
@@ -214,6 +214,30 @@ async function vul(){
     const d = new Date(status.gewijzigd);
     document.getElementById('voet-tijd').textContent =
       `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+  }
+
+  /* --- extra pagina's (bijv. reiskaarten) --- */
+  const BEKEND = new Set(['index.html','boodschappenlijst.html','taken.html',
+                          'medicatie_pierre.html','medicatie_bea.html']);
+  const BASE   = `https://pierreheysselaer.github.io/piheys_repository/`;
+  if (Array.isArray(extra) && extra.length){
+    const tegels = document.getElementById('tegels');
+    for (const p of extra){
+      if (!p.bestand || BEKEND.has(p.bestand)) continue;
+      const a = document.createElement('a');
+      a.className = 'tegel';
+      a.href = BASE + p.bestand;
+      a.innerHTML =
+        `<div class="tegel-rij">
+           <div class="ic-vak">${esc(p.ic||'📄')}</div>
+           <div>
+             <div class="tegel-naam">${esc(p.titel||p.bestand)}</div>
+             <div class="tegel-sub">extra pagina</div>
+           </div>
+           <div class="pijl">›</div>
+         </div>`;
+      tegels.appendChild(a);
+    }
   }
 }
 
