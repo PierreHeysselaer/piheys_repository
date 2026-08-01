@@ -190,7 +190,7 @@ async function bewaarStatus(){
 function alleArtikelen(){
   const basis = (CAT && CAT.artikelen) ? CAT.artikelen : [];
   const extra = (STATUS.boodschappen.nieuw || []).map(n=>({
-    naam:n.naam, specs:n.specs||'', cat:n.cat||'rest', volgw:9999, volgb:999,
+    naam:n.naam, specs:n.specs||'', cat:n.cat||'rest', volgw:9999,
     pref:n.pref||'OKAY', backup:'', opm:'', nieuw:true
   }));
   return basis.concat(extra);
@@ -247,15 +247,11 @@ function tekenAanstip(){
     if (zoek && !(a.naam+' '+(a.specs||'')).toLowerCase().includes(zoek)) continue;
     (percat[a.cat] = percat[a.cat] || []).push(a);
   }
-  const catnamen = Object.keys(percat).sort((x,y)=>{
-    const mx = Math.min(...percat[x].map(a=>a.volgb||999));
-    const my = Math.min(...percat[y].map(a=>a.volgb||999));
-    return mx-my || x.localeCompare(y);
-  });
+  const catnamen = Object.keys(percat).sort((x,y)=>x.localeCompare(y));
 
   let html = '';
   for (const c of catnamen){
-    const lijst = percat[c].sort((a,b)=>(a.volgb-b.volgb)||a.naam.localeCompare(b.naam));
+    const lijst = percat[c].sort((a,b)=>a.naam.localeCompare(b.naam));
     const aantalSel = lijst.filter(a=>sel.includes(a.naam)).length;
     const isOpen = zoek ? true : !!open[c];
     html += `<div class="cat${isOpen?' open':''}">
