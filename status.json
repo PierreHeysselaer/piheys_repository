@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-01T18:07:35.462Z",
+ "gewijzigd": "2026-08-01T18:09:32.849Z",
  "boodschappen": {
   "aangevinkt": [
    "bâton dunne salami worst",
@@ -58,7 +58,15 @@
   ]
  },
  "taken_gedaan": [],
- "taken_nieuw": [],
+ "taken_nieuw": [
+  {
+   "naam": "Gras afrijden Beemdenlaan",
+   "type": "herhalend",
+   "frequentie_dagen": 14,
+   "opm": "Geen excuses",
+   "toegevoegd": "2026-08-01"
+  }
+ ],
  "medicatie_pierre": [
   {
    "id": "m_1785241920222",
