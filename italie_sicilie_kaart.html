@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reis Frankrijk, Italië & Sicilië — Bea & Pierre</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: #1a1a2e; color: #eee; }
+
+  #header {
+    padding: 14px 20px;
+    background: #16213e;
+    border-bottom: 2px solid #0f3460;
+    display: flex; align-items: center; gap: 16px;
+  }
+  #header h1 { font-size: 1.2rem; color: #e0c97f; font-weight: bold; }
+  #header p  { font-size: 0.78rem; color: #aaa; margin-top: 2px; }
+
+  #map { width: 100%; height: calc(100vh - 62px); }
+
+  .legenda {
+    background: rgba(22,33,62,0.95);
+    border: 1px solid #0f3460;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.75rem;
+    line-height: 1.8;
+    color: #ddd;
+    min-width: 155px;
+  }
+  .legenda h4 { color: #e0c97f; margin-bottom: 4px; font-size: 0.78rem; letter-spacing: .5px; }
+  .legenda-item { display: flex; align-items: center; gap: 8px; }
+  .legenda-dot { width: 13px; height: 13px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.4); flex-shrink: 0; }
+
+  .leaflet-popup-content-wrapper {
+    background: #16213e !important;
+    border: 1px solid #0f3460 !important;
+    border-radius: 10px !important;
+    color: #eee !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5) !important;
+    min-width: 260px; max-width: 320px;
+  }
+  .leaflet-popup-tip { background: #16213e !important; }
+  .leaflet-popup-content { margin: 14px 16px !important; }
+
+  .popup-periode { font-size: 0.68rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .popup-naam    { font-size: 1rem; font-weight: bold; color: #e0c97f; margin-bottom: 6px; line-height: 1.2; }
+  .popup-locatie { font-size: 0.75rem; color: #aaa; margin-bottom: 8px; }
+  .popup-info    { font-size: 0.8rem; line-height: 1.5; color: #ccc; border-top: 1px solid #0f3460; padding-top: 8px; margin-top: 4px; }
+  .popup-badge   { display: inline-block; font-size: 0.65rem; padding: 2px 7px; border-radius: 10px; margin-top: 8px; font-weight: bold; }
+  .badge-weinig  { background: #1b5e20; color: #a5d6a7; }
+  .badge-matig   { background: #e65100; color: #ffcc80; }
+  .badge-veel    { background: #b71c1c; color: #ffcdd2; }
+  .route-label   { font-size: 0.65rem; color: #e0c97f; margin-top: 6px; font-style: italic; }
+</style>
+</head>
+<body>
+
+<div id="header">
+  <div>
+    <h1>🗺️ Bea & Pierre — Frankrijk, Italië &amp; Sicilië najaar 2026</h1>
+    <p>Klik op een pin voor meer info &nbsp;·&nbsp;
+      <span style="color:#FF7043">■</span> Keltisch &nbsp;
+      <span style="color:#E8A838">■</span> Etruskisch &nbsp;
+      <span style="color:#5B9BD5">■</span> Romeins &nbsp;
+      <span style="color:#70B86E">■</span> Grieks</p>
+  </div>
+</div>
+<div id="map"></div>
+
+<script>
+const map = L.map('map').setView([44, 11], 5);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap', maxZoom: 18
+}).addTo(map);
+
+const KLEUREN = {
+  'Keltisch':   '#FF7043',
+  'Etruskisch': '#E8A838',
+  'Grieks':     '#70B86E',
+  'Romeins':    '#5B9BD5',
+  'Gemengd':    '#C77DFF',
+};
+
+function maakIcon(periode, label) {
+  const kleur = KLEUREN[periode] || '#aaa';
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40">
+    <ellipse cx="16" cy="37" rx="6" ry="3" fill="rgba(0,0,0,0.25)"/>
+    <path d="M16 0 C7.2 0 0 7.2 0 16 C0 26 16 40 16 40 C16 40 32 26 32 16 C32 7.2 24.8 0 16 0Z"
+          fill="${kleur}" stroke="white" stroke-width="2"/>
+    <text x="16" y="20" text-anchor="middle" font-size="11" font-weight="bold"
+          fill="white" font-family="Arial">${label}</text>
+  </svg>`;
+  return L.divIcon({ className: '', html: svg, iconSize: [32,40], iconAnchor: [16,40], popupAnchor: [0,-40] });
+}
+
+function badge(drukte) {
+  const cls = drukte === 'Weinig' ? 'weinig' : drukte === 'Matig' ? 'matig' : 'veel';
+  return `<span class="popup-badge badge-${cls}">👥 ${drukte} bezoekers</span>`;
+}
+
+const stops = [
+  // ── FRANKRIJK ──────────────────────────────────────────────
+  { nr:'A', lat:47.5372, lng:4.4998,
+    naam:'Alésia',
+    locatie:'Alise-Sainte-Reine (21), Bourgogne',
+    periode:'Keltisch', drukte:'Weinig',
+    route:'Bourgogne — doortocht',
+    info:'Plek waar <b>Vercingetorix zich in 52 v.C. overgaf aan Caesar</b> — het keerpunt van de Gallische Oorlog. Uitstekend museum (MuséoParc Alésia) met de reconstructie van Caesars belegeringswerken. Nauwelijks massa-toerisme. Reken 2–3 uur.',
+    website:'alesia.com' },
+
+  { nr:'B', lat:46.9219, lng:3.9978,
+    naam:'Bibracte',
+    locatie:'Mont Beuvray (71), Bourgogne',
+    periode:'Keltisch', drukte:'Weinig',
+    route:'Bourgogne — doortocht',
+    info:'<b>Hoofdstad van de Eduërs</b>, de machtigste Keltische stam van Gallië. Caesar schreef hier een deel van De Bello Gallico. Enorm oppidum op een bosrijke bergrug, lopende opgravingen, uitstekend museum (Musée de Bibracte). <b>Slechts 40 km van Alésia — perfect te combineren.</b> Reken 3 uur.',
+    website:'bibracte.fr' },
+
+  // ── ITALIË — TYRREENSE KUST NOORD ──────────────────────────
+  { nr:1, lat:42.2506, lng:11.7584,
+    naam:'Tarquinia — Monterozzi necropolis',
+    locatie:'Tarquinia (VT), Lazio',
+    periode:'Etruskisch', drukte:'Weinig',
+    route:'Tyrreense kust — noord Rome',
+    info:'200+ <b>geschilderde graven</b> (7e–2e eeuw v.C.), UNESCO. De mooiste Etruskische bestemming van Italië. Combineer met het museum in de stad. Reken 3–4 uur.',
+    website:'tarquinia.beniculturali.it' },
+
+  { nr:2, lat:41.9998, lng:12.0980,
+    naam:'Cerveteri — Banditaccia necropolis',
+    locatie:'Cerveteri (RM), Lazio',
+    periode:'Etruskisch', drukte:'Weinig',
+    route:'Tyrreense kust — noord Rome',
+    info:'<b>Stad voor de doden</b> — straten met tumulusgraven, UNESCO. Goed combineerbaar met Tarquinia op één dag. Reken 3–4 uur.',
+    website:'cerveteri.beniculturali.it' },
+
+  // ── ITALIË — BIJ ROME ───────────────────────────────────────
+  { nr:3, lat:41.7553, lng:12.2897,
+    naam:'Ostia Antica',
+    locatie:'Ostia (RM), Lazio',
+    periode:'Romeins', drukte:'Matig',
+    route:'Tyrreense kust — bij Rome',
+    info:'Voormalige <b>havenstad van Rome</b>, uitgestrekt en goed bewaard. Mozaïeken, thermae, theater. Véél minder volk dan Pompeii. Grote parking voor caravan. Reken 4–5 uur.',
+    website:'ostiaantica.beniculturali.it' },
+
+  { nr:4, lat:41.8418, lng:12.5194,
+    naam:'Via Appia Antica',
+    locatie:'Rome (RM), Lazio',
+    periode:'Romeins', drukte:'Matig',
+    route:'Bij Rome',
+    info:'De "Regina Viarum" (312 v.C.) van Rome naar Brindisi. <b>Grafmonumenten, mausolea, catacomben</b> (o.a. San Callisto). Buiten Rome snel rustiger. UNESCO sinds 2024. Reken 2–3 uur.',
+    website:'parcoappiaantica.it' },
+
+  // ── ITALIË — ROME NAAR NAPELS ───────────────────────────────
+  { nr:5, lat:41.2581, lng:13.4310,
+    naam:'Sperlonga — Villa di Tiberio',
+    locatie:'Sperlonga (LT), Lazio',
+    periode:'Romeins', drukte:'Weinig',
+    route:'Tyrreense kust — Rome → Napels',
+    info:'Keizerlijke <b>zomervilla van Tiberius</b> met spectaculaire grot aan zee. Hellenistische sculpturen (Rhodische school). Haast geen toeristen. <b>Absolute aanrader.</b> Reken 2 uur.',
+    website:'direzioneregionalemuseilazio.cultura.gov.it' },
+
+  // ── ITALIË — NAPELS-OMGEVING ────────────────────────────────
+  { nr:6, lat:40.8059, lng:14.3476,
+    naam:'Herculaneum (Ercolano)',
+    locatie:'Ercolano (NA), Campanië',
+    periode:'Romeins', drukte:'Matig',
+    route:'Napels-omgeving',
+    info:'<b>300.000 bezoekers/jaar</b> vs 3,5 miljoen voor Pompeii. Beter bewaard: houten meubels, fresco\'s, tweede verdiepingen intact. Combineert perfect met Oplontis. <b>Aanrader boven Pompeii.</b>',
+    website:'ercolano.beniculturali.it' },
+
+  { nr:7, lat:40.7506, lng:14.4854,
+    naam:'Pompeii',
+    locatie:'Pompei (NA), Campanië',
+    periode:'Romeins', drukte:'Veel',
+    route:'Napels-omgeving',
+    info:'Onmisbaar maar druk (3,5 mln/jaar). <b>Enorm park</b> — kies vooraf wat je wil zien. Vroeg vertrekken. Caravan: grote parking aan de ingang. Reken 5–6 uur.',
+    website:'pompeiisites.org' },
+
+  { nr:8, lat:40.7594, lng:14.4344,
+    naam:'Oplontis — Villa di Poppea',
+    locatie:'Torre Annunziata (NA), Campanië',
+    periode:'Romeins', drukte:'Weinig',
+    route:'Napels-omgeving',
+    info:'<b>Villa van Nero\'s vrouw Poppaea.</b> Vrijwel geen bezoekers. Indrukwekkende fresco\'s, tuin met zwembad. Op 10 min van Herculaneum — ideaal te combineren. Reken 1–2 uur.',
+    website:'pompeiisites.org/oplontis' },
+
+  // ── ITALIË — NAPELS NAAR CALABRIË ──────────────────────────
+  { nr:9, lat:40.4212, lng:15.0046,
+    naam:'Paestum',
+    locatie:'Capaccio Paestum (SA), Campanië',
+    periode:'Grieks', drukte:'Weinig',
+    route:'Tyrreense kust — Napels → Calabrië',
+    info:'Drie <b>perfecte Dorische tempels</b> (550–450 v.C.) — beter bewaard dan in Griekenland. UNESCO. Bijhorend museum met unieke schilderijen. Haast geen massa-toerisme. <b>Niet overslaan.</b> Reken 3 uur.',
+    website:'museopaestum.it' },
+
+  { nr:10, lat:40.1503, lng:15.1667,
+    naam:'Velia (Elea)',
+    locatie:'Ascea (SA), Campanië',
+    periode:'Grieks', drukte:'Weinig',
+    route:'Tyrreense kust — Napels → Calabrië',
+    info:'Oud-Griekse stad, geboorteplaats van Parmenides en Zenon. <b>Poort, theater, akropolis.</b> Haast vergeten — je hebt het bijna voor jezelf. Reken 2 uur.',
+    website:'polomusealenapoli.beniculturali.it' },
+
+  // ── SICILIË ─────────────────────────────────────────────────
+  { nr:11, lat:38.0830, lng:13.5320,
+    naam:'Solunto',
+    locatie:'bij Palermo (NO-kust), Sicilië',
+    periode:'Gemengd', drukte:'Weinig',
+    route:'Sicilië — westkust',
+    info:'<b>Grieks-Romeinse stad</b> op een heuvel met zeezicht. Weinig toeristen, goede eerste/laatste stop. Reken 2 uur.',
+    website:'pti.regione.sicilia.it' },
+
+  { nr:12, lat:37.9394, lng:12.8333,
+    naam:'Segesta',
+    locatie:'Calatafimi-Segesta (TP), Sicilië',
+    periode:'Grieks', drukte:'Matig',
+    route:'Sicilië — noordwesten',
+    info:'Onvoltooide <b>Dorische tempel</b> (5e eeuw v.C.) en Grieks theater op een heuvel. Shuttle omhoog voor theater. Vroeg gaan. Reken 2–3 uur.',
+    website:'parchiarcheologici.regione.sicilia.it' },
+
+  { nr:13, lat:37.5834, lng:12.8195,
+    naam:'Selinunte',
+    locatie:'Castelvetrano (TP), Sicilië',
+    periode:'Grieks', drukte:'Weinig',
+    route:'Sicilië — zuidwesten',
+    info:'<b>Enorm park</b> met zes tempels (3–4 uur). Golfkar mogelijk, weinig schaduw — water meenemen. Weinig volk.',
+    website:'parchiarcheologici.regione.sicilia.it' },
+
+  { nr:14, lat:37.2971, lng:13.5874,
+    naam:'Valle dei Templi',
+    locatie:'Agrigento, Sicilië',
+    periode:'Grieks', drukte:'Matig',
+    route:'Sicilië — zuidkust',
+    info:'Het <b>pronkstuk van Sicilië</b> — rij Dorische tempels, UNESCO. Ochtend of laat namiddag. Reken 3–4 uur.',
+    website:'parcovalledeitempli.it' },
+
+  { nr:15, lat:37.6929, lng:14.3414,
+    naam:'Villa Romana del Casale',
+    locatie:'Piazza Armerina, Sicilië',
+    periode:'Romeins', drukte:'Matig',
+    route:'Sicilië — binnenland',
+    info:'<b>Spectaculaire Romeinse mozaïekvloeren</b> — grootste en best bewaarde collectie ter wereld. UNESCO. Niet missen. Reken 2–3 uur.',
+    website:'villaromanadelcasale.it' },
+
+  { nr:16, lat:37.5056, lng:14.4744,
+    naam:'Morgantina',
+    locatie:'Aidone (EN), Sicilië',
+    periode:'Grieks', drukte:'Weinig',
+    route:'Sicilië — binnenland',
+    info:'<b>Grieks-Romeinse stad</b>, rustig en wat overwoekerd — geeft het charme. Korte openingsuren (~16:30). Combineert met Villa del Casale (30 km). Reken 1–2 uur.',
+    website:'villaromanadelcasale.it' },
+
+  { nr:17, lat:36.8804, lng:14.8933,
+    naam:"Cava d'Ispica",
+    locatie:'bij Modica (RG), Sicilië',
+    periode:'Gemengd', drukte:'Weinig',
+    route:'Sicilië — zuidoosten',
+    info:'<b>Prehistorische grotwoningen + laat-antieke catacomben</b> in een ravijn. Kan vroeg sluiten (~13u). Combineer met Modica en Ragusa Ibla. Reken 1–2 uur.',
+    website:'parchiarcheologici.regione.sicilia.it' },
+
+  { nr:18, lat:37.1601, lng:15.0125,
+    naam:'Pantalica',
+    locatie:'Sortino (SR), Sicilië',
+    periode:'Gemengd', drukte:'Weinig',
+    route:'Sicilië — zuidoosten',
+    info:'<b>Rotsnecropolis</b> met duizenden graven (13e–7e v.C.), UNESCO. Gratis toegang + gratis shuttle. Wandelschoenen. Indrukwekkend en rustig.',
+    website:'pantalica.org' },
+
+  { nr:19, lat:37.0755, lng:15.2866,
+    naam:'Neapolis — Grieks theater & Oor van Dionysius',
+    locatie:'Syracuse, Sicilië',
+    periode:'Grieks', drukte:'Matig',
+    route:'Sicilië — oostkust',
+    info:'<b>Grieks theater</b> (5e eeuw v.C., nog in gebruik) + <b>Oor van Dionysius</b> (grot met perfecte akoestiek). Op 30 min van Ortigia. Reken 2–3 uur.',
+    website:'parchiarcheologici.regione.sicilia.it/siracusa' },
+];
+
+stops.forEach(s => {
+  const m = L.marker([s.lat, s.lng], { icon: maakIcon(s.periode, s.nr) }).addTo(map);
+  const kleur = KLEUREN[s.periode] || '#aaa';
+  m.bindPopup(`
+    <div class="popup-periode" style="color:${kleur}">${s.periode.toUpperCase()}</div>
+    <div class="popup-naam">${s.nr}. ${s.naam}</div>
+    <div class="popup-locatie">📍 ${s.locatie}</div>
+    <div class="popup-info">${s.info}</div>
+    ${badge(s.drukte)}
+    <div class="route-label">🛣️ ${s.route}</div>
+  `, { maxWidth: 320 });
+});
+
+// ── Routes ────────────────────────────────────────────────────
+// Frankrijk + Italië (goud gestippeld)
+L.polyline([
+  [51.05, 4.72],   // Antwerpen
+  [49.26, 4.03],   // Reims
+  [47.54, 4.50],   // Alésia
+  [46.92, 3.99],   // Bibracte
+  [45.75, 4.83],   // Lyon
+  [45.05, 7.67],   // Turin
+  [44.41, 8.93],   // Genua
+  [43.72, 10.40],  // Livorno
+  [42.25, 11.76],  // Tarquinia
+  [42.00, 12.10],  // Cerveteri
+  [41.76, 12.29],  // Ostia
+  [41.84, 12.52],  // Via Appia
+  [41.26, 13.43],  // Sperlonga
+  [40.85, 14.27],  // Napels
+  [40.81, 14.35],  // Herculaneum
+  [40.75, 14.49],  // Pompeii
+  [40.42, 15.00],  // Paestum
+  [40.15, 15.17],  // Velia
+  [37.93, 15.55],  // Villa San Giovanni
+], { color: '#e0c97f', weight: 2.5, dashArray: '8 6', opacity: 0.7 }).addTo(map);
+
+// Sicilië (paars gestippeld)
+L.polyline([
+  [38.19, 15.55],  // Messina
+  [38.08, 13.53],  // Solunto/Palermo
+  [37.94, 12.83],  // Segesta
+  [37.58, 12.82],  // Selinunte
+  [37.30, 13.59],  // Agrigento
+  [37.69, 14.34],  // Villa del Casale
+  [37.51, 14.47],  // Morgantina
+  [36.88, 14.89],  // Cava d'Ispica
+  [37.16, 15.01],  // Pantalica
+  [37.08, 15.29],  // Syracuse
+], { color: '#c77dff', weight: 2.5, dashArray: '8 6', opacity: 0.7 }).addTo(map);
+
+// Ferry (blauw)
+L.polyline([[37.93, 15.55],[38.19, 15.55]],
+  { color: '#4fc3f7', weight: 2, dashArray: '4 4', opacity: 0.9 }).addTo(map);
+
+// ── Legenda ───────────────────────────────────────────────────
+const legenda = L.control({ position: 'bottomleft' });
+legenda.onAdd = () => {
+  const div = L.DomUtil.create('div', 'legenda');
+  div.innerHTML = `
+    <h4>PERIODE</h4>
+    <div class="legenda-item"><div class="legenda-dot" style="background:#FF7043"></div> Keltisch</div>
+    <div class="legenda-item"><div class="legenda-dot" style="background:#E8A838"></div> Etruskisch</div>
+    <div class="legenda-item"><div class="legenda-dot" style="background:#5B9BD5"></div> Romeins</div>
+    <div class="legenda-item"><div class="legenda-dot" style="background:#70B86E"></div> Grieks</div>
+    <div class="legenda-item"><div class="legenda-dot" style="background:#C77DFF"></div> Gemengd</div>
+    <br>
+    <h4>ROUTE</h4>
+    <div class="legenda-item"><div style="width:22px;border-top:2px dashed #e0c97f"></div> Fr. + Italië</div>
+    <div class="legenda-item"><div style="width:22px;border-top:2px dashed #c77dff"></div> Sicilië</div>
+    <div class="legenda-item"><div style="width:22px;border-top:2px dashed #4fc3f7"></div> Ferry</div>
+  `;
+  return div;
+};
+legenda.addTo(map);
+</script>
+</body>
+</html>
