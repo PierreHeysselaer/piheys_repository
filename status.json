@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-01T18:09:32.849Z",
+ "gewijzigd": "2026-08-01T21:45:39.803Z",
  "boodschappen": {
   "aangevinkt": [
    "bâton dunne salami worst",
@@ -64,6 +64,13 @@
    "type": "herhalend",
    "frequentie_dagen": 14,
    "opm": "Geen excuses",
+   "toegevoegd": "2026-08-01"
+  },
+  {
+   "naam": "KWu zonneproductie nakijken",
+   "type": "herhalend",
+   "frequentie_dagen": 30,
+   "opm": "",
    "toegevoegd": "2026-08-01"
   }
  ],
