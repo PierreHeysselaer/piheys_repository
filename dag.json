@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-02T10:15:02+02:00",
+    "opgehaald":  "2026-08-02T10:45:03+02:00",
     "vandaag":  "2026-08-02",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -61,35 +61,35 @@
                   {
                       "datum":  "2026-08-02",
                       "regen_mm":  0,
-                      "temp_max":  31,
+                      "temp_max":  30,
                       "temp_min":  15,
-                      "wind_max_kmu":  20,
-                      "zon_pct":  87,
-                      "bewolking_pct":  13,
+                      "wind_max_kmu":  19,
+                      "zon_pct":  89,
+                      "bewolking_pct":  11,
                       "code":  3,
                       "type":  "droog"
                   },
                   {
                       "datum":  "2026-08-03",
-                      "regen_mm":  0.4,
+                      "regen_mm":  0,
                       "temp_max":  34,
                       "temp_min":  22,
-                      "wind_max_kmu":  26,
-                      "zon_pct":  92,
-                      "bewolking_pct":  8,
-                      "code":  51,
-                      "type":  "regen"
+                      "wind_max_kmu":  30,
+                      "zon_pct":  72,
+                      "bewolking_pct":  28,
+                      "code":  3,
+                      "type":  "droog"
                   },
                   {
                       "datum":  "2026-08-04",
-                      "regen_mm":  0.4,
+                      "regen_mm":  0,
                       "temp_max":  32,
                       "temp_min":  22,
-                      "wind_max_kmu":  17,
-                      "zon_pct":  67,
-                      "bewolking_pct":  33,
-                      "code":  51,
-                      "type":  "regen"
+                      "wind_max_kmu":  23,
+                      "zon_pct":  83,
+                      "bewolking_pct":  17,
+                      "code":  3,
+                      "type":  "droog"
                   },
                   {
                       "datum":  "2026-08-05",
