@@ -1,8 +1,18 @@
 {
- "gewijzigd": "2026-08-02T22:36:52.555Z",
+ "gewijzigd": "2026-08-02T22:37:42.675Z",
  "boodschappen": {
-  "aangevinkt": [],
-  "nieuw": []
+  "aangevinkt": [
+   "Cachew noten"
+  ],
+  "nieuw": [
+   {
+    "naam": "Cachew noten",
+    "cat": "snack",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-03"
+   }
+  ]
  },
  "taken_log": {
   "h_bosmaaier": [
