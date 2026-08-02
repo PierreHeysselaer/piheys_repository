@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bretagne — zwaartekrachtkaart</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --granite:#20282b;
+    --granite-2:#2b363a;
+    --paper:#f3f1ea;
+    --line:rgba(243,241,234,.14);
+    --t1:#cf7534;   /* baken — sterkste trekkracht */
+    --t2:#2f8189;   /* zee-teal */
+    --t3:#8c9179;   /* mos-grijs */
+    --hinge:#8a6db0; /* scharnier */
+    --sea:#dfe7e6;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    color:var(--paper);background:var(--granite);
+    -webkit-font-smoothing:antialiased;
+  }
+  #map{position:fixed;inset:0;background:var(--sea);z-index:0}
+
+  /* floating panel */
+  .panel{
+    position:fixed;top:14px;left:14px;z-index:1000;
+    width:340px;max-width:calc(100vw - 28px);
+    max-height:calc(100vh - 28px);
+    display:flex;flex-direction:column;
+    background:linear-gradient(180deg,rgba(32,40,43,.97),rgba(32,40,43,.93));
+    border:1px solid var(--line);border-radius:14px;
+    box-shadow:0 18px 50px rgba(0,0,0,.45);
+    backdrop-filter:blur(6px);overflow:hidden;
+  }
+  .panel-head{padding:16px 18px 12px;border-bottom:1px solid var(--line)}
+  .kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:rgba(243,241,234,.55);margin:0 0 4px}
+  h1{font-family:"Fraunces",Georgia,serif;font-weight:800;
+    font-size:25px;line-height:1.05;margin:0;letter-spacing:-.01em}
+  .sub{font-size:12.5px;line-height:1.45;color:rgba(243,241,234,.66);margin:8px 0 0}
+  .panel-body{overflow-y:auto;padding:6px 0 4px}
+  .panel-body::-webkit-scrollbar{width:8px}
+  .panel-body::-webkit-scrollbar-thumb{background:rgba(243,241,234,.15);border-radius:8px}
+
+  .section{padding:12px 18px}
+  .section+.section{border-top:1px solid var(--line)}
+  .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:rgba(243,241,234,.5);margin:0 0 10px}
+
+  /* tier toggles */
+  .tier{display:flex;align-items:center;gap:11px;width:100%;
+    background:none;border:0;color:inherit;cursor:pointer;
+    padding:7px 8px;border-radius:9px;text-align:left;font:inherit;
+    transition:background .15s}
+  .tier:hover{background:rgba(243,241,234,.06)}
+  .tier:focus-visible{outline:2px solid var(--t2);outline-offset:2px}
+  .tier.off{opacity:.4}
+  .dot{flex:none;border-radius:50%;box-shadow:0 0 0 3px rgba(255,255,255,.08)}
+  .tier .meta{display:flex;flex-direction:column;gap:1px}
+  .tier .tname{font-size:13.5px;font-weight:600}
+  .tier .tdesc{font-size:11.5px;color:rgba(243,241,234,.6)}
+  .tier .chk{margin-left:auto;font-size:11px;color:rgba(243,241,234,.5)}
+
+  /* site list */
+  .grp-title{display:flex;align-items:center;gap:8px;font-size:12px;
+    letter-spacing:.04em;color:rgba(243,241,234,.85);margin:14px 0 6px;font-weight:600}
+  .grp-title .gdot{width:9px;height:9px;border-radius:50%;flex:none}
+  .site{display:flex;gap:9px;align-items:baseline;width:100%;background:none;border:0;
+    color:inherit;cursor:pointer;padding:6px 8px;border-radius:8px;text-align:left;font:inherit;
+    transition:background .15s}
+  .site:hover{background:rgba(243,241,234,.07)}
+  .site:focus-visible{outline:2px solid var(--t2);outline-offset:1px}
+  .site .sname{font-size:13px;line-height:1.3}
+  .site .stag{margin-left:auto;flex:none;font-size:10.5px;letter-spacing:.06em;
+    color:rgba(243,241,234,.5);padding-top:1px}
+  .grp.hidden{display:none}
+
+  .region-key{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:11.5px;
+    color:rgba(243,241,234,.7);line-height:1.4}
+  .region-key b{color:var(--paper);font-weight:600}
+  .note{font-size:11.5px;line-height:1.5;color:rgba(243,241,234,.62)}
+  .note b{color:var(--t1);font-weight:600}
+
+  /* collapse control */
+  .toggle-panel{position:fixed;top:14px;left:14px;z-index:1001;
+    display:none;align-items:center;gap:7px;
+    background:var(--granite);color:var(--paper);border:1px solid var(--line);
+    border-radius:11px;padding:9px 13px;font:inherit;font-size:13px;cursor:pointer;
+    box-shadow:0 8px 24px rgba(0,0,0,.4)}
+  .collapse{margin-left:auto;background:none;border:0;color:rgba(243,241,234,.6);
+    cursor:pointer;font-size:18px;line-height:1;padding:2px 4px;border-radius:6px}
+  .collapse:hover{color:var(--paper);background:rgba(243,241,234,.08)}
+
+  /* leaflet popup restyle */
+  .leaflet-popup-content-wrapper{background:var(--granite);color:var(--paper);
+    border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.5)}
+  .leaflet-popup-tip{background:var(--granite)}
+  .leaflet-popup-content{margin:14px 16px;line-height:1.5}
+  .pop-tier{display:inline-block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    font-weight:700;padding:2px 8px;border-radius:20px;margin-bottom:8px}
+  .pop-name{font-family:"Fraunces",Georgia,serif;font-size:18px;font-weight:600;
+    line-height:1.15;margin:0 0 3px}
+  .pop-line{font-size:11.5px;color:rgba(243,241,234,.6);margin:0 0 9px;
+    display:flex;gap:8px;flex-wrap:wrap}
+  .pop-line span{white-space:nowrap}
+  .pop-why{font-size:13px;line-height:1.5;margin:0;color:rgba(243,241,234,.9)}
+  .leaflet-container{font-family:inherit}
+  .leaflet-bar a{background:var(--granite);color:var(--paper);border-color:var(--line)}
+  .leaflet-bar a:hover{background:var(--granite-2)}
+
+  @media(max-width:640px){
+    .panel{top:0;left:0;width:100%;max-width:100%;max-height:70vh;border-radius:0 0 16px 16px}
+    .panel.collapsed{display:none}
+    .toggle-panel{display:flex}
+  }
+</style>
+</head>
+<body>
+<div id="map"></div>
+
+<button class="toggle-panel" id="openBtn" aria-label="Toon legende en sites">☰ Legende &amp; sites</button>
+
+<div class="panel" id="panel">
+  <div class="panel-head">
+    <div style="display:flex;align-items:flex-start;gap:8px">
+      <div style="flex:1">
+        <p class="kicker">September · auto + ferry</p>
+        <h1>Bretagne<br>zwaartekrachtkaart</h1>
+      </div>
+      <button class="collapse" id="closeBtn" aria-label="Verberg paneel">×</button>
+    </div>
+    <p class="sub">Hoe zwaarder de stip, hoe harder de plek aan je route mag trekken. Klik een marker of een naam hieronder.</p>
+  </div>
+
+  <div class="panel-body">
+    <div class="section">
+      <p class="lbl">Trekkracht — klik om te filteren</p>
+      <div id="tierToggles"></div>
+    </div>
+
+    <div class="section" id="siteList"></div>
+
+    <div class="section">
+      <p class="lbl">Regio's</p>
+      <div class="region-key">
+        <span><b>N</b> Noordkust</span>
+        <span><b>F</b> Finistère</span>
+        <span><b>ZM</b> Zuid-Morbihan</span>
+        <span><b>ZL</b> zuidpoort / Loire</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="lbl">September</p>
+      <p class="note"><b>Gavrinis</b> stuurt je timing: de boot vaart meestal maar tot eind september — dat als eerste vastzetten. Mild weer, mooi licht, weinig volk; kleine musea kunnen na half september korter open zijn.</p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const TIERS = {
+  1:{color:getComputedStyle(document.documentElement).getPropertyValue('--t1').trim(),
+     r:11, name:"Tier 1 — buig je route ernaartoe", desc:"de ankers"},
+  2:{color:getComputedStyle(document.documentElement).getPropertyValue('--t2').trim(),
+     r:8,  name:"Tier 2 — meepakken in de streek", desc:"geen omweg voor, wel zonde te missen"},
+  3:{color:getComputedStyle(document.documentElement).getPropertyValue('--t3').trim(),
+     r:6,  name:"Tier 3 — leuk meegenomen", desc:"als ze op de route vallen"},
+};
+const HINGE = getComputedStyle(document.documentElement).getPropertyValue('--hinge').trim();
+
+const SITES = [
+  {id:"locmariaquer", name:"Locmariaquer", tier:1, region:"ZM", time:"1,5–2 u", lat:47.5717, lng:-2.9513,
+   why:"Grand Menhir Brisé (ooit ~20 m), Table des Marchands en Er-Grah-tumulus op één site. Compacter en vaak indrukwekkender dan Carnac zelf."},
+  {id:"gavrinis", name:"Gavrinis", tier:1, region:"ZM", time:"halve dag", lat:47.5719, lng:-2.8986, boat:true,
+   why:"Grafkelder met stenen vol spiralen en golfmotieven — neolithische graveerkunst van ~6.000 jaar oud. De topper qua vakmanschap. Boot vooraf boeken; vaart mogelijk maar tot eind sept."},
+  {id:"carnac", name:"Carnac — alignementen", tier:1, region:"ZM", time:"halve dag", lat:47.5914, lng:-3.0825,
+   why:"De rijen (Ménec, Kermario, Kerlescan) + tumulus Saint-Michel. Neem de gidstour vanuit de Maison des Mégalithes, anders zie je vooral stenen op een rij. UNESCO sinds 2025."},
+  {id:"msm", name:"Mont-Saint-Michel", tier:1, region:"scharnier", time:"halve–hele dag", lat:48.6361, lng:-1.5115, hinge:true,
+   why:"Technisch net Normandië, maar hij zet je aan de voordeur van Bretagne. Perfecte overgang op de route van oost naar west. Vroeg of laat op de dag, buiten de bussenpiek."},
+
+  {id:"vannes", name:"Vannes (Darioritum)", tier:2, region:"ZM", time:"halve–hele dag", lat:47.6568, lng:-2.7579,
+   why:"Romeins verleden verweven met een gave middeleeuwse binnenstad, wallen en vakwerk. Logische uitvalsbasis voor de hele Morbihan-hoek."},
+  {id:"corseul", name:"Corseul — Temple de Mars", tier:2, region:"N", time:"1–2 u", lat:48.4717, lng:-2.1468,
+   why:"Best bewaarde Gallo-Romeinse tempelrest van Bretagne, hoofdstad van de Coriosolites. Gratis, met app + 3D-reconstructie en een museum in het dorp. Precies jouw straatje."},
+  {id:"pontaven", name:"Pont-Aven", tier:2, region:"F", time:"halve dag", lat:47.8555, lng:-3.7483,
+   why:"Schildersdorp van Gauguin en de School van Pont-Aven, met museum. Kleurrijk, aan de rivier, feel-good."},
+  {id:"barnenez", name:"Cairn de Barnenez", tier:2, region:"F", time:"1–1,5 u", lat:48.6675, lng:-3.8585,
+   why:"Een van de oudste stenen bouwwerken ter wereld — ouder dan de piramides. Minder bekend, dus rustig. De moeite als je noordelijk-Finistère aandoet."},
+  {id:"stmalo", name:"Saint-Malo", tier:2, region:"N", time:"halve–hele dag", lat:48.6489, lng:-2.0255,
+   why:"Ommuurde corsairenstad met een prachtige wallenwandeling. Combineert makkelijk met Dinan."},
+  {id:"dinan", name:"Dinan", tier:2, region:"N", time:"halve dag", lat:48.4544, lng:-2.0473,
+   why:"Gaaf middeleeuws stadje met vakwerk boven de Rance. Vlak bij Corseul en Saint-Malo — samen een natuurlijk noordblok."},
+  {id:"ploumanach", name:"Côte de Granit Rose", tier:2, region:"N", time:"halve dag", lat:48.8330, lng:-3.4808,
+   why:"Bizarre roze granietrotsen aan zee, kustwandeling langs de sentier des douaniers. Feel-good natuur, geen erfgoed."},
+  {id:"nantes", name:"Nantes — Machines de l'Île", tier:2, region:"ZL", time:"halve dag", lat:47.2062, lng:-1.5644,
+   why:"Reuzenolifant en mechanische zeedieren-carrousel, Jules Verne-sfeer. Voor een maker een dag pure fun — en kindvriendelijk. Ligt als zuidpoort klaar voor de terugweg."},
+
+  {id:"locronan", name:"Locronan", tier:3, region:"F", time:"1–2 u", lat:48.0987, lng:-4.2075,
+   why:"Een van de 'plus beaux villages', steenmooi en autovrij kerntje."},
+  {id:"quimper", name:"Quimper", tier:3, region:"F", time:"halve dag", lat:47.9956, lng:-4.1022,
+   why:"Faience-aardewerk en een mooie gotische kathedraal. Combineert met Locronan en Pont-Aven."},
+  {id:"concarneau", name:"Concarneau — Ville Close", tier:3, region:"F", time:"2–3 u", lat:47.8718, lng:-3.9161,
+   why:"Vestingstadje op een eilandje in de haven. Sfeervol, wat toeristisch."},
+  {id:"broceliande", name:"Forêt de Brocéliande", tier:3, region:"centraal", time:"halve–hele dag", lat:48.0188, lng:-2.1740,
+   why:"Sagenwereld van Merlijn en Arthur — bronnen, grafheuvels, Val sans Retour. Meer sfeer dan hard erfgoed, maar houdt de Keltische rode draad vast."},
+];
+
+const map = L.map('map',{zoomControl:true}).setView([48.1,-2.9],8);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
+  attribution:'&copy; OpenStreetMap &copy; CARTO', subdomains:'abcd', maxZoom:19
+}).addTo(map);
+
+const layers = {1:L.layerGroup().addTo(map),2:L.layerGroup().addTo(map),3:L.layerGroup().addTo(map)};
+const markers = {};
+const tierOn = {1:true,2:true,3:true};
+
+function popupHTML(s){
+  const t = TIERS[s.tier];
+  const col = s.hinge ? HINGE : t.color;
+  const tierLabel = s.hinge ? "Scharnierpunt" : ("Tier "+s.tier);
+  const bits = [`<span>📍 ${s.region}</span>`,`<span>⏱ ${s.time}</span>`];
+  if(s.boat) bits.push(`<span>⛴ per boot</span>`);
+  return `<span class="pop-tier" style="background:${col}22;color:${col}">${tierLabel}</span>
+    <p class="pop-name">${s.name}</p>
+    <p class="pop-line">${bits.join('')}</p>
+    <p class="pop-why">${s.why}</p>`;
+}
+
+SITES.forEach(s=>{
+  const t = TIERS[s.tier];
+  const col = s.hinge ? HINGE : t.color;
+  // halo for the heavy anchors
+  if(s.tier===1){
+    L.circleMarker([s.lat,s.lng],{radius:t.r+9,stroke:false,fillColor:col,fillOpacity:.16,
+      interactive:false}).addTo(layers[s.tier]);
+  }
+  const m = L.circleMarker([s.lat,s.lng],{
+    radius:t.r, color:'#f3f1ea', weight:1.5, fillColor:col, fillOpacity:.95
+  }).bindPopup(popupHTML(s),{maxWidth:280});
+  if(s.hinge){ m.setStyle({dashArray:'2 3',weight:2}); }
+  m.on('mouseover',()=>m.setStyle({radius:t.r+2}));
+  m.on('mouseout',()=>m.setStyle({radius:t.r}));
+  m.addTo(layers[s.tier]);
+  markers[s.id]=m;
+});
+
+// fit to all
+map.fitBounds(L.latLngBounds(SITES.map(s=>[s.lat,s.lng])).pad(0.12));
+
+/* ---- tier toggles ---- */
+const tt = document.getElementById('tierToggles');
+[1,2,3].forEach(k=>{
+  const t=TIERS[k];
+  const b=document.createElement('button');
+  b.className='tier'; b.setAttribute('aria-pressed','true');
+  b.innerHTML=`<span class="dot" style="width:${t.r*1.5}px;height:${t.r*1.5}px;background:${t.color}"></span>
+    <span class="meta"><span class="tname">${t.name}</span><span class="tdesc">${t.desc}</span></span>
+    <span class="chk">aan</span>`;
+  b.onclick=()=>{
+    tierOn[k]=!tierOn[k];
+    if(tierOn[k]){map.addLayer(layers[k]);b.classList.remove('off');b.setAttribute('aria-pressed','true');b.querySelector('.chk').textContent='aan';}
+    else{map.removeLayer(layers[k]);b.classList.add('off');b.setAttribute('aria-pressed','false');b.querySelector('.chk').textContent='uit';}
+    document.querySelectorAll(`.grp[data-tier="${k}"]`).forEach(g=>g.classList.toggle('hidden',!tierOn[k]));
+  };
+  tt.appendChild(b);
+});
+
+/* ---- clickable site list ---- */
+const sl=document.getElementById('siteList');
+const GRPNAME={1:"De ankers",2:"In de streek meepakken",3:"Leuk meegenomen"};
+[1,2,3].forEach(k=>{
+  const wrap=document.createElement('div'); wrap.className='grp'; wrap.dataset.tier=k;
+  const title=document.createElement('div'); title.className='grp-title';
+  title.innerHTML=`<span class="gdot" style="background:${TIERS[k].color}"></span>${GRPNAME[k]}`;
+  wrap.appendChild(title);
+  SITES.filter(s=>s.tier===k).forEach(s=>{
+    const btn=document.createElement('button'); btn.className='site';
+    btn.innerHTML=`<span class="sname">${s.name}${s.hinge?' <span style="color:'+HINGE+'">◆</span>':''}</span><span class="stag">${s.region} · ${s.time}</span>`;
+    btn.onclick=()=>{
+      if(!tierOn[k]) return;
+      map.flyTo([s.lat,s.lng],11,{duration:.7});
+      setTimeout(()=>markers[s.id].openPopup(),480);
+      if(window.matchMedia('(max-width:640px)').matches) collapse();
+    };
+    wrap.appendChild(btn);
+  });
+  sl.appendChild(wrap);
+});
+
+/* ---- panel collapse (mobile) ---- */
+const panel=document.getElementById('panel');
+const openBtn=document.getElementById('openBtn');
+function collapse(){panel.classList.add('collapsed');openBtn.style.display='flex';}
+function expand(){panel.classList.remove('collapsed');openBtn.style.display='none';}
+document.getElementById('closeBtn').onclick=()=>{
+  if(window.matchMedia('(max-width:640px)').matches) collapse();
+  else panel.style.display='none';
+};
+openBtn.onclick=expand;
+</script>
+</body>
+</html>
