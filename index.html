@@ -156,10 +156,23 @@ function dagenVoorraad(m){
   return Math.floor(totaal / perDag);
 }
 
+async function lijstRepo(){
+  try {
+    const r = await fetch(API('')+'?t='+Date.now(), {headers:H(), cache:'no-store'});
+    if (!r.ok) return [];
+    return await r.json();
+  } catch(e){ return []; }
+}
+
 async function vul(){
-  const [status, dag, brief, extra] = await Promise.all([
-    haal('status.json'), haal('dag.json'), haal('briefing.json'), haal('extra_paginas.json')
+  const [status, dag, brief, repoFiles] = await Promise.all([
+    haal('status.json'), haal('dag.json'), haal('briefing.json'), lijstRepo()
   ]);
+  const extra = Array.isArray(repoFiles)
+    ? repoFiles
+        .filter(f => f.type==='file' && f.name.endsWith('.html') && !BEKEND.has(f.name))
+        .map(f => ({bestand:f.name, titel:f.name.replace(/\.html$/,'').replace(/-/g,' '), ic:'📄'}))
+    : [];
 
   /* --- weer --- */
   if (dag && dag.dagen){
