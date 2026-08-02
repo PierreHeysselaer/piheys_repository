@@ -156,6 +156,9 @@ function dagenVoorraad(m){
   return Math.floor(totaal / perDag);
 }
 
+const BEKENDE_PAGINAS = new Set(['index.html','boodschappenlijst.html','taken.html',
+                                 'medicatie_pierre.html','medicatie_bea.html']);
+
 async function lijstRepo(){
   try {
     const r = await fetch(API('')+'?t='+Date.now(), {headers:H(), cache:'no-store'});
@@ -170,7 +173,7 @@ async function vul(){
   ]);
   const extra = Array.isArray(repoFiles)
     ? repoFiles
-        .filter(f => f.type==='file' && f.name.endsWith('.html') && !BEKEND.has(f.name))
+        .filter(f => f.type==='file' && f.name.endsWith('.html') && !BEKENDE_PAGINAS.has(f.name))
         .map(f => ({bestand:f.name, titel:f.name.replace(/\.html$/,'').replace(/-/g,' '), ic:'📄'}))
     : [];
 
@@ -230,13 +233,11 @@ async function vul(){
   }
 
   /* --- extra pagina's (bijv. reiskaarten) --- */
-  const BEKEND = new Set(['index.html','boodschappenlijst.html','taken.html',
-                          'medicatie_pierre.html','medicatie_bea.html']);
   const BASE   = `https://pierreheysselaer.github.io/piheys_repository/`;
   if (Array.isArray(extra) && extra.length){
     const tegels = document.getElementById('tegels');
     for (const p of extra){
-      if (!p.bestand || BEKEND.has(p.bestand)) continue;
+      if (!p.bestand || BEKENDE_PAGINAS.has(p.bestand)) continue;
       const a = document.createElement('a');
       a.className = 'tegel';
       a.href = BASE + p.bestand;
