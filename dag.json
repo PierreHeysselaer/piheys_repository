@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-03T00:15:02+02:00",
+    "opgehaald":  "2026-08-03T00:45:02+02:00",
     "vandaag":  "2026-08-03",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -60,34 +60,34 @@
                   },
                   {
                       "datum":  "2026-08-03",
-                      "regen_mm":  0,
+                      "regen_mm":  5.8,
                       "temp_max":  33,
-                      "temp_min":  19,
-                      "wind_max_kmu":  23,
-                      "zon_pct":  85,
-                      "bewolking_pct":  15,
-                      "code":  3,
-                      "type":  "droog"
+                      "temp_min":  20,
+                      "wind_max_kmu":  16,
+                      "zon_pct":  86,
+                      "bewolking_pct":  14,
+                      "code":  63,
+                      "type":  "regen"
                   },
                   {
                       "datum":  "2026-08-04",
                       "regen_mm":  0,
-                      "temp_max":  31,
-                      "temp_min":  22,
-                      "wind_max_kmu":  20,
-                      "zon_pct":  50,
-                      "bewolking_pct":  50,
+                      "temp_max":  28,
+                      "temp_min":  21,
+                      "wind_max_kmu":  21,
+                      "zon_pct":  51,
+                      "bewolking_pct":  49,
                       "code":  3,
                       "type":  "droog"
                   },
                   {
                       "datum":  "2026-08-05",
-                      "regen_mm":  0.6,
+                      "regen_mm":  0.5,
                       "temp_max":  26,
                       "temp_min":  20,
                       "wind_max_kmu":  22,
-                      "zon_pct":  85,
-                      "bewolking_pct":  15,
+                      "zon_pct":  78,
+                      "bewolking_pct":  22,
                       "code":  51,
                       "type":  "regen"
                   },
