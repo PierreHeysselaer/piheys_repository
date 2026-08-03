@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-03T07:15:02+02:00",
+    "opgehaald":  "2026-08-03T07:45:02+02:00",
     "vandaag":  "2026-08-03",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -62,8 +62,8 @@
                       "datum":  "2026-08-03",
                       "regen_mm":  0.4,
                       "temp_max":  33,
-                      "temp_min":  20,
-                      "wind_max_kmu":  17,
+                      "temp_min":  19,
+                      "wind_max_kmu":  20,
                       "zon_pct":  85,
                       "bewolking_pct":  15,
                       "code":  51,
@@ -71,25 +71,25 @@
                   },
                   {
                       "datum":  "2026-08-04",
-                      "regen_mm":  0.1,
-                      "temp_max":  29,
-                      "temp_min":  21,
+                      "regen_mm":  0,
+                      "temp_max":  30,
+                      "temp_min":  22,
                       "wind_max_kmu":  18,
-                      "zon_pct":  43,
-                      "bewolking_pct":  57,
-                      "code":  51,
-                      "type":  "regen"
+                      "zon_pct":  48,
+                      "bewolking_pct":  52,
+                      "code":  3,
+                      "type":  "droog"
                   },
                   {
                       "datum":  "2026-08-05",
-                      "regen_mm":  0,
+                      "regen_mm":  0.2,
                       "temp_max":  26,
                       "temp_min":  20,
-                      "wind_max_kmu":  22,
-                      "zon_pct":  57,
-                      "bewolking_pct":  43,
-                      "code":  3,
-                      "type":  "droog"
+                      "wind_max_kmu":  21,
+                      "zon_pct":  54,
+                      "bewolking_pct":  46,
+                      "code":  51,
+                      "type":  "regen"
                   },
                   {
                       "datum":  "2026-08-06",
