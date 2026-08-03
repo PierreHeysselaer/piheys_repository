@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-03T12:12:23.508Z",
+ "gewijzigd": "2026-08-03T12:12:42.790Z",
  "boodschappen": {
   "aangevinkt": [
    "wit caréken",
@@ -25,7 +25,8 @@
    "diepvries champignons",
    "eieren",
    "lookpasta",
-   "Martini witte"
+   "Martini witte",
+   "oregano poedervorm"
   ],
   "nieuw": [
    {
@@ -59,6 +60,13 @@
    {
     "naam": "Martini witte",
     "cat": "drank",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-03"
+   },
+   {
+    "naam": "oregano poedervorm",
+    "cat": "kruiden",
     "pref": "OKAY",
     "specs": "",
     "toegevoegd": "2026-08-03"
