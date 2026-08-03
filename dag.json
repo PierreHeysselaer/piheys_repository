@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-03T16:15:01+05:00",
+    "opgehaald":  "2026-08-03T16:45:01+05:00",
     "vandaag":  "2026-08-03",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -60,34 +60,34 @@
                   },
                   {
                       "datum":  "2026-08-03",
-                      "regen_mm":  0.7,
+                      "regen_mm":  0,
                       "temp_max":  33,
                       "temp_min":  18,
-                      "wind_max_kmu":  34,
-                      "zon_pct":  85,
-                      "bewolking_pct":  15,
-                      "code":  53,
-                      "type":  "regen"
+                      "wind_max_kmu":  24,
+                      "zon_pct":  88,
+                      "bewolking_pct":  12,
+                      "code":  3,
+                      "type":  "droog"
                   },
                   {
                       "datum":  "2026-08-04",
-                      "regen_mm":  0.6,
+                      "regen_mm":  0,
                       "temp_max":  31,
                       "temp_min":  21,
-                      "wind_max_kmu":  19,
-                      "zon_pct":  53,
-                      "bewolking_pct":  47,
-                      "code":  53,
-                      "type":  "regen"
+                      "wind_max_kmu":  18,
+                      "zon_pct":  69,
+                      "bewolking_pct":  31,
+                      "code":  3,
+                      "type":  "droog"
                   },
                   {
                       "datum":  "2026-08-05",
-                      "regen_mm":  0.5,
+                      "regen_mm":  0.6,
                       "temp_max":  26,
                       "temp_min":  19,
-                      "wind_max_kmu":  23,
-                      "zon_pct":  34,
-                      "bewolking_pct":  66,
+                      "wind_max_kmu":  29,
+                      "zon_pct":  60,
+                      "bewolking_pct":  40,
                       "code":  51,
                       "type":  "regen"
                   },
