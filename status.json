@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-03T09:53:41.252Z",
+ "gewijzigd": "2026-08-03T09:54:10.130Z",
  "boodschappen": {
   "aangevinkt": [
    "wit caréken",
@@ -20,9 +20,18 @@
    "vaatwastabletten",
    "Cachew noten",
    "nootjes",
-   "gehakt voor balletjes 1 kg gemeng..."
+   "gehakt voor balletjes 1 kg gemeng...",
+   "spaghetti groenten"
   ],
-  "nieuw": []
+  "nieuw": [
+   {
+    "naam": "spaghetti groenten",
+    "cat": "groenten",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-03"
+   }
+  ]
  },
  "taken_log": {
   "h_bosmaaier": [
