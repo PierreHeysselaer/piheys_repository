@@ -1,141 +1,140 @@
 {
-  "gewijzigd": "2026-08-03T09:17:42.029Z",
-  "boodschappen": {
-    "aangevinkt": [
-      "Cachew noten",
-      "nootjes",
-      "wit caréken",
-      "brood donker",
-      "americain prepare",
-      "martino",
-      "salami met look",
-      "spek blokjes gerookt",
-      "appelsiensap",
-      "aardbeien 2 doosjes",
-      "komkommer",
-      "wortelen",
-      "oude batterijen en bruisgasflessen leeg",
-      "blauwe vuilzakken",
-      "wasmiddel kleur",
-      "Kip",
-      "zalm",
-      "vaatwastabletten"
-    ],
-    "nieuw": []
-  },
-  "taken_log": {
-    "h_bosmaaier": [
-      "2026-07-15",
-      "2026-07-30"
-    ],
-    "h_diepvries": [
-      "2026-02-04",
-      "2026-07-28",
-      "2026-07-29",
-      "2026-07-30",
-      "2026-07-31"
-    ],
-    "h_frigo": [
-      "2026-05-30",
-      "2026-07-14",
-      "2026-07-28",
-      "2026-07-29"
-    ],
-    "h_ramen": [
-      "2026-05-01"
-    ],
-    "h_dakgoot": [
-      "2026-03-15"
-    ],
-    "h_schrikdraad": [
-      "2026-07-24",
-      "2026-07-28",
-      "2026-07-29"
-    ],
-    "h_netels": [
-      "2026-06-20"
-    ],
-    "h_gras": [
-      "2026-07-28",
-      "2026-07-29"
-    ],
-    "h_weide": [
-      "2026-07-30"
-    ],
-    "h_schuifjes": [
-      "2026-07-31"
-    ]
-  },
-  "taken_gedaan": [],
-  "taken_nieuw": [
-    {
-      "naam": "Gras afrijden Beemdenlaan",
-      "type": "herhalend",
-      "frequentie_dagen": 14,
-      "opm": "Geen excuses",
-      "toegevoegd": "2026-08-01"
-    },
-    {
-      "naam": "KWu zonneproductie nakijken",
-      "type": "herhalend",
-      "frequentie_dagen": 30,
-      "opm": "",
-      "toegevoegd": "2026-08-01"
-    }
+ "gewijzigd": "2026-08-03T09:52:20.320Z",
+ "boodschappen": {
+  "aangevinkt": [
+   "nootjes",
+   "wit caréken",
+   "brood donker",
+   "americain prepare",
+   "martino",
+   "salami met look",
+   "spek blokjes gerookt",
+   "appelsiensap",
+   "aardbeien 2 doosjes",
+   "komkommer",
+   "wortelen",
+   "oude batterijen en bruisgasflessen leeg",
+   "blauwe vuilzakken",
+   "wasmiddel kleur",
+   "Kip",
+   "zalm",
+   "vaatwastabletten"
   ],
-  "medicatie_pierre": [
-    {
-      "id": "m_1785241920222",
-      "naam": "Forzatzen",
-      "doses_per_dag": 1,
-      "eenheid": "tablet",
-      "units_per_doos": 98,
-      "stock_thuis": 136,
-      "stock_bijgewerkt_op": "2026-07-30",
-      "dozen_apotheek": 0,
-      "doosje_gevuld_op": "2026-07-23",
-      "doosje_duur": 28,
-      "opm": ""
-    },
-    {
-      "id": "m_1785242066322",
-      "naam": "Metformine",
-      "doses_per_dag": 2,
-      "eenheid": "tablet",
-      "units_per_doos": 100,
-      "stock_thuis": 289,
-      "stock_bijgewerkt_op": "2026-07-30",
-      "dozen_apotheek": 0,
-      "doosje_gevuld_op": "2026-07-23",
-      "doosje_duur": 28,
-      "opm": ""
-    },
-    {
-      "id": "m_1785242151692",
-      "naam": "Zyloric",
-      "doses_per_dag": 2,
-      "eenheid": "tablet",
-      "units_per_doos": 90,
-      "stock_thuis": 219,
-      "stock_bijgewerkt_op": "2026-07-30",
-      "dozen_apotheek": 0,
-      "doosje_gevuld_op": "2026-07-23",
-      "doosje_duur": 28,
-      "opm": ""
-    },
-    {
-      "id": "m_1785242205091",
-      "naam": "Mult-iXX",
-      "doses_per_dag": 1,
-      "eenheid": "tablet",
-      "units_per_doos": 28,
-      "stock_thuis": 53,
-      "stock_bijgewerkt_op": "2026-07-30",
-      "dozen_apotheek": 0,
-      "doosje_gevuld_op": "2026-07-23",
-      "doosje_duur": 28,
-      "opm": ""
-    }
+  "nieuw": []
+ },
+ "taken_log": {
+  "h_bosmaaier": [
+   "2026-07-15",
+   "2026-07-30"
   ],
-  "medicatie_bea": []
+  "h_diepvries": [
+   "2026-02-04",
+   "2026-07-28",
+   "2026-07-29",
+   "2026-07-30",
+   "2026-07-31"
+  ],
+  "h_frigo": [
+   "2026-05-30",
+   "2026-07-14",
+   "2026-07-28",
+   "2026-07-29"
+  ],
+  "h_ramen": [
+   "2026-05-01"
+  ],
+  "h_dakgoot": [
+   "2026-03-15"
+  ],
+  "h_schrikdraad": [
+   "2026-07-24",
+   "2026-07-28",
+   "2026-07-29"
+  ],
+  "h_netels": [
+   "2026-06-20"
+  ],
+  "h_gras": [
+   "2026-07-28",
+   "2026-07-29"
+  ],
+  "h_weide": [
+   "2026-07-30"
+  ],
+  "h_schuifjes": [
+   "2026-07-31"
+  ]
+ },
+ "taken_gedaan": [],
+ "taken_nieuw": [
+  {
+   "naam": "Gras afrijden Beemdenlaan",
+   "type": "herhalend",
+   "frequentie_dagen": 14,
+   "opm": "Geen excuses",
+   "toegevoegd": "2026-08-01"
+  },
+  {
+   "naam": "KWu zonneproductie nakijken",
+   "type": "herhalend",
+   "frequentie_dagen": 30,
+   "opm": "",
+   "toegevoegd": "2026-08-01"
+  }
+ ],
+ "medicatie_pierre": [
+  {
+   "id": "m_1785241920222",
+   "naam": "Forzatzen",
+   "doses_per_dag": 1,
+   "eenheid": "tablet",
+   "units_per_doos": 98,
+   "stock_thuis": 136,
+   "stock_bijgewerkt_op": "2026-07-30",
+   "dozen_apotheek": 0,
+   "doosje_gevuld_op": "2026-07-23",
+   "doosje_duur": 28,
+   "opm": ""
+  },
+  {
+   "id": "m_1785242066322",
+   "naam": "Metformine",
+   "doses_per_dag": 2,
+   "eenheid": "tablet",
+   "units_per_doos": 100,
+   "stock_thuis": 289,
+   "stock_bijgewerkt_op": "2026-07-30",
+   "dozen_apotheek": 0,
+   "doosje_gevuld_op": "2026-07-23",
+   "doosje_duur": 28,
+   "opm": ""
+  },
+  {
+   "id": "m_1785242151692",
+   "naam": "Zyloric",
+   "doses_per_dag": 2,
+   "eenheid": "tablet",
+   "units_per_doos": 90,
+   "stock_thuis": 219,
+   "stock_bijgewerkt_op": "2026-07-30",
+   "dozen_apotheek": 0,
+   "doosje_gevuld_op": "2026-07-23",
+   "doosje_duur": 28,
+   "opm": ""
+  },
+  {
+   "id": "m_1785242205091",
+   "naam": "Mult-iXX",
+   "doses_per_dag": 1,
+   "eenheid": "tablet",
+   "units_per_doos": 28,
+   "stock_thuis": 53,
+   "stock_bijgewerkt_op": "2026-07-30",
+   "dozen_apotheek": 0,
+   "doosje_gevuld_op": "2026-07-23",
+   "doosje_duur": 28,
+   "opm": ""
+  }
+ ],
+ "medicatie_bea": []
 }
