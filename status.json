@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-03T12:14:28.383Z",
+ "gewijzigd": "2026-08-03T12:23:24.193Z",
  "boodschappen": {
   "aangevinkt": [
    "wit caréken",
@@ -26,7 +26,8 @@
    "eieren",
    "lookpasta",
    "Martini witte",
-   "rozemarijn poedervorm"
+   "rozemarijn poedervorm",
+   "gourgette"
   ],
   "nieuw": [
    {
@@ -74,6 +75,13 @@
    {
     "naam": "rozemarijn poedervorm",
     "cat": "kruiden",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-03"
+   },
+   {
+    "naam": "gourgette",
+    "cat": "groenten",
     "pref": "OKAY",
     "specs": "",
     "toegevoegd": "2026-08-03"
