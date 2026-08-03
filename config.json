@@ -1,291 +1,300 @@
 {
- "versie": 2,
- "bijgewerkt": "2026-07-31",
- "winkels": {
-  "Bakker": {
-   "volgorde": 1,
-   "rijtijd_min": 4,
-   "richting": "centrum",
-   "open": {
-    "ma": null,
-    "di": null,
-    "wo": "07:00-18:00",
-    "do": "07:00-18:00",
-    "vr": "07:00-18:00",
-    "za": "07:00-18:00",
-    "zo": "07:00-12:00"
-   },
-   "gesloten_tot": "2026-08-05",
-   "opm": "voorkeur voor brood"
+  "versie": 2,
+  "bijgewerkt": "2026-07-31",
+  "winkels": {
+    "Bakker": {
+      "volgorde": 1,
+      "rijtijd_min": 4,
+      "richting": "centrum",
+      "open": {
+        "ma": null,
+        "di": null,
+        "wo": "07:00-18:00",
+        "do": "07:00-18:00",
+        "vr": "07:00-18:00",
+        "za": "07:00-18:00",
+        "zo": "07:00-12:00"
+      },
+      "gesloten_tot": "2026-08-05",
+      "opm": "voorkeur voor brood"
+    },
+    "OKAY": {
+      "volgorde": 2,
+      "rijtijd_min": 2,
+      "richting": "centrum",
+      "open": {
+        "ma": "08:00-19:30",
+        "di": "08:00-19:30",
+        "wo": "08:00-19:30",
+        "do": "08:00-19:30",
+        "vr": "08:00-19:30",
+        "za": "08:00-19:30",
+        "zo": "09:00-12:00"
+      },
+      "gesloten_tot": null,
+      "opm": "aan een fruitzakje denken"
+    },
+    "SPAR": {
+      "volgorde": 3,
+      "rijtijd_min": null,
+      "richting": null,
+      "open": {
+        "ma": "08:00-18:00",
+        "di": "08:00-18:00",
+        "wo": "08:00-18:00",
+        "do": "08:00-18:00",
+        "vr": "08:00-18:00",
+        "za": "08:00-18:00",
+        "zo": "09:00-12:00"
+      },
+      "gesloten_tot": null,
+      "opm": "uren nog te bevestigen"
+    }
   },
-  "OKAY": {
-   "volgorde": 2,
-   "rijtijd_min": 2,
-   "richting": "centrum",
-   "open": {
-    "ma": "08:00-19:30",
-    "di": "08:00-19:30",
-    "wo": "08:00-19:30",
-    "do": "08:00-19:30",
-    "vr": "08:00-19:30",
-    "za": "08:00-19:30",
-    "zo": "09:00-12:00"
-   },
-   "gesloten_tot": null,
-   "opm": "aan een fruitzakje denken"
-  },
-  "SPAR": {
-   "volgorde": 3,
-   "rijtijd_min": null,
-   "richting": null,
-   "open": {
-    "ma": "08:00-18:00",
-    "di": "08:00-18:00",
-    "wo": "08:00-18:00",
-    "do": "08:00-18:00",
-    "vr": "08:00-18:00",
-    "za": "08:00-18:00",
-    "zo": "09:00-12:00"
-   },
-   "gesloten_tot": null,
-   "opm": "uren nog te bevestigen"
+  "taken": {
+    "dagelijks": [
+      {
+        "naam": "Medicatie innemen"
+      },
+      {
+        "naam": "Voeten verzorgen"
+      },
+      {
+        "naam": "Handen verzorgen"
+      }
+    ],
+    "herhalend": [
+      {
+        "id": "h_diepvries",
+        "naam": "Diepvries op orde zetten",
+        "categorie": "huis",
+        "frequentie": {
+          "*": 90
+        },
+        "voorwaarden": {}
+      },
+      {
+        "id": "h_frigo",
+        "naam": "Frigo op orde zetten",
+        "categorie": "huis",
+        "frequentie": {
+          "*": 30
+        },
+        "voorwaarden": {}
+      },
+      {
+        "id": "h_batterijen",
+        "naam": "Batterijen HA-sensoren nakijken",
+        "categorie": "huis",
+        "frequentie": {
+          "*": 30
+        },
+        "voorwaarden": {}
+      },
+      {
+        "id": "h_ramen",
+        "naam": "Ramen lappen",
+        "categorie": "huis",
+        "frequentie": {
+          "winter": 60,
+          "*": 30
+        },
+        "voorwaarden": {
+          "temp_min": 5,
+          "bewolking_min_pct": 35,
+          "regen_vandaag_max_mm": 0.5
+        },
+        "reden_uitleg": "felle zon geeft strepen"
+      },
+      {
+        "id": "h_rookmelder",
+        "naam": "Rookmelderbatterijen testen",
+        "categorie": "huis",
+        "frequentie": {
+          "*": 180
+        },
+        "voorwaarden": {
+          "maanden": [
+            4,
+            10
+          ]
+        }
+      },
+      {
+        "id": "h_dakgoot",
+        "naam": "Dakgoot kuisen",
+        "categorie": "buiten",
+        "frequentie": {
+          "*": 180
+        },
+        "voorwaarden": {
+          "maanden": [
+            3,
+            9
+          ],
+          "regen_vandaag_max_mm": 0.5,
+          "wind_max_kmu": 25,
+          "temp_min": 3
+        }
+      },
+      {
+        "id": "h_schrikdraad",
+        "naam": "Schrikdraad controleren",
+        "categorie": "buiten",
+        "frequentie": {
+          "*": 30
+        },
+        "voorwaarden": {
+          "regen_vandaag_max_mm": 0.5
+        }
+      },
+      {
+        "id": "h_bosmaaier",
+        "naam": "Ronde met bosmaaier (oprit, straatkant) + opkeren",
+        "categorie": "tuin",
+        "frequentie": {
+          "*": 14
+        },
+        "voorwaarden": {
+          "maanden": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "regen_vandaag_max_mm": 1
+        }
+      },
+      {
+        "id": "h_netels",
+        "naam": "Netels wieden",
+        "categorie": "tuin",
+        "frequentie": {
+          "*": 21
+        },
+        "voorwaarden": {
+          "maanden": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "regen_vorige_dagen": {
+            "dagen": 3,
+            "min_mm": 8
+          }
+        },
+        "reden_uitleg": "grond moet zacht zijn, enkel vlak na regen"
+      },
+      {
+        "id": "h_gras",
+        "naam": "Gras afrijden",
+        "categorie": "tuin",
+        "frequentie": {
+          "lente": 10,
+          "zomer": 7,
+          "herfst": 14,
+          "winter": null
+        },
+        "voorwaarden": {
+          "maanden": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "regen_vandaag_max_mm": 0.5,
+          "regen_vorige_dagen": {
+            "dagen": 2,
+            "max_mm": 4
+          }
+        },
+        "reden_uitleg": "niet in de regen en niet vlak erna"
+      },
+      {
+        "id": "h_weide",
+        "naam": "Weide (bramen, netels, distels)",
+        "categorie": "tuin",
+        "frequentie": {
+          "*": 30
+        },
+        "voorwaarden": {
+          "maanden": [
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "temp_min": 12,
+          "regen_vandaag_max_mm": 1
+        }
+      },
+      {
+        "id": "h_zonneprod",
+        "naam": "KWu zonneproductie nakijken",
+        "categorie": "huis",
+        "frequentie": {
+          "*": 30
+        },
+        "voorwaarden": {}
+      }
+    ],
+    "eenmalig": [
+      {
+        "id": "e_vergif",
+        "naam": "afsluiten plafond living",
+        "categorie": "huis",
+        "streefdatum": null,
+        "voorwaarden": {}
+      },
+      {
+        "id": "e_cvkraan",
+        "naam": "CV-kraan vervangen badkamer GLV",
+        "categorie": "huis",
+        "streefdatum": null,
+        "voorwaarden": {}
+      },
+      {
+        "id": "e_hout",
+        "naam": "Rondslingerend hout verzagen",
+        "categorie": "buiten",
+        "streefdatum": null,
+        "voorwaarden": {
+          "regen_vandaag_max_mm": 1
+        }
+      },
+      {
+        "id": "e_kieren",
+        "naam": "Kieren naar plafond afdichten",
+        "categorie": "huis",
+        "streefdatum": null,
+        "voorwaarden": {}
+      },
+      {
+        "id": "e_strips",
+        "naam": "Strips op lekkende aflopen plakken",
+        "categorie": "huis",
+        "streefdatum": null,
+        "voorwaarden": {}
+      },
+      {
+        "id": "e_hascript",
+        "naam": "HA: script dat sensorbatterijen checkt en bestellijst maakt",
+        "categorie": "huis",
+        "streefdatum": null,
+        "voorwaarden": {}
+      }
+    ]
   }
- },
- "taken": {
-  "dagelijks": [
-   {
-    "naam": "Medicatie innemen"
-   },
-   {
-    "naam": "Voeten verzorgen"
-   },
-   {
-    "naam": "Handen verzorgen"
-   }
-  ],
-  "herhalend": [
-   {
-    "id": "h_diepvries",
-    "naam": "Diepvries op orde zetten",
-    "categorie": "huis",
-    "frequentie": {
-     "*": 90
-    },
-    "voorwaarden": {}
-   },
-   {
-    "id": "h_frigo",
-    "naam": "Frigo op orde zetten",
-    "categorie": "huis",
-    "frequentie": {
-     "*": 30
-    },
-    "voorwaarden": {}
-   },
-   {
-    "id": "h_batterijen",
-    "naam": "Batterijen HA-sensoren nakijken",
-    "categorie": "huis",
-    "frequentie": {
-     "*": 30
-    },
-    "voorwaarden": {}
-   },
-   {
-    "id": "h_ramen",
-    "naam": "Ramen lappen",
-    "categorie": "huis",
-    "frequentie": {
-     "winter": 60,
-     "*": 30
-    },
-    "voorwaarden": {
-     "temp_min": 5,
-     "bewolking_min_pct": 35,
-     "regen_vandaag_max_mm": 0.5
-    },
-    "reden_uitleg": "felle zon geeft strepen"
-   },
-   {
-    "id": "h_rookmelder",
-    "naam": "Rookmelderbatterijen testen",
-    "categorie": "huis",
-    "frequentie": {
-     "*": 180
-    },
-    "voorwaarden": {
-     "maanden": [
-      4,
-      10
-     ]
-    }
-   },
-   {
-    "id": "h_dakgoot",
-    "naam": "Dakgoot kuisen",
-    "categorie": "buiten",
-    "frequentie": {
-     "*": 180
-    },
-    "voorwaarden": {
-     "maanden": [
-      3,
-      9
-     ],
-     "regen_vandaag_max_mm": 0.5,
-     "wind_max_kmu": 25,
-     "temp_min": 3
-    }
-   },
-   {
-    "id": "h_schrikdraad",
-    "naam": "Schrikdraad controleren",
-    "categorie": "buiten",
-    "frequentie": {
-     "*": 30
-    },
-    "voorwaarden": {
-     "regen_vandaag_max_mm": 0.5
-    }
-   },
-   {
-    "id": "h_bosmaaier",
-    "naam": "Ronde met bosmaaier (oprit, straatkant) + opkeren",
-    "categorie": "tuin",
-    "frequentie": {
-     "*": 14
-    },
-    "voorwaarden": {
-     "maanden": [
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10
-     ],
-     "regen_vandaag_max_mm": 1
-    }
-   },
-   {
-    "id": "h_netels",
-    "naam": "Netels wieden",
-    "categorie": "tuin",
-    "frequentie": {
-     "*": 21
-    },
-    "voorwaarden": {
-     "maanden": [
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10
-     ],
-     "regen_vorige_dagen": {
-      "dagen": 3,
-      "min_mm": 8
-     }
-    },
-    "reden_uitleg": "grond moet zacht zijn, enkel vlak na regen"
-   },
-   {
-    "id": "h_gras",
-    "naam": "Gras afrijden",
-    "categorie": "tuin",
-    "frequentie": {
-     "lente": 10,
-     "zomer": 7,
-     "herfst": 14,
-     "winter": null
-    },
-    "voorwaarden": {
-     "maanden": [
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10
-     ],
-     "regen_vandaag_max_mm": 0.5,
-     "regen_vorige_dagen": {
-      "dagen": 2,
-      "max_mm": 4
-     }
-    },
-    "reden_uitleg": "niet in de regen en niet vlak erna"
-   },
-   {
-    "id": "h_weide",
-    "naam": "Weide (bramen, netels, distels)",
-    "categorie": "tuin",
-    "frequentie": {
-     "*": 30
-    },
-    "voorwaarden": {
-     "maanden": [
-      4,
-      5,
-      6,
-      7,
-      8
-     ],
-     "temp_min": 12,
-     "regen_vandaag_max_mm": 1
-    }
-   }
-  ],
-  "eenmalig": [
-   {
-    "id": "e_vergif",
-    "naam": "afsluiten plafond living",
-    "categorie": "huis",
-    "streefdatum": null,
-    "voorwaarden": {}
-   },
-   {
-    "id": "e_cvkraan",
-    "naam": "CV-kraan vervangen badkamer GLV",
-    "categorie": "huis",
-    "streefdatum": null,
-    "voorwaarden": {}
-   },
-   {
-    "id": "e_hout",
-    "naam": "Rondslingerend hout verzagen",
-    "categorie": "buiten",
-    "streefdatum": null,
-    "voorwaarden": {
-     "regen_vandaag_max_mm": 1
-    }
-   },
-   {
-    "id": "e_kieren",
-    "naam": "Kieren naar plafond afdichten",
-    "categorie": "huis",
-    "streefdatum": null,
-    "voorwaarden": {}
-   },
-   {
-    "id": "e_strips",
-    "naam": "Strips op lekkende aflopen plakken",
-    "categorie": "huis",
-    "streefdatum": null,
-    "voorwaarden": {}
-   },
-   {
-    "id": "e_hascript",
-    "naam": "HA: script dat sensorbatterijen checkt en bestellijst maakt",
-    "categorie": "huis",
-    "streefdatum": null,
-    "voorwaarden": {}
-   }
-  ]
- }
 }
