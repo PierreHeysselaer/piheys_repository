@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-03T12:14:10.617Z",
+ "gewijzigd": "2026-08-03T12:14:28.383Z",
  "boodschappen": {
   "aangevinkt": [
    "wit caréken",
@@ -25,7 +25,8 @@
    "diepvries champignons",
    "eieren",
    "lookpasta",
-   "Martini witte"
+   "Martini witte",
+   "rozemarijn poedervorm"
   ],
   "nieuw": [
    {
@@ -65,6 +66,13 @@
    },
    {
     "naam": "oregano poedervorm",
+    "cat": "kruiden",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-03"
+   },
+   {
+    "naam": "rozemarijn poedervorm",
     "cat": "kruiden",
     "pref": "OKAY",
     "specs": "",
