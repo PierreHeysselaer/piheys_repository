@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-03T10:06:30.943Z",
+ "gewijzigd": "2026-08-03T10:17:07.962Z",
  "boodschappen": {
   "aangevinkt": [
    "wit caréken",
@@ -23,7 +23,8 @@
    "gehakt voor balletjes 1 kg gemeng...",
    "spaghetti groenten",
    "diepvries champignons",
-   "eieren"
+   "eieren",
+   "lookpasta"
   ],
   "nieuw": [
    {
@@ -43,6 +44,13 @@
    {
     "naam": "diepvries champignons",
     "cat": "groenten",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-03"
+   },
+   {
+    "naam": "lookpasta",
+    "cat": "rest",
     "pref": "OKAY",
     "specs": "",
     "toegevoegd": "2026-08-03"
