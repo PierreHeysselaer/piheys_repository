@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-03T05:15:02+02:00",
+    "opgehaald":  "2026-08-03T05:45:02+02:00",
     "vandaag":  "2026-08-03",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -61,35 +61,35 @@
                   {
                       "datum":  "2026-08-03",
                       "regen_mm":  0,
-                      "temp_max":  34,
-                      "temp_min":  20,
+                      "temp_max":  33,
+                      "temp_min":  19,
                       "wind_max_kmu":  21,
-                      "zon_pct":  90,
-                      "bewolking_pct":  10,
+                      "zon_pct":  81,
+                      "bewolking_pct":  19,
                       "code":  3,
                       "type":  "droog"
                   },
                   {
                       "datum":  "2026-08-04",
                       "regen_mm":  0,
-                      "temp_max":  28,
+                      "temp_max":  30,
                       "temp_min":  22,
-                      "wind_max_kmu":  19,
-                      "zon_pct":  55,
-                      "bewolking_pct":  45,
+                      "wind_max_kmu":  20,
+                      "zon_pct":  44,
+                      "bewolking_pct":  56,
                       "code":  3,
                       "type":  "droog"
                   },
                   {
                       "datum":  "2026-08-05",
-                      "regen_mm":  0,
+                      "regen_mm":  0.4,
                       "temp_max":  27,
                       "temp_min":  20,
                       "wind_max_kmu":  22,
-                      "zon_pct":  61,
-                      "bewolking_pct":  39,
-                      "code":  3,
-                      "type":  "droog"
+                      "zon_pct":  66,
+                      "bewolking_pct":  34,
+                      "code":  51,
+                      "type":  "regen"
                   },
                   {
                       "datum":  "2026-08-06",
