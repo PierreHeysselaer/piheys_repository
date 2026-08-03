@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-03T09:56:02.847Z",
+ "gewijzigd": "2026-08-03T10:06:12.411Z",
  "boodschappen": {
   "aangevinkt": [
    "wit caréken",
@@ -99,13 +99,6 @@
    "type": "herhalend",
    "frequentie_dagen": 14,
    "opm": "Geen excuses",
-   "toegevoegd": "2026-08-01"
-  },
-  {
-   "naam": "KWu zonneproductie nakijken",
-   "type": "herhalend",
-   "frequentie_dagen": 30,
-   "opm": "",
    "toegevoegd": "2026-08-01"
   }
  ],
