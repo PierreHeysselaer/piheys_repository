@@ -39,6 +39,15 @@
    "opm": ""
   },
   {
+   "naam": "martini wit",
+   "specs": "",
+   "volgw": 43,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
    "naam": "cashew noten",
    "specs": "",
    "volgw": 45,
@@ -448,6 +457,24 @@
    "specs": "",
    "volgw": 490,
    "cat": "sausen ed",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "rozemarijn poedervorm",
+   "specs": "",
+   "volgw": 498,
+   "cat": "kruiden",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "lookpaste",
+   "specs": "",
+   "volgw": 499,
+   "cat": "kruiden",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1452,6 +1479,15 @@
    "opm": ""
   },
   {
+   "naam": "gourgette",
+   "specs": "",
+   "volgw": 1585,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
    "naam": "spitskool",
    "specs": "",
    "volgw": 1590,
@@ -1587,7 +1623,7 @@
    "opm": ""
   },
   {
-   "naam": "moussaka",
+   "naam": "maaltijd Bea",
    "specs": "",
    "volgw": 1740,
    "cat": "maaltijd",
@@ -1596,7 +1632,7 @@
    "opm": ""
   },
   {
-   "naam": "maaltijd Bea",
+   "naam": "moussaka",
    "specs": "",
    "volgw": 1740,
    "cat": "maaltijd",
