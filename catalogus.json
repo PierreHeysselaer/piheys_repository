@@ -1497,15 +1497,6 @@
    "opm": ""
   },
   {
-   "naam": "spaghetti groenten",
-   "specs": "",
-   "volgw": 1595,
-   "cat": "groenten",
-   "pref": "OKAY",
-   "backup": "SPAR",
-   "opm": ""
-  },
-  {
    "naam": "dille met wortel",
    "specs": "",
    "volgw": 1600,
@@ -1860,15 +1851,6 @@
    "naam": "diepvriesgroenten mediteraan 2x",
    "specs": "",
    "volgw": 1980,
-   "cat": "groenten",
-   "pref": "OKAY",
-   "backup": "SPAR",
-   "opm": ""
-  },
-  {
-   "naam": "diepvries champignons",
-   "specs": "",
-   "volgw": 1981,
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
