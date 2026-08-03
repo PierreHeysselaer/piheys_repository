@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-03T10:06:12.411Z",
+ "gewijzigd": "2026-08-03T10:06:15.680Z",
  "boodschappen": {
   "aangevinkt": [
    "wit caréken",
@@ -93,15 +93,7 @@
   ]
  },
  "taken_gedaan": [],
- "taken_nieuw": [
-  {
-   "naam": "Gras afrijden Beemdenlaan",
-   "type": "herhalend",
-   "frequentie_dagen": 14,
-   "opm": "Geen excuses",
-   "toegevoegd": "2026-08-01"
-  }
- ],
+ "taken_nieuw": [],
  "medicatie_pierre": [
   {
    "id": "m_1785241920222",
