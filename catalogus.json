@@ -1263,6 +1263,15 @@
    "opm": ""
   },
   {
+   "naam": "gyros kip",
+   "specs": "",
+   "volgw": 1371,
+   "cat": "vlees",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
    "naam": "entrecôte rund",
    "specs": "",
    "volgw": 1380,
@@ -1443,6 +1452,15 @@
    "opm": ""
   },
   {
+   "naam": "paddestoelen",
+   "specs": "",
+   "volgw": 1561,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
    "naam": "sla 3 kleuren met wortel",
    "specs": "",
    "volgw": 1570,
@@ -1482,6 +1500,15 @@
    "naam": "spitskool",
    "specs": "",
    "volgw": 1590,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "spaghetti groenten",
+   "specs": "",
+   "volgw": 1595,
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
@@ -1857,6 +1884,15 @@
    "opm": ""
   },
   {
+   "naam": "diepvries champignons",
+   "specs": "",
+   "volgw": 1981,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
    "naam": "fish sticks",
    "specs": "",
    "volgw": 1990,
@@ -1970,96 +2006,6 @@
    "volgw": 2110,
    "cat": "rest",
    "pref": "OKAY",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "spaghetti groenten",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "paddestoelen",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "diepvries champignons",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "lookpasta",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "Martini witte",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "oregano poedervorm",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "rozemarijn poedervorm",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "gourgette",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "spiering",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "gyros kip",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
    "backup": "",
    "opm": ""
   }
