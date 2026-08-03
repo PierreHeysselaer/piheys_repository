@@ -1452,15 +1452,6 @@
    "opm": ""
   },
   {
-   "naam": "paddestoelen",
-   "specs": "",
-   "volgw": 1561,
-   "cat": "groenten",
-   "pref": "OKAY",
-   "backup": "SPAR",
-   "opm": ""
-  },
-  {
    "naam": "sla 3 kleuren met wortel",
    "specs": "",
    "volgw": 1570,
@@ -1600,15 +1591,6 @@
    "specs": "",
    "volgw": 1690,
    "cat": "maaltijd",
-   "pref": "OKAY",
-   "backup": "SPAR",
-   "opm": ""
-  },
-  {
-   "naam": "spaghettigroenten 3 zakjes",
-   "specs": "",
-   "volgw": 1700,
-   "cat": "keuken",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
