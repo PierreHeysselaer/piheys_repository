@@ -1,8 +1,18 @@
 {
- "gewijzigd": "2026-08-03T15:47:29.738Z",
+ "gewijzigd": "2026-08-03T15:47:59.119Z",
  "boodschappen": {
-  "aangevinkt": [],
-  "nieuw": []
+  "aangevinkt": [
+   "gyros kip"
+  ],
+  "nieuw": [
+   {
+    "naam": "gyros kip",
+    "cat": "vlees",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-03"
+   }
+  ]
  },
  "taken_log": {
   "h_bosmaaier": [
