@@ -1909,6 +1909,33 @@
       "pref": "OKAY",
       "backup": "SPAR",
       "opm": ""
+    },
+    {
+      "naam": "paddestoelen",
+      "specs": "",
+      "cat": "groenten",
+      "volgw": 1535,
+      "pref": "OKAY",
+      "backup": "SPAR",
+      "opm": ""
+    },
+    {
+      "naam": "spaghetti groenten",
+      "specs": "",
+      "cat": "groenten",
+      "volgw": 1575,
+      "pref": "OKAY",
+      "backup": "SPAR",
+      "opm": ""
+    },
+    {
+      "naam": "diepvries champignons",
+      "specs": "",
+      "cat": "groenten",
+      "volgw": 1895,
+      "pref": "OKAY",
+      "backup": "SPAR",
+      "opm": ""
     }
   ]
 }
