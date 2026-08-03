@@ -310,7 +310,7 @@ function tekenWinkel(){
   const arts = alleArtikelen();
   const perwinkel = {};
   for (const naam of sel){
-    const a = arts.find(x=>x.naam===naam) ||
+    const a = arts.find(x=>x.naam.toLowerCase()===naam.toLowerCase()) ||
               {naam, specs:'', cat:'rest', volgw:9999, pref:'OKAY', backup:''};
     const w = winkelVoor(a);
     (perwinkel[w.winkel] = perwinkel[w.winkel] || []).push({a, let:w.let});
