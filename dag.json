@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-03T23:30:04+02:00",
+    "opgehaald":  "2026-08-03T23:45:01+02:00",
     "vandaag":  "2026-08-03",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -60,34 +60,34 @@
                   },
                   {
                       "datum":  "2026-08-03",
-                      "regen_mm":  0.8,
+                      "regen_mm":  0,
                       "temp_max":  33,
                       "temp_min":  18,
-                      "wind_max_kmu":  24,
+                      "wind_max_kmu":  19,
                       "zon_pct":  85,
                       "bewolking_pct":  15,
-                      "code":  51,
-                      "type":  "regen"
+                      "code":  3,
+                      "type":  "droog"
                   },
                   {
                       "datum":  "2026-08-04",
                       "regen_mm":  0,
-                      "temp_max":  29,
-                      "temp_min":  21,
-                      "wind_max_kmu":  19,
-                      "zon_pct":  49,
-                      "bewolking_pct":  51,
+                      "temp_max":  33,
+                      "temp_min":  22,
+                      "wind_max_kmu":  23,
+                      "zon_pct":  58,
+                      "bewolking_pct":  42,
                       "code":  3,
                       "type":  "droog"
                   },
                   {
                       "datum":  "2026-08-05",
                       "regen_mm":  0,
-                      "temp_max":  24,
-                      "temp_min":  20,
+                      "temp_max":  26,
+                      "temp_min":  21,
                       "wind_max_kmu":  20,
-                      "zon_pct":  35,
-                      "bewolking_pct":  65,
+                      "zon_pct":  39,
+                      "bewolking_pct":  61,
                       "code":  3,
                       "type":  "droog"
                   },
@@ -95,7 +95,7 @@
                       "datum":  "2026-08-06",
                       "regen_mm":  0,
                       "temp_max":  23,
-                      "temp_min":  14,
+                      "temp_min":  15,
                       "wind_max_kmu":  17,
                       "zon_pct":  94,
                       "bewolking_pct":  6,
