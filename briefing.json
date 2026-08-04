@@ -1,7 +1,13 @@
 {
- "datum": "2026-08-03",
+ "datum": "2026-08-04",
+ "agenda": [
+  { "tijd": "09:00", "tekst": "Katten Martine verzorgen" },
+  { "tijd": "15:15", "tekst": "Pedicure pierre (freq. 5 weken)" },
+  { "tijd": "17:45", "tekst": "Al nieuws van NVA ivm kaarten" },
+  { "tijd": "18:00", "tekst": "Prolactynoomtest Tina vandaag" }
+ ],
  "bij_taak": {
-  "h_ramen": "morgen en woensdag zijn de enige bewolkte dagen van de week (47–66%) — daarna doorlopend zon tot volgende week"
+  "h_gras": "namiddag zit vol — als de taak er staat, doe het 's ochtends"
  },
  "bij_winkel": { "Bakker": "nog dicht tot 5 augustus — brood voorlopig bij OKAY" }
 }
