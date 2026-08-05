@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-05T01:45:02+02:00",
+    "opgehaald":  "2026-08-05T02:15:02+02:00",
     "vandaag":  "2026-08-05",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -94,7 +94,7 @@
                   {
                       "datum":  "2026-08-08",
                       "regen_mm":  0,
-                      "temp_max":  28,
+                      "temp_max":  29,
                       "temp_min":  14,
                       "wind_max_kmu":  11,
                       "zon_pct":  95,
@@ -104,20 +104,20 @@
                   },
                   {
                       "datum":  "2026-08-09",
-                      "regen_mm":  1.2,
-                      "temp_max":  28,
-                      "temp_min":  19,
+                      "regen_mm":  0,
+                      "temp_max":  30,
+                      "temp_min":  18,
                       "wind_max_kmu":  20,
-                      "zon_pct":  93,
-                      "bewolking_pct":  7,
-                      "code":  51,
-                      "type":  "regen"
+                      "zon_pct":  95,
+                      "bewolking_pct":  5,
+                      "code":  1,
+                      "type":  "droog"
                   },
                   {
                       "datum":  "2026-08-10",
                       "regen_mm":  0,
                       "temp_max":  24,
-                      "temp_min":  17,
+                      "temp_min":  18,
                       "wind_max_kmu":  13,
                       "zon_pct":  94,
                       "bewolking_pct":  6,
