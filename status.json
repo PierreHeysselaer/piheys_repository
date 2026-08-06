@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-06T14:00:25.271Z",
+ "gewijzigd": "2026-08-06T14:54:11.582Z",
  "boodschappen": {
   "aangevinkt": [
    "sandwiches"
@@ -52,7 +52,9 @@
    "2026-08-03"
   ]
  },
- "taken_gedaan": [],
+ "taken_gedaan": [
+  "e_vergif"
+ ],
  "taken_nieuw": [],
  "medicatie_pierre": [
   {
