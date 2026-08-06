@@ -1,8 +1,18 @@
 {
- "gewijzigd": "2026-08-06T13:57:19.951Z",
+ "gewijzigd": "2026-08-06T13:57:31.370Z",
  "boodschappen": {
-  "aangevinkt": [],
-  "nieuw": []
+  "aangevinkt": [
+   "sandwiches"
+  ],
+  "nieuw": [
+   {
+    "naam": "sandwiches",
+    "cat": "rest",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-06"
+   }
+  ]
  },
  "taken_log": {
   "h_bosmaaier": [
