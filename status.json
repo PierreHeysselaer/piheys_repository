@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-05T19:35:14.615Z",
+ "gewijzigd": "2026-08-06T11:44:21.940Z",
  "boodschappen": {
   "aangevinkt": [
    "aardbeien 2 doosjes",
@@ -11,9 +11,18 @@
    "platte kaasjes voor Louis",
    "skyr",
    "pannenkoeken",
-   "wasmiddel kleur"
+   "wasmiddel kleur",
+   "Watermeloen"
   ],
-  "nieuw": []
+  "nieuw": [
+   {
+    "naam": "Watermeloen",
+    "cat": "fruit",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-06"
+   }
+  ]
  },
  "taken_log": {
   "h_bosmaaier": [
