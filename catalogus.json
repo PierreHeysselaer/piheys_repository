@@ -1,6 +1,6 @@
 {
  "versie": 2,
- "bijgewerkt": "2026-08-03",
+ "bijgewerkt": "2026-08-06",
  "artikelen": [
   {
    "naam": "oude batterijen en bruisgasflessen leeg",
@@ -1970,6 +1970,15 @@
    "volgw": 2110,
    "cat": "rest",
    "pref": "OKAY",
+   "backup": "",
+   "opm": ""
+  },
+  {
+   "naam": "Watermeloen",
+   "specs": "",
+   "volgw": 9999,
+   "cat": "",
+   "pref": "",
    "backup": "",
    "opm": ""
   }
