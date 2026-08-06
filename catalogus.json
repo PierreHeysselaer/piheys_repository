@@ -1749,6 +1749,15 @@
    "opm": ""
   },
   {
+   "naam": "sandwiches",
+   "specs": "",
+   "volgw": 1827,
+   "cat": "brood",
+   "pref": "Bakker",
+   "backup": "OKAY",
+   "opm": ""
+  },
+  {
    "naam": "bruin frans brood",
    "specs": "",
    "volgw": 1830,
@@ -2006,16 +2015,7 @@
    "volgw": 2110,
    "cat": "rest",
    "pref": "OKAY",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "sandwiches",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
+   "backup": "OKAY",
    "opm": ""
   }
  ]
