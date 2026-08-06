@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-06T11:54:58.720Z",
+ "gewijzigd": "2026-08-06T11:58:34.800Z",
  "boodschappen": {
   "aangevinkt": [
    "aardbeien 2 doosjes",
@@ -20,7 +20,8 @@
    "gourgette",
    "komkommer",
    "witloof",
-   "lookpaste"
+   "lookpaste",
+   "Fruitmoes (vloeibare confituur aardbei)"
   ],
   "nieuw": [
    {
@@ -32,6 +33,13 @@
    },
    {
     "naam": "Tropical",
+    "cat": "drank",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-06"
+   },
+   {
+    "naam": "Fruitmoes (vloeibare confituur aardbei)",
     "cat": "drank",
     "pref": "OKAY",
     "specs": "",
