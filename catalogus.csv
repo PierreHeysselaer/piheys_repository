@@ -221,5 +221,5 @@ scheermesjes mach3;;persoonlijk;OKAY;SPAR;2060;
 2032 batterijen;;batterijen;OKAY;SPAR;2070;
 geld afhalen;;rest;OKAY;SPAR;2080;
 pruimen;;groenten;OKAY;SPAR;2090;
-kartonnen dozen;;rest;OKAY;;2110;
-sandwiches;;;;;9999;
+kartonnen dozen;;rest;OKAY;OKAY;2110;
+sandwiches;;brood;Bakker;OKAY;1827;
