@@ -66,6 +66,24 @@
    "opm": ""
   },
   {
+   "naam": "Tropical",
+   "specs": "",
+   "volgw": 54,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "Fruitmoes (vloeibare confituur aardbei)",
+   "specs": "Fruitmoes (vloeibare confituur aardbei)",
+   "volgw": 57,
+   "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
    "naam": "volle melk 12L",
    "specs": "",
    "volgw": 60,
@@ -1056,6 +1074,24 @@
    "opm": ""
   },
   {
+   "naam": "cervela",
+   "specs": "",
+   "volgw": 1145,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "salami met look",
+   "specs": "",
+   "volgw": 1146,
+   "cat": "beleg",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
    "naam": "martino",
    "specs": "",
    "volgw": 1150,
@@ -1065,18 +1101,18 @@
    "opm": ""
   },
   {
-   "naam": "salami & kaasblokjes",
+   "naam": "Kip curry",
    "specs": "",
-   "volgw": 1160,
-   "cat": "snack",
+   "volgw": 1155,
+   "cat": "beleg",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
   },
   {
-   "naam": "pannenkoeken",
+   "naam": "salami & kaasblokjes",
    "specs": "",
-   "volgw": 1170,
+   "volgw": 1160,
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
@@ -1362,15 +1398,6 @@
    "opm": ""
   },
   {
-   "naam": "cervela",
-   "specs": "",
-   "volgw": 1480,
-   "cat": "snack",
-   "pref": "OKAY",
-   "backup": "SPAR",
-   "opm": ""
-  },
-  {
    "naam": "prei veel wit",
    "specs": "",
    "volgw": 1490,
@@ -1506,6 +1533,24 @@
    "opm": ""
   },
   {
+   "naam": "basilicum met wortel",
+   "specs": "",
+   "volgw": 1604,
+   "cat": "kruiden",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "skyr",
+   "specs": "",
+   "volgw": 1605,
+   "cat": "melk",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
    "naam": "6 appelsienen",
    "specs": "",
    "volgw": 1610,
@@ -1560,6 +1605,15 @@
    "opm": ""
   },
   {
+   "naam": "Watermeloen",
+   "specs": "",
+   "volgw": 1665,
+   "cat": "fruit",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
    "naam": "druiven",
    "specs": "",
    "volgw": 1670,
@@ -1582,15 +1636,6 @@
    "specs": "",
    "volgw": 1690,
    "cat": "maaltijd",
-   "pref": "OKAY",
-   "backup": "SPAR",
-   "opm": ""
-  },
-  {
-   "naam": "basilicum met wortel",
-   "specs": "",
-   "volgw": 1710,
-   "cat": "kruiden",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1677,15 +1722,6 @@
    "opm": ""
   },
   {
-   "naam": "skyr",
-   "specs": "",
-   "volgw": 1800,
-   "cat": "melk",
-   "pref": "OKAY",
-   "backup": "SPAR",
-   "opm": ""
-  },
-  {
    "naam": "karnemelk",
    "specs": "",
    "volgw": 1810,
@@ -1699,6 +1735,15 @@
    "specs": "",
    "volgw": 1820,
    "cat": "drank",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "pannenkoeken",
+   "specs": "",
+   "volgw": 1825,
+   "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1956,56 +2001,11 @@
    "opm": ""
   },
   {
-   "naam": "salami met look",
-   "specs": "",
-   "volgw": 2100,
-   "cat": "beleg",
-   "pref": "OKAY",
-   "backup": "SPAR",
-   "opm": ""
-  },
-  {
    "naam": "kartonnen dozen",
    "specs": "",
    "volgw": 2110,
    "cat": "rest",
    "pref": "OKAY",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "Watermeloen",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "Kip curry",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "Tropical",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "Fruitmoes (vloeibare confituur aardbei)",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
    "backup": "",
    "opm": ""
   }
