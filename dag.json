@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-06T20:45:03+02:00",
+    "opgehaald":  "2026-08-06T21:15:02+02:00",
     "vandaag":  "2026-08-06",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -94,11 +94,11 @@
                   {
                       "datum":  "2026-08-09",
                       "regen_mm":  0,
-                      "temp_max":  30,
+                      "temp_max":  29,
                       "temp_min":  15,
-                      "wind_max_kmu":  10,
-                      "zon_pct":  94,
-                      "bewolking_pct":  6,
+                      "wind_max_kmu":  9,
+                      "zon_pct":  95,
+                      "bewolking_pct":  5,
                       "code":  3,
                       "type":  "droog"
                   },
@@ -108,28 +108,28 @@
                       "temp_max":  28,
                       "temp_min":  18,
                       "wind_max_kmu":  16,
-                      "zon_pct":  94,
-                      "bewolking_pct":  6,
-                      "code":  3,
-                      "type":  "droog"
-                  },
-                  {
-                      "datum":  "2026-08-11",
-                      "regen_mm":  0,
-                      "temp_max":  28,
-                      "temp_min":  17,
-                      "wind_max_kmu":  13,
                       "zon_pct":  95,
                       "bewolking_pct":  5,
                       "code":  3,
                       "type":  "droog"
                   },
                   {
+                      "datum":  "2026-08-11",
+                      "regen_mm":  0,
+                      "temp_max":  26,
+                      "temp_min":  15,
+                      "wind_max_kmu":  12,
+                      "zon_pct":  95,
+                      "bewolking_pct":  5,
+                      "code":  2,
+                      "type":  "droog"
+                  },
+                  {
                       "datum":  "2026-08-12",
                       "regen_mm":  0,
-                      "temp_max":  33,
-                      "temp_min":  18,
-                      "wind_max_kmu":  12,
+                      "temp_max":  31,
+                      "temp_min":  17,
+                      "wind_max_kmu":  11,
                       "zon_pct":  96,
                       "bewolking_pct":  4,
                       "code":  0,
