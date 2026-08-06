@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-06T11:47:49.175Z",
+ "gewijzigd": "2026-08-06T11:48:26.895Z",
  "boodschappen": {
   "aangevinkt": [
    "aardbeien 2 doosjes",
@@ -14,9 +14,18 @@
    "wasmiddel kleur",
    "Watermeloen",
    "americain prepare",
-   "martino"
+   "martino",
+   "Kip curry"
   ],
-  "nieuw": []
+  "nieuw": [
+   {
+    "naam": "Kip curry",
+    "cat": "beleg",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-06"
+   }
+  ]
  },
  "taken_log": {
   "h_bosmaaier": [
