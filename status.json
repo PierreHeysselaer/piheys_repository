@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-06T11:48:26.895Z",
+ "gewijzigd": "2026-08-06T11:49:55.469Z",
  "boodschappen": {
   "aangevinkt": [
    "aardbeien 2 doosjes",
@@ -15,12 +15,20 @@
    "Watermeloen",
    "americain prepare",
    "martino",
-   "Kip curry"
+   "Kip curry",
+   "Tropical"
   ],
   "nieuw": [
    {
     "naam": "Kip curry",
     "cat": "beleg",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-06"
+   },
+   {
+    "naam": "Tropical",
+    "cat": "drank",
     "pref": "OKAY",
     "specs": "",
     "toegevoegd": "2026-08-06"
