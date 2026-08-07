@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-06T15:58:22.855Z",
+ "gewijzigd": "2026-08-07T08:39:56.151Z",
  "boodschappen": {
   "aangevinkt": [
    "sandwiches"
@@ -55,7 +55,15 @@
  "taken_gedaan": [
   "e_vergif"
  ],
- "taken_nieuw": [],
+ "taken_nieuw": [
+  {
+   "naam": "met swiffer stof en spinnewebben",
+   "type": "herhalend",
+   "frequentie_dagen": 14,
+   "opm": "",
+   "toegevoegd": "2026-08-07"
+  }
+ ],
  "medicatie_pierre": [
   {
    "id": "m_1785241920222",
