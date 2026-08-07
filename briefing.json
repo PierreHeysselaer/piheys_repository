@@ -1,7 +1,10 @@
 {
-  "datum": "2026-08-06",
+  "datum": "2026-08-07",
+  "agenda": [
+    { "tijd": "heel de dag", "tekst": "Louis bij ons (detail te bespreken)" },
+    { "tijd": "10:00", "tekst": "oefenblaadje letters en cijfers" }
+  ],
   "bij_taak": {
-    "h_gras": "na de lichte buien van begin deze week weer helemaal droog en 24°C — ideaal moment"
-  },
-  "bedenking": "Vandaag is de koelste dag van de week — morgen al 26°C en verder stijgend."
+    "h_gras": "droog, nauwelijks wind — ideaal; later deze week loopt het op tot 36°C, dus beter vandaag of morgen."
+  }
 }
