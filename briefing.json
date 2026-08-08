@@ -1,11 +1,11 @@
 {
-  "datum": "2026-08-07",
+  "datum": "2026-08-08",
   "agenda": [
-    { "tijd": "heel de dag", "tekst": "Louis bij ons (detail te bespreken)" },
-    { "tijd": "10:00", "tekst": "oefenblaadje letters en cijfers" },
-    { "tijd": "19:00", "tekst": "Eten voor egel bij TM" }
+    { "tijd": "heel de dag", "tekst": "Louis bij ons" },
+    { "tijd": "09:00", "tekst": "Katten Martine verzorgen" },
+    { "tijd": "12:00", "tekst": "huwelijk Saartje en Kenneth" }
   ],
   "bij_taak": {
-    "h_gras": "24°C en nauwelijks wind — ideaal; met Louis de hele dag te gast, misschien beter 's ochtends doen."
+    "h_gras": "al 10 dagen — vanmiddag het huwelijk, dus 's ochtends of morgen."
   }
 }
