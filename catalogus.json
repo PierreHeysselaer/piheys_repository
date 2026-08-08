@@ -1,7 +1,43 @@
 {
  "versie": 2,
- "bijgewerkt": "2026-08-06",
+ "bijgewerkt": "2026-08-08",
  "artikelen": [
+  {
+   "naam": "lookbroodjes met bacon",
+   "specs": "4 of 6",
+   "volgw": 1,
+   "cat": "maaltijd",
+   "pref": "pizza hut",
+   "backup": "pizza hut",
+   "opm": ""
+  },
+  {
+   "naam": "pizza hawai",
+   "specs": "medium",
+   "volgw": 2,
+   "cat": "maaltijd",
+   "pref": "pizza hut",
+   "backup": "pizza hut",
+   "opm": ""
+  },
+  {
+   "naam": "pizza forestiere",
+   "specs": "medium",
+   "volgw": 3,
+   "cat": "maaltijd",
+   "pref": "pizza hut",
+   "backup": "pizza hut",
+   "opm": ""
+  },
+  {
+   "naam": "pizza hot & spicy",
+   "specs": "medium",
+   "volgw": 4,
+   "cat": "maaltijd",
+   "pref": "pizza hut",
+   "backup": "pizza hut",
+   "opm": ""
+  },
   {
    "naam": "oude batterijen en bruisgasflessen leeg",
    "specs": "",
