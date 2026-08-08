@@ -1,4 +1,8 @@
 naam;specs;cat;pref;backup;volgw;opm
+lookbroodjes met bacon;4 of 6;maaltijd;pizza hut;pizza hut;1;
+pizza hawai;medium;maaltijd;pizza hut;pizza hut;2;
+pizza forestiere;medium;maaltijd;pizza hut;pizza hut;3;
+pizza hot & spicy;medium;maaltijd;pizza hut;pizza hut;4;
 oude batterijen en bruisgasflessen leeg;;leeggoed;OKAY;;10;
 chips paprika;;snack;OKAY;SPAR;20;
 chips zout;;snack;OKAY;SPAR;30;
@@ -193,6 +197,7 @@ alpro vanille;;melk;OKAY;SPAR;1790;
 karnemelk;;melk;OKAY;SPAR;1810;
 appelsiensap;;drank;OKAY;SPAR;1820;
 pannenkoeken;;snack;OKAY;SPAR;1825;
+sandwiches;;brood;Bakker;OKAY;1827;
 bruin frans brood;;brood;Bakker;OKAY;1830;
 wit caréken;;brood;OKAY;SPAR;1840;
 brood lichtbruin;;brood;Bakker;OKAY;1850;
@@ -222,8 +227,4 @@ scheermesjes mach3;;persoonlijk;OKAY;SPAR;2060;
 geld afhalen;;rest;OKAY;SPAR;2080;
 pruimen;;groenten;OKAY;SPAR;2090;
 kartonnen dozen;;rest;OKAY;OKAY;2110;
-sandwiches;;brood;Bakker;OKAY;1827;
-lookbroodjes met bacon;4 of 6;maaltijd;pizza hut;pizza hut;1;
-pizza hawai;medium;maaltijd;pizza hut;pizza hut;2;
-pizza forestiere;medium;maaltijd;pizza hut;pizza hut;3;
-pizza hot & spicy;medium;maaltijd;pizza hut;pizza hut;4;
+CO2 flessen;;logid;OKAY;SPAR;375;
