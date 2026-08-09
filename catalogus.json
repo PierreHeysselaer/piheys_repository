@@ -561,6 +561,15 @@
    "opm": ""
   },
   {
+   "naam": "reiniging vaatwas",
+   "specs": "",
+   "volgw": 515,
+   "cat": "onderhoud",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
    "naam": "wasmiddel kleur",
    "specs": "",
    "volgw": 520,
@@ -1416,6 +1425,15 @@
    "opm": ""
   },
   {
+   "naam": "gehakt kalf voor boterham",
+   "specs": "",
+   "volgw": 1445,
+   "cat": "vlees",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
    "naam": "gehakt voor balletjes 1 kg gemeng...",
    "specs": "",
    "volgw": 1450,
@@ -2061,33 +2079,6 @@
    "cat": "rest",
    "pref": "OKAY",
    "backup": "OKAY",
-   "opm": ""
-  },
-  {
-   "naam": "CO2 fles sodastream",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "reiniging vaatwas",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "gehakt kalf voor boterham",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
    "opm": ""
   }
  ]
