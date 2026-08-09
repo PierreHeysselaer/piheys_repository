@@ -228,6 +228,5 @@ geld afhalen;;rest;OKAY;SPAR;2080;
 pruimen;;groenten;OKAY;SPAR;2090;
 kartonnen dozen;;rest;OKAY;OKAY;2110;
 CO2 flessen;;logistiek;OKAY;SPAR;375;
-CO2 fles sodastream;;;;;9999;
-reiniging vaatwas;;;;;9999;
-gehakt kalf voor boterham;;;;;9999;
+reiniging vaatwas;;onderhoud;OKAY;SPAR;515;
+gehakt kalf voor boterham;;vlees;OKAY;SPAR;1445;
