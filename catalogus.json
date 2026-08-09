@@ -1,6 +1,6 @@
 {
  "versie": 2,
- "bijgewerkt": "2026-08-08",
+ "bijgewerkt": "2026-08-09",
  "artikelen": [
   {
    "naam": "lookbroodjes met bacon",
@@ -2061,6 +2061,33 @@
    "cat": "rest",
    "pref": "OKAY",
    "backup": "OKAY",
+   "opm": ""
+  },
+  {
+   "naam": "CO2 fles sodastream",
+   "specs": "",
+   "volgw": 9999,
+   "cat": "",
+   "pref": "",
+   "backup": "",
+   "opm": ""
+  },
+  {
+   "naam": "reiniging vaatwas",
+   "specs": "",
+   "volgw": 9999,
+   "cat": "",
+   "pref": "",
+   "backup": "",
+   "opm": ""
+  },
+  {
+   "naam": "gehakt kalf voor boterham",
+   "specs": "",
+   "volgw": 9999,
+   "cat": "",
+   "pref": "",
+   "backup": "",
    "opm": ""
   }
  ]
