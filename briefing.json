@@ -4,7 +4,7 @@
     { "tijd": "heel de dag", "tekst": "Louis bij ons" }
   ],
   "bij_taak": {
-    "h_gras": "al 12 dagen geleden — ideaal moment, en doe het vandaag of morgen: vanaf donderdag loopt het op tot 33-34°C"
-  },
-  "bedenking": "Bosmaaier is over 3 dagen aan de beurt — misschien meteen combineren met gras als je toch buiten bent."
+    "h_gras": "al 12 dagen geleden — doe het vandaag of morgen: donderdag loopt het op tot 33°C",
+    "h_bosmaaier": "over 3 dagen aan de beurt — donderdag al 33°C, combineer vandaag of morgen met gras"
+  }
 }
