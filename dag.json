@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-11T15:15:01+02:00",
+    "opgehaald":  "2026-08-11T15:45:01+02:00",
     "vandaag":  "2026-08-11",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -63,7 +63,7 @@
                       "regen_mm":  0,
                       "temp_max":  26,
                       "temp_min":  14,
-                      "wind_max_kmu":  18,
+                      "wind_max_kmu":  19,
                       "zon_pct":  95,
                       "bewolking_pct":  5,
                       "code":  3,
