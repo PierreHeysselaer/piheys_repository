@@ -1,10 +1,13 @@
 {
-  "datum": "2026-08-10",
+  "datum": "2026-08-11",
   "agenda": [
-    { "tijd": "heel de dag", "tekst": "Louis bij ons" }
+    { "tijd": "heel de dag", "tekst": "Louis bij ons" },
+    { "tijd": "09:00", "tekst": "Katten Martine verzorgen" },
+    { "tijd": "10:00", "tekst": "fototoestel klaarzetten én uittesten" }
   ],
   "bij_taak": {
-    "h_gras": "al 12 dagen geleden — doe het vandaag of morgen: donderdag loopt het op tot 33°C",
-    "h_bosmaaier": "over 3 dagen aan de beurt — donderdag al 33°C, combineer vandaag of morgen met gras"
-  }
+    "h_gras": "vandaag 27°C en kurkdroog — morgen al 34°C, overmorgen 35°C, vrijdag 36°C; dit is het moment",
+    "h_bosmaaier": "zelfde verhaal: komende dagen te heet voor buitenwerk, vandaag combineren met gras loont"
+  },
+  "bedenking": "De hittegolf loopt door tot zeker vrijdag; zwaar buitenwerk doe je beter 's morgens vroeg of wacht je tot na 17 augustus."
 }
