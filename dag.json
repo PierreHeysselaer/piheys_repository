@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-12T01:45:03+02:00",
+    "opgehaald":  "2026-08-12T02:15:03+02:00",
     "vandaag":  "2026-08-12",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -82,45 +82,45 @@
                   },
                   {
                       "datum":  "2026-08-14",
-                      "regen_mm":  0.1,
+                      "regen_mm":  0,
                       "temp_max":  35,
                       "temp_min":  21,
                       "wind_max_kmu":  20,
                       "zon_pct":  96,
                       "bewolking_pct":  4,
-                      "code":  51,
-                      "type":  "regen"
+                      "code":  2,
+                      "type":  "droog"
                   },
                   {
                       "datum":  "2026-08-15",
-                      "regen_mm":  1.9,
+                      "regen_mm":  4.5,
                       "temp_max":  27,
                       "temp_min":  20,
                       "wind_max_kmu":  10,
-                      "zon_pct":  92,
-                      "bewolking_pct":  8,
-                      "code":  51,
+                      "zon_pct":  75,
+                      "bewolking_pct":  25,
+                      "code":  81,
                       "type":  "regen"
                   },
                   {
                       "datum":  "2026-08-16",
-                      "regen_mm":  0.6,
+                      "regen_mm":  3,
                       "temp_max":  25,
                       "temp_min":  18,
                       "wind_max_kmu":  14,
-                      "zon_pct":  95,
-                      "bewolking_pct":  5,
-                      "code":  51,
+                      "zon_pct":  96,
+                      "bewolking_pct":  4,
+                      "code":  53,
                       "type":  "regen"
                   },
                   {
                       "datum":  "2026-08-17",
-                      "regen_mm":  0.3,
+                      "regen_mm":  0.6,
                       "temp_max":  25,
                       "temp_min":  14,
                       "wind_max_kmu":  9,
-                      "zon_pct":  49,
-                      "bewolking_pct":  51,
+                      "zon_pct":  90,
+                      "bewolking_pct":  10,
                       "code":  51,
                       "type":  "regen"
                   },
