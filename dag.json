@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-13T21:15:03+02:00",
+    "opgehaald":  "2026-08-13T21:45:02+02:00",
     "vandaag":  "2026-08-13",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -94,9 +94,9 @@
                   {
                       "datum":  "2026-08-16",
                       "regen_mm":  0,
-                      "temp_max":  24,
-                      "temp_min":  17,
-                      "wind_max_kmu":  16,
+                      "temp_max":  25,
+                      "temp_min":  18,
+                      "wind_max_kmu":  15,
                       "zon_pct":  89,
                       "bewolking_pct":  11,
                       "code":  3,
@@ -105,9 +105,9 @@
                   {
                       "datum":  "2026-08-17",
                       "regen_mm":  0.1,
-                      "temp_max":  24,
-                      "temp_min":  15,
-                      "wind_max_kmu":  10,
+                      "temp_max":  26,
+                      "temp_min":  17,
+                      "wind_max_kmu":  15,
                       "zon_pct":  89,
                       "bewolking_pct":  11,
                       "code":  51,
@@ -116,9 +116,9 @@
                   {
                       "datum":  "2026-08-18",
                       "regen_mm":  0,
-                      "temp_max":  27,
-                      "temp_min":  15,
-                      "wind_max_kmu":  22,
+                      "temp_max":  28,
+                      "temp_min":  16,
+                      "wind_max_kmu":  16,
                       "zon_pct":  96,
                       "bewolking_pct":  4,
                       "code":  3,
@@ -127,9 +127,9 @@
                   {
                       "datum":  "2026-08-19",
                       "regen_mm":  1.5,
-                      "temp_max":  23,
+                      "temp_max":  28,
                       "temp_min":  18,
-                      "wind_max_kmu":  18,
+                      "wind_max_kmu":  14,
                       "zon_pct":  95,
                       "bewolking_pct":  5,
                       "code":  51,
