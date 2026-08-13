@@ -1,11 +1,12 @@
 {
-  "datum": "2026-08-12",
+  "datum": "2026-08-13",
   "agenda": [
     { "tijd": "heel de dag", "tekst": "Louis bij ons (detail te bespreken)" }
   ],
   "bij_taak": {
-    "h_gras": "vijf droge dagen achter de rug — goed moment, maar doe het vroeg: 32°C vandaag, morgen 36°C, pas zaterdag verkoeling",
-    "h_bosmaaier": "zelfde verhaal als het gras — 's ochtends vroeg of wachten tot na het weekend"
+    "h_netels": "bijna twee maanden geleden — na de regen van zaterdag wordt de grond losser, zondag is het moment",
+    "h_gras": "te droog en te heet — wachten tot na het weekend als er wat vocht in de grond zit",
+    "h_ramen": "te zonnig vandaag en morgen (streeprisico); na zaterdag eerste bewolking in dagen"
   },
-  "bedenking": "Hittegolf loopt door tot vrijdag (36–37°C); zaterdag regen in aantocht. Zwaar buitenwerk doe je best 's ochtends vroeg."
+  "bedenking": "Vandaag 35°C, morgen 36°C — top van de hittegolf. Zaterdag regen en verkoeling: dan zijn de uitgestelde buitenklussen aan de beurt."
 }
