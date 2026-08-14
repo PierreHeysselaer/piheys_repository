@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-14T11:28:14.760Z",
+ "gewijzigd": "2026-08-14T11:28:42.310Z",
  "boodschappen": {
   "aangevinkt": [
    "engelse saus",
@@ -23,7 +23,8 @@
    "crumble sablé au beurre",
    "crumble speculoos",
    "Tropical",
-   "lookboter"
+   "lookboter",
+   "kip fillet"
   ],
   "nieuw": [
    {
@@ -78,6 +79,13 @@
    {
     "naam": "lookboter",
     "cat": "melk",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-14"
+   },
+   {
+    "naam": "kip fillet",
+    "cat": "vlees",
     "pref": "OKAY",
     "specs": "",
     "toegevoegd": "2026-08-14"
