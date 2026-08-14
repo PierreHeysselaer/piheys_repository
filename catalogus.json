@@ -93,6 +93,15 @@
    "opm": ""
   },
   {
+   "naam": "TUC bacon",
+   "specs": "",
+   "volgw": 45,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
    "naam": "Citroenconcentraat voor frisdrank",
    "specs": "",
    "volgw": 50,
@@ -156,6 +165,15 @@
    "opm": ""
   },
   {
+   "naam": "choco pops Louis",
+   "specs": "",
+   "volgw": 95,
+   "cat": "maaltijd",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
    "naam": "corn flakes [DUBBEL]",
    "specs": "",
    "volgw": 100,
@@ -214,6 +232,24 @@
    "specs": "",
    "volgw": 160,
    "cat": "ontbijt",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "crumble sablé au beurre",
+   "specs": "",
+   "volgw": 162,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "crumble speculoos",
+   "specs": "",
+   "volgw": 163,
+   "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1164,10 +1200,10 @@
    "opm": ""
   },
   {
-   "naam": "salami & kaasblokjes",
+   "naam": "Noordzee sla",
    "specs": "",
-   "volgw": 1160,
-   "cat": "snack",
+   "volgw": 1157,
+   "cat": "beleg",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1209,7 +1245,7 @@
    "opm": ""
   },
   {
-   "naam": "kruidenboter",
+   "naam": "lookboter",
    "specs": "",
    "volgw": 1220,
    "cat": "melk",
@@ -1338,7 +1374,7 @@
    "naam": "Kip",
    "specs": "",
    "volgw": 1360,
-   "cat": "vlees",
+   "cat": "kip",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1347,7 +1383,7 @@
    "naam": "kippegehakt",
    "specs": "",
    "volgw": 1370,
-   "cat": "vlees",
+   "cat": "kip",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1356,7 +1392,16 @@
    "naam": "gyros kip",
    "specs": "",
    "volgw": 1371,
-   "cat": "vlees",
+   "cat": "kip",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "kip fillet",
+   "specs": "",
+   "volgw": 1372,
+   "cat": "kip",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1587,6 +1632,15 @@
    "opm": ""
   },
   {
+   "naam": "chineze kool",
+   "specs": "",
+   "volgw": 1592,
+   "cat": "groenten",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
    "naam": "dille met wortel",
    "specs": "",
    "volgw": 1600,
@@ -1731,9 +1785,18 @@
    "opm": ""
   },
   {
+   "naam": "maaltijd Bea tong madeira",
+   "specs": "",
+   "volgw": 1742,
+   "cat": "maaltijd",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
    "naam": "moussaka",
    "specs": "",
-   "volgw": 1740,
+   "volgw": 1745,
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
@@ -1803,6 +1866,15 @@
    "opm": ""
   },
   {
+   "naam": "salami & kaasblokjes",
+   "specs": "",
+   "volgw": 1822,
+   "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
    "naam": "pannenkoeken",
    "specs": "",
    "volgw": 1825,
@@ -1836,6 +1908,15 @@
    "cat": "brood",
    "pref": "OKAY",
    "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "wit brood",
+   "specs": "",
+   "volgw": 1842,
+   "cat": "brood",
+   "pref": "Bakker",
+   "backup": "OKAY",
    "opm": ""
   },
   {
@@ -2079,177 +2160,6 @@
    "cat": "rest",
    "pref": "OKAY",
    "backup": "OKAY",
-   "opm": ""
-  },
-  {
-   "naam": "Noordzee sla",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "TUC bacon",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "choco pops Louis",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "maaltijd Bea tong madeira",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "chineze kool",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "crumble sablé au beurre",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "crumble speculoos",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "lookboter",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "kip fillet",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "Noordzee sla",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "TUC bacon",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "choco pops Louis",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "maaltijd Bea tong madeira",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "chineze kool",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "crumble sablé au beurre",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "crumble speculoos",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "lookboter",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "kip fillet",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "wit brood",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
    "opm": ""
   }
  ]
