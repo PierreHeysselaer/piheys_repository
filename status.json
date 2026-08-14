@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-14T11:23:24.931Z",
+ "gewijzigd": "2026-08-14T11:23:48.121Z",
  "boodschappen": {
   "aangevinkt": [
    "engelse saus",
@@ -10,7 +10,8 @@
    "chips paprika",
    "TUC bacon",
    "choco pops Louis",
-   "maaltijd Bea"
+   "maaltijd Bea",
+   "maaltijd Bea tong madeira"
   ],
   "nieuw": [
    {
@@ -29,6 +30,13 @@
    },
    {
     "naam": "choco pops Louis",
+    "cat": "maaltijd",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-14"
+   },
+   {
+    "naam": "maaltijd Bea tong madeira",
     "cat": "maaltijd",
     "pref": "OKAY",
     "specs": "",
