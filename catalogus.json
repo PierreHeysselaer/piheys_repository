@@ -1,6 +1,6 @@
 {
  "versie": 2,
- "bijgewerkt": "2026-08-09",
+ "bijgewerkt": "2026-08-14",
  "artikelen": [
   {
    "naam": "lookbroodjes met bacon",
@@ -2079,6 +2079,87 @@
    "cat": "rest",
    "pref": "OKAY",
    "backup": "OKAY",
+   "opm": ""
+  },
+  {
+   "naam": "Noordzee sla",
+   "specs": "",
+   "volgw": 9999,
+   "cat": "",
+   "pref": "",
+   "backup": "",
+   "opm": ""
+  },
+  {
+   "naam": "TUC bacon",
+   "specs": "",
+   "volgw": 9999,
+   "cat": "",
+   "pref": "",
+   "backup": "",
+   "opm": ""
+  },
+  {
+   "naam": "choco pops Louis",
+   "specs": "",
+   "volgw": 9999,
+   "cat": "",
+   "pref": "",
+   "backup": "",
+   "opm": ""
+  },
+  {
+   "naam": "maaltijd Bea tong madeira",
+   "specs": "",
+   "volgw": 9999,
+   "cat": "",
+   "pref": "",
+   "backup": "",
+   "opm": ""
+  },
+  {
+   "naam": "chineze kool",
+   "specs": "",
+   "volgw": 9999,
+   "cat": "",
+   "pref": "",
+   "backup": "",
+   "opm": ""
+  },
+  {
+   "naam": "crumble sablé au beurre",
+   "specs": "",
+   "volgw": 9999,
+   "cat": "",
+   "pref": "",
+   "backup": "",
+   "opm": ""
+  },
+  {
+   "naam": "crumble speculoos",
+   "specs": "",
+   "volgw": 9999,
+   "cat": "",
+   "pref": "",
+   "backup": "",
+   "opm": ""
+  },
+  {
+   "naam": "lookboter",
+   "specs": "",
+   "volgw": 9999,
+   "cat": "",
+   "pref": "",
+   "backup": "",
+   "opm": ""
+  },
+  {
+   "naam": "kip fillet",
+   "specs": "",
+   "volgw": 9999,
+   "cat": "",
+   "pref": "",
+   "backup": "",
    "opm": ""
   }
  ]
