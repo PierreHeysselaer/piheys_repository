@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-14T11:25:38.067Z",
+ "gewijzigd": "2026-08-14T11:26:33.428Z",
  "boodschappen": {
   "aangevinkt": [
    "engelse saus",
@@ -19,7 +19,8 @@
    "wortelen",
    "spitskool",
    "chineze kool",
-   "ajuin"
+   "ajuin",
+   "crumble sablé au beurre"
   ],
   "nieuw": [
    {
@@ -53,6 +54,13 @@
    {
     "naam": "chineze kool",
     "cat": "groenten",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-14"
+   },
+   {
+    "naam": "crumble sablé au beurre",
+    "cat": "snack",
     "pref": "OKAY",
     "specs": "",
     "toegevoegd": "2026-08-14"
