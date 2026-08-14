@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-14T11:27:18.312Z",
+ "gewijzigd": "2026-08-14T11:28:14.760Z",
  "boodschappen": {
   "aangevinkt": [
    "engelse saus",
@@ -22,7 +22,8 @@
    "ajuin",
    "crumble sablé au beurre",
    "crumble speculoos",
-   "Tropical"
+   "Tropical",
+   "lookboter"
   ],
   "nieuw": [
    {
@@ -70,6 +71,13 @@
    {
     "naam": "crumble speculoos",
     "cat": "snack",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-14"
+   },
+   {
+    "naam": "lookboter",
+    "cat": "melk",
     "pref": "OKAY",
     "specs": "",
     "toegevoegd": "2026-08-14"
