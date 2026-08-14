@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-14T11:26:33.428Z",
+ "gewijzigd": "2026-08-14T11:26:57.009Z",
  "boodschappen": {
   "aangevinkt": [
    "engelse saus",
@@ -20,7 +20,8 @@
    "spitskool",
    "chineze kool",
    "ajuin",
-   "crumble sablé au beurre"
+   "crumble sablé au beurre",
+   "crumble speculoos"
   ],
   "nieuw": [
    {
@@ -60,6 +61,13 @@
    },
    {
     "naam": "crumble sablé au beurre",
+    "cat": "snack",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-14"
+   },
+   {
+    "naam": "crumble speculoos",
     "cat": "snack",
     "pref": "OKAY",
     "specs": "",
