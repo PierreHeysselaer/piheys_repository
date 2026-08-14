@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-14T11:30:58.320Z",
+ "gewijzigd": "2026-08-14T11:31:13.967Z",
  "boodschappen": {
   "aangevinkt": [
    "engelse saus",
@@ -26,7 +26,8 @@
    "lookboter",
    "kip fillet",
    "brood donker",
-   "sandwiches"
+   "sandwiches",
+   "wit brood"
   ],
   "nieuw": [
    {
@@ -89,6 +90,13 @@
     "naam": "kip fillet",
     "cat": "vlees",
     "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-14"
+   },
+   {
+    "naam": "wit brood",
+    "cat": "brood",
+    "pref": "Bakker",
     "specs": "",
     "toegevoegd": "2026-08-14"
    }
