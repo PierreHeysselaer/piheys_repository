@@ -1,12 +1,21 @@
 {
- "gewijzigd": "2026-08-14T11:19:59.846Z",
+ "gewijzigd": "2026-08-14T11:20:11.210Z",
  "boodschappen": {
   "aangevinkt": [
    "engelse saus",
    "martino",
-   "Kip curry"
+   "Kip curry",
+   "Noordzee sla"
   ],
-  "nieuw": []
+  "nieuw": [
+   {
+    "naam": "Noordzee sla",
+    "cat": "rest",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-14"
+   }
+  ]
  },
  "taken_log": {
   "h_bosmaaier": [
