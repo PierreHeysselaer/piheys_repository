@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-14T11:20:27.937Z",
+ "gewijzigd": "2026-08-14T11:20:52.447Z",
  "boodschappen": {
   "aangevinkt": [
    "engelse saus",
@@ -7,12 +7,20 @@
    "Kip curry",
    "Noordzee sla",
    "cashew noten",
-   "chips paprika"
+   "chips paprika",
+   "TUC bacon"
   ],
   "nieuw": [
    {
     "naam": "Noordzee sla",
     "cat": "rest",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-14"
+   },
+   {
+    "naam": "TUC bacon",
+    "cat": "snack",
     "pref": "OKAY",
     "specs": "",
     "toegevoegd": "2026-08-14"
