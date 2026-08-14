@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-14T11:24:46.507Z",
+ "gewijzigd": "2026-08-14T11:25:04.703Z",
  "boodschappen": {
   "aangevinkt": [
    "engelse saus",
@@ -17,7 +17,8 @@
    "gehakt kalf voor boterham",
    "komkommer",
    "wortelen",
-   "spitskool"
+   "spitskool",
+   "chineze kool"
   ],
   "nieuw": [
    {
@@ -44,6 +45,13 @@
    {
     "naam": "maaltijd Bea tong madeira",
     "cat": "maaltijd",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-14"
+   },
+   {
+    "naam": "chineze kool",
+    "cat": "groenten",
     "pref": "OKAY",
     "specs": "",
     "toegevoegd": "2026-08-14"
