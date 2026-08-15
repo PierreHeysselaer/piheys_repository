@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-15T09:45:01+02:00",
+    "opgehaald":  "2026-08-15T10:15:01+02:00",
     "vandaag":  "2026-08-15",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -60,31 +60,31 @@
                   },
                   {
                       "datum":  "2026-08-15",
-                      "regen_mm":  0.1,
-                      "temp_max":  29,
-                      "temp_min":  19,
-                      "wind_max_kmu":  14,
-                      "zon_pct":  46,
-                      "bewolking_pct":  54,
-                      "code":  51,
-                      "type":  "regen"
-                  },
-                  {
-                      "datum":  "2026-08-16",
                       "regen_mm":  0,
-                      "temp_max":  24,
-                      "temp_min":  19,
-                      "wind_max_kmu":  16,
-                      "zon_pct":  63,
-                      "bewolking_pct":  37,
+                      "temp_max":  31,
+                      "temp_min":  20,
+                      "wind_max_kmu":  19,
+                      "zon_pct":  59,
+                      "bewolking_pct":  41,
                       "code":  3,
                       "type":  "droog"
                   },
                   {
+                      "datum":  "2026-08-16",
+                      "regen_mm":  0,
+                      "temp_max":  25,
+                      "temp_min":  19,
+                      "wind_max_kmu":  17,
+                      "zon_pct":  22,
+                      "bewolking_pct":  78,
+                      "code":  3,
+                      "type":  "bewolkt"
+                  },
+                  {
                       "datum":  "2026-08-17",
                       "regen_mm":  0,
-                      "temp_max":  24,
-                      "temp_min":  17,
+                      "temp_max":  25,
+                      "temp_min":  16,
                       "wind_max_kmu":  14,
                       "zon_pct":  28,
                       "bewolking_pct":  72,
