@@ -3,10 +3,11 @@
   "agenda": [
     { "tijd": "08:05", "tekst": "Bakker" },
     { "tijd": "08:30", "tekst": "Katten Martine verzorgen" },
-    { "tijd": "09:00", "tekst": "Dekzeil over Elsakar" }
+    { "tijd": "09:00", "tekst": "Dekzeil over Elsakar" },
+    { "tijd": "10:00", "tekst": "Afwerken poef Evelien" }
   ],
   "bij_taak": {
-    "h_gras": "morgen koeler (25°C) en nog steeds droog — prettiger moment dan vandaag bij 33°C",
-    "h_netels": "grond kurkdroog — eerste kans na de bui van maandag 18 aug"
+    "h_gras": "morgen koeler (26°C) en nog steeds droog — prettiger moment dan vandaag bij 31°C",
+    "h_netels": "grond kurkdroog — eerste kans na de bui van woensdag 19 aug"
   }
 }
