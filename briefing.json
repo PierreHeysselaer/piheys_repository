@@ -1,10 +1,12 @@
 {
-  "datum": "2026-08-14",
+  "datum": "2026-08-15",
   "agenda": [
-    { "tijd": "12:00", "tekst": "Recycled 150g papier bestellen" }
+    { "tijd": "08:05", "tekst": "Bakker" },
+    { "tijd": "08:30", "tekst": "Katten Martine verzorgen" },
+    { "tijd": "09:00", "tekst": "Dekzeil over Elsakar" }
   ],
   "bij_taak": {
-    "h_gras": "vijf droge dagen achter de rug — goed moment, maar zondag is 10° koeler als de hitte vandaag tegenvalt",
-    "h_netels": "grond kurkdroog na weken zonder regen — eerste kans na de bui van woensdag 19 aug"
+    "h_gras": "morgen koeler (25°C) en nog steeds droog — prettiger moment dan vandaag bij 33°C",
+    "h_netels": "grond kurkdroog — eerste kans na de bui van maandag 18 aug"
   }
 }
