@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-15T02:45:02+02:00",
+    "opgehaald":  "2026-08-15T03:15:02+02:00",
     "vandaag":  "2026-08-15",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -61,22 +61,22 @@
                   {
                       "datum":  "2026-08-15",
                       "regen_mm":  0,
-                      "temp_max":  34,
+                      "temp_max":  30,
                       "temp_min":  21,
-                      "wind_max_kmu":  23,
-                      "zon_pct":  75,
-                      "bewolking_pct":  25,
+                      "wind_max_kmu":  17,
+                      "zon_pct":  50,
+                      "bewolking_pct":  50,
                       "code":  3,
                       "type":  "droog"
                   },
                   {
                       "datum":  "2026-08-16",
                       "regen_mm":  0,
-                      "temp_max":  26,
-                      "temp_min":  19,
-                      "wind_max_kmu":  16,
-                      "zon_pct":  85,
-                      "bewolking_pct":  15,
+                      "temp_max":  25,
+                      "temp_min":  20,
+                      "wind_max_kmu":  15,
+                      "zon_pct":  71,
+                      "bewolking_pct":  29,
                       "code":  3,
                       "type":  "droog"
                   },
@@ -84,12 +84,12 @@
                       "datum":  "2026-08-17",
                       "regen_mm":  0,
                       "temp_max":  24,
-                      "temp_min":  17,
+                      "temp_min":  18,
                       "wind_max_kmu":  9,
-                      "zon_pct":  35,
-                      "bewolking_pct":  65,
+                      "zon_pct":  28,
+                      "bewolking_pct":  72,
                       "code":  3,
-                      "type":  "droog"
+                      "type":  "bewolkt"
                   },
                   {
                       "datum":  "2026-08-18",
