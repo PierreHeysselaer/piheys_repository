@@ -1,13 +1,11 @@
 {
-  "datum": "2026-08-15",
+  "datum": "2026-08-16",
   "agenda": [
-    { "tijd": "08:05", "tekst": "Bakker" },
-    { "tijd": "08:30", "tekst": "Katten Martine verzorgen" },
-    { "tijd": "09:00", "tekst": "Dekzeil over Elsakar" },
-    { "tijd": "10:00", "tekst": "Afwerken poef Evelien" }
+    { "tijd": "09:00", "tekst": "Katten Martine verzorgen" },
+    { "tijd": "10:00", "tekst": "Afspraak inboeken autokeuring eind oktober" }
   ],
   "bij_taak": {
-    "h_gras": "morgen koeler (26°C) en nog steeds droog — prettiger moment dan vandaag bij 31°C",
-    "h_netels": "grond kurkdroog — eerste kans na de bui van woensdag 19 aug"
+    "h_gras": "laatste droge dag voor minstens een week regen — nu of pas eind volgende week",
+    "h_netels": "na de bui van morgen en de zware neerslag van dinsdag geeft de grond eindelijk mee"
   }
 }
