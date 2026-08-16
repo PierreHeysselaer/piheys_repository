@@ -2,7 +2,11 @@
   "datum": "2026-08-16",
   "agenda": [
     { "tijd": "09:00", "tekst": "Katten Martine verzorgen" },
-    { "tijd": "10:00", "tekst": "Afspraak inboeken autokeuring eind oktober" }
+    { "tijd": "17:00", "tekst": "Hout in grijze bakken leggen" },
+    { "tijd": "17:30", "tekst": "Test ander stopcontact" },
+    { "tijd": "19:00", "tekst": "Aanslagbiljet kadaster ingeven" },
+    { "tijd": "20:00", "tekst": "Katten TM" },
+    { "tijd": "20:00", "tekst": "Blauwe buiten" }
   ],
   "bij_taak": {
     "h_gras": "laatste droge dag voor minstens een week regen — nu of pas eind volgende week",
