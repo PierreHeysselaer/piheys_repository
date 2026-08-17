@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-17T08:30:03+02:00",
+    "opgehaald":  "2026-08-17T08:45:02+02:00",
     "vandaag":  "2026-08-17",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -60,35 +60,35 @@
                   },
                   {
                       "datum":  "2026-08-17",
-                      "regen_mm":  3.9,
-                      "temp_max":  22,
+                      "regen_mm":  4.4,
+                      "temp_max":  21,
                       "temp_min":  16,
-                      "wind_max_kmu":  12,
-                      "zon_pct":  15,
-                      "bewolking_pct":  85,
-                      "code":  55,
+                      "wind_max_kmu":  10,
+                      "zon_pct":  18,
+                      "bewolking_pct":  82,
+                      "code":  61,
                       "type":  "regen"
                   },
                   {
                       "datum":  "2026-08-18",
-                      "regen_mm":  2.4,
+                      "regen_mm":  3.7,
                       "temp_max":  19,
-                      "temp_min":  16,
-                      "wind_max_kmu":  19,
+                      "temp_min":  18,
+                      "wind_max_kmu":  17,
                       "zon_pct":  0,
                       "bewolking_pct":  100,
-                      "code":  53,
+                      "code":  61,
                       "type":  "regen"
                   },
                   {
                       "datum":  "2026-08-19",
-                      "regen_mm":  1,
-                      "temp_max":  22,
+                      "regen_mm":  2.6,
+                      "temp_max":  21,
                       "temp_min":  16,
                       "wind_max_kmu":  18,
-                      "zon_pct":  43,
-                      "bewolking_pct":  57,
-                      "code":  51,
+                      "zon_pct":  40,
+                      "bewolking_pct":  60,
+                      "code":  63,
                       "type":  "regen"
                   },
                   {
