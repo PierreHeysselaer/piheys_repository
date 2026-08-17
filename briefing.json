@@ -6,6 +6,8 @@
     { "tijd": "11:00", "tekst": "Test ander stopcontact" }
   ],
   "bij_taak": {
-    "h_netels": "na vandaag en morgen (~10 mm) zit de grond eindelijk goed — eerste droog venster lijkt zondag 23 augustus"
-  }
+    "h_netels": "heel de week regen (~15 mm in totaal) — zondag 23 augustus is het eerste droge venster, grond zal dan goed zitten",
+    "h_gras": "zondag 23 augustus is de eerste droge dag na een week regen — dan meteen maaien"
+  },
+  "bedenking": "Na vijf droge, hete dagen (tot 36°C) eindelijk regen — de tuin mag ademen."
 }
