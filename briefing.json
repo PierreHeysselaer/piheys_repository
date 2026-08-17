@@ -1,15 +1,11 @@
 {
-  "datum": "2026-08-16",
+  "datum": "2026-08-17",
   "agenda": [
-    { "tijd": "09:00", "tekst": "Katten Martine verzorgen" },
-    { "tijd": "17:00", "tekst": "Hout in grijze bakken leggen" },
-    { "tijd": "17:30", "tekst": "Test ander stopcontact" },
-    { "tijd": "19:00", "tekst": "Aanslagbiljet kadaster ingeven" },
-    { "tijd": "20:00", "tekst": "Katten TM" },
-    { "tijd": "20:00", "tekst": "Blauwe buiten" }
+    { "tijd": "10:00", "tekst": "Afspraak inboeken autokeuring eind oktober" },
+    { "tijd": "10:00", "tekst": "Hout in grijze bakjen leggen" },
+    { "tijd": "11:00", "tekst": "Test ander stopcontact" }
   ],
   "bij_taak": {
-    "h_gras": "laatste droge dag voor minstens een week regen — nu of pas eind volgende week",
-    "h_netels": "na de bui van morgen en de zware neerslag van dinsdag geeft de grond eindelijk mee"
+    "h_netels": "na vandaag en morgen (~10 mm) zit de grond eindelijk goed — eerste droog venster lijkt zondag 23 augustus"
   }
 }
