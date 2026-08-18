@@ -1,14 +1,23 @@
 {
- "gewijzigd": "2026-08-18T09:47:42.997Z",
+ "gewijzigd": "2026-08-18T09:48:48.923Z",
  "boodschappen": {
   "aangevinkt": [
    "appelsiensap",
    "aardbeien 2 doosjes",
    "druiven",
    "bananen",
-   "komkommer"
+   "komkommer",
+   "Worcestershiresaus"
   ],
-  "nieuw": []
+  "nieuw": [
+   {
+    "naam": "Worcestershiresaus",
+    "cat": "kruiden",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-18"
+   }
+  ]
  },
  "taken_log": {
   "h_bosmaaier": [
