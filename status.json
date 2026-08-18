@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-18T07:30:06.826Z",
+ "gewijzigd": "2026-08-18T07:30:48.243Z",
  "boodschappen": {
   "aangevinkt": [],
   "nieuw": []
@@ -51,7 +51,9 @@
    "2026-08-03"
   ]
  },
- "taken_gedaan": [],
+ "taken_gedaan": [
+  "e_vergif"
+ ],
  "taken_nieuw": [],
  "medicatie_pierre": [
   {
