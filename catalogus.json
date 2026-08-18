@@ -1,6 +1,6 @@
 {
  "versie": 2,
- "bijgewerkt": "2026-08-14",
+ "bijgewerkt": "2026-08-18",
  "artikelen": [
   {
    "naam": "lookbroodjes met bacon",
@@ -2160,6 +2160,15 @@
    "cat": "rest",
    "pref": "OKAY",
    "backup": "OKAY",
+   "opm": ""
+  },
+  {
+   "naam": "Worcestershiresaus",
+   "specs": "",
+   "volgw": 9999,
+   "cat": "",
+   "pref": "",
+   "backup": "",
    "opm": ""
   }
  ]
