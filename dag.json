@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-18T14:15:02+02:00",
+    "opgehaald":  "2026-08-18T14:45:02+02:00",
     "vandaag":  "2026-08-18",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -61,33 +61,33 @@
                   {
                       "datum":  "2026-08-18",
                       "regen_mm":  7.5,
-                      "temp_max":  22,
+                      "temp_max":  20,
                       "temp_min":  16,
-                      "wind_max_kmu":  18,
-                      "zon_pct":  1,
-                      "bewolking_pct":  99,
+                      "wind_max_kmu":  19,
+                      "zon_pct":  0,
+                      "bewolking_pct":  100,
                       "code":  63,
                       "type":  "regen"
                   },
                   {
                       "datum":  "2026-08-19",
-                      "regen_mm":  0,
+                      "regen_mm":  5.2,
                       "temp_max":  20,
                       "temp_min":  16,
-                      "wind_max_kmu":  22,
-                      "zon_pct":  23,
-                      "bewolking_pct":  77,
-                      "code":  3,
-                      "type":  "bewolkt"
+                      "wind_max_kmu":  23,
+                      "zon_pct":  18,
+                      "bewolking_pct":  82,
+                      "code":  63,
+                      "type":  "regen"
                   },
                   {
                       "datum":  "2026-08-20",
-                      "regen_mm":  0.1,
-                      "temp_max":  22,
-                      "temp_min":  15,
+                      "regen_mm":  0.8,
+                      "temp_max":  20,
+                      "temp_min":  16,
                       "wind_max_kmu":  24,
-                      "zon_pct":  50,
-                      "bewolking_pct":  50,
+                      "zon_pct":  63,
+                      "bewolking_pct":  37,
                       "code":  51,
                       "type":  "regen"
                   },
