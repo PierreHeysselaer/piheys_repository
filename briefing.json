@@ -1,13 +1,12 @@
 {
-  "datum": "2026-08-17",
+  "datum": "2026-08-18",
   "agenda": [
-    { "tijd": "10:00", "tekst": "Afspraak inboeken autokeuring eind oktober" },
-    { "tijd": "10:00", "tekst": "Hout in grijze bakjen leggen" },
-    { "tijd": "11:00", "tekst": "Test ander stopcontact" }
+    { "tijd": "08:30", "tekst": "100 eur afhalen" },
+    { "tijd": "12:30", "tekst": "Tomaten basilicum" },
+    { "tijd": "18:00", "tekst": "Etentje verjaardag Ellis", "plaats": "Wok Dynasty Boortmeerbeek" }
   ],
   "bij_taak": {
-    "h_netels": "heel de week regen (~15 mm in totaal) — zondag 23 augustus is het eerste droge venster, grond zal dan goed zitten",
+    "h_netels": "al ~13 mm gevallen (17–18 aug), meer op komst — grond zit perfect op zondag 23",
     "h_gras": "zondag 23 augustus is de eerste droge dag na een week regen — dan meteen maaien"
-  },
-  "bedenking": "Na vijf droge, hete dagen (tot 36°C) eindelijk regen — de tuin mag ademen."
+  }
 }
