@@ -429,7 +429,7 @@
    "naam": "zout",
    "specs": "",
    "volgw": 360,
-   "cat": "sausen ed",
+   "cat": "kruiden",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1812,7 +1812,7 @@
    "opm": ""
   },
   {
-   "naam": "platte kaasjes voor Louis",
+   "naam": "platte kaasjes voor kids",
    "specs": "",
    "volgw": 1760,
    "cat": "melk",
@@ -2160,15 +2160,6 @@
    "cat": "rest",
    "pref": "OKAY",
    "backup": "OKAY",
-   "opm": ""
-  },
-  {
-   "naam": "Worcestershiresaus",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
    "opm": ""
   }
  ]
