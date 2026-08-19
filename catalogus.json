@@ -1,6 +1,6 @@
 {
  "versie": 2,
- "bijgewerkt": "2026-08-18",
+ "bijgewerkt": "2026-08-19",
  "artikelen": [
   {
    "naam": "lookbroodjes met bacon",
@@ -2046,6 +2046,15 @@
    "opm": ""
   },
   {
+   "naam": "puree met spinazie",
+   "specs": "",
+   "volgw": 1975,
+   "cat": "maaltijd",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
    "naam": "diepvriesgroenten mediteraan 2x",
    "specs": "",
    "volgw": 1980,
@@ -2160,15 +2169,6 @@
    "cat": "rest",
    "pref": "OKAY",
    "backup": "OKAY",
-   "opm": ""
-  },
-  {
-   "naam": "puree met spinazie",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
    "opm": ""
   }
  ]
