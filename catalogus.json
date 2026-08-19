@@ -1760,7 +1760,7 @@
   {
    "naam": "bami goreng",
    "specs": "",
-   "volgw": 1720,
+   "volgw": 1694,
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
@@ -1769,7 +1769,7 @@
   {
    "naam": "macaroni",
    "specs": "",
-   "volgw": 1730,
+   "volgw": 1698,
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
@@ -1778,7 +1778,7 @@
   {
    "naam": "maaltijd Bea",
    "specs": "",
-   "volgw": 1740,
+   "volgw": 1702,
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
@@ -1787,7 +1787,7 @@
   {
    "naam": "maaltijd Bea tong madeira",
    "specs": "",
-   "volgw": 1742,
+   "volgw": 1706,
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
@@ -1796,7 +1796,7 @@
   {
    "naam": "moussaka",
    "specs": "",
-   "volgw": 1745,
+   "volgw": 1710,
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
@@ -1805,7 +1805,7 @@
   {
    "naam": "lasagne",
    "specs": "",
-   "volgw": 1750,
+   "volgw": 1714,
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
@@ -1814,7 +1814,7 @@
   {
    "naam": "platte kaasjes voor kids",
    "specs": "",
-   "volgw": 1760,
+   "volgw": 1718,
    "cat": "melk",
    "pref": "OKAY",
    "backup": "SPAR",
@@ -1823,7 +1823,7 @@
   {
    "naam": "yoghurt",
    "specs": "",
-   "volgw": 1770,
+   "volgw": 1722,
    "cat": "melk",
    "pref": "OKAY",
    "backup": "SPAR",
@@ -1832,7 +1832,7 @@
   {
    "naam": "yoghurt natuur witte producten 1/2L",
    "specs": "",
-   "volgw": 1780,
+   "volgw": 1726,
    "cat": "melk",
    "pref": "OKAY",
    "backup": "SPAR",
@@ -1841,7 +1841,7 @@
   {
    "naam": "alpro vanille",
    "specs": "",
-   "volgw": 1790,
+   "volgw": 1730,
    "cat": "melk",
    "pref": "OKAY",
    "backup": "SPAR",
@@ -1850,7 +1850,7 @@
   {
    "naam": "karnemelk",
    "specs": "",
-   "volgw": 1810,
+   "volgw": 1734,
    "cat": "melk",
    "pref": "OKAY",
    "backup": "SPAR",
