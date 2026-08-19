@@ -273,6 +273,28 @@ function tekenAanstip(){
   }
   if (!catnamen.length) html = '<div class="leeg">Niets gevonden.</div>';
 
+  /* spookartikelen: aangevinkt maar niet in catalogus of nieuw */
+  const gerenderd = (CAT && CAT.artikelen ? CAT.artikelen : [])
+    .concat((STATUS.boodschappen.nieuw||[]).map(n=>({naam:n.naam})))
+    .map(a=>a.naam.toLowerCase());
+  const spoken = sel.filter(n => !gerenderd.includes(n.toLowerCase()));
+  if (spoken.length && (!zoek || spoken.some(n=>n.toLowerCase().includes(zoek)))){
+    const zichtbaar = spoken.filter(n=>!zoek || n.toLowerCase().includes(zoek));
+    html += `<div class="cat open" style="border-color:#f3c4bd;">
+      <div class="cat-kop" onclick="klapCat('__spook__')">
+        <span class="cat-naam" style="color:#c0392b;">⚠ niet in catalogus</span>
+        <span style="display:flex;align-items:center;gap:9px;">
+          <span class="cat-tel"><span class="gekozen">${zichtbaar.length} gekozen</span></span>
+          <span class="pijl">▶</span></span>
+      </div>
+      <div class="cat-body">${zichtbaar.map(n=>`
+        <div class="art aan" onclick="vink('${esc(n).replace(/'/g,"\\'")}')">
+          <div class="vk"></div>
+          <div class="art-naam">${esc(n)}<span class="merk nw">spook</span>
+            <small>Niet in catalogus — klik om te verwijderen uit de lijst</small></div>
+        </div>`).join('')}</div></div>`;
+  }
+
   html += formulier();
   return html;
 }
