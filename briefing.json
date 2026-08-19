@@ -1,12 +1,12 @@
 {
-  "datum": "2026-08-18",
+  "datum": "2026-08-19",
   "agenda": [
-    { "tijd": "08:30", "tekst": "100 eur afhalen" },
-    { "tijd": "12:30", "tekst": "Tomaten basilicum" },
-    { "tijd": "18:00", "tekst": "Etentje verjaardag Ellis", "plaats": "Wok Dynasty Boortmeerbeek" }
+    { "tijd": "heel de dag", "tekst": "Ilva GFT" },
+    { "tijd": "09:55", "tekst": "Frontline Victor" },
+    { "tijd": "15:30", "tekst": "Ellis wordt deze middag gebracht" }
   ],
   "bij_taak": {
-    "h_netels": "al ~13 mm gevallen (17–18 aug), meer op komst — grond zit perfect op zondag 23",
-    "h_gras": "zondag 23 augustus is de eerste droge dag na een week regen — dan meteen maaien"
+    "h_netels": "na ~26 mm in drie dagen zit de grond perfect — morgen (droog) is het ideale moment",
+    "h_gras": "na drie dagen zware regen is donderdag 23 de eerste reële kans"
   }
 }
