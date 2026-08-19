@@ -132,7 +132,7 @@
    "naam": "melk volle 6l",
    "specs": "",
    "volgw": 150,
-   "cat": "drank",
+   "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1212,7 +1212,7 @@
    "naam": "kaas",
    "specs": "",
    "volgw": 1350,
-   "cat": "melk",
+   "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1248,7 +1248,7 @@
    "naam": "lookboter",
    "specs": "",
    "volgw": 1390,
-   "cat": "melk",
+   "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1266,7 +1266,7 @@
    "naam": "verse roomkaas",
    "specs": "",
    "volgw": 1405,
-   "cat": "beleg",
+   "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1284,7 +1284,7 @@
    "naam": "room om ijskreem te maken",
    "specs": "",
    "volgw": 1420,
-   "cat": "melk",
+   "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1293,7 +1293,7 @@
    "naam": "solo vloeibaar bak",
    "specs": "",
    "volgw": 1430,
-   "cat": "melk",
+   "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1302,7 +1302,7 @@
    "naam": "boter",
    "specs": "",
    "volgw": 1440,
-   "cat": "melk",
+   "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1311,7 +1311,7 @@
    "naam": "margarine",
    "specs": "",
    "volgw": 1450,
-   "cat": "melk",
+   "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1320,7 +1320,7 @@
    "naam": "gorgonzola",
    "specs": "",
    "volgw": 1460,
-   "cat": "melk",
+   "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1338,7 +1338,7 @@
    "naam": "gemalen kaas",
    "specs": "",
    "volgw": 1480,
-   "cat": "melk",
+   "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1734,7 +1734,7 @@
    "naam": "platte kaasjes voor kids",
    "specs": "",
    "volgw": 1920,
-   "cat": "melk",
+   "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1743,7 +1743,7 @@
    "naam": "yoghurt",
    "specs": "",
    "volgw": 1930,
-   "cat": "melk",
+   "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1752,7 +1752,7 @@
    "naam": "yoghurt natuur witte producten 1/2L",
    "specs": "",
    "volgw": 1940,
-   "cat": "melk",
+   "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1761,7 +1761,7 @@
    "naam": "alpro vanille",
    "specs": "",
    "volgw": 1950,
-   "cat": "melk",
+   "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1770,7 +1770,7 @@
    "naam": "karnemelk",
    "specs": "",
    "volgw": 1960,
-   "cat": "melk",
+   "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1788,7 +1788,7 @@
    "naam": "skyr",
    "specs": "",
    "volgw": 1980,
-   "cat": "melk",
+   "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
