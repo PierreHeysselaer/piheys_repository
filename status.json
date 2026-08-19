@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-19T11:37:11.433Z",
+ "gewijzigd": "2026-08-19T11:37:50.804Z",
  "boodschappen": {
   "aangevinkt": [
    "appelsiensap",
@@ -18,9 +18,18 @@
    "americain natuur",
    "Kip curry",
    "Tropical",
-   "boter"
+   "boter",
+   "melk"
   ],
-  "nieuw": []
+  "nieuw": [
+   {
+    "naam": "melk",
+    "cat": "melk",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-19"
+   }
+  ]
  },
  "taken_log": {
   "h_bosmaaier": [
