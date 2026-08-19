@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-19T11:46:08.166Z",
+ "gewijzigd": "2026-08-19T11:49:08.305Z",
  "boodschappen": {
   "aangevinkt": [
    "appelsiensap",
@@ -18,11 +18,19 @@
    "Kip curry",
    "Tropical",
    "boter",
-   "melk"
+   "melk",
+   "kruidenkaas"
   ],
   "nieuw": [
    {
     "naam": "melk",
+    "cat": "melk",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-19"
+   },
+   {
+    "naam": "kruidenkaas",
     "cat": "melk",
     "pref": "OKAY",
     "specs": "",
