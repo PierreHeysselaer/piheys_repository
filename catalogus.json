@@ -1,6 +1,6 @@
 {
  "versie": 2,
- "bijgewerkt": "2026-08-19",
+ "bijgewerkt": "2026-08-20",
  "artikelen": [
   {
    "naam": "lookbroodjes met bacon",
@@ -2182,6 +2182,15 @@
   },
   {
    "naam": "dummy",
+   "specs": "",
+   "volgw": 9999,
+   "cat": "",
+   "pref": "",
+   "backup": "",
+   "opm": ""
+  },
+  {
+   "naam": "Vanille yougurt",
    "specs": "",
    "volgw": 9999,
    "cat": "",
