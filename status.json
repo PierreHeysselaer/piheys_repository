@@ -1,10 +1,11 @@
 {
- "gewijzigd": "2026-08-20T12:00:35.783Z",
+ "gewijzigd": "2026-08-20T12:01:47.425Z",
  "boodschappen": {
   "aangevinkt": [
    "Vanille yougurt",
    "confituur rabarber aardbei",
-   "vol-au-vent 1kg"
+   "vol-au-vent 1kg",
+   "kippenbouten gebraden 6stuks"
   ],
   "nieuw": [
    {
@@ -16,6 +17,13 @@
    },
    {
     "naam": "vol-au-vent 1kg",
+    "cat": "vlees",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-20"
+   },
+   {
+    "naam": "kippenbouten gebraden 6stuks",
     "cat": "vlees",
     "pref": "OKAY",
     "specs": "",
