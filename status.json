@@ -1,11 +1,12 @@
 {
- "gewijzigd": "2026-08-20T12:01:47.425Z",
+ "gewijzigd": "2026-08-20T12:02:40.058Z",
  "boodschappen": {
   "aangevinkt": [
    "Vanille yougurt",
    "confituur rabarber aardbei",
    "vol-au-vent 1kg",
-   "kippenbouten gebraden 6stuks"
+   "kippenbouten gebraden 6stuks",
+   "patatjes (gebraden)"
   ],
   "nieuw": [
    {
@@ -25,6 +26,13 @@
    {
     "naam": "kippenbouten gebraden 6stuks",
     "cat": "vlees",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-20"
+   },
+   {
+    "naam": "patatjes (gebraden)",
+    "cat": "keuken",
     "pref": "OKAY",
     "specs": "",
     "toegevoegd": "2026-08-20"
