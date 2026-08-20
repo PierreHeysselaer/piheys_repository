@@ -1794,6 +1794,15 @@
    "opm": ""
   },
   {
+   "naam": "Vanille yougurt",
+   "specs": "",
+   "volgw": 1985,
+   "cat": "melkproduct",
+   "pref": "",
+   "backup": "",
+   "opm": ""
+  },
+  {
    "naam": "6 appelsienen",
    "specs": "",
    "volgw": 1990,
@@ -2181,56 +2190,29 @@
    "opm": ""
   },
   {
-   "naam": "dummy",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "Vanille yougurt",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "Vanille yougurt",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "",
-   "pref": "",
-   "backup": "",
-   "opm": ""
-  },
-  {
    "naam": "vol-au-vent 1kg",
    "specs": "",
-   "volgw": 9999,
+   "volgw": 9980,
    "cat": "",
-   "pref": "",
+   "pref": "L&B",
    "backup": "",
    "opm": ""
   },
   {
    "naam": "kippenbouten gebraden 6stuks",
    "specs": "",
-   "volgw": 9999,
+   "volgw": 9982,
    "cat": "",
-   "pref": "",
+   "pref": "L&B",
    "backup": "",
    "opm": ""
   },
   {
    "naam": "patatjes (gebraden)",
    "specs": "",
-   "volgw": 9999,
+   "volgw": 9984,
    "cat": "",
-   "pref": "",
+   "pref": "L&B",
    "backup": "",
    "opm": ""
   },
@@ -2238,8 +2220,8 @@
    "naam": "erwtjes (blik)",
    "specs": "",
    "volgw": 9999,
-   "cat": "",
-   "pref": "",
+   "cat": "groenten",
+   "pref": "OKAY",
    "backup": "",
    "opm": ""
   }
