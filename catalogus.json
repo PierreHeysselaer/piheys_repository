@@ -6,7 +6,7 @@
    "naam": "lookbroodjes met bacon",
    "specs": "4 of 6",
    "volgw": 10,
-   "cat": "maaltijd",
+   "cat": "snack",
    "pref": "pizza hut",
    "backup": "pizza hut",
    "opm": ""
@@ -168,7 +168,7 @@
    "naam": "choco pops Louis",
    "specs": "",
    "volgw": 190,
-   "cat": "maaltijd",
+   "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -214,6 +214,15 @@
    "specs": "",
    "volgw": 240,
    "cat": "snack",
+   "pref": "OKAY",
+   "backup": "SPAR",
+   "opm": ""
+  },
+  {
+   "naam": "erwtjes (blik)",
+   "specs": "",
+   "volgw": 242,
+   "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -303,7 +312,7 @@
    "naam": "bechamel",
    "specs": "",
    "volgw": 340,
-   "cat": "keuken",
+   "cat": "sausen ed",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -321,7 +330,7 @@
    "naam": "bruine rijst",
    "specs": "",
    "volgw": 360,
-   "cat": "keuken",
+   "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -330,7 +339,7 @@
    "naam": "canderelsuiker",
    "specs": "",
    "volgw": 370,
-   "cat": "drank",
+   "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -348,7 +357,7 @@
    "naam": "couscous",
    "specs": "",
    "volgw": 390,
-   "cat": "keuken",
+   "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -366,7 +375,7 @@
    "naam": "griekse pasta",
    "specs": "",
    "volgw": 410,
-   "cat": "keuken",
+   "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -402,7 +411,7 @@
    "naam": "klontjes suiker",
    "specs": "",
    "volgw": 450,
-   "cat": "drank",
+   "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -420,7 +429,7 @@
    "naam": "tagliatelli",
    "specs": "",
    "volgw": 470,
-   "cat": "keuken",
+   "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -948,7 +957,7 @@
    "opm": ""
   },
   {
-   "naam": "plat water contrex 2 à 4 flessen",
+   "naam": "plat water contrex",
    "specs": "",
    "volgw": 1060,
    "cat": "drank",
@@ -957,7 +966,7 @@
    "opm": ""
   },
   {
-   "naam": "bruisend water bru?",
+   "naam": "bruisend water bru",
    "specs": "",
    "volgw": 1070,
    "cat": "drank",
@@ -1005,7 +1014,7 @@
    "naam": "look",
    "specs": "",
    "volgw": 1120,
-   "cat": "keuken",
+   "cat": "kruiden",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1023,7 +1032,7 @@
    "naam": "ajuin",
    "specs": "",
    "volgw": 1140,
-   "cat": "keuken",
+   "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1032,7 +1041,7 @@
    "naam": "nicola aardappelen 5 kilo",
    "specs": "",
    "volgw": 1150,
-   "cat": "keuken",
+   "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1041,7 +1050,7 @@
    "naam": "rode ajuin",
    "specs": "",
    "volgw": 1160,
-   "cat": "keuken",
+   "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1110,10 +1119,10 @@
    "opm": ""
   },
   {
-   "naam": "bâton dunne salami worst",
+   "naam": "baton dunne salami worst",
    "specs": "",
    "volgw": 1240,
-   "cat": "beleg",
+   "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1122,7 +1131,7 @@
    "naam": "Houtskool",
    "specs": "",
    "volgw": 1250,
-   "cat": "rest",
+   "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1131,7 +1140,7 @@
    "naam": "spek blokjes gerookt",
    "specs": "",
    "volgw": 1260,
-   "cat": "beleg",
+   "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1140,7 +1149,7 @@
    "naam": "spek sneden",
    "specs": "",
    "volgw": 1270,
-   "cat": "beleg",
+   "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1149,7 +1158,7 @@
    "naam": "vers spek ongezouten sneetjes",
    "specs": "",
    "volgw": 1280,
-   "cat": "beleg",
+   "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1221,7 +1230,7 @@
    "naam": "effi of becel",
    "specs": "",
    "volgw": 1360,
-   "cat": "keuken",
+   "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1239,7 +1248,7 @@
    "naam": "eieren",
    "specs": "",
    "volgw": 1380,
-   "cat": "keuken",
+   "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1257,7 +1266,7 @@
    "naam": "philadelphia",
    "specs": "",
    "volgw": 1400,
-   "cat": "beleg",
+   "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1275,7 +1284,7 @@
    "naam": "raclettekaas",
    "specs": "",
    "volgw": 1410,
-   "cat": "beleg",
+   "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1302,15 +1311,6 @@
    "naam": "boter",
    "specs": "",
    "volgw": 1440,
-   "cat": "melkproduct",
-   "pref": "OKAY",
-   "backup": "SPAR",
-   "opm": ""
-  },
-  {
-   "naam": "margarine",
-   "specs": "",
-   "volgw": 1450,
    "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
@@ -1416,7 +1416,7 @@
    "opm": ""
   },
   {
-   "naam": "entrecôte rund",
+   "naam": "entrecote rund",
    "specs": "",
    "volgw": 1570,
    "cat": "vlees",
@@ -1464,7 +1464,7 @@
    "naam": "gehakt gemengd 1 kilo",
    "specs": "",
    "volgw": 1620,
-   "cat": "keuken",
+   "cat": "vlees",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1474,15 +1474,6 @@
    "specs": "",
    "volgw": 1630,
    "cat": "beleg",
-   "pref": "OKAY",
-   "backup": "SPAR",
-   "opm": ""
-  },
-  {
-   "naam": "gehakt kalf voor boterham",
-   "specs": "",
-   "volgw": 1640,
-   "cat": "vlees",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -1968,7 +1959,7 @@
    "naam": "voorgebakken frietjes",
    "specs": "",
    "volgw": 2170,
-   "cat": "keuken",
+   "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -2013,7 +2004,7 @@
    "naam": "diepvrieskroketten",
    "specs": "",
    "volgw": 2220,
-   "cat": "keuken",
+   "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -2022,7 +2013,7 @@
    "naam": "diepvriesgroenten mix pierre",
    "specs": "",
    "volgw": 2230,
-   "cat": "keuken",
+   "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -2058,7 +2049,7 @@
    "naam": "diepvriesgroenten catalaans 2x",
    "specs": "",
    "volgw": 2270,
-   "cat": "groenten",
+   "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -2067,7 +2058,7 @@
    "naam": "puree met spinazie",
    "specs": "",
    "volgw": 2280,
-   "cat": "maaltijd",
+   "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -2076,7 +2067,7 @@
    "naam": "diepvriesgroenten mediteraan 2x",
    "specs": "",
    "volgw": 2290,
-   "cat": "groenten",
+   "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -2175,7 +2166,7 @@
    "naam": "pruimen",
    "specs": "",
    "volgw": 2400,
-   "cat": "groenten",
+   "cat": "fruit",
    "pref": "OKAY",
    "backup": "SPAR",
    "opm": ""
@@ -2213,15 +2204,6 @@
    "volgw": 9984,
    "cat": "",
    "pref": "L&B_kippekraam",
-   "backup": "",
-   "opm": ""
-  },
-  {
-   "naam": "erwtjes (blik)",
-   "specs": "",
-   "volgw": 9999,
-   "cat": "groenten",
-   "pref": "OKAY",
    "backup": "",
    "opm": ""
   }
