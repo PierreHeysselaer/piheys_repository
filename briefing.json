@@ -1,12 +1,11 @@
 {
-  "datum": "2026-08-19",
+  "datum": "2026-08-20",
   "agenda": [
-    { "tijd": "heel de dag", "tekst": "Ilva GFT" },
-    { "tijd": "09:55", "tekst": "Frontline Victor" },
-    { "tijd": "15:30", "tekst": "Ellis wordt deze middag gebracht" }
+    { "tijd": "heel de dag", "tekst": "Ellis woe avond tem zaterdag" },
+    { "tijd": "16:00", "tekst": "Louis halen in Schoten" }
   ],
   "bij_taak": {
-    "h_netels": "na ~26 mm in drie dagen zit de grond perfect — morgen (droog) is het ideale moment",
-    "h_gras": "na drie dagen zware regen is donderdag 23 de eerste reële kans"
+    "h_netels": "na 36 mm in drie dagen zit de grond perfect — doe het vanochtend, want vanavond rijdt Louis en morgen valt er opnieuw veel regen",
+    "h_gras": "donderdag 23 is de eerste reële kans — droog, 19°C, bijna volle zon"
   }
 }
