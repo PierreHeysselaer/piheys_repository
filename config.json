@@ -2,6 +2,22 @@
   "versie": 2,
   "bijgewerkt": "2026-07-31",
   "winkels": {
+     "L&B kippekraamBakker": {
+      "volgorde": 1,
+      "rijtijd_min": 4,
+      "richting": "voetbalveld",
+      "open": {
+        "ma": null,
+        "di": null,
+        "wo": null,
+        "do": "07:00-16:00",
+        "vr": null,
+        "za": null,
+        "zo": null,
+      },
+      "gesloten_tot": null,
+      "opm": "zak meenemen"
+    },  
     "Bakker": {
       "volgorde": 1,
       "rijtijd_min": 4,
@@ -9,14 +25,14 @@
       "open": {
         "ma": null,
         "di": null,
-        "wo": "07:00-18:00",
-        "do": "07:00-18:00",
-        "vr": "07:00-18:00",
+        "wo": "07:00-16:00",
+        "do": "07:00-16:00",
+        "vr": "07:00-16:00",
         "za": "07:00-18:00",
         "zo": "07:00-12:00"
       },
       "gesloten_tot": "2026-08-05",
-      "opm": "voorkeur voor brood"
+      "opm": "voorkeur voor brood, zak meenemen"
     },
     "OKAY": {
       "volgorde": 2,
