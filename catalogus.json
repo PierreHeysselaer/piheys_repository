@@ -1,6 +1,6 @@
 {
  "versie": 2,
- "bijgewerkt": "2026-08-20",
+ "bijgewerkt": "2026-08-21",
  "artikelen": [
   {
    "naam": "lookbroodjes met bacon",
@@ -885,7 +885,7 @@
    "opm": ""
   },
   {
-   "naam": "fanta 6 blikjes",
+   "naam": "fanta zero",
    "specs": "",
    "volgw": 980,
    "cat": "drank",
@@ -1461,7 +1461,7 @@
    "opm": ""
   },
   {
-   "naam": "gehakt gemengd 1 kilo",
+   "naam": "gehakt gemengd rund varken",
    "specs": "",
    "volgw": 1620,
    "cat": "vlees",
@@ -1479,7 +1479,7 @@
    "opm": ""
   },
   {
-   "naam": "gehakt voor balletjes 1 kg gemeng...",
+   "naam": "gehakt voor balletjes gemeng...",
    "specs": "",
    "volgw": 1650,
    "cat": "vlees",
@@ -1536,15 +1536,6 @@
    "naam": "witloof",
    "specs": "",
    "volgw": 1710,
-   "cat": "groenten",
-   "pref": "OKAY",
-   "backup": "SPAR",
-   "opm": ""
-  },
-  {
-   "naam": "champignons",
-   "specs": "",
-   "volgw": 1720,
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
@@ -1794,7 +1785,7 @@
    "opm": ""
   },
   {
-   "naam": "6 appelsienen",
+   "naam": "appelsienen",
    "specs": "",
    "volgw": 1990,
    "cat": "fruit",
@@ -1866,7 +1857,7 @@
    "opm": ""
   },
   {
-   "naam": "aardbeien 2 doosjes",
+   "naam": "aardbeien",
    "specs": "",
    "volgw": 2070,
    "cat": "fruit",
@@ -2181,7 +2172,7 @@
    "opm": ""
   },
   {
-   "naam": "vol-au-vent 1kg",
+   "naam": "vol-au-vent",
    "specs": "",
    "volgw": 9980,
    "cat": "",
