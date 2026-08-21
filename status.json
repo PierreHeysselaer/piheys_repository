@@ -1,11 +1,13 @@
 {
- "gewijzigd": "2026-08-21T07:48:25.646Z",
+ "gewijzigd": "2026-08-21T07:48:28.426Z",
  "boodschappen": {
   "aangevinkt": [
    "americain natuur"
   ],
   "nieuw": [],
-  "aantallen": {}
+  "aantallen": {
+   "americain natuur": 2
+  }
  },
  "taken_log": {
   "h_bosmaaier": [
