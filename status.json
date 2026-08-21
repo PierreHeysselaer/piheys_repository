@@ -1,8 +1,11 @@
 {
- "gewijzigd": "2026-08-20T16:53:03.998Z",
+ "gewijzigd": "2026-08-21T07:48:14.291Z",
  "boodschappen": {
-  "aangevinkt": [],
-  "nieuw": []
+  "aangevinkt": [
+   "2032 batterijen"
+  ],
+  "nieuw": [],
+  "aantallen": {}
  },
  "taken_log": {
   "h_bosmaaier": [
