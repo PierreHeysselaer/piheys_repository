@@ -80,12 +80,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .wisknop{width:100%;padding:12px;border:1px solid #e5e3de;border-radius:9px;background:#fff;color:#999;
          font-size:15px;cursor:pointer;margin-top:12px;}
 .wisknop:active{color:#c0392b;border-color:#f3c4bd;}
-.qty{display:flex;align-items:center;gap:7px;margin-top:7px;}
-.qty-btn{width:30px;height:30px;border:1.5px solid #4a7c59;border-radius:7px;background:#fff;
-         color:#4a7c59;font-size:20px;font-weight:700;cursor:pointer;
+.qty-ctrl{display:flex;align-items:center;gap:4px;flex-shrink:0;}
+.qty-btn{width:28px;height:28px;border:1.5px solid #4a7c59;border-radius:7px;background:#fff;
+         color:#4a7c59;font-size:18px;font-weight:700;cursor:pointer;
          display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .qty-btn:active{background:#eaf4ee;}
-.qty-val{font-size:14px;color:#4a7c59;font-weight:600;min-width:55px;text-align:center;}
+.qty-val{font-size:13px;color:#4a7c59;font-weight:600;min-width:52px;text-align:center;}
+.w-qty{font-size:14px;color:#4a7c59;font-weight:700;white-space:nowrap;min-width:58px;text-align:right;flex-shrink:0;}
 </style>
 </head>
 <body>
@@ -204,15 +205,15 @@ function alleArtikelen(){
 }
 const gekozen = () => STATUS.boodschappen.aangevinkt || [];
 
-function getAantal(naam, stap){
+function getAantal(naam){
   const a = (STATUS.boodschappen.aantallen||{})[naam];
-  return a !== undefined ? a : (stap||1);
+  return a !== undefined ? a : 0;
 }
 function zetAantal(naam, stap, delta, ev){
   ev.stopPropagation();
   if (!STATUS.boodschappen.aantallen) STATUS.boodschappen.aantallen = {};
   const s = stap||1;
-  STATUS.boodschappen.aantallen[naam] = Math.max(s, getAantal(naam,s) + delta*s);
+  STATUS.boodschappen.aantallen[naam] = Math.max(0, getAantal(naam) + delta*s);
   teken(); bewaarStatus();
 }
 
@@ -284,18 +285,19 @@ function tekenAanstip(){
         const aan = sel.includes(a.naam);
         const stap = a.stap||1;
         const eenheid = a.eenheid||'';
-        const aant = getAantal(a.naam, stap);
+        const aant = getAantal(a.naam);
         const nm = esc(a.naam).replace(/'/g,"\\'");
+        const qtyTxt = aant>0 ? `${aant}${eenheid?' '+eenheid:''}` : `–${eenheid?' '+eenheid:''}`;
         return `<div class="art${aan?' aan':''}" onclick="vink('${nm}')">
           <div class="vk"></div>
+          ${aan?`<div class="qty-ctrl" onclick="event.stopPropagation()">
+            <button class="qty-btn" onclick="zetAantal('${nm}',${stap},1,event)">+</button>
+            <span class="qty-val">${qtyTxt}</span>
+            <button class="qty-btn" onclick="zetAantal('${nm}',${stap},-1,event)">−</button>
+          </div>`:''}
           <div class="art-naam">${esc(a.naam)}${a.nieuw?'<span class="merk nw">nieuw</span>':''}
             ${a.pref&&a.pref!=='OKAY'?`<span class="merk">${esc(a.pref)}</span>`:''}
-            ${a.specs?`<small>${esc(a.specs)}</small>`:''}
-            ${aan?`<div class="qty" onclick="event.stopPropagation()">
-              <button class="qty-btn" onclick="zetAantal('${nm}',${stap},-1,event)">−</button>
-              <span class="qty-val">${aant}${eenheid?' '+eenheid:''}</span>
-              <button class="qty-btn" onclick="zetAantal('${nm}',${stap},1,event)">+</button>
-            </div>`:''}</div>
+            ${a.specs?`<small>${esc(a.specs)}</small>`:''}</div>
         </div>`;
       }).join('')}</div></div>`;
   }
@@ -382,11 +384,13 @@ function tekenWinkel(){
       </div>
       <div class="w-lijst">${lijst.map(p=>{
         const af = !!afgevinkt[p.a.naam];
+        const wAant = getAantal(p.a.naam);
+        const wEenh = p.a.eenheid||'';
+        const wQty = wAant>0 ? `${wAant}${wEenh?' '+wEenh:''}` : '';
         return `<div class="w-art${af?' af':''}" onclick="afvink('${esc(p.a.naam).replace(/'/g,"\\'")}')">
           <div class="vk" style="${af?'background:#4a7c59;border-color:#4a7c59':''}">${af?'':''}</div>
+          ${wQty?`<span class="w-qty">${esc(wQty)}</span>`:''}
           <div class="w-naam2">${esc(p.a.naam)}
-            ${(()=>{const s=p.a.stap||1,e=p.a.eenheid||'',n=getAantal(p.a.naam,s);
-              return(n>1||e)?`<span style="color:#4a7c59;font-size:13px;margin-left:6px;font-weight:600;">${n}${e?' '+e:''}</span>`:'';})()}
             ${p.a.specs?`<small>${esc(p.a.specs)}</small>`:''}
             ${p.let?`<span class="w-let">${esc(p.let)}</span>`:''}</div>
         </div>`;
