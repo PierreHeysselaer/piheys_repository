@@ -1,16 +1,14 @@
 {
- "gewijzigd": "2026-08-21T15:58:22.817Z",
+ "gewijzigd": "2026-08-21T15:58:39.224Z",
  "boodschappen": {
   "aangevinkt": [
    "witte wijn azijn",
-   "geld afhalen",
-   "brood donker"
+   "geld afhalen"
   ],
   "nieuw": [],
   "aantallen": {
    "witte wijn azijn": 1,
-   "geld afhalen": 0,
-   "brood donker": 1
+   "geld afhalen": 0
   }
  },
  "taken_log": {
