@@ -1,246 +1,245 @@
-naam;specs;cat;pref;backup;volgw;opm
-lookbroodjes met bacon;4 of 6;snack;pizza hut;pizza hut;10;
-pizza hawai;medium;maaltijd;pizza hut;pizza hut;20;
-pizza forestiere;medium;maaltijd;pizza hut;pizza hut;30;
-pizza hot & spicy;medium;maaltijd;pizza hut;pizza hut;40;
-oude batterijen en bruisgasflessen leeg;;leeggoed;OKAY;;50;
-chips paprika;;snack;OKAY;SPAR;60;
-chips zout;;snack;OKAY;SPAR;70;
-nootjes;gezouten;snack;OKAY;SPAR;80;
-martini wit;;drank;OKAY;SPAR;90;
-cashew noten;;snack;OKAY;SPAR;100;
-TUC bacon;;snack;OKAY;SPAR;110;
-Citroenconcentraat voor frisdrank;;drank;OKAY;SPAR;120;
-Tropical;;drank;OKAY;SPAR;130;
-Fruitmoes (vloeibare confituur aardbei);Fruitmoes (vloeibare confituur aardbei);drank;OKAY;SPAR;140;
-melk volle 6l;;melkproduct;OKAY;SPAR;150;
-havermout;;ontbijt;OKAY;SPAR;160;
-confituur rabarber aardbei;;ontbijt;OKAY;SPAR;170;
-muesli (gedroogd fruit & granen);;ontbijt;OKAY;SPAR;180;
-choco pops Louis;;ontbijt;OKAY;SPAR;190;
-corn flakes [DUBBEL];;ontbijt;OKAY;SPAR;200;
-speculoos everyday;;snack;OKAY;SPAR;210;
-speculoospasta;;ontbijt;OKAY;SPAR;220;
-energierepen;;snack;OKAY;SPAR;230;
-chocolade of zo;;snack;OKAY;SPAR;240;
-erwtjes (blik);;groenten;OKAY;SPAR;242;
-frisk fresh effect of iets gelijkaardigs;;snack;OKAY;SPAR;250;
-hagelslag fondant;;ontbijt;OKAY;SPAR;260;
-crumble sablé au beurre;;snack;OKAY;SPAR;270;
-crumble speculoos;;snack;OKAY;SPAR;280;
-koffie;;drank;OKAY;SPAR;290;
-nesquick;;drank;OKAY;SPAR;300;
-ontkalker koffiezet;;onderhoud;OKAY;SPAR;310;
-pims boni;;snack;OKAY;SPAR;320;
-augurken;;sausen ed;OKAY;SPAR;330;
-bechamel;;sausen ed;OKAY;SPAR;340;
-bruine kinderkessuiker;;ontbijt;OKAY;SPAR;350;
-bruine rijst;;basis_ingrediënt;OKAY;SPAR;360;
-canderelsuiker;;ontbijt;OKAY;SPAR;370;
-choco;;ontbijt;OKAY;SPAR;380;
-couscous;;basis_ingrediënt;OKAY;SPAR;390;
-frituurolie;;keuken;OKAY;SPAR;400;
-griekse pasta;;basis_ingrediënt;OKAY;SPAR;410;
-harissa;;sausen ed;OKAY;SPAR;420;
-hollandaise;;sausen ed;OKAY;SPAR;430;
-honing;;ontbijt;OKAY;SPAR;440;
-klontjes suiker;;ontbijt;OKAY;SPAR;450;
-kristal suiker (voor brood);;ontbijt;OKAY;SPAR;460;
-tagliatelli;;basis_ingrediënt;OKAY;SPAR;470;
-zout;;kruiden;OKAY;SPAR;480;
-tomatenconcentraat;;keuken;OKAY;SPAR;490;
-CO2 flessen;;logistiek;OKAY;SPAR;500;
-amerikaanse saus;;sausen ed;OKAY;SPAR;510;
-arachideolie;;keuken;OKAY;SPAR;520;
-ketchup;;sausen ed;OKAY;SPAR;530;
-Mayo devos lemmens ei;;sausen ed;OKAY;SPAR;540;
-mosterd;;sausen ed;OKAY;SPAR;550;
-pickels;;sausen ed;OKAY;SPAR;560;
-Samourai;;sausen ed;OKAY;SPAR;570;
-sodastream volle fles;;drank;OKAY;SPAR;580;
-zwarte schoensmeer;;logistiek;OKAY;SPAR;590;
-balsamico;;sausen ed;OKAY;SPAR;600;
-engelse saus;;sausen ed;OKAY;SPAR;610;
-tabasco;;sausen ed;OKAY;SPAR;620;
-rozemarijn poedervorm;;kruiden;OKAY;SPAR;630;
-lookpaste;;kruiden;OKAY;SPAR;640;
-witte wijn azijn;;keuken;OKAY;SPAR;650;
-olijfolie;;keuken;OKAY;SPAR;660;
-reiniging vaatwas;;onderhoud;OKAY;SPAR;670;
-wasmiddel kleur;;was;OKAY;SPAR;680;
-wasmiddel voor witte was;;was;OKAY;SPAR;690;
-wasverzachter;;was;OKAY;SPAR;700;
-reinigingspray ruiten open haard;;logistiek;OKAY;SPAR;710;
-ontstopper;;logistiek;OKAY;SPAR;720;
-ontvochtingszout;;logistiek;OKAY;SPAR;730;
-dethol citroen;;logistiek;OKAY;SPAR;740;
-spray dettol ajax;;logistiek;OKAY;SPAR;750;
-spray schimmel voegen badkamer;;logistiek;OKAY;SPAR;760;
-wasmachinereiniger;;logistiek;OKAY;SPAR;770;
-instanet;;logistiek;OKAY;SPAR;780;
-zwarte vuilzakken;;logistiek;OKAY;SPAR;790;
-soda-reiniger;;logistiek;OKAY;SPAR;800;
-steradent waterleidingreiniger;;logistiek;OKAY;SPAR;810;
-glansmiddel vaatwas;;logistiek;OKAY;SPAR;820;
-Regenereerzout vaatwas;;logistiek;OKAY;SPAR;830;
-spoelmiddel vaatwas;;vaatwas;OKAY;SPAR;840;
-vaatwastabletten;;vaatwas;OKAY;SPAR;850;
-wc cleaner met klem op wc pot;;logistiek;OKAY;SPAR;860;
-swifferdoekjes;;logistiek;OKAY;SPAR;870;
-dentastix;;dier;OKAY;SPAR;880;
-jumbone;;dier;OKAY;SPAR;890;
-huishoudpapier;;logistiek;OKAY;SPAR;900;
-servetten;;logistiek;OKAY;SPAR;910;
-WC papier;;logistiek;OKAY;SPAR;920;
-blauwe vuilzakken;;logistiek;OKAY;SPAR;930;
-boterhamzakjes 5 L en 1 L;;logistiek;OKAY;SPAR;940;
-doggybagzakken met sluiting;;logistiek;OKAY;SPAR;950;
-aluminium folie;;logistiek;OKAY;SPAR;960;
-evian Louis water;;drank;OKAY;SPAR;970;
-fanta 6 blikjes;;drank;OKAY;SPAR;980;
-gini;;drank;OKAY;SPAR;990;
-ice tea;;drank;OKAY;SPAR;1000;
-schweppes mochitto;;drank;OKAY;SPAR;1010;
-cola 6 blikjes (gewone);;drank;OKAY;SPAR;1020;
-cola zero;;drank;OKAY;SPAR;1030;
-schweppes zero;;drank;OKAY;SPAR;1040;
-shampoo;;persoonlijk;OKAY;SPAR;1050;
-plat water contrex;;drank;OKAY;SPAR;1060;
-bruisend water bru;;drank;OKAY;SPAR;1070;
-jupiler;;drank;OKAY;SPAR;1080;
-fles bruin piedboeuf;;drank;OKAY;SPAR;1090;
-red bull;;drank;OKAY;SPAR;1100;
-wenskaarten;;special;OKAY;SPAR;1110;
-look;;kruiden;OKAY;SPAR;1120;
-aardappelen bloem aardappelen;;keuken;OKAY;SPAR;1130;
-ajuin;;basis_ingrediënt;OKAY;SPAR;1140;
-nicola aardappelen 5 kilo;;basis_ingrediënt;OKAY;SPAR;1150;
-rode ajuin;;basis_ingrediënt;OKAY;SPAR;1160;
-betterfood;;ontbijt;OKAY;SPAR;1170;
-oorstokjes;;persoonlijk;OKAY;SPAR;1180;
-after sun voor kinderen;;persoonlijk;OKAY;SPAR;1190;
-handwaszeep;;persoonlijk;OKAY;SPAR;1200;
-douchegel;;persoonlijk;OKAY;SPAR;1210;
-tandpasta;;persoonlijk;OKAY;SPAR;1220;
-bananen;;fruit;OKAY;SPAR;1230;
-baton dunne salami worst;;snack;OKAY;SPAR;1240;
-Houtskool;;logistiek;OKAY;SPAR;1250;
-spek blokjes gerookt;;ontbijt;OKAY;SPAR;1260;
-spek sneden;;ontbijt;OKAY;SPAR;1270;
-vers spek ongezouten sneetjes;;ontbijt;OKAY;SPAR;1280;
-americain prepare;;beleg;OKAY;SPAR;1290;
-cervela;;snack;OKAY;SPAR;1300;
-salami met look;;beleg;OKAY;SPAR;1310;
-martino;;beleg;OKAY;SPAR;1320;
-Kip curry;;beleg;OKAY;SPAR;1330;
-Noordzee sla;;beleg;OKAY;SPAR;1340;
-kaas;;melkproduct;OKAY;SPAR;1350;
-effi of becel;;ontbijt;OKAY;SPAR;1360;
-platte kaas vol 3 dozen;;beleg;OKAY;SPAR;1370;
-eieren;;basis_ingrediënt;OKAY;SPAR;1380;
-lookboter;;melkproduct;OKAY;SPAR;1390;
-philadelphia;;melkproduct;OKAY;SPAR;1400;
-verse roomkaas;;melkproduct;OKAY;SPAR;1405;
-raclettekaas;;melkproduct;OKAY;SPAR;1410;
-room om ijskreem te maken;;melkproduct;OKAY;SPAR;1420;
-solo vloeibaar bak;;melkproduct;OKAY;SPAR;1430;
-boter;;melkproduct;OKAY;SPAR;1440;
-gorgonzola;;melkproduct;OKAY;SPAR;1460;
-Fondue enkel opwarmen;;maaltijd;OKAY;SPAR;1470;
-gemalen kaas;;melkproduct;OKAY;SPAR;1480;
-cesar salad;;maaltijd;OKAY;SPAR;1490;
-droge worstjes;;snack;OKAY;SPAR;1500;
-zalm;;vis;OKAY;SPAR;1510;
-kabeljauw (geen haasje);;vis;OKAY;SPAR;1520;
-Kip;;kip;OKAY;SPAR;1530;
-kippegehakt;;kip;OKAY;SPAR;1540;
-gyros kip;;kip;OKAY;SPAR;1550;
-kip fillet;;kip;OKAY;SPAR;1560;
-entrecote rund;;vlees;OKAY;SPAR;1570;
-americain natuur;;beleg;OKAY;SPAR;1580;
-dikke ribbetjes;;vlees;OKAY;SPAR;1590;
-contrefillet rund;;vlees;OKAY;SPAR;1600;
-ribbetjes;;vlees;OKAY;SPAR;1610;
-gehakt gemengd 1 kilo;;vlees;OKAY;SPAR;1620;
-gehakt varken kalf voor de boterh...;;beleg;OKAY;SPAR;1630;
-gehakt voor balletjes 1 kg gemeng...;;vlees;OKAY;SPAR;1650;
-spiering varken;;vlees;OKAY;SPAR;1660;
-cordon bleu;;vlees;OKAY;SPAR;1670;
-prei veel wit;;groenten;OKAY;SPAR;1680;
-komkommer;Molly;groenten;OKAY;SPAR;1690;
-tomaten;;groenten;OKAY;SPAR;1700;
-witloof;;groenten;OKAY;SPAR;1710;
-champignons;;groenten;OKAY;SPAR;1720;
-paddestoelen;;groenten;OKAY;SPAR;1730;
-chili pepers;;groenten;OKAY;SPAR;1740;
-muizenoortjes;;groenten;OKAY;SPAR;1750;
-wortelen;;groenten;OKAY;SPAR;1760;
-sla 3 kleuren met wortel;;groenten;OKAY;SPAR;1770;
-spaghetti groenten;;groenten;OKAY;SPAR;1780;
-groene kool;;groenten;OKAY;SPAR;1790;
-gourgette;;groenten;OKAY;SPAR;1800;
-spitskool;;groenten;OKAY;SPAR;1810;
-chineze kool;;groenten;OKAY;SPAR;1820;
-dille met wortel;;groenten;OKAY;SPAR;1830;
-basilicum met wortel;;kruiden;OKAY;SPAR;1840;
-oetker pizza;;maaltijd;OKAY;SPAR;1850;
-bami goreng;;maaltijd;OKAY;SPAR;1860;
-macaroni;;maaltijd;OKAY;SPAR;1870;
-maaltijd Bea;;maaltijd;OKAY;SPAR;1880;
-maaltijd Bea tong madeira;;maaltijd;OKAY;SPAR;1890;
-moussaka;;maaltijd;OKAY;SPAR;1900;
-lasagne;;maaltijd;OKAY;SPAR;1910;
-platte kaasjes voor kids;;melkproduct;OKAY;SPAR;1920;
-yoghurt;;melkproduct;OKAY;SPAR;1930;
-yoghurt natuur witte producten 1/2L;;melkproduct;OKAY;SPAR;1940;
-alpro vanille;;melkproduct;OKAY;SPAR;1950;
-karnemelk;;melkproduct;OKAY;SPAR;1960;
-appelsiensap;;drank;OKAY;SPAR;1970;
-skyr;;melkproduct;OKAY;SPAR;1980;
-Vanille yougurt;;melkproduct;;;1985;
-6 appelsienen;;fruit;OKAY;SPAR;1990;
-appelsien pers;;fruit;OKAY;SPAR;2000;
-kiwi;;fruit;OKAY;SPAR;2010;
-mandarijntjes, geen doos, aan de...;;fruit;OKAY;SPAR;2020;
-platte perziken;;fruit;OKAY;SPAR;2030;
-appelen;;fruit;OKAY;SPAR;2040;
-Watermeloen;;fruit;OKAY;SPAR;2050;
-druiven;;fruit;OKAY;SPAR;2060;
-aardbeien 2 doosjes;;fruit;OKAY;SPAR;2070;
-salami & kaasblokjes;;snack;OKAY;SPAR;2080;
-pannenkoeken;;snack;OKAY;SPAR;2090;
-sandwiches;;brood;Bakker;OKAY;2100;
-bruin frans brood;;brood;OKAY;OKAY;2110;
-wit caréken;;brood;OKAY;SPAR;2120;
-wit brood;;brood;Bakker;OKAY;2130;
-brood lichtbruin;;brood;Bakker;OKAY;2140;
-brood donker;;brood;Bakker;OKAY;2150;
-loempia;;maaltijd;OKAY;SPAR;2160;
-voorgebakken frietjes;;basis_ingrediënt;OKAY;SPAR;2170;
-diepvriesgroenten spinazie, bloe...;;groenten;OKAY;SPAR;2180;
-diepvries champignons;;groenten;OKAY;SPAR;2190;
-frietjes diepvries;;keuken;OKAY;SPAR;2200;
-soepgroenten;;groenten;OKAY;SPAR;2210;
-diepvrieskroketten;;basis_ingrediënt;OKAY;SPAR;2220;
-diepvriesgroenten mix pierre;;maaltijd;OKAY;SPAR;2230;
-diepvriessoepgroenten;;groenten;OKAY;SPAR;2240;
-chocoladeijs;;snack;OKAY;SPAR;2250;
-citroenijs;;snack;OKAY;SPAR;2260;
-diepvriesgroenten catalaans 2x;;maaltijd;OKAY;SPAR;2270;
-puree met spinazie;;basis_ingrediënt;OKAY;SPAR;2280;
-diepvriesgroenten mediteraan 2x;;maaltijd;OKAY;SPAR;2290;
-fish sticks;;vis;OKAY;SPAR;2300;
-ijsjes;;snack;OKAY;SPAR;2310;
-Magnum;;snack;OKAY;SPAR;2320;
-vanilleijs;;snack;OKAY;SPAR;2330;
-AA-batterijen;;batterijen;OKAY;SPAR;2340;
-AAA-batterijen;;batterijen;OKAY;SPAR;2350;
-aanstekers;;batterijen;OKAY;SPAR;2360;
-scheermesjes mach3;;persoonlijk;OKAY;SPAR;2370;
-2032 batterijen;;batterijen;OKAY;SPAR;2380;
-geld afhalen;;rest;OKAY;SPAR;2390;
-pruimen;;fruit;OKAY;SPAR;2400;
-kartonnen dozen;;rest;OKAY;OKAY;2410;
-vol-au-vent 1kg;;;L&B_kippekraam;;9980;
-kippenbouten gebraden 6stuks;;;L&B_kippekraam;;9982;
-patatjes (gebraden);;;L&B_kippekraam;;9984;
+naam;specs;cat;pref;backup;volgw;opm;eenheid;stap
+lookbroodjes met bacon;4 of 6;snack;pizza hut;pizza hut;10;;stuks;2
+pizza hawai;medium;maaltijd;pizza hut;pizza hut;20;;pizza;1
+pizza forestiere;medium;maaltijd;pizza hut;pizza hut;30;;pizza;1
+pizza hot & spicy;medium;maaltijd;pizza hut;pizza hut;40;;pizza;1
+oude batterijen en bruisgasflessen leeg;;leeggoed;OKAY;;50;;;1
+chips paprika;;snack;OKAY;SPAR;60;;zak;1
+chips zout;;snack;OKAY;SPAR;70;;zak;1
+nootjes;gezouten;snack;OKAY;SPAR;80;;zak;1
+martini wit;;drank;OKAY;SPAR;90;;fles;1
+cashew noten;;snack;OKAY;SPAR;100;;zak;1
+TUC bacon;;snack;OKAY;SPAR;110;;verpakking;1
+Citroenconcentraat voor frisdrank;;drank;OKAY;SPAR;120;;fles;1
+Tropical;;drank;OKAY;SPAR;130;;box;1
+Fruitmoes (vloeibare confituur aardbei);Fruitmoes (vloeibare confituur aardbei);drank;OKAY;SPAR;140;;box;1
+melk volle 6l;;melkproduct;OKAY;SPAR;150;;fles;6
+havermout;;ontbijt;OKAY;SPAR;160;;doos;1
+confituur rabarber aardbei;;ontbijt;OKAY;SPAR;170;;pot;1
+muesli (gedroogd fruit & granen);;ontbijt;OKAY;SPAR;180;;doos;1
+choco pops Louis;;ontbijt;OKAY;SPAR;190;;doos;1
+corn flakes [DUBBEL];;ontbijt;OKAY;SPAR;200;;doos;1
+speculoos everyday;;snack;OKAY;SPAR;210;;doos;1
+speculoospasta;;ontbijt;OKAY;SPAR;220;;pot;1
+energierepen;;snack;OKAY;SPAR;230;;verpakking;1
+chocolade of zo;;snack;OKAY;SPAR;240;;reep;1
+erwtjes (blik);;groenten;OKAY;SPAR;242;;blik;1
+frisk fresh effect of iets gelijkaardigs;;snack;OKAY;SPAR;250;;verpakking;1
+hagelslag fondant;;ontbijt;OKAY;SPAR;260;;reep;1
+crumble sablé au beurre;;snack;OKAY;SPAR;270;;doos;1
+crumble speculoos;;snack;OKAY;SPAR;280;;doos;1
+koffie;;drank;OKAY;SPAR;290;;pak;1
+nesquick;;drank;OKAY;SPAR;300;;doos;1
+ontkalker koffiezet;;onderhoud;OKAY;SPAR;310;;verpakking;1
+pims boni;;snack;OKAY;SPAR;320;;verpakking;1
+augurken;;sausen ed;OKAY;SPAR;330;;bokaal;1
+bechamel;;sausen ed;OKAY;SPAR;340;;verpakking;1
+bruine kinderkessuiker;;ontbijt;OKAY;SPAR;350;;verpakking;1
+bruine rijst;;basis_ingrediënt;OKAY;SPAR;360;;verpakking;1
+canderelsuiker;;ontbijt;OKAY;SPAR;370;;verpakking;1
+choco;;ontbijt;OKAY;SPAR;380;;pot;1
+couscous;;basis_ingrediënt;OKAY;SPAR;390;;doos;1
+frituurolie;;keuken;OKAY;SPAR;400;;fles;1
+griekse pasta;;basis_ingrediënt;OKAY;SPAR;410;;doos;1
+harissa;;sausen ed;OKAY;SPAR;420;;tube;1
+hollandaise;;sausen ed;OKAY;SPAR;430;;verpakking;1
+honing;;ontbijt;OKAY;SPAR;440;;pot;1
+klontjes suiker;;ontbijt;OKAY;SPAR;450;;doos;1
+kristal suiker (voor brood);;ontbijt;OKAY;SPAR;460;;verpakking;1
+tagliatelli;;basis_ingrediënt;OKAY;SPAR;470;;verpakking;1
+zout;;kruiden;OKAY;SPAR;480;;verpakking;1
+tomatenconcentraat;;keuken;OKAY;SPAR;490;;blik;1
+CO2 flessen;;logistiek;OKAY;SPAR;500;;fles;1
+amerikaanse saus;;sausen ed;OKAY;SPAR;510;;fles;1
+arachideolie;;keuken;OKAY;SPAR;520;;fles;1
+ketchup;;sausen ed;OKAY;SPAR;530;;fles;1
+Mayo devos lemmens ei;;sausen ed;OKAY;SPAR;540;;pot;1
+mosterd;;sausen ed;OKAY;SPAR;550;;pot;1
+pickels;;sausen ed;OKAY;SPAR;560;;pot;1
+Samourai;;sausen ed;OKAY;SPAR;570;;fles;1
+sodastream volle fles;;drank;OKAY;SPAR;580;;fles;1
+zwarte schoensmeer;;logistiek;OKAY;SPAR;590;;doos;1
+balsamico;;sausen ed;OKAY;SPAR;600;;fles;1
+engelse saus;;sausen ed;OKAY;SPAR;610;;fles;1
+tabasco;;sausen ed;OKAY;SPAR;620;;fles;1
+rozemarijn poedervorm;;kruiden;OKAY;SPAR;630;;verpakking;1
+lookpaste;;kruiden;OKAY;SPAR;640;;verpakking;1
+witte wijn azijn;;keuken;OKAY;SPAR;650;;fles;1
+olijfolie;;keuken;OKAY;SPAR;660;;fles;1
+reiniging vaatwas;;onderhoud;OKAY;SPAR;670;;verpakking;1
+wasmiddel kleur;;was;OKAY;SPAR;680;;fles;1
+wasmiddel voor witte was;;was;OKAY;SPAR;690;;fles;1
+wasverzachter;;was;OKAY;SPAR;700;;fles;1
+reinigingspray ruiten open haard;;logistiek;OKAY;SPAR;710;;verpakking;1
+ontstopper;;logistiek;OKAY;SPAR;720;;verpakking;1
+ontvochtingszout;;logistiek;OKAY;SPAR;730;;verpakking;1
+dethol citroen;;logistiek;OKAY;SPAR;740;;verpakking;1
+spray dettol ajax;;logistiek;OKAY;SPAR;750;;verpakking;1
+spray schimmel voegen badkamer;;logistiek;OKAY;SPAR;760;;verpakking;1
+wasmachinereiniger;;logistiek;OKAY;SPAR;770;;verpakking;1
+instanet;;logistiek;OKAY;SPAR;780;;verpakking;1
+zwarte vuilzakken;;logistiek;OKAY;SPAR;790;;verpakking;1
+soda-reiniger;;logistiek;OKAY;SPAR;800;;verpakking;1
+steradent waterleidingreiniger;;logistiek;OKAY;SPAR;810;;verpakking;1
+glansmiddel vaatwas;;logistiek;OKAY;SPAR;820;;verpakking;1
+Regenereerzout vaatwas;;logistiek;OKAY;SPAR;830;;verpakking;1
+spoelmiddel vaatwas;;vaatwas;OKAY;SPAR;840;;verpakking;1
+vaatwastabletten;;vaatwas;OKAY;SPAR;850;;verpakking;1
+wc cleaner met klem op wc pot;;logistiek;OKAY;SPAR;860;;verpakking;1
+swifferdoekjes;;logistiek;OKAY;SPAR;870;;verpakking;1
+dentastix;;dier;OKAY;SPAR;880;;verpakking;1
+jumbone;;dier;OKAY;SPAR;890;;verpakking;1
+huishoudpapier;;logistiek;OKAY;SPAR;900;;verpakking;1
+servetten;;logistiek;OKAY;SPAR;910;;verpakking;1
+WC papier;;logistiek;OKAY;SPAR;920;;verpakking;1
+blauwe vuilzakken;;logistiek;OKAY;SPAR;930;;verpakking;1
+boterhamzakjes 5 L en 1 L;;logistiek;OKAY;SPAR;940;;verpakking;1
+doggybagzakken met sluiting;;logistiek;OKAY;SPAR;950;;verpakking;1
+aluminium folie;;logistiek;OKAY;SPAR;960;;verpakking;1
+evian Louis water;;drank;OKAY;SPAR;970;;verpakking;1
+fanta zero;;drank;OKAY;SPAR;980;;blik;6
+gini;;drank;OKAY;SPAR;990;;blik;1
+ice tea;;drank;OKAY;SPAR;1000;;blik;1
+schweppes mochitto;;drank;OKAY;SPAR;1010;;blik;1
+cola 6 blikjes (gewone);;drank;OKAY;SPAR;1020;;blik;1
+cola zero;;drank;OKAY;SPAR;1030;;blik;1
+schweppes zero;;drank;OKAY;SPAR;1040;;blik;1
+shampoo;;persoonlijk;OKAY;SPAR;1050;;verpakking;1
+plat water contrex;;drank;OKAY;SPAR;1060;;fles;1
+bruisend water bru;;drank;OKAY;SPAR;1070;;fles;1
+jupiler;;drank;OKAY;SPAR;1080;;blik;1
+fles bruin piedboeuf;;drank;OKAY;SPAR;1090;;fles;1
+red bull;;drank;OKAY;SPAR;1100;;blik;1
+wenskaarten;;special;OKAY;SPAR;1110;;stuk;1
+look;;kruiden;OKAY;SPAR;1120;;zak;1
+aardappelen bloem aardappelen;;keuken;OKAY;SPAR;1130;;zak;1
+ajuin;;basis_ingrediënt;OKAY;SPAR;1140;;zak;1
+nicola aardappelen 5 kilo;;basis_ingrediënt;OKAY;SPAR;1150;;zak;1
+rode ajuin;;basis_ingrediënt;OKAY;SPAR;1160;;zak;1
+betterfood;;ontbijt;OKAY;SPAR;1170;;doos;1
+oorstokjes;;persoonlijk;OKAY;SPAR;1180;;verpakking;1
+after sun voor kinderen;;persoonlijk;OKAY;SPAR;1190;;fles;1
+handwaszeep;;persoonlijk;OKAY;SPAR;1200;;fles;1
+douchegel;;persoonlijk;OKAY;SPAR;1210;;fles;1
+tandpasta;;persoonlijk;OKAY;SPAR;1220;;tube;1
+bananen;;fruit;OKAY;SPAR;1230;;stuk;1
+baton dunne salami worst;;snack;OKAY;SPAR;1240;;stuk;1
+Houtskool;;logistiek;OKAY;SPAR;1250;;zak;1
+spek blokjes gerookt;;ontbijt;OKAY;SPAR;1260;;verpakking;2
+spek sneden;;ontbijt;OKAY;SPAR;1270;;verpakking;1
+vers spek ongezouten sneetjes;;ontbijt;OKAY;SPAR;1280;;verpakking;1
+americain prepare;;beleg;OKAY;SPAR;1290;;verpakking;1
+cervela;;snack;OKAY;SPAR;1300;;verpakking;1
+salami met look;;beleg;OKAY;SPAR;1310;;verpakking;1
+martino;;beleg;OKAY;SPAR;1320;;verpakking;1
+Kip curry;;beleg;OKAY;SPAR;1330;;verpakking;1
+Noordzee sla;;beleg;OKAY;SPAR;1340;;verpakking;1
+kaas;;melkproduct;OKAY;SPAR;1350;;afhangkelijk;1
+effi of becel;;ontbijt;OKAY;SPAR;1360;;doos;1
+platte kaas vol 3 dozen;;beleg;OKAY;SPAR;1370;;doos;1
+eieren;;basis_ingrediënt;OKAY;SPAR;1380;;stuk;1
+lookboter;;melkproduct;OKAY;SPAR;1390;;verpakking;1
+philadelphia;;melkproduct;OKAY;SPAR;1400;;verpakking;1
+verse roomkaas;;melkproduct;OKAY;SPAR;1405;;verpakking;1
+raclettekaas;;melkproduct;OKAY;SPAR;1410;;verpakking;1
+room om ijskreem te maken;;melkproduct;OKAY;SPAR;1420;;verpakking;1
+solo vloeibaar bak;;melkproduct;OKAY;SPAR;1430;;fles;1
+boter;;melkproduct;OKAY;SPAR;1440;;verpakking;1
+gorgonzola;;melkproduct;OKAY;SPAR;1460;;verpakking;1
+Fondue enkel opwarmen;;maaltijd;OKAY;SPAR;1470;;verpakking;1
+gemalen kaas;;melkproduct;OKAY;SPAR;1480;;zak;1
+cesar salad;;maaltijd;OKAY;SPAR;1490;;verpakking;1
+droge worstjes;;snack;OKAY;SPAR;1500;;verpakking;1
+zalm;;vis;OKAY;SPAR;1510;;verpakking;1
+kabeljauw (geen haasje);;vis;OKAY;SPAR;1520;;verpakking;1
+Kip;;kip;OKAY;SPAR;1530;;verpakking;1
+kippegehakt;;kip;OKAY;SPAR;1540;;verpakking;1
+gyros kip;;kip;OKAY;SPAR;1550;;verpakking;1
+kip fillet;;kip;OKAY;SPAR;1560;;verpakking;1
+entrecote rund;;vlees;OKAY;SPAR;1570;;verpakking;1
+americain natuur;;beleg;OKAY;SPAR;1580;;verpakking;1
+dikke ribbetjes;;vlees;OKAY;SPAR;1590;;verpakking;1
+contrefillet rund;;vlees;OKAY;SPAR;1600;;verpakking;1
+ribbetjes;;vlees;OKAY;SPAR;1610;;verpakking;1
+gehakt gemengd rund varken;;vlees;OKAY;SPAR;1620;;gram;500
+gehakt varken kalf voor de boterh...;;beleg;OKAY;SPAR;1630;;gram;200
+gehakt voor balletjes gemeng...;;vlees;OKAY;SPAR;1650;;gram;500
+spiering varken;;vlees;OKAY;SPAR;1660;;verpakking;1
+cordon bleu;;vlees;OKAY;SPAR;1670;;verpakking;1
+prei veel wit;;groenten;OKAY;SPAR;1680;;stuk;1
+komkommer;Molly;groenten;OKAY;SPAR;1690;;stuk;1
+tomaten;;groenten;OKAY;SPAR;1700;;stuk;1
+witloof;;groenten;OKAY;SPAR;1710;;stuk;1
+paddestoelen;;groenten;OKAY;SPAR;1730;;verpakking;1
+chili pepers;;groenten;OKAY;SPAR;1740;;verpakking;1
+muizenoortjes;;groenten;OKAY;SPAR;1750;;verpakking;1
+wortelen;;groenten;OKAY;SPAR;1760;;verpakking;1
+sla 3 kleuren met wortel;;groenten;OKAY;SPAR;1770;;verpakking;1
+spaghetti groenten;;groenten;OKAY;SPAR;1780;;zak;1
+groene kool;;groenten;OKAY;SPAR;1790;;stuk;1
+gourgette;;groenten;OKAY;SPAR;1800;;stuk;1
+spitskool;;groenten;OKAY;SPAR;1810;;stuk;1
+chineze kool;;groenten;OKAY;SPAR;1820;;stuk;1
+dille met wortel;;groenten;OKAY;SPAR;1830;;stuk;1
+basilicum met wortel;;kruiden;OKAY;SPAR;1840;;stuk;1
+oetker pizza;;maaltijd;OKAY;SPAR;1850;;stuk;1
+bami goreng;;maaltijd;OKAY;SPAR;1860;;doos;1
+macaroni;;maaltijd;OKAY;SPAR;1870;;doos;1
+maaltijd Bea;;maaltijd;OKAY;SPAR;1880;;doos;1
+maaltijd Bea tong madeira;;maaltijd;OKAY;SPAR;1890;;doos;1
+moussaka;;maaltijd;OKAY;SPAR;1900;;doos;1
+lasagne;;maaltijd;OKAY;SPAR;1910;;doos;1
+platte kaasjes voor kids;;melkproduct;OKAY;SPAR;1920;;stuk;6
+yoghurt;;melkproduct;OKAY;SPAR;1930;;pot;1
+yoghurt natuur witte producten 1/2L;;melkproduct;OKAY;SPAR;1940;;pot;1
+alpro vanille;;melkproduct;OKAY;SPAR;1950;;pot;1
+karnemelk;;melkproduct;OKAY;SPAR;1960;;fles;1
+appelsiensap;;drank;OKAY;SPAR;1970;;fles;1
+skyr;;melkproduct;OKAY;SPAR;1980;;pot;1
+Vanille yougurt;;melkproduct;;;1985;;pot;1
+appelsienen;;fruit;OKAY;SPAR;1990;;stuk;1
+appelsien pers;;fruit;OKAY;SPAR;2000;;stuk;1
+kiwi;;fruit;OKAY;SPAR;2010;;stuk;1
+mandarijntjes, geen doos, aan de...;;fruit;OKAY;SPAR;2020;;stuk;1
+platte perziken;;fruit;OKAY;SPAR;2030;;stuk;1
+appelen;;fruit;OKAY;SPAR;2040;;stuk;1
+Watermeloen;;fruit;OKAY;SPAR;2050;;stuk;1
+druiven;;fruit;OKAY;SPAR;2060;;doos;1
+aardbeien;;fruit;OKAY;SPAR;2070;;doos;1
+salami & kaasblokjes;;snack;OKAY;SPAR;2080;;doos;1
+pannenkoeken;;snack;OKAY;SPAR;2090;;verpakking;1
+sandwiches;;brood;Bakker;OKAY;2100;;stuk;1
+bruin frans brood;;brood;OKAY;OKAY;2110;;stuk;1
+wit caréken;;brood;OKAY;SPAR;2120;;stuk;1
+wit brood;;brood;Bakker;OKAY;2130;;stuk;1
+brood lichtbruin;;brood;Bakker;OKAY;2140;;stuk;1
+brood donker;;brood;Bakker;OKAY;2150;;stuk;1
+loempia;;maaltijd;OKAY;SPAR;2160;;verpakking;1
+voorgebakken frietjes;;basis_ingrediënt;OKAY;SPAR;2170;;zak;1
+diepvriesgroenten spinazie, bloe...;;groenten;OKAY;SPAR;2180;;zak;1
+diepvries champignons;;groenten;OKAY;SPAR;2190;;zak;1
+frietjes diepvries;;keuken;OKAY;SPAR;2200;;zak;1
+soepgroenten;;groenten;OKAY;SPAR;2210;;zak;1
+diepvrieskroketten;;basis_ingrediënt;OKAY;SPAR;2220;;zak;1
+diepvriesgroenten mix pierre;;maaltijd;OKAY;SPAR;2230;;zak;1
+diepvriessoepgroenten;;groenten;OKAY;SPAR;2240;;zak;1
+chocoladeijs;;snack;OKAY;SPAR;2250;;doos;1
+citroenijs;;snack;OKAY;SPAR;2260;;doos;1
+diepvriesgroenten catalaans 2x;;maaltijd;OKAY;SPAR;2270;;zak;1
+puree met spinazie;;basis_ingrediënt;OKAY;SPAR;2280;;zak;1
+diepvriesgroenten mediteraan 2x;;maaltijd;OKAY;SPAR;2290;;zak;1
+fish sticks;;vis;OKAY;SPAR;2300;;doos;1
+ijsjes;;snack;OKAY;SPAR;2310;;verpakking;1
+Magnum;;snack;OKAY;SPAR;2320;;verpakking;1
+vanilleijs;;snack;OKAY;SPAR;2330;;doos;1
+AA-batterijen;;batterijen;OKAY;SPAR;2340;;stuk;1
+AAA-batterijen;;batterijen;OKAY;SPAR;2350;;stuk;1
+aanstekers;;batterijen;OKAY;SPAR;2360;;stuk;1
+scheermesjes mach3;;persoonlijk;OKAY;SPAR;2370;;stuk;1
+2032 batterijen;;batterijen;OKAY;SPAR;2380;;stuk;1
+geld afhalen;;rest;OKAY;SPAR;2390;;;1
+pruimen;;fruit;OKAY;SPAR;2400;;stuk;1
+kartonnen dozen;;rest;OKAY;OKAY;2410;;;1
+vol-au-vent;;;L&B_kippekraam;;9980;;gram;500
+kippenbouten gebraden 6stuks;;;L&B_kippekraam;;9982;;stuk;1
+patatjes (gebraden);;;L&B_kippekraam;;9984;;voor_personen;1
