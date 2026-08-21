@@ -1,10 +1,9 @@
 {
- "gewijzigd": "2026-08-21T15:56:26.160Z",
+ "gewijzigd": "2026-08-21T15:56:35.931Z",
  "boodschappen": {
   "aangevinkt": [
    "eieren",
    "red bull",
-   "brood donker",
    "wit brood",
    "melk volle",
    "sandwiches",
@@ -16,7 +15,6 @@
    "red bull": 6,
    "wit brood": 1,
    "melk volle": 6,
-   "brood donker": 1,
    "sandwiches": 15,
    "witte wijn azijn": 1
   }
