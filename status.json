@@ -1,18 +1,16 @@
 {
- "gewijzigd": "2026-08-21T08:06:45.883Z",
+ "gewijzigd": "2026-08-21T08:06:50.174Z",
  "boodschappen": {
   "aangevinkt": [
    "eieren",
    "appelsienen",
-   "brood donker",
-   "gehakt gemengd rund varken"
+   "brood donker"
   ],
   "nieuw": [],
   "aantallen": {
    "eieren": 5,
    "appelsienen": 4,
-   "brood donker": 2,
-   "gehakt gemengd rund varken": 2
+   "brood donker": 2
   }
  },
  "taken_log": {
