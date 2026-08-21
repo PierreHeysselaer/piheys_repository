@@ -1,13 +1,12 @@
 {
- "gewijzigd": "2026-08-21T08:15:25.459Z",
+ "gewijzigd": "2026-08-21T08:15:26.243Z",
  "boodschappen": {
   "aangevinkt": [
    "eieren",
    "appelsienen",
    "brood donker",
    "gehakt gemengd rund varken",
-   "gehakt voor balletjes gemeng...",
-   "zwarte schoensmeer"
+   "gehakt voor balletjes gemeng..."
   ],
   "nieuw": [],
   "aantallen": {
@@ -15,8 +14,7 @@
    "appelsienen": 4,
    "brood donker": 2,
    "gehakt gemengd rund varken": 5,
-   "gehakt voor balletjes gemeng...": 3,
-   "zwarte schoensmeer": 0
+   "gehakt voor balletjes gemeng...": 3
   }
  },
  "taken_log": {
