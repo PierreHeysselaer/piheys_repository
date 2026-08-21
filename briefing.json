@@ -1,11 +1,11 @@
 {
-  "datum": "2026-08-20",
+  "datum": "2026-08-21",
   "agenda": [
     { "tijd": "heel de dag", "tekst": "Ellis woe avond tem zaterdag" },
-    { "tijd": "16:00", "tekst": "Louis halen in Schoten" }
+    { "tijd": "heel de dag", "tekst": "Louis is bij ons" }
   ],
   "bij_taak": {
-    "h_netels": "na 36 mm in drie dagen zit de grond perfect — doe het vanochtend, want vanavond rijdt Louis en morgen valt er opnieuw veel regen",
-    "h_gras": "donderdag 23 is de eerste reële kans — droog, 19°C, bijna volle zon"
+    "h_gras": "zondag 23 en maandag 24 zijn droog en zonnig — ideale dagen",
+    "h_netels": "grond is doorweekt na 36 mm deze week — vandaag en morgen valt er nog regen, zondag 23 is de eerste droge kans"
   }
 }
