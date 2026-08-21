@@ -9,7 +9,9 @@
    "cat": "snack",
    "pref": "pizza hut",
    "backup": "pizza hut",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuks",
+   "stap": 2
   },
   {
    "naam": "pizza hawai",
@@ -18,7 +20,9 @@
    "cat": "maaltijd",
    "pref": "pizza hut",
    "backup": "pizza hut",
-   "opm": ""
+   "opm": "",
+   "eenheid": "pizza",
+   "stap": 1
   },
   {
    "naam": "pizza forestiere",
@@ -27,7 +31,9 @@
    "cat": "maaltijd",
    "pref": "pizza hut",
    "backup": "pizza hut",
-   "opm": ""
+   "opm": "",
+   "eenheid": "pizza",
+   "stap": 1
   },
   {
    "naam": "pizza hot & spicy",
@@ -36,7 +42,9 @@
    "cat": "maaltijd",
    "pref": "pizza hut",
    "backup": "pizza hut",
-   "opm": ""
+   "opm": "",
+   "eenheid": "pizza",
+   "stap": 1
   },
   {
    "naam": "oude batterijen en bruisgasflessen leeg",
@@ -45,7 +53,8 @@
    "cat": "leeggoed",
    "pref": "OKAY",
    "backup": "",
-   "opm": ""
+   "opm": "",
+   "stap": 1
   },
   {
    "naam": "chips paprika",
@@ -54,7 +63,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "chips zout",
@@ -63,7 +74,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "nootjes",
@@ -72,7 +85,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "martini wit",
@@ -81,7 +96,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "cashew noten",
@@ -90,7 +107,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "TUC bacon",
@@ -99,7 +118,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "Citroenconcentraat voor frisdrank",
@@ -108,7 +129,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "Tropical",
@@ -117,7 +140,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "box",
+   "stap": 1
   },
   {
    "naam": "Fruitmoes (vloeibare confituur aardbei)",
@@ -126,7 +151,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "box",
+   "stap": 1
   },
   {
    "naam": "melk volle 6l",
@@ -135,7 +162,9 @@
    "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 6
   },
   {
    "naam": "havermout",
@@ -144,7 +173,9 @@
    "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "confituur rabarber aardbei",
@@ -153,7 +184,9 @@
    "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "pot",
+   "stap": 1
   },
   {
    "naam": "muesli (gedroogd fruit & granen)",
@@ -162,7 +195,9 @@
    "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "choco pops Louis",
@@ -171,7 +206,9 @@
    "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "corn flakes [DUBBEL]",
@@ -180,7 +217,9 @@
    "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "speculoos everyday",
@@ -189,7 +228,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "speculoospasta",
@@ -198,7 +239,9 @@
    "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "pot",
+   "stap": 1
   },
   {
    "naam": "energierepen",
@@ -207,7 +250,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "chocolade of zo",
@@ -216,7 +261,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "reep",
+   "stap": 1
   },
   {
    "naam": "erwtjes (blik)",
@@ -225,7 +272,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "blik",
+   "stap": 1
   },
   {
    "naam": "frisk fresh effect of iets gelijkaardigs",
@@ -234,7 +283,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "hagelslag fondant",
@@ -243,7 +294,9 @@
    "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "reep",
+   "stap": 1
   },
   {
    "naam": "crumble sablé au beurre",
@@ -252,7 +305,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "crumble speculoos",
@@ -261,7 +316,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "koffie",
@@ -270,7 +327,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "pak",
+   "stap": 1
   },
   {
    "naam": "nesquick",
@@ -279,7 +338,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "ontkalker koffiezet",
@@ -288,7 +349,9 @@
    "cat": "onderhoud",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "pims boni",
@@ -297,7 +360,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "augurken",
@@ -306,7 +371,9 @@
    "cat": "sausen ed",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "bokaal",
+   "stap": 1
   },
   {
    "naam": "bechamel",
@@ -315,7 +382,9 @@
    "cat": "sausen ed",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "bruine kinderkessuiker",
@@ -324,7 +393,9 @@
    "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "bruine rijst",
@@ -333,7 +404,9 @@
    "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "canderelsuiker",
@@ -342,7 +415,9 @@
    "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "choco",
@@ -351,7 +426,9 @@
    "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "pot",
+   "stap": 1
   },
   {
    "naam": "couscous",
@@ -360,7 +437,9 @@
    "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "frituurolie",
@@ -369,7 +448,9 @@
    "cat": "keuken",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "griekse pasta",
@@ -378,7 +459,9 @@
    "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "harissa",
@@ -387,7 +470,9 @@
    "cat": "sausen ed",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "tube",
+   "stap": 1
   },
   {
    "naam": "hollandaise",
@@ -396,7 +481,9 @@
    "cat": "sausen ed",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "honing",
@@ -405,7 +492,9 @@
    "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "pot",
+   "stap": 1
   },
   {
    "naam": "klontjes suiker",
@@ -414,7 +503,9 @@
    "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "kristal suiker (voor brood)",
@@ -423,7 +514,9 @@
    "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "tagliatelli",
@@ -432,7 +525,9 @@
    "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "zout",
@@ -441,7 +536,9 @@
    "cat": "kruiden",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "tomatenconcentraat",
@@ -450,7 +547,9 @@
    "cat": "keuken",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "blik",
+   "stap": 1
   },
   {
    "naam": "CO2 flessen",
@@ -459,7 +558,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "amerikaanse saus",
@@ -468,7 +569,9 @@
    "cat": "sausen ed",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "arachideolie",
@@ -477,7 +580,9 @@
    "cat": "keuken",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "ketchup",
@@ -486,7 +591,9 @@
    "cat": "sausen ed",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "Mayo devos lemmens ei",
@@ -495,7 +602,9 @@
    "cat": "sausen ed",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "pot",
+   "stap": 1
   },
   {
    "naam": "mosterd",
@@ -504,7 +613,9 @@
    "cat": "sausen ed",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "pot",
+   "stap": 1
   },
   {
    "naam": "pickels",
@@ -513,7 +624,9 @@
    "cat": "sausen ed",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "pot",
+   "stap": 1
   },
   {
    "naam": "Samourai",
@@ -522,7 +635,9 @@
    "cat": "sausen ed",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "sodastream volle fles",
@@ -531,7 +646,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "zwarte schoensmeer",
@@ -540,7 +657,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "balsamico",
@@ -549,7 +668,9 @@
    "cat": "sausen ed",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "engelse saus",
@@ -558,7 +679,9 @@
    "cat": "sausen ed",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "tabasco",
@@ -567,7 +690,9 @@
    "cat": "sausen ed",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "rozemarijn poedervorm",
@@ -576,7 +701,9 @@
    "cat": "kruiden",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "lookpaste",
@@ -585,7 +712,9 @@
    "cat": "kruiden",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "witte wijn azijn",
@@ -594,7 +723,9 @@
    "cat": "keuken",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "olijfolie",
@@ -603,7 +734,9 @@
    "cat": "keuken",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "reiniging vaatwas",
@@ -612,7 +745,9 @@
    "cat": "onderhoud",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "wasmiddel kleur",
@@ -621,7 +756,9 @@
    "cat": "was",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "wasmiddel voor witte was",
@@ -630,7 +767,9 @@
    "cat": "was",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "wasverzachter",
@@ -639,7 +778,9 @@
    "cat": "was",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "reinigingspray ruiten open haard",
@@ -648,7 +789,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "ontstopper",
@@ -657,7 +800,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "ontvochtingszout",
@@ -666,7 +811,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "dethol citroen",
@@ -675,7 +822,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "spray dettol ajax",
@@ -684,7 +833,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "spray schimmel voegen badkamer",
@@ -693,7 +844,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "wasmachinereiniger",
@@ -702,7 +855,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "instanet",
@@ -711,7 +866,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "zwarte vuilzakken",
@@ -720,7 +877,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "soda-reiniger",
@@ -729,7 +888,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "steradent waterleidingreiniger",
@@ -738,7 +899,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "glansmiddel vaatwas",
@@ -747,7 +910,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "Regenereerzout vaatwas",
@@ -756,7 +921,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "spoelmiddel vaatwas",
@@ -765,7 +932,9 @@
    "cat": "vaatwas",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "vaatwastabletten",
@@ -774,7 +943,9 @@
    "cat": "vaatwas",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "wc cleaner met klem op wc pot",
@@ -783,7 +954,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "swifferdoekjes",
@@ -792,7 +965,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "dentastix",
@@ -801,7 +976,9 @@
    "cat": "dier",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "jumbone",
@@ -810,7 +987,9 @@
    "cat": "dier",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "huishoudpapier",
@@ -819,7 +998,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "servetten",
@@ -828,7 +1009,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "WC papier",
@@ -837,7 +1020,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "blauwe vuilzakken",
@@ -846,7 +1031,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "boterhamzakjes 5 L en 1 L",
@@ -855,7 +1042,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "doggybagzakken met sluiting",
@@ -864,7 +1053,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "aluminium folie",
@@ -873,7 +1064,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "evian Louis water",
@@ -882,7 +1075,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "fanta zero",
@@ -891,7 +1086,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "blik",
+   "stap": 6
   },
   {
    "naam": "gini",
@@ -900,7 +1097,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "blik",
+   "stap": 1
   },
   {
    "naam": "ice tea",
@@ -909,7 +1108,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "blik",
+   "stap": 1
   },
   {
    "naam": "schweppes mochitto",
@@ -918,7 +1119,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "blik",
+   "stap": 1
   },
   {
    "naam": "cola 6 blikjes (gewone)",
@@ -927,7 +1130,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "blik",
+   "stap": 1
   },
   {
    "naam": "cola zero",
@@ -936,7 +1141,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "blik",
+   "stap": 1
   },
   {
    "naam": "schweppes zero",
@@ -945,7 +1152,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "blik",
+   "stap": 1
   },
   {
    "naam": "shampoo",
@@ -954,7 +1163,9 @@
    "cat": "persoonlijk",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "plat water contrex",
@@ -963,7 +1174,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "bruisend water bru",
@@ -972,7 +1185,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "jupiler",
@@ -981,7 +1196,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "blik",
+   "stap": 1
   },
   {
    "naam": "fles bruin piedboeuf",
@@ -990,7 +1207,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "red bull",
@@ -999,7 +1218,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "blik",
+   "stap": 1
   },
   {
    "naam": "wenskaarten",
@@ -1008,7 +1229,9 @@
    "cat": "special",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "look",
@@ -1017,7 +1240,9 @@
    "cat": "kruiden",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "aardappelen bloem aardappelen",
@@ -1026,7 +1251,9 @@
    "cat": "keuken",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "ajuin",
@@ -1035,7 +1262,9 @@
    "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "nicola aardappelen 5 kilo",
@@ -1044,7 +1273,9 @@
    "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "rode ajuin",
@@ -1053,7 +1284,9 @@
    "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "betterfood",
@@ -1062,7 +1295,9 @@
    "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "oorstokjes",
@@ -1071,7 +1306,9 @@
    "cat": "persoonlijk",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "after sun voor kinderen",
@@ -1080,7 +1317,9 @@
    "cat": "persoonlijk",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "handwaszeep",
@@ -1089,7 +1328,9 @@
    "cat": "persoonlijk",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "douchegel",
@@ -1098,7 +1339,9 @@
    "cat": "persoonlijk",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "tandpasta",
@@ -1107,7 +1350,9 @@
    "cat": "persoonlijk",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "tube",
+   "stap": 1
   },
   {
    "naam": "bananen",
@@ -1116,7 +1361,9 @@
    "cat": "fruit",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "baton dunne salami worst",
@@ -1125,7 +1372,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "Houtskool",
@@ -1134,7 +1383,9 @@
    "cat": "logistiek",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "spek blokjes gerookt",
@@ -1143,7 +1394,9 @@
    "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 2
   },
   {
    "naam": "spek sneden",
@@ -1152,7 +1405,9 @@
    "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "vers spek ongezouten sneetjes",
@@ -1161,7 +1416,9 @@
    "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "americain prepare",
@@ -1170,7 +1427,9 @@
    "cat": "beleg",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "cervela",
@@ -1179,7 +1438,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "salami met look",
@@ -1188,7 +1449,9 @@
    "cat": "beleg",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "martino",
@@ -1197,7 +1460,9 @@
    "cat": "beleg",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "Kip curry",
@@ -1206,7 +1471,9 @@
    "cat": "beleg",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "Noordzee sla",
@@ -1215,7 +1482,9 @@
    "cat": "beleg",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "kaas",
@@ -1224,7 +1493,9 @@
    "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "afhangkelijk",
+   "stap": 1
   },
   {
    "naam": "effi of becel",
@@ -1233,7 +1504,9 @@
    "cat": "ontbijt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "platte kaas vol 3 dozen",
@@ -1242,7 +1515,9 @@
    "cat": "beleg",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "eieren",
@@ -1251,7 +1526,9 @@
    "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "lookboter",
@@ -1260,7 +1537,9 @@
    "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "philadelphia",
@@ -1269,7 +1548,9 @@
    "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "verse roomkaas",
@@ -1278,7 +1559,9 @@
    "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "raclettekaas",
@@ -1287,7 +1570,9 @@
    "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "room om ijskreem te maken",
@@ -1296,7 +1581,9 @@
    "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "solo vloeibaar bak",
@@ -1305,7 +1592,9 @@
    "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "boter",
@@ -1314,7 +1603,9 @@
    "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "gorgonzola",
@@ -1323,7 +1614,9 @@
    "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "Fondue enkel opwarmen",
@@ -1332,7 +1625,9 @@
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "gemalen kaas",
@@ -1341,7 +1636,9 @@
    "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "cesar salad",
@@ -1350,7 +1647,9 @@
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "droge worstjes",
@@ -1359,7 +1658,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "zalm",
@@ -1368,7 +1669,9 @@
    "cat": "vis",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "kabeljauw (geen haasje)",
@@ -1377,7 +1680,9 @@
    "cat": "vis",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "Kip",
@@ -1386,7 +1691,9 @@
    "cat": "kip",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "kippegehakt",
@@ -1395,7 +1702,9 @@
    "cat": "kip",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "gyros kip",
@@ -1404,7 +1713,9 @@
    "cat": "kip",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "kip fillet",
@@ -1413,7 +1724,9 @@
    "cat": "kip",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "entrecote rund",
@@ -1422,7 +1735,9 @@
    "cat": "vlees",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "americain natuur",
@@ -1431,7 +1746,9 @@
    "cat": "beleg",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "dikke ribbetjes",
@@ -1440,7 +1757,9 @@
    "cat": "vlees",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "contrefillet rund",
@@ -1449,7 +1768,9 @@
    "cat": "vlees",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "ribbetjes",
@@ -1458,7 +1779,9 @@
    "cat": "vlees",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "gehakt gemengd rund varken",
@@ -1467,7 +1790,9 @@
    "cat": "vlees",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "gram",
+   "stap": 500
   },
   {
    "naam": "gehakt varken kalf voor de boterh...",
@@ -1476,7 +1801,9 @@
    "cat": "beleg",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "gram",
+   "stap": 200
   },
   {
    "naam": "gehakt voor balletjes gemeng...",
@@ -1485,7 +1812,9 @@
    "cat": "vlees",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "gram",
+   "stap": 500
   },
   {
    "naam": "spiering varken",
@@ -1494,7 +1823,9 @@
    "cat": "vlees",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "cordon bleu",
@@ -1503,7 +1834,9 @@
    "cat": "vlees",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "prei veel wit",
@@ -1512,7 +1845,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "komkommer",
@@ -1521,7 +1856,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "tomaten",
@@ -1530,7 +1867,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "witloof",
@@ -1539,7 +1878,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "paddestoelen",
@@ -1548,7 +1889,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "chili pepers",
@@ -1557,7 +1900,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "muizenoortjes",
@@ -1566,7 +1911,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "wortelen",
@@ -1575,7 +1922,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "sla 3 kleuren met wortel",
@@ -1584,7 +1933,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "spaghetti groenten",
@@ -1593,7 +1944,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "groene kool",
@@ -1602,7 +1955,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "gourgette",
@@ -1611,7 +1966,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "spitskool",
@@ -1620,7 +1977,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "chineze kool",
@@ -1629,7 +1988,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "dille met wortel",
@@ -1638,7 +1999,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "basilicum met wortel",
@@ -1647,7 +2010,9 @@
    "cat": "kruiden",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "oetker pizza",
@@ -1656,7 +2021,9 @@
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "bami goreng",
@@ -1665,7 +2032,9 @@
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "macaroni",
@@ -1674,7 +2043,9 @@
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "maaltijd Bea",
@@ -1683,7 +2054,9 @@
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "maaltijd Bea tong madeira",
@@ -1692,7 +2065,9 @@
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "moussaka",
@@ -1701,7 +2076,9 @@
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "lasagne",
@@ -1710,7 +2087,9 @@
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "platte kaasjes voor kids",
@@ -1719,7 +2098,9 @@
    "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 6
   },
   {
    "naam": "yoghurt",
@@ -1728,7 +2109,9 @@
    "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "pot",
+   "stap": 1
   },
   {
    "naam": "yoghurt natuur witte producten 1/2L",
@@ -1737,7 +2120,9 @@
    "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "pot",
+   "stap": 1
   },
   {
    "naam": "alpro vanille",
@@ -1746,7 +2131,9 @@
    "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "pot",
+   "stap": 1
   },
   {
    "naam": "karnemelk",
@@ -1755,7 +2142,9 @@
    "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "appelsiensap",
@@ -1764,7 +2153,9 @@
    "cat": "drank",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "fles",
+   "stap": 1
   },
   {
    "naam": "skyr",
@@ -1773,7 +2164,9 @@
    "cat": "melkproduct",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "pot",
+   "stap": 1
   },
   {
    "naam": "Vanille yougurt",
@@ -1782,7 +2175,9 @@
    "cat": "melkproduct",
    "pref": "",
    "backup": "",
-   "opm": ""
+   "opm": "",
+   "eenheid": "pot",
+   "stap": 1
   },
   {
    "naam": "appelsienen",
@@ -1791,7 +2186,9 @@
    "cat": "fruit",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "appelsien pers",
@@ -1800,7 +2197,9 @@
    "cat": "fruit",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "kiwi",
@@ -1809,7 +2208,9 @@
    "cat": "fruit",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "mandarijntjes, geen doos, aan de...",
@@ -1818,7 +2219,9 @@
    "cat": "fruit",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "platte perziken",
@@ -1827,7 +2230,9 @@
    "cat": "fruit",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "appelen",
@@ -1836,7 +2241,9 @@
    "cat": "fruit",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "Watermeloen",
@@ -1845,7 +2252,9 @@
    "cat": "fruit",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "druiven",
@@ -1854,7 +2263,9 @@
    "cat": "fruit",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "aardbeien",
@@ -1863,7 +2274,9 @@
    "cat": "fruit",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "salami & kaasblokjes",
@@ -1872,7 +2285,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "pannenkoeken",
@@ -1881,7 +2296,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "sandwiches",
@@ -1890,7 +2307,9 @@
    "cat": "brood",
    "pref": "Bakker",
    "backup": "OKAY",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "bruin frans brood",
@@ -1899,7 +2318,9 @@
    "cat": "brood",
    "pref": "OKAY",
    "backup": "OKAY",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "wit caréken",
@@ -1908,7 +2329,9 @@
    "cat": "brood",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "wit brood",
@@ -1917,7 +2340,9 @@
    "cat": "brood",
    "pref": "Bakker",
    "backup": "OKAY",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "brood lichtbruin",
@@ -1926,7 +2351,9 @@
    "cat": "brood",
    "pref": "Bakker",
    "backup": "OKAY",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "brood donker",
@@ -1935,7 +2362,9 @@
    "cat": "brood",
    "pref": "Bakker",
    "backup": "OKAY",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "loempia",
@@ -1944,7 +2373,9 @@
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "voorgebakken frietjes",
@@ -1953,7 +2384,9 @@
    "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "diepvriesgroenten spinazie, bloe...",
@@ -1962,7 +2395,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "diepvries champignons",
@@ -1971,7 +2406,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "frietjes diepvries",
@@ -1980,7 +2417,9 @@
    "cat": "keuken",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "soepgroenten",
@@ -1989,7 +2428,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "diepvrieskroketten",
@@ -1998,7 +2439,9 @@
    "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "diepvriesgroenten mix pierre",
@@ -2007,7 +2450,9 @@
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "diepvriessoepgroenten",
@@ -2016,7 +2461,9 @@
    "cat": "groenten",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "chocoladeijs",
@@ -2025,7 +2472,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "citroenijs",
@@ -2034,7 +2483,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "diepvriesgroenten catalaans 2x",
@@ -2043,7 +2494,9 @@
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "puree met spinazie",
@@ -2052,7 +2505,9 @@
    "cat": "basis_ingrediënt",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "diepvriesgroenten mediteraan 2x",
@@ -2061,7 +2516,9 @@
    "cat": "maaltijd",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "zak",
+   "stap": 1
   },
   {
    "naam": "fish sticks",
@@ -2070,7 +2527,9 @@
    "cat": "vis",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "ijsjes",
@@ -2079,7 +2538,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "Magnum",
@@ -2088,7 +2549,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "verpakking",
+   "stap": 1
   },
   {
    "naam": "vanilleijs",
@@ -2097,7 +2560,9 @@
    "cat": "snack",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "doos",
+   "stap": 1
   },
   {
    "naam": "AA-batterijen",
@@ -2106,7 +2571,9 @@
    "cat": "batterijen",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "AAA-batterijen",
@@ -2115,7 +2582,9 @@
    "cat": "batterijen",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "aanstekers",
@@ -2124,7 +2593,9 @@
    "cat": "batterijen",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "scheermesjes mach3",
@@ -2133,7 +2604,9 @@
    "cat": "persoonlijk",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "2032 batterijen",
@@ -2142,7 +2615,9 @@
    "cat": "batterijen",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "geld afhalen",
@@ -2151,7 +2626,8 @@
    "cat": "rest",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "stap": 1
   },
   {
    "naam": "pruimen",
@@ -2160,7 +2636,9 @@
    "cat": "fruit",
    "pref": "OKAY",
    "backup": "SPAR",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "kartonnen dozen",
@@ -2169,7 +2647,8 @@
    "cat": "rest",
    "pref": "OKAY",
    "backup": "OKAY",
-   "opm": ""
+   "opm": "",
+   "stap": 1
   },
   {
    "naam": "vol-au-vent",
@@ -2178,7 +2657,9 @@
    "cat": "",
    "pref": "L&B_kippekraam",
    "backup": "",
-   "opm": ""
+   "opm": "",
+   "eenheid": "gram",
+   "stap": 500
   },
   {
    "naam": "kippenbouten gebraden 6stuks",
@@ -2187,7 +2668,9 @@
    "cat": "",
    "pref": "L&B_kippekraam",
    "backup": "",
-   "opm": ""
+   "opm": "",
+   "eenheid": "stuk",
+   "stap": 1
   },
   {
    "naam": "patatjes (gebraden)",
@@ -2196,7 +2679,9 @@
    "cat": "",
    "pref": "L&B_kippekraam",
    "backup": "",
-   "opm": ""
+   "opm": "",
+   "eenheid": "voor_personen",
+   "stap": 1
   }
  ]
 }
