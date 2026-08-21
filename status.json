@@ -1,8 +1,11 @@
 {
- "gewijzigd": "2026-08-20T16:53:03.998Z",
+ "gewijzigd": "2026-08-21T07:50:05.006Z",
  "boodschappen": {
-  "aangevinkt": [],
-  "nieuw": []
+  "aangevinkt": [
+   "gehakt gemengd rund varken"
+  ],
+  "nieuw": [],
+  "aantallen": {}
  },
  "taken_log": {
   "h_bosmaaier": [
