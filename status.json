@@ -1,13 +1,12 @@
 {
- "gewijzigd": "2026-08-21T08:25:13.075Z",
+ "gewijzigd": "2026-08-21T08:25:13.881Z",
  "boodschappen": {
   "aangevinkt": [
    "eieren",
    "appelsienen",
    "brood donker",
    "zwarte schoensmeer",
-   "ontkalker koffiezet",
-   "gehakt gemengd rund varken"
+   "ontkalker koffiezet"
   ],
   "nieuw": [],
   "aantallen": {
@@ -15,8 +14,7 @@
    "appelsienen": 4,
    "brood donker": 2,
    "zwarte schoensmeer": 1,
-   "ontkalker koffiezet": 1,
-   "gehakt gemengd rund varken": 2
+   "ontkalker koffiezet": 1
   }
  },
  "taken_log": {
