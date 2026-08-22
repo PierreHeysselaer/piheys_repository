@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-22T17:30:03+02:00",
+    "opgehaald":  "2026-08-22T17:45:02+02:00",
     "vandaag":  "2026-08-22",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -61,11 +61,11 @@
                   {
                       "datum":  "2026-08-22",
                       "regen_mm":  0,
-                      "temp_max":  21,
+                      "temp_max":  20,
                       "temp_min":  11,
                       "wind_max_kmu":  16,
-                      "zon_pct":  85,
-                      "bewolking_pct":  15,
+                      "zon_pct":  90,
+                      "bewolking_pct":  10,
                       "code":  3,
                       "type":  "droog"
                   },
@@ -74,9 +74,9 @@
                       "regen_mm":  0,
                       "temp_max":  22,
                       "temp_min":  11,
-                      "wind_max_kmu":  17,
-                      "zon_pct":  84,
-                      "bewolking_pct":  16,
+                      "wind_max_kmu":  16,
+                      "zon_pct":  87,
+                      "bewolking_pct":  13,
                       "code":  3,
                       "type":  "droog"
                   },
@@ -85,9 +85,9 @@
                       "regen_mm":  0,
                       "temp_max":  22,
                       "temp_min":  12,
-                      "wind_max_kmu":  22,
-                      "zon_pct":  77,
-                      "bewolking_pct":  23,
+                      "wind_max_kmu":  20,
+                      "zon_pct":  82,
+                      "bewolking_pct":  18,
                       "code":  3,
                       "type":  "droog"
                   },
@@ -96,7 +96,7 @@
                       "regen_mm":  0,
                       "temp_max":  22,
                       "temp_min":  13,
-                      "wind_max_kmu":  17,
+                      "wind_max_kmu":  18,
                       "zon_pct":  79,
                       "bewolking_pct":  21,
                       "code":  3,
