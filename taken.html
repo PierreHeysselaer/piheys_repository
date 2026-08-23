@@ -323,6 +323,27 @@ function termijn(t, datum){
   return {aanBeurt: sinds>=freq, sinds, freq, over: freq-sinds, laatst};
 }
 
+/* Belgische feestdagen — Pasen via Meeus/Jones/Butcher */
+function pasen(jaar){
+  const a=jaar%19,b=Math.floor(jaar/100),c=jaar%100,d=Math.floor(b/4),e=b%4;
+  const f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3);
+  const h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4;
+  const l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451);
+  const mnd=Math.floor((h+l-7*m+114)/31), dag=((h+l-7*m+114)%31)+1;
+  return new Date(jaar, mnd-1, dag);
+}
+function feestdagenBelgie(jaar){
+  const p = pasen(jaar);
+  const pd = n => { const x = new Date(p); x.setDate(p.getDate()+n); return dstr(x); };
+  return [
+    `${jaar}-01-01`, `${jaar}-05-01`, `${jaar}-07-21`,
+    `${jaar}-08-15`, `${jaar}-11-01`, `${jaar}-11-11`, `${jaar}-12-25`,
+    pd(1),   /* Paasmaandag          */
+    pd(39),  /* Hemelvaartsdag       */
+    pd(50)   /* Pinkstermaandag      */
+  ];
+}
+
 /* kloppen de omstandigheden? geeft ook terug waaróm niet */
 function condities(t, datum){
   const v = t.voorwaarden || {};
@@ -335,6 +356,10 @@ function condities(t, datum){
     neeK.push('pas in ' + v.maanden.map(m=>MND[m-1]).join(' of '));
   if (v.dag && !v.dag.includes(KORT[d.getDay()]))
     neeK.push('andere dag van de week');
+  if (v.dag_niet && v.dag_niet.includes(KORT[d.getDay()]))
+    neeK.push('zondag — geen kabaal in de tuin');
+  if (v.geen_feestdag && feestdagenBelgie(d.getFullYear()).includes(datum))
+    neeK.push('feestdag — geen kabaal in de tuin');
 
   if (w){
     if (v.regen_vandaag_max_mm != null && w.regen_mm > v.regen_vandaag_max_mm)
