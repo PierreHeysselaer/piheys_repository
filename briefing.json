@@ -1,12 +1,11 @@
 {
-  "datum": "2026-08-22",
+  "datum": "2026-08-23",
   "agenda": [
-    { "tijd": "heel de dag", "tekst": "Ellis woe avond tem zaterdag" },
     { "tijd": "heel de dag", "tekst": "Louis is bij ons" },
-    { "tijd": "heel de dag", "tekst": "afspreken aan zee. nog detail" }
+    { "tijd": "11:30", "tekst": "Kommetje en 120€ naar de kroon" }
   ],
   "bij_taak": {
-    "h_gras": "vandaag aan zee — morgen en overmorgen zijn droog en zonnig, ideale kans",
-    "h_netels": "grond is genoeg doorweekt na vorige week — morgen droog en zonnig, eerste goede kans"
+    "h_gras": "twee droge dagen achter de rug, vandaag en morgen zonnig — maandag regen op komst, dit is je venster",
+    "h_netels": "grond goed doorweekt na vorige week, nu droog — ideaal moment"
   }
 }
