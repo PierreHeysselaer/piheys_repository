@@ -31,7 +31,7 @@
         "za": "07:00-18:00",
         "zo": "07:00-12:00"
       },
-      "gesloten_tot": "2026-08-05",
+      "gesloten_tot": null,
       "opm": "voorkeur voor brood, zak meenemen"
     },
     "OKAY": {
