@@ -181,6 +181,8 @@
             9,
             10
           ],
+          "dag_niet": ["zo"],
+          "geen_feestdag": true,
           "regen_vandaag_max_mm": 1
         }
       },
@@ -229,6 +231,8 @@
             9,
             10
           ],
+          "dag_niet": ["zo"],
+          "geen_feestdag": true,
           "regen_vandaag_max_mm": 0.5,
           "regen_vorige_dagen": {
             "dagen": 2,
@@ -252,6 +256,8 @@
             7,
             8
           ],
+          "dag_niet": ["zo"],
+          "geen_feestdag": true,
           "temp_min": 12,
           "regen_vandaag_max_mm": 1
         }
