@@ -2,10 +2,12 @@
   "datum": "2026-08-23",
   "agenda": [
     { "tijd": "heel de dag", "tekst": "Louis is bij ons" },
-    { "tijd": "11:30", "tekst": "Kommetje en 120€ naar de kroon" }
+    { "tijd": "11:30", "tekst": "Kommetje en 120€ naar de kroon" },
+    { "tijd": "13:30", "tekst": "louis klaar maken" }
   ],
   "bij_taak": {
     "h_gras": "twee droge dagen achter de rug, vandaag en morgen zonnig — maandag regen op komst, dit is je venster",
     "h_netels": "grond goed doorweekt na vorige week, nu droog — ideaal moment"
-  }
+  },
+  "bedenking": "Vanaf 11:30 zit de namiddag vol — buitenklussen doe je best vanochtend."
 }
