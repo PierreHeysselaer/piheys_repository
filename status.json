@@ -1,14 +1,23 @@
 {
- "gewijzigd": "2026-08-24T09:36:52.909Z",
+ "gewijzigd": "2026-08-24T09:38:07.609Z",
  "boodschappen": {
   "aangevinkt": [
    "witte wijn azijn",
    "AA-batterijen",
    "eieren",
    "salami met look",
-   "gehakt gemengd rund varken"
+   "gehakt gemengd rund varken",
+   "Braadworst"
   ],
-  "nieuw": [],
+  "nieuw": [
+   {
+    "naam": "Braadworst",
+    "cat": "vlees",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-24"
+   }
+  ],
   "aantallen": {
    "witte wijn azijn": 1,
    "AA-batterijen": 1,
