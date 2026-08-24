@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-24T08:45:01+02:00",
+    "opgehaald":  "2026-08-24T09:15:01+02:00",
     "vandaag":  "2026-08-24",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -82,7 +82,7 @@
                   },
                   {
                       "datum":  "2026-08-26",
-                      "regen_mm":  0.4,
+                      "regen_mm":  0.5,
                       "temp_max":  25,
                       "temp_min":  16,
                       "wind_max_kmu":  16,
@@ -93,46 +93,46 @@
                   },
                   {
                       "datum":  "2026-08-27",
-                      "regen_mm":  5.4,
-                      "temp_max":  26,
+                      "regen_mm":  7,
+                      "temp_max":  27,
                       "temp_min":  18,
-                      "wind_max_kmu":  13,
-                      "zon_pct":  74,
-                      "bewolking_pct":  26,
-                      "code":  55,
-                      "type":  "regen"
-                  },
-                  {
-                      "datum":  "2026-08-28",
-                      "regen_mm":  12.3,
-                      "temp_max":  21,
-                      "temp_min":  16,
-                      "wind_max_kmu":  20,
-                      "zon_pct":  83,
-                      "bewolking_pct":  17,
+                      "wind_max_kmu":  11,
+                      "zon_pct":  82,
+                      "bewolking_pct":  18,
                       "code":  95,
                       "type":  "regen"
                   },
                   {
+                      "datum":  "2026-08-28",
+                      "regen_mm":  9,
+                      "temp_max":  19,
+                      "temp_min":  16,
+                      "wind_max_kmu":  23,
+                      "zon_pct":  93,
+                      "bewolking_pct":  7,
+                      "code":  80,
+                      "type":  "regen"
+                  },
+                  {
                       "datum":  "2026-08-29",
-                      "regen_mm":  3.9,
-                      "temp_max":  20,
-                      "temp_min":  15,
-                      "wind_max_kmu":  19,
-                      "zon_pct":  67,
-                      "bewolking_pct":  33,
-                      "code":  53,
+                      "regen_mm":  6.9,
+                      "temp_max":  21,
+                      "temp_min":  16,
+                      "wind_max_kmu":  22,
+                      "zon_pct":  81,
+                      "bewolking_pct":  19,
+                      "code":  80,
                       "type":  "regen"
                   },
                   {
                       "datum":  "2026-08-30",
-                      "regen_mm":  3.3,
+                      "regen_mm":  7.2,
                       "temp_max":  22,
                       "temp_min":  16,
-                      "wind_max_kmu":  27,
-                      "zon_pct":  97,
-                      "bewolking_pct":  3,
-                      "code":  51,
+                      "wind_max_kmu":  20,
+                      "zon_pct":  96,
+                      "bewolking_pct":  4,
+                      "code":  53,
                       "type":  "regen"
                   }
               ]
