@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-24T09:41:16.469Z",
+ "gewijzigd": "2026-08-24T09:42:53.999Z",
  "boodschappen": {
   "aangevinkt": [
    "witte wijn azijn",
@@ -7,12 +7,20 @@
    "eieren",
    "salami met look",
    "gehakt gemengd rund varken",
-   "Braadworst"
+   "Braadworst",
+   "Hesp"
   ],
   "nieuw": [
    {
     "naam": "Braadworst",
     "cat": "vlees",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-24"
+   },
+   {
+    "naam": "Hesp",
+    "cat": "beleg",
     "pref": "OKAY",
     "specs": "",
     "toegevoegd": "2026-08-24"
