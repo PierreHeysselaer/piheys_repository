@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bretagne — zwaartekrachtkaart</title>
+<title>Bretagne &amp; Normandië — zwaartekrachtkaart</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,10 +14,11 @@
     --granite-2:#2b363a;
     --paper:#f3f1ea;
     --line:rgba(243,241,234,.14);
-    --t1:#cf7534;   /* baken — sterkste trekkracht */
-    --t2:#2f8189;   /* zee-teal */
-    --t3:#8c9179;   /* mos-grijs */
-    --hinge:#8a6db0; /* scharnier */
+    --t1:#cf7534;
+    --t2:#2f8189;
+    --t3:#8c9179;
+    --hinge:#8a6db0;
+    --start:#e8b84b;
     --sea:#dfe7e6;
   }
   *{box-sizing:border-box}
@@ -29,7 +30,6 @@
   }
   #map{position:fixed;inset:0;background:var(--sea);z-index:0}
 
-  /* floating panel */
   .panel{
     position:fixed;top:14px;left:14px;z-index:1000;
     width:340px;max-width:calc(100vw - 28px);
@@ -55,7 +55,6 @@
   .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
     color:rgba(243,241,234,.5);margin:0 0 10px}
 
-  /* tier toggles */
   .tier{display:flex;align-items:center;gap:11px;width:100%;
     background:none;border:0;color:inherit;cursor:pointer;
     padding:7px 8px;border-radius:9px;text-align:left;font:inherit;
@@ -69,7 +68,6 @@
   .tier .tdesc{font-size:11.5px;color:rgba(243,241,234,.6)}
   .tier .chk{margin-left:auto;font-size:11px;color:rgba(243,241,234,.5)}
 
-  /* site list */
   .grp-title{display:flex;align-items:center;gap:8px;font-size:12px;
     letter-spacing:.04em;color:rgba(243,241,234,.85);margin:14px 0 6px;font-weight:600}
   .grp-title .gdot{width:9px;height:9px;border-radius:50%;flex:none}
@@ -89,7 +87,6 @@
   .note{font-size:11.5px;line-height:1.5;color:rgba(243,241,234,.62)}
   .note b{color:var(--t1);font-weight:600}
 
-  /* collapse control */
   .toggle-panel{position:fixed;top:14px;left:14px;z-index:1001;
     display:none;align-items:center;gap:7px;
     background:var(--granite);color:var(--paper);border:1px solid var(--line);
@@ -99,7 +96,6 @@
     cursor:pointer;font-size:18px;line-height:1;padding:2px 4px;border-radius:6px}
   .collapse:hover{color:var(--paper);background:rgba(243,241,234,.08)}
 
-  /* leaflet popup restyle */
   .leaflet-popup-content-wrapper{background:var(--granite);color:var(--paper);
     border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.5)}
   .leaflet-popup-tip{background:var(--granite)}
@@ -132,8 +128,8 @@
   <div class="panel-head">
     <div style="display:flex;align-items:flex-start;gap:8px">
       <div style="flex:1">
-        <p class="kicker">September · auto + ferry</p>
-        <h1>Bretagne<br>zwaartekrachtkaart</h1>
+        <p class="kicker">30 sept – 12 okt · auto + ferry</p>
+        <h1>Bretagne<br>&amp; Normandië</h1>
       </div>
       <button class="collapse" id="closeBtn" aria-label="Verberg paneel">×</button>
     </div>
@@ -149,18 +145,29 @@
     <div class="section" id="siteList"></div>
 
     <div class="section">
-      <p class="lbl">Regio's</p>
+      <p class="lbl">Regio's — Normandië</p>
       <div class="region-key">
-        <span><b>N</b> Noordkust</span>
-        <span><b>F</b> Finistère</span>
-        <span><b>ZM</b> Zuid-Morbihan</span>
-        <span><b>ZL</b> zuidpoort / Loire</span>
+        <span><b>▶</b> Startpunt</span>
+        <span><b>◆</b> Scharnier</span>
+        <span><b>HN</b> Haute-Norm.</span>
+        <span><b>CN</b> Calvados/centraal</span>
+        <span><b>ZN</b> Zuid-Norm./Perche</span>
       </div>
     </div>
 
     <div class="section">
-      <p class="lbl">September</p>
-      <p class="note"><b>Gavrinis</b> stuurt je timing: de boot vaart meestal maar tot eind september — dat als eerste vastzetten. Mild weer, mooi licht, weinig volk; kleine musea kunnen na half september korter open zijn.</p>
+      <p class="lbl">Regio's — Bretagne</p>
+      <div class="region-key">
+        <span><b>N</b> Noordkust</span>
+        <span><b>F</b> Finistère</span>
+        <span><b>ZM</b> Zuid-Morbihan</span>
+        <span><b>ZL</b> Zuidpoort/Loire</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="lbl">Timing</p>
+      <p class="note"><b>Gavrinis</b> stuurt je timing: de boot vaart meestal maar tot eind september — dat als eerste vastzetten. <b>Pays d'Auge</b> is in herfstkleur prachtig in oktober. Mild weer, mooi licht, weinig volk in beide regio's.</p>
     </div>
   </div>
 </div>
@@ -176,21 +183,62 @@ const TIERS = {
      r:6,  name:"Tier 3 — leuk meegenomen", desc:"als ze op de route vallen"},
 };
 const HINGE = getComputedStyle(document.documentElement).getPropertyValue('--hinge').trim();
+const START = getComputedStyle(document.documentElement).getPropertyValue('--start').trim();
 
 const SITES = [
+  /* ===== NORMANDIE ===== */
+
+  /* startpunt */
+  {id:"wimereux", name:"Wimereux", tier:1, region:"▶ Start", time:"30 sept — vertrek", lat:50.7653, lng:1.6134, start:true,
+   why:"Startpunt van de reis. Kustplaats vlak bij Boulogne-sur-Mer, net boven de historische grens van Normandië."},
+
+  /* tier 1 */
+  {id:"rouen", name:"Rouen", tier:1, region:"HN", time:"1–2 dagen", lat:49.4432, lng:1.0993,
+   why:"Gotische kathedraal (geschilderd door Monet), het Gros Horloge, Jeanne d'Arc-site. Rijkste middeleeuwse binnenstad van Normandië — knooppunt voor de hele regio."},
+  {id:"bayeux", name:"Bayeux", tier:1, region:"CN", time:"halve–hele dag", lat:49.2764, lng:-0.7024,
+   why:"Het Tapijt van Bayeux (70m geborduurd verslag van de Normandische verovering, 1066) + een prachtige middeleeuwse binnenstad die volledig gespaard bleef in WOII. Onmisbaar."},
+  {id:"falaise", name:"Falaise — Château Guillaume", tier:1, region:"CN", time:"halve dag", lat:48.8980, lng:-0.1981,
+   why:"Geboorteplaats van Willem de Veroveraar. Indrukwekkend kasteel met goed opgezet museum. In oktober weinig druk — één van de mooiste kastelen van Normandië."},
+
+  /* tier 2 */
+  {id:"jumieres", name:"Abbaye de Jumièges", tier:2, region:"HN", time:"1,5 u", lat:49.4319, lng:0.8184,
+   why:"Spectaculaire ruïne van een 7e-eeuwse benedictijnenabdij aan de Seine — één van de mooiste ruïnes van Frankrijk. Weinig bezoekers, vlak bij Rouen."},
+  {id:"gaillard", name:"Château Gaillard (Les Andelys)", tier:2, region:"HN", time:"1–1,5 u", lat:49.2453, lng:1.4103,
+   why:"Rotskasteelruïne van Richard Leeuwenhart (gebouwd in 1 jaar, 1197–1198) boven een spectaculaire bocht in de Seine. Dramatisch uitzicht, gratis toegang."},
+  {id:"honfleur", name:"Honfleur", tier:2, region:"CN", time:"halve dag", lat:49.4186, lng:0.2334,
+   why:"Pittoresk vissersdorp met het Vieux Bassin — de kleurige rij hoge vakwerkhuizen langs de haven. Geboorteplaats van Erik Satie. Mooi startpunt voor het Pays d'Auge."},
+  {id:"pays_auge", name:"Pays d'Auge — ciderroute", tier:2, region:"CN", time:"halve dag", lat:49.1744, lng:0.0644,
+   why:"Het hart van het authentieke Normandische binnenland: vakwerkdorpen, appelgaarden in herfstkleur (perfecte timing in oktober), calvados- en ciderproducenten. Beuvron-en-Auge als ankerdorp."},
+  {id:"suisse_norm", name:"Suisse Normande (Clécy)", tier:2, region:"CN", time:"halve dag", lat:48.9136, lng:-0.4725,
+   why:"Kalksteenklippen en gorges langs de Orne — wandelen, uitzichtpunten (Le Pain de Sucre). Totaal ander landschap dan de kust, en weinig toeristen. Mooi in herfstkleuren."},
+  {id:"belleme", name:"Bellême — Le Perche", tier:2, region:"ZN", time:"2–3 u", lat:48.3733, lng:0.5611,
+   why:"Middeleeuwse marktstad in het hart van Le Perche, omringd door bossen en kasteelruïnes. Het meest vergeten hoekje van Normandië — mooi in herfstkleur en kakelvers in october."},
+
+  /* tier 3 */
+  {id:"domfront", name:"Domfront", tier:3, region:"ZN", time:"1–1,5 u", lat:48.5942, lng:-0.6436,
+   why:"Middeleeuwse hilltop-stad met resten van het kasteel van Hendrik II van Engeland. Logisch tussenpunt op de weg naar Mont-Saint-Michel vanuit het zuiden."},
+  {id:"alencon", name:"Alençon", tier:3, region:"ZN", time:"halve dag", lat:48.4297, lng:0.0886,
+   why:"Kantwerkstad (UNESCO-immaterieel erfgoed), mooie binnenstad met Flamboyant-gothiek. Scharnierpunt tussen Le Perche en Bretagne."},
+  {id:"lisieux", name:"Lisieux", tier:3, region:"CN", time:"1–2 u", lat:49.1456, lng:0.2275,
+   why:"Ste-Thérèse-basiliek en toegangspoort van het Pays d'Auge. Combineert goed met Honfleur en Beuvron-en-Auge."},
+
+  /* scharnier */
+  {id:"msm", name:"Mont-Saint-Michel", tier:1, region:"scharnier", time:"halve–hele dag", lat:48.6361, lng:-1.5115, hinge:true,
+   why:"Technisch net Normandië, maar hij zet je aan de voordeur van Bretagne. Perfecte overgang op de route. Vroeg of laat op de dag, buiten de bussenpiek."},
+
+  /* ===== BRETAGNE ===== */
+
   {id:"locmariaquer", name:"Locmariaquer", tier:1, region:"ZM", time:"1,5–2 u", lat:47.5717, lng:-2.9513,
    why:"Grand Menhir Brisé (ooit ~20 m), Table des Marchands en Er-Grah-tumulus op één site. Compacter en vaak indrukwekkender dan Carnac zelf."},
   {id:"gavrinis", name:"Gavrinis", tier:1, region:"ZM", time:"halve dag", lat:47.5719, lng:-2.8986, boat:true,
    why:"Grafkelder met stenen vol spiralen en golfmotieven — neolithische graveerkunst van ~6.000 jaar oud. De topper qua vakmanschap. Boot vooraf boeken; vaart mogelijk maar tot eind sept."},
   {id:"carnac", name:"Carnac — alignementen", tier:1, region:"ZM", time:"halve dag", lat:47.5914, lng:-3.0825,
    why:"De rijen (Ménec, Kermario, Kerlescan) + tumulus Saint-Michel. Neem de gidstour vanuit de Maison des Mégalithes, anders zie je vooral stenen op een rij. UNESCO sinds 2025."},
-  {id:"msm", name:"Mont-Saint-Michel", tier:1, region:"scharnier", time:"halve–hele dag", lat:48.6361, lng:-1.5115, hinge:true,
-   why:"Technisch net Normandië, maar hij zet je aan de voordeur van Bretagne. Perfecte overgang op de route van oost naar west. Vroeg of laat op de dag, buiten de bussenpiek."},
 
   {id:"vannes", name:"Vannes (Darioritum)", tier:2, region:"ZM", time:"halve–hele dag", lat:47.6568, lng:-2.7579,
    why:"Romeins verleden verweven met een gave middeleeuwse binnenstad, wallen en vakwerk. Logische uitvalsbasis voor de hele Morbihan-hoek."},
   {id:"corseul", name:"Corseul — Temple de Mars", tier:2, region:"N", time:"1–2 u", lat:48.4717, lng:-2.1468,
-   why:"Best bewaarde Gallo-Romeinse tempelrest van Bretagne, hoofdstad van de Coriosolites. Gratis, met app + 3D-reconstructie en een museum in het dorp. Precies jouw straatje."},
+   why:"Best bewaarde Gallo-Romeinse tempelrest van Bretagne, hoofdstad van de Coriosolites. Gratis, met app + 3D-reconstructie en een museum in het dorp."},
   {id:"pontaven", name:"Pont-Aven", tier:2, region:"F", time:"halve dag", lat:47.8555, lng:-3.7483,
    why:"Schildersdorp van Gauguin en de School van Pont-Aven, met museum. Kleurrijk, aan de rivier, feel-good."},
   {id:"barnenez", name:"Cairn de Barnenez", tier:2, region:"F", time:"1–1,5 u", lat:48.6675, lng:-3.8585,
@@ -203,6 +251,8 @@ const SITES = [
    why:"Bizarre roze granietrotsen aan zee, kustwandeling langs de sentier des douaniers. Feel-good natuur, geen erfgoed."},
   {id:"nantes", name:"Nantes — Machines de l'Île", tier:2, region:"ZL", time:"halve dag", lat:47.2062, lng:-1.5644,
    why:"Reuzenolifant en mechanische zeedieren-carrousel, Jules Verne-sfeer. Voor een maker een dag pure fun — en kindvriendelijk. Ligt als zuidpoort klaar voor de terugweg."},
+  {id:"guilvinec", name:"Haliotika — Le Guilvinec", tier:2, region:"F", time:"halve dag", lat:47.7956, lng:-4.2893,
+   why:"Grootste ambachtelijke vissershaven van Frankrijk. 's Middags (± 16–17u) komen de boten binnen en kan je de visveiling bijwonen vanuit een tribune. Uniek en heel lokaal."},
 
   {id:"locronan", name:"Locronan", tier:3, region:"F", time:"1–2 u", lat:48.0987, lng:-4.2075,
    why:"Een van de 'plus beaux villages', steenmooi en autovrij kerntje."},
@@ -212,23 +262,17 @@ const SITES = [
    why:"Vestingstadje op een eilandje in de haven. Sfeervol, wat toeristisch."},
   {id:"broceliande", name:"Forêt de Brocéliande", tier:3, region:"centraal", time:"halve–hele dag", lat:48.0188, lng:-2.1740,
    why:"Sagenwereld van Merlijn en Arthur — bronnen, grafheuvels, Val sans Retour. Meer sfeer dan hard erfgoed, maar houdt de Keltische rode draad vast."},
-
-  /* kanalen */
   {id:"hede", name:"Sluizentrap van Hédé-Bazouges", tier:3, region:"N", time:"1–1,5 u", lat:48.2944, lng:-1.8018,
-   why:"Elf sluizen achter elkaar in een groene vallei op het Canal d'Ille-et-Rance, met een wandelpad langs de hele trap. Weinig toeristisch, heel rustig. Dichtbij Dinan en Saint-Malo."},
+   why:"Elf sluizen achter elkaar in een groene vallei op het Canal d'Ille-et-Rance, met een wandelpad langs de hele trap. Weinig toeristisch, heel rustig."},
   {id:"redon", name:"Redon", tier:3, region:"ZL", time:"1 u", lat:47.6521, lng:-2.0843,
    why:"Knooppunt waar het Canal de Nantes à Brest en de rivier de Vilaine samenkomen. Mooie kanaalhaven met oude pakhuizen. Logisch tussenpunt op de route naar Nantes."},
-
-  /* speciale musea */
-  {id:"guilvinec", name:"Haliotika — Le Guilvinec", tier:2, region:"F", time:"halve dag", lat:47.7956, lng:-4.2893,
-   why:"Grootste ambachtelijke vissershaven van Frankrijk. 's Middags (± 16–17u) komen de boten binnen en kan je de visveiling bijwonen vanuit een tribune. Uniek en heel lokaal."},
   {id:"stmarcel", name:"Musée de la Résistance Bretonne", tier:3, region:"ZM", time:"2 u", lat:47.7747, lng:-2.3982,
    why:"Indrukwekkend museum over het Bretonse verzet in WOII, op de plek van een groot maquis-kamp bij Saint-Marcel (Malestroit). Weinig bekend, goed gemaakt."},
   {id:"montarree", name:"Écomusée des Monts d'Arrée", tier:3, region:"F", time:"halve dag", lat:48.2461, lng:-3.9806,
    why:"Openluchtmuseum over het traditionele Bretonse boerenbestaan in het ruige heidelandschap. Combineert goed met een rijtoer door het binnenland."},
 ];
 
-const map = L.map('map',{zoomControl:true}).setView([48.1,-2.9],8);
+const map = L.map('map',{zoomControl:true}).setView([49.0,-1.5],7);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
   attribution:'&copy; OpenStreetMap &copy; CARTO', subdomains:'abcd', maxZoom:19
 }).addTo(map);
@@ -237,10 +281,15 @@ const layers = {1:L.layerGroup().addTo(map),2:L.layerGroup().addTo(map),3:L.laye
 const markers = {};
 const tierOn = {1:true,2:true,3:true};
 
+function markerColor(s){
+  if(s.hinge) return HINGE;
+  if(s.start) return START;
+  return TIERS[s.tier].color;
+}
+
 function popupHTML(s){
-  const t = TIERS[s.tier];
-  const col = s.hinge ? HINGE : t.color;
-  const tierLabel = s.hinge ? "Scharnierpunt" : ("Tier "+s.tier);
+  const col = markerColor(s);
+  const tierLabel = s.hinge ? "Scharnierpunt" : s.start ? "Startpunt" : ("Tier "+s.tier);
   const bits = [`<span>📍 ${s.region}</span>`,`<span>⏱ ${s.time}</span>`];
   if(s.boat) bits.push(`<span>⛴ per boot</span>`);
   return `<span class="pop-tier" style="background:${col}22;color:${col}">${tierLabel}</span>
@@ -251,24 +300,22 @@ function popupHTML(s){
 
 SITES.forEach(s=>{
   const t = TIERS[s.tier];
-  const col = s.hinge ? HINGE : t.color;
-  // halo for the heavy anchors
-  if(s.tier===1){
+  const col = markerColor(s);
+  if(s.tier===1 || s.start){
     L.circleMarker([s.lat,s.lng],{radius:t.r+9,stroke:false,fillColor:col,fillOpacity:.16,
       interactive:false}).addTo(layers[s.tier]);
   }
   const m = L.circleMarker([s.lat,s.lng],{
     radius:t.r, color:'#f3f1ea', weight:1.5, fillColor:col, fillOpacity:.95
   }).bindPopup(popupHTML(s),{maxWidth:280});
-  if(s.hinge){ m.setStyle({dashArray:'2 3',weight:2}); }
+  if(s.hinge || s.start){ m.setStyle({dashArray:'2 3',weight:2}); }
   m.on('mouseover',()=>m.setStyle({radius:t.r+2}));
   m.on('mouseout',()=>m.setStyle({radius:t.r}));
   m.addTo(layers[s.tier]);
   markers[s.id]=m;
 });
 
-// fit to all
-map.fitBounds(L.latLngBounds(SITES.map(s=>[s.lat,s.lng])).pad(0.12));
+map.fitBounds(L.latLngBounds(SITES.map(s=>[s.lat,s.lng])).pad(0.08));
 
 /* ---- tier toggles ---- */
 const tt = document.getElementById('tierToggles');
@@ -297,8 +344,10 @@ const GRPNAME={1:"De ankers",2:"In de streek meepakken",3:"Leuk meegenomen"};
   title.innerHTML=`<span class="gdot" style="background:${TIERS[k].color}"></span>${GRPNAME[k]}`;
   wrap.appendChild(title);
   SITES.filter(s=>s.tier===k).forEach(s=>{
+    const col = markerColor(s);
+    const badge = s.hinge ? ` <span style="color:${HINGE}">◆</span>` : s.start ? ` <span style="color:${START}">▶</span>` : '';
     const btn=document.createElement('button'); btn.className='site';
-    btn.innerHTML=`<span class="sname">${s.name}${s.hinge?' <span style="color:'+HINGE+'">◆</span>':''}</span><span class="stag">${s.region} · ${s.time}</span>`;
+    btn.innerHTML=`<span class="sname">${s.name}${badge}</span><span class="stag">${s.region} · ${s.time}</span>`;
     btn.onclick=()=>{
       if(!tierOn[k]) return;
       map.flyTo([s.lat,s.lng],11,{duration:.7});
