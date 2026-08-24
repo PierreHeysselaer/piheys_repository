@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-24T09:42:53.999Z",
+ "gewijzigd": "2026-08-24T09:43:35.584Z",
  "boodschappen": {
   "aangevinkt": [
    "witte wijn azijn",
@@ -8,7 +8,8 @@
    "salami met look",
    "gehakt gemengd rund varken",
    "Braadworst",
-   "Hesp"
+   "Hesp",
+   "Kaas half belegen"
   ],
   "nieuw": [
    {
@@ -20,6 +21,13 @@
    },
    {
     "naam": "Hesp",
+    "cat": "beleg",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-24"
+   },
+   {
+    "naam": "Kaas half belegen",
     "cat": "beleg",
     "pref": "OKAY",
     "specs": "",
