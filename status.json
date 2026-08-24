@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-24T09:49:13.379Z",
+ "gewijzigd": "2026-08-24T09:50:14.831Z",
  "boodschappen": {
   "aangevinkt": [
    "witte wijn azijn",
@@ -20,7 +20,8 @@
    "platte kaasjes voor kids",
    "yoghurt natuur witte producten 1/2L",
    "muesli (gedroogd fruit & granen)",
-   "spek blokjes gerookt"
+   "spek blokjes gerookt",
+   "Conditioner"
   ],
   "nieuw": [
    {
@@ -47,6 +48,13 @@
    {
     "naam": "Diepvries wortelen",
     "cat": "basic",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-24"
+   },
+   {
+    "naam": "Conditioner",
+    "cat": "persoonlijk",
     "pref": "OKAY",
     "specs": "",
     "toegevoegd": "2026-08-24"
