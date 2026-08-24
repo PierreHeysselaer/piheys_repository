@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-24T09:45:10.664Z",
+ "gewijzigd": "2026-08-24T09:45:49.492Z",
  "boodschappen": {
   "aangevinkt": [
    "witte wijn azijn",
@@ -14,7 +14,8 @@
    "bananen",
    "komkommer",
    "wortelen",
-   "spaghetti groenten"
+   "spaghetti groenten",
+   "Diepvries wortelen"
   ],
   "nieuw": [
    {
@@ -34,6 +35,13 @@
    {
     "naam": "Kaas half belegen",
     "cat": "beleg",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-08-24"
+   },
+   {
+    "naam": "Diepvries wortelen",
+    "cat": "basic",
     "pref": "OKAY",
     "specs": "",
     "toegevoegd": "2026-08-24"
