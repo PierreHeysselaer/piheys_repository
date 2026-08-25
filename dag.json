@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-25T17:30:04+02:00",
+    "opgehaald":  "2026-08-25T17:45:03+02:00",
     "vandaag":  "2026-08-25",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -61,39 +61,39 @@
                   {
                       "datum":  "2026-08-25",
                       "regen_mm":  0,
-                      "temp_max":  23,
+                      "temp_max":  22,
                       "temp_min":  13,
-                      "wind_max_kmu":  15,
-                      "zon_pct":  66,
-                      "bewolking_pct":  34,
+                      "wind_max_kmu":  17,
+                      "zon_pct":  60,
+                      "bewolking_pct":  40,
                       "code":  3,
                       "type":  "droog"
                   },
                   {
                       "datum":  "2026-08-26",
                       "regen_mm":  0,
-                      "temp_max":  27,
-                      "temp_min":  15,
-                      "wind_max_kmu":  11,
-                      "zon_pct":  52,
-                      "bewolking_pct":  48,
+                      "temp_max":  26,
+                      "temp_min":  14,
+                      "wind_max_kmu":  12,
+                      "zon_pct":  75,
+                      "bewolking_pct":  25,
                       "code":  3,
                       "type":  "droog"
                   },
                   {
                       "datum":  "2026-08-27",
-                      "regen_mm":  0,
+                      "regen_mm":  1,
                       "temp_max":  27,
-                      "temp_min":  18,
-                      "wind_max_kmu":  20,
-                      "zon_pct":  74,
-                      "bewolking_pct":  26,
-                      "code":  3,
-                      "type":  "droog"
+                      "temp_min":  19,
+                      "wind_max_kmu":  17,
+                      "zon_pct":  65,
+                      "bewolking_pct":  35,
+                      "code":  53,
+                      "type":  "regen"
                   },
                   {
                       "datum":  "2026-08-28",
-                      "regen_mm":  17.3,
+                      "regen_mm":  16.4,
                       "temp_max":  23,
                       "temp_min":  16,
                       "wind_max_kmu":  20,
