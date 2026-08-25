@@ -1,10 +1,10 @@
 {
-  "datum": "2026-08-24",
+  "datum": "2026-08-25",
   "agenda": [
     { "tijd": "heel de dag", "tekst": "Louis is bij ons" }
   ],
   "bij_taak": {
-    "h_gras": "droog geweest za en zo — vandaag je laatste kans voor de bui van morgen",
-    "h_netels": "grond goed doorweekt na vorige week, nu twee droge dagen — ideaal moment"
+    "h_gras": "drie droge dagen achter de rug — vandaag je kans, morgen regen verwacht",
+    "h_netels": "grond nog goed vochtig na vrijdag en zaterdag, maar droogt verder op — niet te lang wachten"
   }
 }
