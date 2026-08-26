@@ -1,32 +1,7 @@
 {
- "gewijzigd": "2026-08-24T09:56:33.817Z",
+ "gewijzigd": "2026-08-26T08:17:17.469Z",
  "boodschappen": {
-  "aangevinkt": [
-   "witte wijn azijn",
-   "AA-batterijen",
-   "eieren",
-   "salami met look",
-   "gehakt gemengd rund varken",
-   "Braadworst",
-   "Hesp",
-   "Kaas half belegen",
-   "aardbeien",
-   "bananen",
-   "komkommer",
-   "wortelen",
-   "spaghetti groenten",
-   "Diepvries wortelen",
-   "tomatenconcentraat",
-   "platte kaasjes voor kids",
-   "yoghurt natuur witte producten 1/2L",
-   "muesli (gedroogd fruit & granen)",
-   "spek blokjes gerookt",
-   "cervela",
-   "chocolade of zo",
-   "frisk fresh effect of iets gelijkaardigs",
-   "pannenkoeken",
-   "wasmiddel kleur"
-  ],
+  "aangevinkt": [],
   "nieuw": [
    {
     "naam": "Braadworst",
@@ -64,26 +39,7 @@
     "toegevoegd": "2026-08-24"
    }
   ],
-  "aantallen": {
-   "witte wijn azijn": 1,
-   "AA-batterijen": 1,
-   "eieren": 12,
-   "salami met look": 1,
-   "gehakt gemengd rund varken": 1500,
-   "bananen": 3,
-   "aardbeien": 1,
-   "komkommer": 2,
-   "wortelen": 1,
-   "spaghetti groenten": 3,
-   "tomatenconcentraat": 4,
-   "platte kaasjes voor kids": 6,
-   "spek blokjes gerookt": 2,
-   "cervela": 1,
-   "chocolade of zo": 2,
-   "frisk fresh effect of iets gelijkaardigs": 4,
-   "pannenkoeken": 1,
-   "wasmiddel kleur": 0
-  }
+  "aantallen": {}
  },
  "taken_log": {
   "h_bosmaaier": [
