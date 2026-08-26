@@ -63,6 +63,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .knop-nieuw{width:100%;padding:13px;background:none;border:2px dashed #d5d3ce;border-radius:9px;
             font-size:15px;color:#a5a5a5;cursor:pointer;margin-top:8px;}
 .knop-nieuw:active{border-color:#4a7c59;color:#4a7c59;}
+.vul-alle{width:100%;padding:11px;background:#eaf4ee;border:1.5px solid #b8dfc5;border-radius:9px;
+          font-size:14px;color:#4a7c59;font-weight:600;cursor:pointer;margin-bottom:12px;}
+.vul-alle:active{background:#b8dfc5;}
 
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;
          align-items:flex-end;justify-content:center;}
@@ -324,8 +327,13 @@ function teken(){
   }
   document.getElementById('alarmen').innerHTML = a;
 
+  /* --- "alle doosjes" knop bovenaan als er meer dan één medicament is --- */
+  const vulAlBtn = L.length > 1
+    ? `<button class="vul-alle" onclick="vulAlleDoosjes()">Alle doosjes vandaag gevuld</button>`
+    : '';
+
   /* --- kaarten --- */
-  lijst.innerHTML = L.map((m, i)=>{
+  lijst.innerHTML = vulAlBtn + L.map((m, i)=>{
     const r = rekening(m);
     const kleur = r.dagenOp > 30 ? 'groen' : r.dagenOp > 14 ? 'oranje' : 'rood';
     const krap  = r.dagenOp <= 14 || r.tekort > 0;
@@ -440,6 +448,10 @@ function afgehaald(i){
 function vulDoosje(i){
   const m = meds()[i];
   m.doosje_gevuld_op = VANDAAG;
+  teken(); bewaarStatus();
+}
+function vulAlleDoosjes(){
+  meds().forEach(m => m.doosje_gevuld_op = VANDAAG);
   teken(); bewaarStatus();
 }
 function verwijder(i){
