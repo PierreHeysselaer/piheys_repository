@@ -466,13 +466,14 @@ function signalen(){
       }
     }
 
-    if (vroegste && vroegste.totVullen <= 1){
+    if (vroegste && vroegste.totVullen <= 7){
       const t = vroegste.totVullen;
       uit.push({
         icoon:'💊', klasse:'let', link:bladzijde,
         tekst: t < 0  ? `Weekdoosje ${wie} vullen — ${-t} dag${t===-1?'':'en'} over tijd`
              : t === 0 ? `Weekdoosje ${wie} vandaag vullen`
-             :           `Weekdoosje ${wie} vullen — morgen`,
+             : t === 1 ? `Weekdoosje ${wie} vullen — morgen`
+             :           `Weekdoosje ${wie} vullen — over ${t} dagen`,
         sub: `dekt weer ${meds[0] && meds[0].doosje_duur || 28} dagen`
       });
     }
