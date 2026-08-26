@@ -303,6 +303,16 @@ function regenVoorbije(datum, n){
   return gevonden ? som : null;
 }
 
+/* som van de verwachte neerslag over de N dagen NA 'datum' (prognose) */
+function regenVolgend(datum, n){
+  let som = 0, gevonden = 0;
+  for (let i=1; i<=n; i++){
+    const w = weer(plusDagen(datum, i));
+    if (w){ som += w.regen_mm; gevonden++; }
+  }
+  return gevonden ? som : null;
+}
+
 /* frequentie voor dit seizoen; null = in dit seizoen niet nodig */
 function frequentie(t, datum){
   const f = t.frequentie || {};
@@ -382,6 +392,12 @@ function condities(t, datum){
         if (r.max_mm != null && som > r.max_mm)
           nee.push(`net geregend (${som.toFixed(1)} mm in ${r.dagen} dagen)`);
       }
+    }
+    if (v.regen_volgende_dagen){
+      const r = v.regen_volgende_dagen;
+      const som = regenVolgend(datum, r.dagen);
+      if (som !== null && r.max_mm != null && som > r.max_mm)
+        nee.push(`regen verwacht (${som.toFixed(1)} mm in komende ${r.dagen} dag${r.dagen===1?'':'en'})`);
     }
   } else if (Object.keys(v).some(k=>k.indexOf('regen')===0||k.indexOf('temp')===0||
                                     k.indexOf('wind')===0||k.indexOf('bewolking')===0)){
