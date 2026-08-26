@@ -1,10 +1,10 @@
 {
-  "datum": "2026-08-25",
+  "datum": "2026-08-26",
   "agenda": [
+    { "tijd": "10:00", "tekst": "Pyjama en andere 40° wassen" },
     { "tijd": "heel de dag", "tekst": "Louis is bij ons" }
   ],
   "bij_taak": {
-    "h_gras": "drie droge dagen achter de rug — vandaag je kans, morgen regen verwacht",
-    "h_netels": "grond nog goed vochtig na vrijdag en zaterdag, maar droogt verder op — niet te lang wachten"
+    "h_gras": "na vier droge dagen rijp, maar de hele week staat vol regen — het wacht nog even"
   }
 }
