@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-26T12:03:27.908Z",
+ "gewijzigd": "2026-08-26T12:06:15.940Z",
  "boodschappen": {
   "aangevinkt": [],
   "nieuw": [],
@@ -50,6 +50,9 @@
   ],
   "h_zonneprod": [
    "2026-08-03"
+  ],
+  "h_onkruid": [
+   "2026-08-26"
   ]
  },
  "taken_gedaan": [
