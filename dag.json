@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-27T21:30:03+02:00",
+    "opgehaald":  "2026-08-27T21:45:02+02:00",
     "vandaag":  "2026-08-27",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -60,40 +60,40 @@
                   },
                   {
                       "datum":  "2026-08-27",
-                      "regen_mm":  18.8,
+                      "regen_mm":  9.8,
                       "temp_max":  29,
                       "temp_min":  18,
                       "wind_max_kmu":  17,
                       "zon_pct":  59,
                       "bewolking_pct":  41,
-                      "code":  65,
+                      "code":  63,
                       "type":  "regen"
                   },
                   {
                       "datum":  "2026-08-28",
-                      "regen_mm":  7.2,
-                      "temp_max":  19,
+                      "regen_mm":  7.1,
+                      "temp_max":  20,
                       "temp_min":  16,
                       "wind_max_kmu":  25,
-                      "zon_pct":  33,
-                      "bewolking_pct":  67,
+                      "zon_pct":  38,
+                      "bewolking_pct":  62,
                       "code":  63,
                       "type":  "regen"
                   },
                   {
                       "datum":  "2026-08-29",
-                      "regen_mm":  2.3,
+                      "regen_mm":  2,
                       "temp_max":  21,
                       "temp_min":  16,
                       "wind_max_kmu":  24,
-                      "zon_pct":  43,
-                      "bewolking_pct":  57,
-                      "code":  53,
+                      "zon_pct":  41,
+                      "bewolking_pct":  59,
+                      "code":  61,
                       "type":  "regen"
                   },
                   {
                       "datum":  "2026-08-30",
-                      "regen_mm":  1.1,
+                      "regen_mm":  1.2,
                       "temp_max":  22,
                       "temp_min":  16,
                       "wind_max_kmu":  26,
