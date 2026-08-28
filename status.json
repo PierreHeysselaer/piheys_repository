@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-28T16:17:20.335Z",
+ "gewijzigd": "2026-08-28T16:17:21.421Z",
  "boodschappen": {
   "aangevinkt": [
    "gini",
@@ -7,7 +7,8 @@
   ],
   "nieuw": [],
   "aantallen": {
-   "gini": 6
+   "gini": 6,
+   "ice tea": 1
   }
  },
  "taken_log": {
