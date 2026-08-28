@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-28T16:18:25.265Z",
+ "gewijzigd": "2026-08-28T16:19:10.956Z",
  "boodschappen": {
   "aangevinkt": [
    "gini",
@@ -123,8 +123,8 @@
    "doses_per_dag": 1,
    "eenheid": "tablet",
    "units_per_doos": 28,
-   "stock_thuis": 28,
-   "stock_bijgewerkt_op": "2026-08-26",
+   "stock_thuis": 27,
+   "stock_bijgewerkt_op": "2026-08-28",
    "dozen_apotheek": 0,
    "doosje_gevuld_op": "2026-07-23",
    "doosje_duur": 28,
