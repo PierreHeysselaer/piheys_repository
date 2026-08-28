@@ -1,11 +1,13 @@
 {
- "gewijzigd": "2026-08-28T16:17:12.439Z",
+ "gewijzigd": "2026-08-28T16:17:14.052Z",
  "boodschappen": {
   "aangevinkt": [
    "gini"
   ],
   "nieuw": [],
-  "aantallen": {}
+  "aantallen": {
+   "gini": 1
+  }
  },
  "taken_log": {
   "h_bosmaaier": [
