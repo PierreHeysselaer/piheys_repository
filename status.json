@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-08-28T07:39:23.132Z",
+ "gewijzigd": "2026-08-28T07:39:32.529Z",
  "boodschappen": {
   "aangevinkt": [
    "americain natuur",
@@ -7,7 +7,8 @@
   ],
   "nieuw": [],
   "aantallen": {
-   "americain natuur": 2
+   "americain natuur": 2,
+   "americain prepare": 1
   }
  },
  "taken_log": {
