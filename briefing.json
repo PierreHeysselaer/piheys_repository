@@ -1,11 +1,8 @@
 {
-  "datum": "2026-08-27",
-  "agenda": [
-    { "tijd": "10:00", "tekst": "Louis douche" },
-    { "tijd": "heel de dag", "tekst": "Louis is bij ons" }
-  ],
+  "datum": "2026-08-28",
   "bij_taak": {
-    "h_gras": "met 22 mm vandaag erbij is de grond grondig verzadigd — 3 september is nog een optimistisch minimum",
-    "h_frigo": "al 29 dagen geleden — een regendag als vandaag is het ideale moment"
+    "h_frigo": "tweede regendag op rij — nog altijd het ideale moment als het gisteren niet lukte",
+    "h_netels": "grond is grondig doorweekt na de regen van de voorbije drie dagen — wacht even tot het ophoudt",
+    "h_gras": "regen tot en met maandag; 1 september ziet er droog uit en de voorbije 2 dagen zitten dan net onder de 4 mm"
   }
 }
