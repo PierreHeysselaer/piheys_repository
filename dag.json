@@ -1,5 +1,5 @@
 {
-    "opgehaald":  "2026-08-28T14:00:04+02:00",
+    "opgehaald":  "2026-08-28T14:15:02+02:00",
     "vandaag":  "2026-08-28",
     "plaats":  "Vollezele",
     "dagen":  [
@@ -82,7 +82,7 @@
                   },
                   {
                       "datum":  "2026-08-30",
-                      "regen_mm":  0.8,
+                      "regen_mm":  1.1,
                       "temp_max":  20,
                       "temp_min":  16,
                       "wind_max_kmu":  31,
@@ -93,13 +93,13 @@
                   },
                   {
                       "datum":  "2026-08-31",
-                      "regen_mm":  3.3,
+                      "regen_mm":  2.5,
                       "temp_max":  21,
-                      "temp_min":  16,
-                      "wind_max_kmu":  28,
-                      "zon_pct":  96,
-                      "bewolking_pct":  4,
-                      "code":  55,
+                      "temp_min":  15,
+                      "wind_max_kmu":  29,
+                      "zon_pct":  88,
+                      "bewolking_pct":  12,
+                      "code":  80,
                       "type":  "regen"
                   },
                   {
@@ -107,22 +107,22 @@
                       "regen_mm":  0,
                       "temp_max":  20,
                       "temp_min":  13,
-                      "wind_max_kmu":  16,
-                      "zon_pct":  95,
-                      "bewolking_pct":  5,
+                      "wind_max_kmu":  17,
+                      "zon_pct":  96,
+                      "bewolking_pct":  4,
                       "code":  3,
                       "type":  "droog"
                   },
                   {
                       "datum":  "2026-09-02",
-                      "regen_mm":  0,
+                      "regen_mm":  1.2,
                       "temp_max":  21,
-                      "temp_min":  11,
-                      "wind_max_kmu":  7,
-                      "zon_pct":  93,
-                      "bewolking_pct":  7,
-                      "code":  3,
-                      "type":  "droog"
+                      "temp_min":  13,
+                      "wind_max_kmu":  9,
+                      "zon_pct":  96,
+                      "bewolking_pct":  4,
+                      "code":  51,
+                      "type":  "regen"
                   },
                   {
                       "datum":  "2026-09-03",
