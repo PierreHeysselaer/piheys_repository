@@ -1,8 +1,10 @@
 {
-  "datum": "2026-08-28",
+  "datum": "2026-08-29",
+  "agenda": [
+    { "tijd": "heel de dag", "tekst": "VDP etentje (nog detail)" }
+  ],
   "bij_taak": {
-    "h_frigo": "derde regendag op rij — nog altijd het ideale moment voor binnenwerk",
-    "h_netels": "meer dan 20 mm gevallen in drie dagen — wacht tot het opdroogt",
-    "h_gras": "regen tot en met zaterdag; 1 en 2 september zien er droog en rustig uit"
+    "h_gras": "3 september is de eerste dag echt zonder regen — rustig en 23°C, dat is het moment",
+    "h_netels": "grond is nog kletsnat na drie regenrijke dagen — geef het tot begin volgende week"
   }
 }
