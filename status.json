@@ -1,27 +1,9 @@
 {
- "gewijzigd": "2026-08-28T16:19:11.761Z",
+ "gewijzigd": "2026-08-29T08:43:04.535Z",
  "boodschappen": {
-  "aangevinkt": [
-   "gini",
-   "ice tea",
-   "schweppes mochitto",
-   "diepvriessoepgroenten",
-   "komkommer",
-   "wenskaarten",
-   "brood donker",
-   "wit caréken"
-  ],
+  "aangevinkt": [],
   "nieuw": [],
-  "aantallen": {
-   "gini": 6,
-   "ice tea": 6,
-   "schweppes mochitto": 6,
-   "diepvriessoepgroenten": 1,
-   "komkommer": 1,
-   "wenskaarten": 1,
-   "brood donker": 1,
-   "wit caréken": 1
-  }
+  "aantallen": {}
  },
  "taken_log": {
   "h_bosmaaier": [
