@@ -1,11 +1,13 @@
 {
- "gewijzigd": "2026-08-29T09:35:01.596Z",
+ "gewijzigd": "2026-08-29T09:35:03.523Z",
  "boodschappen": {
   "aangevinkt": [
    "martino"
   ],
   "nieuw": [],
-  "aantallen": {}
+  "aantallen": {
+   "martino": 1
+  }
  },
  "taken_log": {
   "h_bosmaaier": [
