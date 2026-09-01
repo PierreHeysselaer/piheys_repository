@@ -1,20 +1,9 @@
 {
- "gewijzigd": "2026-08-30T07:09:43.011Z",
+ "gewijzigd": "2026-09-01T09:36:45.480Z",
  "boodschappen": {
-  "aangevinkt": [
-   "martino",
-   "chineze kool",
-   "melk volle",
-   "brood donker",
-   "appelsiensap"
-  ],
+  "aangevinkt": [],
   "nieuw": [],
-  "aantallen": {
-   "martino": 1,
-   "melk volle": 6,
-   "brood donker": 1,
-   "appelsiensap": 1
-  }
+  "aantallen": {}
  },
  "taken_log": {
   "h_bosmaaier": [
