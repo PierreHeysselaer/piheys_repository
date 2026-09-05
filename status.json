@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-09-05T11:06:49.873Z",
+ "gewijzigd": "2026-09-05T13:03:54.457Z",
  "boodschappen": {
   "aangevinkt": [],
   "nieuw": [],
@@ -61,7 +61,15 @@
   "e_vergif",
   "e_cvkraan"
  ],
- "taken_nieuw": [],
+ "taken_nieuw": [
+  {
+   "naam": "hagen scheren",
+   "type": "herhalend",
+   "frequentie_dagen": 30,
+   "opm": "",
+   "toegevoegd": "2026-09-05"
+  }
+ ],
  "medicatie_pierre": [
   {
    "id": "m_1785241920222",
