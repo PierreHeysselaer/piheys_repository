@@ -1,8 +1,18 @@
 {
- "gewijzigd": "2026-09-05T13:03:54.457Z",
+ "gewijzigd": "2026-09-07T13:19:27.564Z",
  "boodschappen": {
-  "aangevinkt": [],
-  "nieuw": [],
+  "aangevinkt": [
+   "Royco soep"
+  ],
+  "nieuw": [
+   {
+    "naam": "Royco soep",
+    "cat": "rest",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-09-07"
+   }
+  ],
   "aantallen": {}
  },
  "taken_log": {
