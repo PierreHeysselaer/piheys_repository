@@ -1,8 +1,9 @@
 {
- "gewijzigd": "2026-09-07T13:19:27.564Z",
+ "gewijzigd": "2026-09-09T08:01:40.341Z",
  "boodschappen": {
   "aangevinkt": [
-   "Royco soep"
+   "Royco soep",
+   "Haarlak"
   ],
   "nieuw": [
    {
@@ -11,6 +12,13 @@
     "pref": "OKAY",
     "specs": "",
     "toegevoegd": "2026-09-07"
+   },
+   {
+    "naam": "Haarlak",
+    "cat": "persoonlijk",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-09-09"
    }
   ],
   "aantallen": {}
