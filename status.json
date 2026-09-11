@@ -1,10 +1,11 @@
 {
- "gewijzigd": "2026-09-11T15:00:36.162Z",
+ "gewijzigd": "2026-09-11T15:03:56.044Z",
  "boodschappen": {
   "aangevinkt": [
    "Royco soep",
    "Haarlak",
-   "zout"
+   "zout",
+   "Kruidenkaas"
   ],
   "nieuw": [
    {
@@ -20,6 +21,13 @@
     "pref": "OKAY",
     "specs": "",
     "toegevoegd": "2026-09-09"
+   },
+   {
+    "naam": "Kruidenkaas",
+    "cat": "rest",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-09-11"
    }
   ],
   "aantallen": {
