@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-09-11T15:00:31.502Z",
+ "gewijzigd": "2026-09-11T15:00:34.739Z",
  "boodschappen": {
   "aangevinkt": [
    "Royco soep",
@@ -22,7 +22,9 @@
     "toegevoegd": "2026-09-09"
    }
   ],
-  "aantallen": {}
+  "aantallen": {
+   "zout": 1
+  }
  },
  "taken_log": {
   "h_bosmaaier": [
