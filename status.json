@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-09-12T08:51:48.371Z",
+ "gewijzigd": "2026-09-12T08:51:51.561Z",
  "boodschappen": {
   "aangevinkt": [
    "Royco soep",
@@ -32,7 +32,8 @@
    }
   ],
   "aantallen": {
-   "zout": 2
+   "zout": 2,
+   "tabasco": 1
   }
  },
  "taken_log": {
