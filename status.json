@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-09-16T12:05:49.043Z",
+ "gewijzigd": "2026-09-16T12:06:23.126Z",
  "boodschappen": {
   "aangevinkt": [
    "Royco soep",
@@ -8,7 +8,8 @@
    "Kruidenkaas",
    "tabasco",
    "Corn flakes",
-   "Frisk muntjes"
+   "Frisk muntjes",
+   "Effi"
   ],
   "nieuw": [
    {
@@ -41,6 +42,13 @@
    },
    {
     "naam": "Frisk muntjes",
+    "cat": "rest",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-09-16"
+   },
+   {
+    "naam": "Effi",
     "cat": "rest",
     "pref": "OKAY",
     "specs": "",
