@@ -1,12 +1,13 @@
 {
- "gewijzigd": "2026-09-12T08:51:51.561Z",
+ "gewijzigd": "2026-09-16T12:05:35.793Z",
  "boodschappen": {
   "aangevinkt": [
    "Royco soep",
    "Haarlak",
    "zout",
    "Kruidenkaas",
-   "tabasco"
+   "tabasco",
+   "Corn flakes"
   ],
   "nieuw": [
    {
@@ -29,6 +30,13 @@
     "pref": "OKAY",
     "specs": "",
     "toegevoegd": "2026-09-11"
+   },
+   {
+    "naam": "Corn flakes",
+    "cat": "rest",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-09-16"
    }
   ],
   "aantallen": {
