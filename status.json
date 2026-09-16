@@ -1,5 +1,5 @@
 {
- "gewijzigd": "2026-09-16T12:06:23.126Z",
+ "gewijzigd": "2026-09-16T12:06:27.715Z",
  "boodschappen": {
   "aangevinkt": [
    "Royco soep",
@@ -9,7 +9,8 @@
    "tabasco",
    "Corn flakes",
    "Frisk muntjes",
-   "Effi"
+   "Effi",
+   "Spek"
   ],
   "nieuw": [
    {
@@ -49,6 +50,13 @@
    },
    {
     "naam": "Effi",
+    "cat": "rest",
+    "pref": "OKAY",
+    "specs": "",
+    "toegevoegd": "2026-09-16"
+   },
+   {
+    "naam": "Spek",
     "cat": "rest",
     "pref": "OKAY",
     "specs": "",
